@@ -9,8 +9,15 @@ else {
     $id = $_GET['id'];
     include 'partials/_dbconnect.php';
     $query1 = "SELECT * FROM `restaurant` WHERE `r_id` LIKE '$id'";
-    $result = mysqli_query($conn, $query1);
-    $result = mysqli_fetch_array($result);
+    $res = mysqli_query($conn, $query1);
+    $result = mysqli_fetch_assoc($res);
+    $rid = $result['r_id'];
+    
+}
+
+if ($_SERVER["REQUEST_METHOD"]=="POST"){
+    $_SESSION['rest_id']= $_POST['restaurant_id'];
+
 }
 
 
@@ -18,7 +25,6 @@ if (isset($_POST['itemsInCart'])) {
     $_SESSION['Order'] = $_POST['itemsInCart'];
     $_SESSION['amount']=$_POST['amount'];
 }
-
 ?>
 
 
@@ -238,9 +244,10 @@ if (isset($_POST['itemsInCart'])) {
                                         </tr>
                                     </tbody>
                                 </table>
-                                <div id="addVal"></div>
+                                <div id="addVal"></div><form action="/homemade/menu.php" method="post">
+                                    <input hidden value="<?php echo $id ?>" name="restaurant_id"/>
                                <a href="checkout.php"> <button id="checkoutBtn" class="btn btn-primary"><p id="totalPrice" class="text-center"></p></button></a>
-                                
+                               </form>
                             </div>
                         </div>
                     </div>

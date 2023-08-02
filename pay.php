@@ -22,10 +22,12 @@ $api = new Api($keyId, $keySecret);
 //
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
   include 'partials/_dbconnect.php';
-$name = $_POST["name"];
-  $email = $_POST["email"];
-  $phoneNO = $_POST["phone"];
+  $name = $_SESSION["name"];
+  $email = $_SESSION['email']; 
+  $phoneNO = $_POST['phone']; 
+  $_SESSION['Billing_phone']=$_POST['phone']; 
   $address = $_POST["address"] ;
+  $_SESSION['Billing_address'] = $_POST['address'];
   $amount = $_SESSION['amount'] ;
   $tranStatus = "PENDING";
 
@@ -67,8 +69,8 @@ if ($displayCurrency !== 'INR')
 $data = [
     "key"               => $keyId,
     "amount"            => $amount,
-    "name"              => "homeMAde",
-    "description"       => "You shoot, We edit.",
+    "name"              => "homemade",
+    "description"       => "desc",
     "image"             => "https://s29.postimg.org/r6dj1g85z/daft_punk.jpg",
     "prefill"           => [
     "name"              => $name,

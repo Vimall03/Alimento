@@ -6,6 +6,8 @@ include 'partials/_dbconnect.php';
 
 $order=$_SESSION['Order'];
 $amount=$_SESSION['amount'];
+$userId= $_SESSION['user_id'];
+
 
 $oid = mt_rand(10000, 99999);
 $_SESSION['orderid'] = str_pad($oid, 5, '0', STR_PAD_LEFT);
@@ -15,15 +17,16 @@ foreach ($order as $item) {
 }
 echo $amount."<br>" ;
 
+echo( $_SESSION['rest_id'])."<br>" ;
+echo $userId."<br>" ;
+
 echo $oid;
 
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $_SESSION['Billing_name'] = $_POST['name'];
-    $_SESSION['Billing_email'] = $_POST['email'];
-    $_SESSION['Billing_address'] = $_POST['address'];
-    $_SESSION['Billing_phone'] = $_POST['phone'];
-    header('/payment.php');
+   // $_SESSION['Billing_address'] = $_POST['address'];
+    //$_SESSION['Billing_phone'] = $_POST['phone'];
+    header('pay.php');
 }
 
 
@@ -36,11 +39,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 <body>
     <h1>Checkout Form</h1>
     <form action="pay.php" method="post">
-        <label for="name">Name:</label>
-        <input type="text" id="name" name="name" required><br>
-
-        <label for="email">Email:</label>
-        <input type="email" id="email" name="email" required><br>
 
         <label for="address">Address:</label>
         <textarea id="address" name="address" rows="4" required></textarea><br>

@@ -29,8 +29,10 @@ if ($_SERVER["REQUEST_METHOD"]=="POST"){
                 // by matching it with the password hash stored in the database.
                 $login = true;
                 session_start();
+                $_SESSION['user_id']= $row['user_id'];
                 $_SESSION['loggedin'] = true;
                 $_SESSION['email'] = $email;
+                $_SESSION['name'] = $row['name'];
                 $sql = "select name from users  where email = '$email' ";
                 $result = mysqli_query($conn, $sql);
                 $_SESSION['name'] = mysqli_fetch_row($result);
