@@ -53,12 +53,12 @@ $phone=$_SESSION['Billing_phone'];
 $name=$_SESSION['name'];
 
 
-    $sql = "INSERT INTO `orders` ( `order_id`, `r_id`, `user_id`, `amount`, `address`, `phone`, `payment`) 
-    VALUES ('$orderId', '$restId', '$userId', '$amount', '$address', '$phone', '$tranStatus');";
+    $sql = "INSERT INTO `orders` ( `order_id`, `r_id`, `user_id`, `amount`, `address`, `phone`, `payment`, `order_status`) 
+    VALUES ('$orderId', '$restId', '$userId', '$amount', '$address', '$phone', '$tranStatus', 'Accecpted');";
     $result = mysqli_query($conn, $sql);
 
     foreach ($order as $item) {
-        $sql = "UPDATE `orders` SET `order` = '$item' WHERE `order_id` = '$orderId';";
+        $sql = "UPDATE `orders` SET `order` = CONCAT(`order`, '$item') WHERE `order_id` = '$orderId';";
     $result = mysqli_query($conn, $sql);
     }
     foreach ($name as $nme) {

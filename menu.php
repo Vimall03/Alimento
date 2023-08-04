@@ -142,7 +142,7 @@ if (isset($_POST['itemsInCart'])) {
         for (var itemId in cart) {
             var itemName = $("#item" + itemId).text();
             var quantity = cart[itemId];
-            itemsInCart.push(itemName + ' - ' + quantity);
+            itemsInCart.push(' ' + itemName + ' - ' + quantity + ' ');
         }
         return itemsInCart;
     }
