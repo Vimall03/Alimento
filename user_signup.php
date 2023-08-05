@@ -67,7 +67,7 @@ try {
     $mail->Host       = 'smtp.gmail.com';                     //Set the SMTP server to send through
     $mail->SMTPAuth   = true;                                   //Enable SMTP authentication
     $mail->Username   = 'aftereditofficial@gmail.com';                     //SMTP username
-    $mail->Password   = 'vywivgldfjpuwkgn';                               //SMTP password
+    $mail->Password   = '###';                               //SMTP password
     $mail->SMTPSecure = PHPMailer::ENCRYPTION_SMTPS;            //Enable implicit TLS encryption
     $mail->Port       = 465;                                    //TCP port to connect to; use 587 if you have set `SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS`
 
@@ -126,7 +126,7 @@ else {
     @import url('https://fonts.googleapis.com/css2?family=ABeeZee&display=swap');
     </style>
     <!-- css link -->
-    <link rel="stylesheet" href="css/signup.css">
+    <link rel="stylesheet" href="styles.css">
 
 
     <meta charset="UTF-8">
@@ -141,27 +141,6 @@ else {
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous">
     </script>
-    <div class="topbar">
-        <div class="d-flex flex-column flex-md-row align-items-center pb-3 border-bottom">
-            <a href="home.php" class="d-flex align-items-center text-dark text-decoration-none">
-                <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="currentColor" class="bi bi-alt"
-                    viewBox="0 0 16 16">
-                    <path
-                        d="M1 13.5a.5.5 0 0 0 .5.5h3.797a.5.5 0 0 0 .439-.26L11 3h3.5a.5.5 0 0 0 0-1h-3.797a.5.5 0 0 0-.439.26L5 13H1.5a.5.5 0 0 0-.5.5zm10 0a.5.5 0 0 0 .5.5h3a.5.5 0 0 0 0-1h-3a.5.5 0 0 0-.5.5z" />
-                </svg>
-                <title>Bootstrap</title><span class="logo">afterEdit.</span>
-            </a>
-
-            <nav class="d-flex hov align-items-center mt-2 mt-md-0 ms-md-auto">
-                <a class="me-3 py-2 text-dark text-decoration-none" href="#"></a>
-                <a class="me-3 py-2 text-dark text-decoration-none" href="#"></a>
-                <a class="me-3 py-2 text-dark text-decoration-none" href="#"></a>
-                <a class="me-3 py-2 text-dark text-decoration-none" href="#"></a>
-
-            </nav>
-        </div>
-    </div>
-
     <?php
   if ($showAlert) {
     echo ' <div class="alert alert-success alert-dismissible fade show" role="alert"> 
@@ -186,65 +165,62 @@ else {
   } ?>
 
 
-    <div class="container col-xl-10 col-xxl-8 px-4 py-5">
-        <div class="row align-items-center g-lg-5 py-5">
-            <div class="col-lg-7 text-center text-lg-start">
-                <h1 class="display-4 fw-bold ">Hello Friend!</h1>
-                <a class="col-lg-10 fs-4 text-center desc">You're just a few clicks away from turning your ideas into
-                    reality. Dont worry, we wont trouble you with newsletters. </a><br><br>
-                <a class="col-lg-10 fs-4 text-center desc"><a
-                        class="col-lg-10 fs-4 text-center desc py-2 text-dark text-decoration-none"
-                        href="login.php"><button type="button" class="btn btn-outline-dark me-2">Login</button> if you
-                        already have an account </a></a> <br>
-
-            </div>
-            <div class="col-md-10 mx-auto col-lg-5">
-                <form class="p-4 p-md-5 border rounded-3 bg-light" action="/homemade/user_signup.php" method="post">
-
-                    <title>Bootstrap</title><span class="lglogo"><svg xmlns="http://www.w3.org/2000/svg" width="30"
-                            height="30" fill="currentColor" class="bi bi-alt " viewBox="0 0 16 16">
-                            <path
-                                d="M1 13.5a.5.5 0 0 0 .5.5h3.797a.5.5 0 0 0 .439-.26L11 3h3.5a.5.5 0 0 0 0-1h-3.797a.5.5 0 0 0-.439.26L5 13H1.5a.5.5 0 0 0-.5.5zm10 0a.5.5 0 0 0 .5.5h3a.5.5 0 0 0 0-1h-3a.5.5 0 0 0-.5.5z" />
-
-                        </svg>afterEdit.</span>
-
-                    </a>
-                    <div class="form-floating mb-3">
-                        <input type="text" class="form-control" id="name" placeholder="Name" name="name" required minlength="3" maxlength="14">
-                        <label for="name">Name</label>
-                    </div>
-                    <div class="form-floating mb-3">
-                        <input type="email" class="form-control" id="email" name="email" placeholder="name@example.com"
-                            required maxlength="24">
-                        <label for="email">Email address</label>
-                    </div>
-                    <div class="form-floating mb-3">
-                        <input type="password" class="form-control" id="password" name="password" placeholder="Password"
-                            required minlength="8" maxlength="13">
-                        <label for="password">Password</label>
-                    </div>
-                    <div class="form-floating mb-3">
-                        <input type="password" class="form-control" id="cpassword" name="cpassword"
-                            placeholder="Password" required minlength="8" maxlength="13">
-                        <label for="cpassword">Confirm Password</label>
-                    </div>
-                    <div class="checkbox mb-3">
-                        <label>
-                            <input type="checkbox" value="remember-me" required> I agree to the <a href="privacy.php"
-                            class="text-dark">terms & conditions</a>
-                        </label>
-                    </div>
-                    <button class="w-100 btn btn-lg btn-dark" type="submit">Sign Up</button>
-                    <hr class="my-4">
-                    <small class="text-muted">Facing troubles? - Reach us at <a href="support.php"
-                            class="text-dark">Support</a></small>
-                </form>
-            </div>
+  <header class="bg-primary text-white text-center py-4">
+    <h1>Alimento</h1>
+  </header>
+  
+  <div class="container mt-5">
+    <div class="row justify-content-center">
+      <div class="col-md-6">
+        <div class="card">
+          <div class="card-header bg-primary text-white">
+            <h4>Create an Account</h4>
+          </div>
+          <div class="card-body">
+            <form action="user_signup.php" method="post">
+              <div class="form-group">
+                <label for="name">Full Name</label>
+                <input type="text" id="name" name="name" class="form-control" required>
+              </div>
+              <div class="form-group">
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" class="form-control" required>
+              </div>
+              <div class="form-group">
+                <label for="password">Password</label>
+                <input type="password" id="password" name="password" class="form-control" required>
+              </div>
+              <div class="form-group">
+                <label for="confirmPassword">Confirm Password</label>
+                <input type="password" id="confirmPassword" name="cpassword" class="form-control" required>
+              </div>
+              <button type="submit" class="btn btn-primary btn-block">Sign Up</button>
+            </form>
+            <p class="mt-3 text-center">Already have an account? <a href="user_login.php">Log In</a></p>
+          </div>
         </div>
+      </div>
     </div>
+  </div>
+
+  <footer class="bg-dark text-white text-center py-3 mt-5">
+    <p>&copy; 2023 Alimento - Homemade Food Delivery</p>
+  </footer>
+
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.1/dist/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
 
 
-<!-- footer -->
+
+
+
+
+
+
+
 
 
     <!-- Optional JavaScript -->

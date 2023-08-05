@@ -58,6 +58,7 @@ if ($_SERVER["REQUEST_METHOD"]=="POST"){
         integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.2/font/bootstrap-icons.css">
     <!-- Google Fonts (aBeeZee) -->
+    <link rel="stylesheet" href="vendor_styles.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=ABeeZee&display=swap" rel="stylesheet">
@@ -65,7 +66,7 @@ if ($_SERVER["REQUEST_METHOD"]=="POST"){
     @import url('https://fonts.googleapis.com/css2?family=ABeeZee&display=swap');
     </style>
     <!-- css link -->
-    <link rel="stylesheet" href="css/login.css">
+    
 
 
     <meta charset="UTF-8">
@@ -77,33 +78,6 @@ if ($_SERVER["REQUEST_METHOD"]=="POST"){
 </head>
 
 <body>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous">
-    </script>
-
-    <!-- navbar -->
-
-    <div class="topbar">
-        <div class="d-flex flex-column flex-md-row align-items-center pb-3 border-bottom">
-            <a href="home.php" class="d-flex align-items-center text-dark text-decoration-none">
-                <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="currentColor" class="bi bi-alt"
-                    viewBox="0 0 16 16">
-                    <path
-                        d="M1 13.5a.5.5 0 0 0 .5.5h3.797a.5.5 0 0 0 .439-.26L11 3h3.5a.5.5 0 0 0 0-1h-3.797a.5.5 0 0 0-.439.26L5 13H1.5a.5.5 0 0 0-.5.5zm10 0a.5.5 0 0 0 .5.5h3a.5.5 0 0 0 0-1h-3a.5.5 0 0 0-.5.5z" />
-                </svg>
-                <title>Bootstrap</title><span class="logo">HomeMade.</span>
-            </a>
-
-            <nav class="d-flex hov align-items-center mt-2 mt-md-0 ms-md-auto">
-                <a class="me-3 py-2 text-dark text-decoration-none" href="#"></a>
-                <a class="me-3 py-2 text-dark text-decoration-none" href="#"></a>
-                <a class="me-3 py-2 text-dark text-decoration-none" href="#"></a>
-                <a class="me-3 py-2 text-dark text-decoration-none" href="#"></a>
-
-            </nav>
-        </div>
-    </div>
-
     <!-- Alert bootstrap -->
 
     <?php
@@ -140,54 +114,51 @@ if ($showalert) {
 
     <!-- main content -->
 
-    <div class="container col-xl-10 col-xxl-8 px-4 py-5">
-        <div class="row align-items-center g-lg-5 py-5">
-            <div class="col-lg-7 text-center text-lg-start">
-                <h1 class="display-4 fw-bold ">vendor Login</h1>
-                <a class="col-lg-10 fs-4 text-center desc">email@email.com</a><br><br>
-                <a class="col-lg-10 fs-4 text-center desc">password</a> <a
-                    class="col-lg-10 fs-4 text-center desc py-2 text-dark text-decoration-none"
-                    href="user_signup.php"><button type="button" class="btn btn-outline-dark me-2">Signup</button></a> <br>
 
-            </div>
-            <div class="col-md-10 mx-auto col-lg-5">
-                <form action="/homemade/vendor/vendor_login.php" method="post" class="p-4 p-md-5 border rounded-3 bg-light">
-
-                    <title>Bootstrap</title><span class="lglogo"><svg xmlns="http://www.w3.org/2000/svg" width="30"
-                            height="30" fill="currentColor" class="bi bi-alt " viewBox="0 0 16 16">
-                            <path
-                                d="M1 13.5a.5.5 0 0 0 .5.5h3.797a.5.5 0 0 0 .439-.26L11 3h3.5a.5.5 0 0 0 0-1h-3.797a.5.5 0 0 0-.439.26L5 13H1.5a.5.5 0 0 0-.5.5zm10 0a.5.5 0 0 0 .5.5h3a.5.5 0 0 0 0-1h-3a.5.5 0 0 0-.5.5z" />
-
-                        </svg>HomeMade.</span>
-
-                    </a>
-                    <div class="form-floating mb-3">
-                        <input type="email" class="form-control" name="email" id="email" placeholder="name@example.com"
-                            required maxlength="24">
-                        <label for="email">Email address</label>
-                    </div>
-                    <div class="form-floating mb-3">
-                        <input type="password" class="form-control" name="password" id="password" placeholder="Password"
-                            required minlength="3" maxlength="13">
-                        <label for="password">Password</label>
-                    </div>
-                    <!-- <div class="checkbox mb-3">
-            <label>
-              <input type="checkbox" value="remember-me" required>I agree 
-            </label>
-          </div> -->
-                    <button class="w-100 btn btn-lg btn-dark" type="submit">Login</button>
-                    <hr class="my-4">
-                    <small class="text-muted">Forgot your password? - <a href="password_reset_send.php"
-                            class="text-dark">Reset Password</a> </small>
-                </form>
-            </div>
+  <header class="bg-dark text-white text-center py-4">
+    <h1>Alimento</h1>
+  </header>
+  
+  <div class="container mt-5">
+    <div class="row justify-content-center">
+      <div class="col-md-6">
+        <div class="card">
+          <div class="card-header bg-dark text-white">
+            <h4>Vendor Log In</h4>
+          </div>
+          <div class="card-body">
+            <form action="vendor_login.php" method="post">
+              <div class="form-group">
+                <label for="vendorEmail">Email</label>
+                <input type="email" id="vendorEmail" name="email" class="form-control" required>
+              </div>
+              <div class="form-group">
+                <label for="vendorPassword">Password</label>
+                <input type="password" id="vendorPassword" name="password" class="form-control" required>
+              </div>
+              <button type="submit" class="btn btn-dark btn-block">Log In</button>
+            </form>
+            <p class="mt-3 text-center">Forgot password? <a href="#">Reset here</a></p>
+            <p class="mt-3 text-center">Want to join as a vendor? <a href="vendor_signup.php">Sign Up</a></p>
+          </div>
         </div>
+      </div>
     </div>
+  </div>
+
+  <footer class="bg-dark text-white text-center py-3 mt-5">
+    <p>&copy; 2023 Alimento - Homemade Food Delivery</p>
+  </footer>
+
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.1/dist/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
 
 
 
-<!-- footer -->
+
 
 
     <!-- Optional JavaScript -->

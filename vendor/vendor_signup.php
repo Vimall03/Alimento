@@ -91,52 +91,84 @@ $uploadProfile = $uploadPr . basename($_FILES["vendor_image"]['name']);
 
 ?>
 
-
 <!DOCTYPE html>
-<html>
-
+<html lang="en">
 <head>
-    <title>Restaurant Registration Form</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Alimento - Vendor Sign Up</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <link rel="stylesheet" href="vendor_styles.css">
 </head>
-
 <body>
-    
-    <h2>Restaurant Registration Form</h2>
-    <form action="vendor_signup.php" method="post" enctype="multipart/form-data">
-        <!-- Personal Information -->
-        <label for="name">Name:</label>
-        <input type="text" id="name" name="name" required><br>
+  <header class="bg-dark text-white text-center py-4">
+    <h1>Alimento</h1>
+  </header>
+  
+  <div class="container mt-5">
+    <div class="row justify-content-center">
+      <div class="col-md-6">
+        <div class="card">
+          <div class="card-header bg-dark text-white">
+            <h4>Vendor Sign Up</h4>
+          </div>
+          <div class="card-body">
+            <form action="vendor_signup.php" method="post" enctype="multipart/form-data">
+              <div class="form-group">
+                <label for="name">Name</label>
+                <input type="text" id="name" name="name" class="form-control" required>
+              </div>
+              <div class="form-group">
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" class="form-control" required>
+              </div>
+              <div class="form-group">
+                <label for="phone">Phone</label>
+                <input type="tel" id="phone" name="phone" class="form-control" required>
+              </div>
+              <div class="form-group">
+                <label for="password">Password</label>
+                <input type="password" id="password" name="password" class="form-control" required>
+              </div>
+              <div class="form-group">
+                <label for="vendor_image">Vendor Image</label>
+                <input type="file" id="vendor_image" name="vendor_image" class="form-control" accept="image/*" required>
+              </div>
+              <div class="form-group">
+                <label for="restaurant_name">Restaurant Name</label>
+                <input type="text" id="restaurant_name" name="restaurant_name" class="form-control" required>
+              </div>
+              <div class="form-group">
+                <label for="restaurant_cuisine">Restaurant Cuisine</label>
+                <input type="text" id="restaurant_cuisine" name="restaurant_cuisine" class="form-control" required>
+              </div>
+              <div class="form-group">
+                <label for="restaurant_bg_img">Restaurant Background Image</label>
+                <input type="file" id="restaurant_bg_img" name="restaurant_bg_img" class="form-control" accept="image/*" required>
+              </div>
+              <div class="form-group">
+                <label for="restaurant_about">Restaurant About</label>
+                <textarea id="restaurant_about" name="restaurant_about" rows="4" class="form-control" required></textarea>
+              </div>
+              <div class="form-group">
+                <label for="restaurant_pin">Restaurant Pin code</label>
+                <input type="text" id="restaurant_pin" name="restaurant_pin" class="form-control" required>
+              </div>
+              <button type="submit" class="btn btn-dark btn-block">Sign Up</button>
+            </form>
+            <p class="mt-3 text-center">Already have an account? <a href="vendor_login.html">Log In</a></p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 
-        <label for="email">Email:</label>
-        <input type="email" id="email" name="email" required><br>
+  <footer class="bg-dark text-white text-center py-3 mt-5">
+    <p>&copy; 2023 Alimento - Homemade Food Delivery</p>
+  </footer>
 
-        <label for="phone">Phone:</label>
-        <input type="tel" id="phone" name="phone" required><br>
-
-        <label for="password">Password:</label>
-        <input type="password" id="password" name="password" required><br>
-
-        <!-- Restaurant Information -->
-        <label for="vendor_image">Vendor Image:</label>
-        <input type="file" id="vendor_image" name="vendor_image" accept="image/*" required><br>
-
-        <label for="restaurant_name">Restaurant Name:</label>
-        <input type="text" id="restaurant_name" name="restaurant_name" required><br>
-
-        <label for="restaurant_cuisine">Restaurant Cuisine:</label>
-        <input type="text" id="restaurant_cuisine" name="restaurant_cuisine" required><br>
-
-        <label for="restaurant_bg_img">Restaurant Background Image:</label>
-        <input type="file" id="restaurant_bg_img" name="restaurant_bg_img" accept="image/*" required><br>
-
-        <label for="restaurant_about">Restaurant About:</label>
-        <textarea id="restaurant_about" name="restaurant_about" rows="4" cols="50" required></textarea><br>
-
-        <label for="restaurant_pin">Restaurant Pin code:</label>
-        <input type="text" id="restaurant_pin" name="restaurant_pin" required><br>
-
-        <input type="submit" value="Submit">
-    </form>
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.1/dist/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </body>
-
 </html>
