@@ -4,7 +4,7 @@ session_start();
 include 'partials/_dbconnect.php';
 $rid = $_SESSION['r_id'];
 if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] != true) {
-    header("location: user_login.php");
+    header("location: vendor_login.php");
     exit;
 }
 if ($_SERVER["REQUEST_METHOD"] === "POST") {
@@ -38,7 +38,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     </style>
 </head>
 <body>
-    <h1>Order Information  | <a href='edit_menu.php'><input type='submit' value='EDIT'></a></h1>
+    <h1>Order Information  | <a href='edit_menu.php'><input type='submit' value='EDIT'></a>  | <a href='add_menu.php'><input type='submit' value='add'></a></h1>
     <table>
         <tr>
             <th>Order ID</th>
@@ -75,6 +75,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                 echo "<input type='hidden' name='order_id' value='" . $row['order_id'] . "'>";
                 echo "<select name='order_status'>";
                 echo "<option value='Preparing' " . ($row['order_status'] === 'Preparing' ? 'selected' : '') . ">Preparing</option>";
+                echo "<option value='On the way' " . ($row['order_status'] === 'On the way' ? 'selected' : '') . ">Delivered</option>";
                 echo "<option value='Delivered' " . ($row['order_status'] === 'Delivered' ? 'selected' : '') . ">Delivered</option>";
                 echo "</select>";
                 echo "<input type='submit' value='Update'>";

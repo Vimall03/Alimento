@@ -1,11 +1,16 @@
 <?php
 session_start();
-
+include 'partials/_dbconnect.php';
 if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] != true) {
     header("location: user_login.php");
     exit;
 }
-
+if ($_SERVER["REQUEST_METHOD"] === "POST") {
+    $pincode = $_POST['pincode'];
+    $query = "SELECT * FROM `restaurant` WHERE `r_pincode` = '$pincode' ORDER BY `r_rating` DESC";
+                $result = mysqli_query($conn, $query);
+                $num = mysqli_num_rows($result);
+}
 
 
 ?>
@@ -57,7 +62,7 @@ if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] != true) {
                         <a class="nav-link disabled" aria-disabled="true">Disabled</a>
                     </li>
                 </ul>
-                <form class="d-flex"  action="pin_search.php" method="post">
+                <form class="d-flex"  action="home.php" method="post">
                     <input class="form-control me-2" type="search" name="pincode" placeholder="Search by PINCODE" aria-label="Search">
                     <button class="btn btn-outline-success" type="submit">Search</button>
                 </form>
@@ -75,10 +80,7 @@ if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] != true) {
             <h5 class="card-title">loggedin</h5>
             <div>
                 <?php
-                include 'partials/_dbconnect.php';
-                $query = "SELECT * FROM `restaurant` ORDER BY `r_rating` DESC";
-                $result = mysqli_query($conn, $query);
-                $num = mysqli_num_rows($result);
+                
                 if($num>=1){
                 while ($row = mysqli_fetch_array($result)) {
                     echo'<div syle="height: 400px; width: auto" class="col-4">

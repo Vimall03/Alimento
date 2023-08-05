@@ -14,6 +14,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     $restaurantName = $_POST["restaurant_name"];
     $restaurantCuisine = $_POST["restaurant_cuisine"];
     $restaurantAbout = $_POST["restaurant_about"];
+    $restaurantPin = $_POST['restaurant_pin'];
 
 
 $uploadCv = 'restaurant/cover/';
@@ -36,8 +37,9 @@ $uploadProfile = $uploadPr . basename($_FILES["vendor_image"]['name']);
             $hashotp = password_hash($otp, PASSWORD_DEFAULT);
 
             if ((move_uploaded_file($_FILES['vendor_image']['tmp_name'], $uploadProfile)) && (move_uploaded_file($_FILES['restaurant_bg_img']['tmp_name'], $uploadCover))) {
-            $sql = "INSERT INTO `restaurant` (`r_id`, `p_name`, `p_email`, `p_about`, `p_password`, `r_bg`, `p_phone`, `p_image`, `r_name`, `r_cuisine`, `reset_code`, `account_status`) 
-                    VALUES (NULL, '$name', '$email', '$restaurantAbout', '$hash', '$uploadCover', '$phone', '$uploadProfile', '$restaurantName', '$restaurantCuisine', '$hashotp', 'Not-Verified');";
+
+            $sql = "INSERT INTO `restaurant` (`r_id`, `p_name`, `p_email`, `p_about`, `p_password`, `r_bg`, `p_phone`, `p_image`, `r_name`, `r_cuisine`, `reset_code`, `account_status`, `r_pincode`) 
+                    VALUES (NULL, '$name', '$email', '$restaurantAbout', '$hash', '$uploadCover', '$phone', '$uploadProfile', '$restaurantName', '$restaurantCuisine', '$hashotp', 'Not-Verified', '$restaurantPin');";
             $result = mysqli_query($conn, $sql);
             echo "Upload Profile Path: " . $uploadProfile . "<br>";
             echo "Upload Cover Path: " . $uploadCover . "<br>";
@@ -129,6 +131,9 @@ $uploadProfile = $uploadPr . basename($_FILES["vendor_image"]['name']);
 
         <label for="restaurant_about">Restaurant About:</label>
         <textarea id="restaurant_about" name="restaurant_about" rows="4" cols="50" required></textarea><br>
+
+        <label for="restaurant_pin">Restaurant Pin code:</label>
+        <input type="text" id="restaurant_pin" name="restaurant_pin" required><br>
 
         <input type="submit" value="Submit">
     </form>

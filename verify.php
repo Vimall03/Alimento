@@ -53,8 +53,8 @@ $phone=$_SESSION['Billing_phone'];
 $name=$_SESSION['name'];
 
 
-    $sql = "INSERT INTO `orders` ( `order_id`, `r_id`, `user_id`, `amount`, `address`, `phone`, `payment`, `order_status`) 
-    VALUES ('$orderId', '$restId', '$userId', '$amount', '$address', '$phone', '$tranStatus', 'Accecpted');";
+    $sql = "INSERT INTO `orders` ( `order_id`, `r_id`, `user_id`, `amount`, `address`, `phone`, `payment`, `order_status`, `rating`) 
+    VALUES ('$orderId', '$restId', '$userId', '$amount', '$address', '$phone', '$tranStatus', 'Accecpted', '0');";
     $result = mysqli_query($conn, $sql);
 
     foreach ($order as $item) {
@@ -64,6 +64,9 @@ $name=$_SESSION['name'];
     foreach ($name as $nme) {
         $sql = "UPDATE `orders` SET `name` = '$nme' WHERE `order_id` = '$orderId';";
     $result = mysqli_query($conn, $sql);
+    if ($result) {
+            header("location: Track_order.php");
+                }   
     }
 
 
