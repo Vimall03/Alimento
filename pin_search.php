@@ -7,7 +7,7 @@ if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] != true) {
 }
 if ($_SERVER["REQUEST_METHOD"] === "POST") {
     $pincode = $_POST['pincode'];
-    $query = "SELECT * FROM `restaurant` WHERE `r_pincode` = '$pincode' ORDER BY `r_rating` DESC";
+    $query = "SELECT * FROM `restaurant` WHERE `r_pincode` LIKE '$pincode' ORDER BY `r_rating` DESC";
                 $result = mysqli_query($conn, $query);
                 $num = mysqli_num_rows($result);
 }

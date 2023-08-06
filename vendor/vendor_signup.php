@@ -17,10 +17,10 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     $restaurantPin = $_POST['restaurant_pin'];
 
 
-$uploadCv = 'restaurant/cover/';
+$uploadCv = 'vendor/restaurant/cover/';
 $uploadCover = $uploadCv . basename($_FILES["restaurant_bg_img"]['name']);
 
-$uploadPr = 'restaurant/';
+$uploadPr = 'vendor/restaurant/';
 $uploadProfile = $uploadPr . basename($_FILES["vendor_image"]['name']);
 
     if (filter_var($email, FILTER_VALIDATE_EMAIL)) {
@@ -38,8 +38,8 @@ $uploadProfile = $uploadPr . basename($_FILES["vendor_image"]['name']);
 
             if ((move_uploaded_file($_FILES['vendor_image']['tmp_name'], $uploadProfile)) && (move_uploaded_file($_FILES['restaurant_bg_img']['tmp_name'], $uploadCover))) {
 
-            $sql = "INSERT INTO `restaurant` (`r_id`, `p_name`, `p_email`, `p_about`, `p_password`, `r_bg`, `p_phone`, `p_image`, `r_name`, `r_cuisine`, `reset_code`, `account_status`, `r_pincode`) 
-                    VALUES (NULL, '$name', '$email', '$restaurantAbout', '$hash', '$uploadCover', '$phone', '$uploadProfile', '$restaurantName', '$restaurantCuisine', '$hashotp', 'Not-Verified', '$restaurantPin');";
+            $sql = "INSERT INTO `restaurant` (`p_name`, `p_email`, `p_about`, `p_password`, `r_bg`, `p_phone`, `p_image`, `r_name`, `r_cuisine`, `reset_code`, `account_status`, `r_pincode`) 
+                    VALUES ('$name', '$email', '$restaurantAbout', '$hash', '$uploadCover', '$phone', '$uploadProfile', '$restaurantName', '$restaurantCuisine', '$hashotp', 'Not-Verified', '$restaurantPin');";
             $result = mysqli_query($conn, $sql);
             echo "Upload Profile Path: " . $uploadProfile . "<br>";
             echo "Upload Cover Path: " . $uploadCover . "<br>";

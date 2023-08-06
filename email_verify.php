@@ -47,56 +47,50 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 <html lang="en">
 
 <head>
-    <!-- bootstrap -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.2/font/bootstrap-icons.css">
-    <!-- Google Fonts (aBeeZee) -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=ABeeZee&display=swap" rel="stylesheet">
-    <style>
-    @import url('https://fonts.googleapis.com/css2?family=ABeeZee&display=swap');
-    </style>
-    <!-- css link -->
-    <link rel="stylesheet" href="css/login.css">
-
-
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Verify Email</title>
-    <link rel="icon" type="image/png" href="css/favicon.png">
+    <title>Email Verification - Alimento</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f9f9f9;
+        }
 
+        header {
+            background-color: #007bff;
+            color: white;
+            text-align: center;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 20px;
+            text-align: center;
+        }
+
+        .button {
+            display: inline-block;
+            padding: 10px 20px;
+            margin: 10px;
+            font-size: 18px;
+            border: none;
+            background-color: #007bff;
+            color: white;
+            cursor: pointer;
+            text-decoration: none;
+            border-radius: 5px;
+        }
+    </style>
 </head>
 
 <body>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous">
     </script>
-
-    <!-- navbar -->
-
-    <div class="topbar">
-        <div class="d-flex flex-column flex-md-row align-items-center pb-3 border-bottom">
-            <a href="home.php" class="d-flex align-items-center text-dark text-decoration-none">
-                <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="currentColor" class="bi bi-alt"
-                    viewBox="0 0 16 16">
-                    <path
-                        d="M1 13.5a.5.5 0 0 0 .5.5h3.797a.5.5 0 0 0 .439-.26L11 3h3.5a.5.5 0 0 0 0-1h-3.797a.5.5 0 0 0-.439.26L5 13H1.5a.5.5 0 0 0-.5.5zm10 0a.5.5 0 0 0 .5.5h3a.5.5 0 0 0 0-1h-3a.5.5 0 0 0-.5.5z" />
-                </svg>
-                <span class="logo">afterEdit.</span>
-            </a>
-
-            <nav class="d-flex hov align-items-center mt-2 mt-md-0 ms-md-auto">
-                <a class="me-3 py-2 text-dark text-decoration-none" href="#"></a>
-                <a class="me-3 py-2 text-dark text-decoration-none" href="#"></a>
-                <a class="me-3 py-2 text-dark text-decoration-none" href="#"></a>
-                <a class="me-3 py-2 text-dark text-decoration-none" href="#"></a>
-
-            </nav>
-        </div>
-    </div>
 
     <!-- Alert bootstrap -->
 
@@ -122,53 +116,28 @@ if ($showError) {
 ';
 } ?>
 
-    <!-- main content -->
 
-    <div class="container col-xl-10 col-xxl-8 px-4 py-5">
-        <div class="row align-items-center g-lg-5 py-5">
-            <div class="col-lg-7 text-center text-lg-start">
-                <h1 class="display-4 fw-bold ">8 Digits</h1>
-                <a class="col-lg-10 fs-4 text-center desc">Enter the code sent to your email id to verify its you. Dont
-                    worry we wont trouble you with news letters. </a><br><br>
-                <a class="col-lg-10 fs-4 text-center desc">Sign Up to create a account </a> <a
-                    class="col-lg-10 fs-4 text-center desc py-2 text-dark text-decoration-none"
-                    href="signup.php"><button type="button" class="btn btn-outline-dark me-2">Signup</button></a> <br>
 
-            </div>
-            <div class="col-md-10 mx-auto col-lg-5">
-                <form action="/homemade/email_verify.php" method="post" class="p-4 p-md-5 border rounded-3 bg-light">
-
-                    <title>Bootstrap</title><span class="lglogo"><svg xmlns="http://www.w3.org/2000/svg" width="30"
-                            height="30" fill="currentColor" class="bi bi-alt " viewBox="0 0 16 16">
-                            <path
-                                d="M1 13.5a.5.5 0 0 0 .5.5h3.797a.5.5 0 0 0 .439-.26L11 3h3.5a.5.5 0 0 0 0-1h-3.797a.5.5 0 0 0-.439.26L5 13H1.5a.5.5 0 0 0-.5.5zm10 0a.5.5 0 0 0 .5.5h3a.5.5 0 0 0 0-1h-3a.5.5 0 0 0-.5.5z" />
-
-                        </svg>afterEdit.</span>
-
-                    </a>
-                    <div class="form-floating mb-3">
-                        <input type="password" class="form-control" name="password" id="password"
-                            placeholder="8-digit OTP" required minlength="8" maxlength="8">
-                        <label for="password">8-digit OTP</label>
-                    </div>
-                    <!-- <div class="checkbox mb-3">
-            <label>
-              <input type="checkbox" value="remember-me" required>I agree 
-            </label>
-          </div> -->
-                    <button class="w-100 btn btn-lg btn-dark" type="submit">Verify and Go to Login</button>
-                    <hr class="my-4">
-                    <small class="text-muted">Forgot your password? Reach us at <a href="support.php"
-                            class="text-dark">Support</a> </small>
-                </form>
-            </div>
-        </div>
+<body>
+    <header>
+        <h1>Alimento</h1>
+        <p>Delicious Moments Delivered to Your Doorstep</p>
+    </header>
+    <div class="container">
+        <h2>Verify Your Email</h2>
+        <p>Enter the 8-digit code sent to your email to complete the verification process.</p>
+        <form action="email_verify.php" method="post">
+            <input type="password" name="password" maxlength="8" minlength="8" required>
+            <br>
+            <button type="submit" class="button">Verify Email</button>
+        </form>
+        <p>If you haven't received the code, please check your spam folder or request a new code.</p>
     </div>
+</body>
+
+</html>
 
 
-
-   <!-- footer -->
-<?php include 'partials/_footer.php';?>
 
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->

@@ -90,9 +90,11 @@ if (isset($_POST['itemsInCart'])) {
             //$.post("menu.php", {"itemsInCart": itemName + ' - ' + quantity})
             if(cartTotalPrice>0){
             $("#totalPrice").text( cartTotalPrice);
+            $("#tpText").text('TOTAL PRICE');
             }
             else{
                 $("#totalPrice").text('');
+                $("#tpText").text('');
             }
 
             // Show/hide remove item buttons based on quantity
@@ -100,8 +102,10 @@ if (isset($_POST['itemsInCart'])) {
                 var quantity = cart[itemId];
                 if (quantity > 0) {
                     $(".removeItemBtn[data-id='" + itemId + "']").show();
+                    $(".checkOutBtn").show();
                 } else {
                     $(".removeItemBtn[data-id='" + itemId + "']").hide();
+                    $(".checkOutBtn").hide();
                 }
             }
         }
@@ -127,6 +131,7 @@ if (isset($_POST['itemsInCart'])) {
                     cart[itemId]--;
                     if (cart[itemId] === 0) {
                         $(".removeItemBtn[data-id='" + itemId + "']").hide();
+                        $(".checkOutBtn").hide();
                     delete cart[itemId];
                 }
                 }
@@ -240,13 +245,16 @@ if (isset($_POST['itemsInCart'])) {
                                             <td id="cart" class="text-center" scope="row"></td>
                                             <td id="quantity" class="text-center"></td>
                                             <td id="price" class="text-center"></td>
-                                            
                                         </tr>
+                                        <hr>
+                                            <td id="" class="text-center" scope="row"><b id="tpText"></b></td>
+                                            <td id="" class="text-center"></td>
+                                            <td id="" class="text-center"><b id="totalPrice"></b></td>
                                     </tbody>
                                 </table>
                                 <div id="addVal"></div><form action="/homemade/menu.php" method="post">
                                     <input hidden value="<?php echo $id ?>" name="restaurant_id"/>
-                               <a href="checkout.php"> <button id="checkoutBtn" class="btn btn-primary"><p id="totalPrice" class="text-center"></p></button></a>
+                               <a href="checkout.php"> <button id="checkoutBtn" class="btn btn-primary checkOutBtn" style="display:none">CHECKOUT</button></a>
                                </form>
                             </div>
                         </div>

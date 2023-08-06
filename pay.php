@@ -26,8 +26,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
   $email = $_SESSION['email']; 
   $phoneNO = $_POST['phone']; 
   $_SESSION['Billing_phone']=$_POST['phone']; 
-  $address = $_POST["address"] ;
-  $_SESSION['Billing_address'] = $_POST['address'];
+  $address = $_POST["address1"] . " " . $_POST["address2"] . " " . $_POST["address3"] ;
+  $_SESSION['Billing_address'] = $address;
   $amount = $_SESSION['amount'] ;
   $tranStatus = "PENDING";
 
