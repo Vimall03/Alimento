@@ -4,7 +4,7 @@ include 'partials/_dbconnect.php';
 $rid = $_SESSION['r_id'];
 
 // Check if the user is logged in or redirect to the login page
-if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] != true) {
+if (!isset($_SESSION['vendorloggedin']) || $_SESSION['vendorloggedin'] != true) {
     header("location: user_login.php");
     exit;
 }

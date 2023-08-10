@@ -2,7 +2,7 @@
 session_start();
 include 'partials/_dbconnect.php';
 $rid = $_SESSION['r_id'];
-if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] != true) {
+if (!isset($_SESSION['vendorloggedin']) || $_SESSION['vendorloggedin'] != true) {
     header("location: vendor_login.php");
     exit;
 }

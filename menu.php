@@ -203,7 +203,7 @@ if (isset($_POST['itemsInCart'])) {
                                                 <div class="col-2 text-center">';
                                         if ($row['m_type'] == "Veg") {
                                             echo '<i class="fa fa-minus-circle fa-2x text-success"></i>';
-                                        } else {
+                                        } else if ($row['m_type'] == "Non-Veg") {
                                             echo '<i class="fa fa-minus-circle fa-2x text-danger"></i>';
                                         }
                                         echo '</div>

@@ -4,7 +4,7 @@ include 'partials/_dbconnect.php';
 $rid = $_SESSION['r_id'];
 
 // Check if the user is logged in or redirect to the login page
-if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] != true) {
+if (!isset($_SESSION['vendorloggedin']) || $_SESSION['vendorloggedin'] != true) {
     header("location: user_login.php");
     exit;
 }
@@ -116,6 +116,12 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                 //echo "Description: <input type='text' name='item_description' value='" . $row['item_description'] . "'><br>";
                 echo "Price: <input type='number' name='m_price' value='" . $row['m_price'] . "'><br>";
                 echo "Category: <input type='text' name='m_type' value='" . $row['m_type'] . "'><br>";
+
+                echo "Category: <select name='m_type'>";
+                echo "<option value='Veg' " . ($row['order_status'] === 'Veg' ? 'selected' : '') . ">Veg</option>";
+                echo "<option value='Non-Veg' " . ($row['order_status'] === 'Non-Veg' ? 'selected' : '') . ">Non-Veg</option>";
+                echo "</select>";
+
                 echo "<input type='submit' value='Update'>";
                 echo "</form>";
                 echo "<form action='delete_menu.php' method= 'post'>";

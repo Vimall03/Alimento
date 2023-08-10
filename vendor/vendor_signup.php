@@ -156,7 +156,7 @@ $uploadProfile = $uploadPr . basename($_FILES["vendor_image"]['name']);
               </div>
               <button type="submit" class="btn btn-dark btn-block">Sign Up</button>
             </form>
-            <p class="mt-3 text-center">Already have an account? <a href="vendor_login.html">Log In</a></p>
+            <p class="mt-3 text-center">Already have an account? <a href="vendor_login.php">Log In</a></p>
           </div>
         </div>
       </div>
