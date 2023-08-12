@@ -17,10 +17,10 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     $restaurantPin = $_POST['restaurant_pin'];
 
 
-$uploadCv = 'vendor/restaurant/cover/';
+$uploadCv = 'restaurant/cover/';
 $uploadCover = $uploadCv . basename($_FILES["restaurant_bg_img"]['name']);
 
-$uploadPr = 'vendor/restaurant/';
+$uploadPr = 'restaurant/';
 $uploadProfile = $uploadPr . basename($_FILES["vendor_image"]['name']);
 
     if (filter_var($email, FILTER_VALIDATE_EMAIL)) {
@@ -37,7 +37,6 @@ $uploadProfile = $uploadPr . basename($_FILES["vendor_image"]['name']);
             $hashotp = password_hash($otp, PASSWORD_DEFAULT);
 
             if ((move_uploaded_file($_FILES['vendor_image']['tmp_name'], $uploadProfile)) && (move_uploaded_file($_FILES['restaurant_bg_img']['tmp_name'], $uploadCover))) {
-
             $sql = "INSERT INTO `restaurant` (`p_name`, `p_email`, `p_about`, `p_password`, `r_bg`, `p_phone`, `p_image`, `r_name`, `r_cuisine`, `reset_code`, `account_status`, `r_pincode`) 
                     VALUES ('$name', '$email', '$restaurantAbout', '$hash', '$uploadCover', '$phone', '$uploadProfile', '$restaurantName', '$restaurantCuisine', '$hashotp', 'Not-Verified', '$restaurantPin');";
             $result = mysqli_query($conn, $sql);
@@ -60,7 +59,7 @@ $uploadProfile = $uploadPr . basename($_FILES["vendor_image"]['name']);
                 $mail->Host       = 'smtp.gmail.com';                     //Set the SMTP server to send through
                 $mail->SMTPAuth   = true;                                   //Enable SMTP authentication
                 $mail->Username   = 'aftereditofficial@gmail.com';                     //SMTP username
-                $mail->Password   = '###';                               //SMTP password
+                $mail->Password   = '#';                               //SMTP password
                 $mail->SMTPSecure = PHPMailer::ENCRYPTION_SMTPS;            //Enable implicit TLS encryption
                 $mail->Port       = 465;                                    //TCP port to connect to; use 587 if you have set `SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS`
 

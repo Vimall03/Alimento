@@ -1,6 +1,7 @@
 <?php 
 $showError = false;
 $showalert = false;
+$vendorlogin = false;
 
 
 if ($_SERVER["REQUEST_METHOD"]=="POST"){
