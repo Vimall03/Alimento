@@ -27,82 +27,90 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.min.js" integrity="sha384-Rx+T1VzGupg4BHQYs2gCW9It+akI2MM/mndMCy36UVfodzcJcF0GGLxZIzObiEfa" crossorigin="anonymous"></script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="main.css">
     <title>Document</title>
 </head>
 
 <body>
-    <nav class="navbar navbar-expand-lg bg-body-tertiary">
-        <div class="container-fluid">
-            <a class="navbar-brand" href="#">Navbar</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                    <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="#">Home</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Link</a>
-                    </li>
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                            Dropdown
-                        </a>
-                        <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" href="#">Action</a></li>
-                            <li><a class="dropdown-item" href="#">Another action</a></li>
-                            <li>
-                                <hr class="dropdown-divider">
-                            </li>
-                            <li><a class="dropdown-item" href="#">Something else here</a></li>
-                        </ul>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link disabled" aria-disabled="true">Disabled</a>
-                    </li>
-                </ul>
-                <form class="d-flex"  action="home.php" method="post">
-                    <input class="form-control me-2" type="search" name="pincode" placeholder="Search by PINCODE" aria-label="Search">
-                    <button class="btn btn-outline-success" type="submit">Search</button>
-                </form>
-            </div>
-        </div>
-    </nav>
 
+
+    
+<nav class="nav">
+      <div class="nav__wrapper grid">
+          <div class="grid__span2 nav__logo-wrap">
+              <a href="index.html">
+                  <img class="nav__logo-img" src="images/logo/Logo.png">                
+              </a>
+          </div>
+          <div class="grid__span10 nav__links-wrap">
+              <ul class="nav__links">
+
+                  <li class="nav__link">
+                      
+                          <form action="pin_search.php" method="post">
+                          <input type="text" class="form-control " id="searchBar" name="pincode" placeholder="Search by Pincode" required>
+                  </li>
+                  <li class="nav__link">
+                      
+                          <input type="submit" class="btn-dark form-control " value="Search">
+                      </form>
+                  </li>
+                  <li class="nav__link">
+                      <a href="track_order.php">
+                          <img class="nav__link-icon" style="width: 1.8rem" src="images/favicons/tableware_50px.png">
+                          <span class="nav__link-item">Orders</span> 
+                      </a>
+                  </li>
+                  <li class="nav__link">
+                      <a href="#contact">
+                          <img class="nav__link-icon" src="images/favicons/phone_32px.png">
+                          <span class="nav__link-item">Contact </span>
+                      </a>
+                  </li>
+                  <li class="nav__link">
+                      <a href="user_logout.php">
+                          <img class="nav__link-icon" style="width: 1.9rem" src="images/favicons/user_male_circle_32px.png">
+                          <span class="nav__link-item">Logout</span> 
+                      </a>
+                  </li>
+              </ul>
+          </div>
+      </div>
+  </nav>
+<br>
+<br>
+<br>
+<br>
+  <div class="container mt-5">
     <br>
-
-    <div class="card text-center">
-        <div class="card-header">
-            Featured
-        </div>
-        <div class="card-body">
-            <h5 class="card-title">loggedin</h5>
-            <div>
+            <h1 class="card-title">Restaurants in "<?php echo $pincode ?>"</h1>
+            <br>
+            <div class="row">
                 <?php
                 
-                if($num>=1){
-                while ($row = mysqli_fetch_array($result)) {
-                    echo'<div syle="height: 400px; width: auto" class="col-4">
-                        <div class="card">
-                        <img src="' . $row['r_bg'] . '" alt="" class="card-img-top">
-                        <div class="card-body">
-                        <h4 class="card-title">' . $row['r_name'] . '</h4>
-                        <p class="card-text text-grey">' . $row['r_cuisine'] . '</p> <p class="card-text text-grey">' . $row['r_rating'] . '</p>
-                        <a href="menu.php?id=' . $row['r_id'] . '" class="btn btn-btn-block bg-nav">View More</a>
-                        </div>
-                        </div>
-                        </div>';
-                }}
-
+                if ($num >= 1) {
+                    while ($row = mysqli_fetch_array($result)) {
+                        echo '<div class="col-md-4 mb-4">
+                                  <div class="card">
+                                    <img src="vendor/' . $row['r_bg'] . '" class="card-img-top" alt="' . $row['r_name'] . '">
+                                    <div class="card-body">
+                                        <h5 class="card-title">' . $row['r_name'] . '</h5>
+                                        <p class="card-text">Cuisine: ' . $row['r_cuisine'] . '</p>
+                                        <p class="card-text">Rating: ' . $row['r_rating'] . '</p>
+                                        <a href="menu.php?id=' . $row['r_id'] . '" class="btn btn-primary btn-block">View Menu</a>
+                                    </div>
+                                  </div>
+                              </div>';
+                    }
+                } else {
+                    echo '<div class="col">
+                              <p>No restaurants found.</p>
+                          </div>';
+                }
                 ?>
             </div>
-            <a href="/homemade/user_logout.php" class="btn btn-primary">Go somewhere</a>
-        </div>
-        <div class="card-footer text-body-secondary">
-            2 days ago
-        </div>
-    </div>
+
+  </div>
 </body>
 
 </html>

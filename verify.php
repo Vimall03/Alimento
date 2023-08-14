@@ -53,17 +53,15 @@ $phone=$_SESSION['Billing_phone'];
 $name=$_SESSION['name'];
 
 
-    $sql = "INSERT INTO `orders` ( `order_id`, `r_id`, `user_id`, `amount`, `address`, `phone`, `payment`, `order_status`, `rating`) 
-    VALUES ('$orderId', '$restId', '$userId', '$amount', '$address', '$phone', '$tranStatus', 'Accecpted', '0');";
+    $sql = "INSERT INTO `orders` ( `order_id`, `r_id`, `user_id`, `amount`, `address`, `phone`, `payment`, `order_status`, `rating`, `name`) 
+    VALUES ('$orderId', '$restId', '$userId', '$amount', '$address', '$phone', '$tranStatus', 'Accecpted', '0', '$name');";
     $result = mysqli_query($conn, $sql);
 
     foreach ($order as $item) {
         $sql = "UPDATE `orders` SET `order` = CONCAT(`order`, '$item') WHERE `order_id` = '$orderId';";
     $result = mysqli_query($conn, $sql);
     }
-    foreach ($name as $nme) {
-        $sql = "UPDATE `orders` SET `name` = '$nme' WHERE `order_id` = '$orderId';";
-    $result = mysqli_query($conn, $sql);
+
     if ($result) {
             header("location: Track_order.php");
                 }   
@@ -82,7 +80,7 @@ $name=$_SESSION['name'];
     //             if ($result) {
     //             header("location: thankyou.php");
     //             }         
-}
+
 else
 {
     $html = "<p>Your payment failed</p>

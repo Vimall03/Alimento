@@ -65,7 +65,7 @@ if ($_SERVER["REQUEST_METHOD"]=="POST"){
     @import url('https://fonts.googleapis.com/css2?family=ABeeZee&display=swap');
     </style>
     <!-- css link -->
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="main.css">
 
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -113,40 +113,58 @@ if ($showalert) {
 }?>
 
 
-  <header class="bg-primary text-white text-center py-4">
-    <h1>Alimento</h1>
-  </header>
-  
-  <div class="container mt-5">
-    <div class="row justify-content-center">
-      <div class="col-md-6">
-        <div class="card">
-          <div class="card-header bg-primary text-white">
-            <h4>Log In to Alimento</h4>
-          </div>
-          <div class="card-body">
-            <form action="/homemade/user_login.php" method="post">
-              <div class="form-group">
-                <label for="email">Email</label>
-                <input type="email" id="email" name="email" class="form-control" required>
-              </div>
-              <div class="form-group">
-                <label for="password">Password</label>
-                <input type="password" id="password" name="password" class="form-control" required>
-              </div>
-              <button type="submit" class="btn btn-primary btn-block">Log In</button>
-            </form>
-            <p class="mt-3 text-center">Don't have an account? <a href="user_signup.php">Sign Up</a></p>
-          </div>
+  <section class="login-signup">
+        <div class="login-signup__message-container login-signup__small">
+            <div class="login-signup__logo">
+                <a href="index.html">
+                    <img src="images/logo/Logo - White.png" alt="Logo">                
+                </a>
+            </div>
+
+            <div class="login-signup__message-content">
+                <h3 class="login-signup__message-heading u-margin-bottom-medium">Hello, Friend</h3>
+                <p class="login-signup__message-para">Hey foodie! We are waiting to kill you hunger with our delicious dabbas. Create your account and enjoy out mouth watering food.</p>
+                
+                <br><br>
+
+                <button class="login-signup__button u-margin-top-extra-large" style="display:block; margin: 0 auto;">
+                    <a href="user_signup.php">Sign Up</a>
+                </button>
+            </div>
         </div>
-      </div>
-    </div>
-  </div>
+        <div class="login-signup__form-container login-signup__big">
+            <div class="login-signup__logo u-show-after-tab-port">
+                <img src="images/logo/Logo.png" alt="Logo">
+            </div>
 
-  <footer class="bg-dark text-white text-center py-3 mt-5">
-    <p>&copy; 2023 Alimento - Homemade Food Delivery</p>
-  </footer>
+            <div class="login-signup__back-button">
+            <a href="index.html">
+                <img src="images/favicons/back_50px-red.png" alt="Back Button">
+                Back</a>
+            </div>
 
+            <div class="login-signup__form-content">
+                <h3 class="login-signup__form-heading u-margin-bottom-small">Welcome Back!</h3>
+                <h5 class="login-signup__form-subheading">Glad to see you again</h5>
+
+                <form class="login-signup-form u-margin-top-small" action="/homemade/user_login.php" method="post">
+                    <div class="login-signup-form__input-group login-signup-form__input-group--full">
+                        <input type="email" class="login-signup-form__input" id="email" name="email" placeholder="example@example.com">
+                    </div>
+                    <div class="login-signup-form__input-group login-signup-form__input-group--full">
+                        <input type="password" class="login-signup-form__input"  name="password" id="password" placeholder=".......">
+                    </div>
+                    
+                    <button class="login-signup-form__submit u-margin-top-large" type="submit" id="submit-login">Sign In</button>
+                </form>
+            </div>
+
+            <div class="login-signup__text-content">
+                <p class="paragraph paragraph text-algin-center">Not a member yet?</p>
+                <a href="user_signup.php" class="login-signup__alt-link">Sign Up</a>
+            </div>
+        </div>
+    </section>
   <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.1/dist/umd/popper.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>

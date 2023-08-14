@@ -49,7 +49,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Email Verification - Alimento</title>
+    <title>Email Verification - etiffy</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -59,7 +59,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         }
 
         header {
-            background-color: #007bff;
+            background-color: #d5761d;
             color: white;
             text-align: center;
             padding: 20px;
@@ -78,7 +78,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             margin: 10px;
             font-size: 18px;
             border: none;
-            background-color: #007bff;
+            background-color: #d5761d;
             color: white;
             cursor: pointer;
             text-decoration: none;
@@ -120,7 +120,7 @@ if ($showError) {
 
 <body>
     <header>
-        <h1>Alimento</h1>
+        <h1>etiffy</h1>
         <p>Delicious Moments Delivered to Your Doorstep</p>
     </header>
     <div class="container">
@@ -150,6 +150,9 @@ if ($showError) {
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js"
         integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous">
     </script>
+      <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.1/dist/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </body>
 
 </html>

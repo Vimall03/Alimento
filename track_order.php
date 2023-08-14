@@ -38,7 +38,11 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
 <!DOCTYPE html>
 <html>
-
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+<link rel="stylesheet" href="main.css">
 <head>
 
 
@@ -63,6 +67,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     </style>
 
     <title>Order Information</title>
+
     <style>
         table {
             border-collapse: collapse;
@@ -83,8 +88,59 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 </head>
 
 <body>
+<nav class="nav">
+      <div class="nav__wrapper grid">
+          <div class="grid__span2 nav__logo-wrap">
+              <a href="home.php">
+                  <img class="nav__logo-img" src="images/logo/Logo.png">                
+              </a>
+          </div>
+          <div class="grid__span10 nav__links-wrap">
+              <ul class="nav__links">
+
+                  <li class="nav__link">
+                      
+                          <form action="pin_search.php" method="post">
+                          <input type="text" class="form-control " id="searchBar" name="pincode" placeholder="Search by Pincode" required>
+                  </li>
+                  <li class="nav__link">
+                      
+                          <input type="submit" class="btn-dark form-control " value="Search">
+                      </form>
+                  </li>
+                  <li class="nav__link">
+                      <a href="track_order.php">
+                          <img class="nav__link-icon" style="width: 1.8rem" src="images/favicons/tableware_50px.png">
+                          <span class="nav__link-item">Orders</span> 
+                      </a>
+                  </li>
+                  <li class="nav__link">
+                      <a href="#contact">
+                          <img class="nav__link-icon" src="images/favicons/phone_32px.png">
+                          <span class="nav__link-item">Contact </span>
+                      </a>
+                  </li>
+                  <li class="nav__link">
+                      <a href="user_logout.php">
+                          <img class="nav__link-icon" style="width: 1.9rem" src="images/favicons/user_male_circle_32px.png">
+                          <span class="nav__link-item">Logout</span> 
+                      </a>
+                  </li>
+              </ul>
+          </div>
+      </div>
+  </nav>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<div class="container">
+
     <h1>Order Information</h1>
-    <table>
+    <table class="table table-bordered">
         <tr>
             <th>Order ID</th>
             <th>Order</th>
@@ -154,6 +210,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         </script>
         <!-- End of PHP section -->
     </table>
+</div>    
 </body>
 
 </html>

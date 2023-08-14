@@ -116,7 +116,7 @@ if ($showalert) {
 
 
   <header class="bg-dark text-white text-center py-4">
-    <h1>Alimento</h1>
+    <h1>etiffy</h1>
   </header>
   
   <div class="container mt-5">
@@ -147,7 +147,7 @@ if ($showalert) {
   </div>
 
   <footer class="bg-dark text-white text-center py-3 mt-5">
-    <p>&copy; 2023 Alimento - Homemade Food Delivery</p>
+    <p>&copy; 2023 etiffy - Homemade Food Delivery</p>
   </footer>
 
   <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>

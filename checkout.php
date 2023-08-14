@@ -23,13 +23,48 @@ $_SESSION['orderid'] = str_pad($oid, 5, '0', STR_PAD_LEFT);
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Checkout</title>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href=".css">
+  <link rel="stylesheet" href="main.css">
 </head>
 <body>
-  <header class="bg-primary text-white text-center py-4">
-    <h1>Checkout</h1>
-  </header>
-  
+<nav class="nav">
+      <div class="nav__wrapper grid">
+          <div class="grid__span2 nav__logo-wrap">
+              <a href="home.php">
+                  <img class="nav__logo-img" src="images/logo/Logo.png">                
+              </a>
+          </div>
+          <div class="grid__span10 nav__links-wrap">
+              <ul class="nav__links">
+
+                  <li class="nav__link">
+                      <a href="track_order.php">
+                          <img class="nav__link-icon" style="width: 1.8rem" src="images/favicons/tableware_50px.png">
+                          <span class="nav__link-item">Orders</span> 
+                      </a>
+                  </li>
+                  <li class="nav__link">
+                      <a href="#contact">
+                          <img class="nav__link-icon" src="images/favicons/phone_32px.png">
+                          <span class="nav__link-item">Contact </span>
+                      </a>
+                  </li>
+                  <li class="nav__link">
+                      <a href="user_logout.php">
+                          <img class="nav__link-icon" style="width: 1.9rem" src="images/favicons/user_male_circle_32px.png">
+                          <span class="nav__link-item">Logout</span> 
+                      </a>
+                  </li>
+              </ul>
+          </div>
+      </div>
+  </nav>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
   <div class="container mt-5">
     <div class="row">
       <div class="col-md-6">
@@ -66,7 +101,7 @@ $_SESSION['orderid'] = str_pad($oid, 5, '0', STR_PAD_LEFT);
                 echo '<span class="badge badge-primary badge-pill"></span><br>';} ?>
               </li>
             </ul>
-            <p>Total: <span class="badge badge-success">Rs. <?php echo $amount; ?></span></p>
+            <p>Total: <b >Rs. <?php echo $amount; ?></b></p>
           </div>
         </div>
       </div>
@@ -80,9 +115,6 @@ $_SESSION['orderid'] = str_pad($oid, 5, '0', STR_PAD_LEFT);
     </div>
   </div>
 
-  <footer class="bg-dark text-white text-center py-3 mt-5">
-    <p>&copy; 2023 Checkout</p>
-  </footer>
 
   <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.1/dist/umd/popper.min.js"></script>

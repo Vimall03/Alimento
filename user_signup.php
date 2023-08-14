@@ -67,12 +67,12 @@ try {
     $mail->Host       = 'smtp.gmail.com';                     //Set the SMTP server to send through
     $mail->SMTPAuth   = true;                                   //Enable SMTP authentication
     $mail->Username   = 'aftereditofficial@gmail.com';                     //SMTP username
-    $mail->Password   = '###';                               //SMTP password
+    $mail->Password   = '#';                               //SMTP password
     $mail->SMTPSecure = PHPMailer::ENCRYPTION_SMTPS;            //Enable implicit TLS encryption
     $mail->Port       = 465;                                    //TCP port to connect to; use 587 if you have set `SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS`
 
     //Recipients
-    $mail->setFrom('from@example.com', 'afteredit');
+    $mail->setFrom('from@example.com', 'ETIFFY');
     $mail->addAddress($email);     //Add a recipient
     $mail->isHTML(true);                                  //Set email format to HTML
     $mail->Subject = 'Verification code from homemade';
@@ -126,7 +126,7 @@ else {
     @import url('https://fonts.googleapis.com/css2?family=ABeeZee&display=swap');
     </style>
     <!-- css link -->
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="main.css">
 
 
     <meta charset="UTF-8">
@@ -164,77 +164,67 @@ else {
 ';
   } ?>
 
+<section class="login-signup">
+        <div class="login-signup__form-container login-signup__big">
+            <div class="login-signup__back-button u-show-after-tab-port">
+                <img src="images/favicons/back_50px-red.png"alt="Back Button">
+                <a href="index.html">Back</a>
+            </div>
 
-  <header class="bg-primary text-white text-center py-4">
-    <h1>Alimento</h1>
-  </header>
-  
-  <div class="container mt-5">
-    <div class="row justify-content-center">
-      <div class="col-md-6">
-        <div class="card">
-          <div class="card-header bg-primary text-white">
-            <h4>Create an Account</h4>
-          </div>
-          <div class="card-body">
-            <form action="user_signup.php" method="post">
-              <div class="form-group">
-                <label for="name">Full Name</label>
-                <input type="text" id="name" name="name" class="form-control" required>
-              </div>
-              <div class="form-group">
-                <label for="email">Email</label>
-                <input type="email" id="email" name="email" class="form-control" required>
-              </div>
-              <div class="form-group">
-                <label for="password">Password</label>
-                <input type="password" id="password" name="password" class="form-control" required>
-              </div>
-              <div class="form-group">
-                <label for="confirmPassword">Confirm Password</label>
-                <input type="password" id="confirmPassword" name="cpassword" class="form-control" required>
-              </div>
-              <button type="submit" class="btn btn-primary btn-block">Sign Up</button>
-            </form>
-            <p class="mt-3 text-center">Already have an account? <a href="user_login.php">Log In</a></p>
-          </div>
+            <div class="login-signup__logo">
+                <a href="index.html">
+                    <img src="images/logo/Logo.png" alt="Logo">                
+                </a>
+            </div>
+
+            <div class="login-signup__form-content">
+                <h3 class="login-signup__form-heading u-margin-bottom-small">Hello, Friend</h3>
+                <h5 class="login-signup__form-subheading">Create your account to end the hunder</h5>
+
+                <form class="login-signup-form u-margin-top-small" action="user_signup.php" method="post">
+                    <div class="login-signup-form__input-group login-signup-form__input-group--full">
+                        <input type="text" name="name" class="login-signup-form__input" id="name" placeholder="Your good name">
+                    </div>
+
+                    <div class="login-signup-form__input-group login-signup-form__input-group--full">
+                        <input type="email" name="email" class="login-signup-form__input" id="email-id" placeholder="example@example.com">
+                        
+                    </div>
+                    <div class="login-signup-form__input-group login-signup-form__input-group--half">
+                        <input type="password" name="password" class="login-signup-form__input" id="password" placeholder=".......">
+                        <input type="password" name="cpassword" class="login-signup-form__input" id="password" placeholder=".......">
+                    </div>
+                    
+                    <button class="login-signup-form__submit u-margin-top-extra-large" type="submit" id="submit-login">Sign Up</button>
+                </form>
+            </div>
+
+            <div class="login-signup__text-content">
+                <p class="paragraph paragraph text-algin-center">Already a member?</p>
+                <a href="user_login.php" class="login-signup__alt-link">Sign In</a>
+            </div>
         </div>
-      </div>
-    </div>
-  </div>
+        <div class="login-signup__message-container login-signup__small">
+            <div class="login-signup__back-button">
+                <img src="images/favicons/back_50px.png"alt="Back Button">
+                <a href="index.html" style="color:#fff">Back</p>
+            </div>
 
-  <footer class="bg-dark text-white text-center py-3 mt-5">
-    <p>&copy; 2023 Alimento - Homemade Food Delivery</p>
-  </footer>
+            <div class="login-signup__message-content">
+                <h3 class="login-signup__message-heading u-margin-bottom-medium">Welcome Back</h3>
+                <p class="login-signup__message-para">Glad to see you back here. We are waiting to kill your hunger with our delicious dabbas. Sign in to get delicious food.</p>
+                
+                <br><br>
 
-  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.1/dist/umd/popper.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-</body>
-</html>
-
-
-
-
-
-
-
+                <button class="login-signup__button u-margin-top-extra-large" style="display:block; margin: 0 auto;">
+                    <a href="user_login.php">Sign In</a>
+                </button>
+            </div>
+        </div>
+    </section>
 
 
-
-
-    <!-- Optional JavaScript -->
-    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
-        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous">
-    </script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.7/dist/umd/popper.min.js"
-        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous">
-    </script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js"
-        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous">
-    </script>
-
+  
 </body>
 
 </html>

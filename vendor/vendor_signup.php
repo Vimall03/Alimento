@@ -64,7 +64,7 @@ $uploadProfile = $uploadPr . basename($_FILES["vendor_image"]['name']);
                 $mail->Port       = 465;                                    //TCP port to connect to; use 587 if you have set `SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS`
 
                 //Recipients
-                $mail->setFrom('from@example.com', 'afteredit');
+                $mail->setFrom('from@example.com', 'ETIFFY');
                 $mail->addAddress($email);     //Add a recipient
                 $mail->isHTML(true);                                  //Set email format to HTML
                 $mail->Subject = 'Verification code from homemade';
@@ -95,13 +95,13 @@ $uploadProfile = $uploadPr . basename($_FILES["vendor_image"]['name']);
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Alimento - Vendor Sign Up</title>
+  <title>etiffy - Vendor Sign Up</title>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
   <link rel="stylesheet" href="vendor_styles.css">
 </head>
 <body>
   <header class="bg-dark text-white text-center py-4">
-    <h1>Alimento</h1>
+    <h1>etiffy</h1>
   </header>
   
   <div class="container mt-5">
@@ -163,7 +163,7 @@ $uploadProfile = $uploadPr . basename($_FILES["vendor_image"]['name']);
   </div>
 
   <footer class="bg-dark text-white text-center py-3 mt-5">
-    <p>&copy; 2023 Alimento - Homemade Food Delivery</p>
+    <p>&copy; 2023 etiffy - Homemade Food Delivery</p>
   </footer>
 
   <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
