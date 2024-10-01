@@ -1,6 +1,6 @@
 ---
 name: Feature request
-about: Suggest an idea for this project
+about: Suggest a feature / changes you would like to add
 title: "[FEAT]"
 labels: gssoc-ext, hacktoberfest-accepted
 assignees: ''
