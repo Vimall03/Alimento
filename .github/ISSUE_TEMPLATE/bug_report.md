@@ -1,6 +1,6 @@
 ---
 name: Bug report
-about: 
+about: Mention the bugs you want to fix
 title: "[BUG]"
 labels: bug, gssoc-ext, hacktoberfest-accepted
 assignees: ''
