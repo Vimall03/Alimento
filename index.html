@@ -26,12 +26,22 @@ footer {
   background-color: #343a40;
 }
 
+.about__right-img {
+    width: 400px;
+    border-radius: 8px;
+    transition: transform 0.3s ease-out;
+    background-color: transparent;
+    transition: transform 0.3s ease-in-out, filter 0.3s ease-in-out;
+}
+.about__right-img:hover{
+        transform: scale(1.05);
+        filter: drop-shadow(0 0 55px rgb(255, 201, 85));
+          }
 
 </style>
 <body>
 
-
-    <!-- Navigation for Tablets and Desktops -->
+  <!-- Navigation for Tablets and Desktops -->
     <nav class="nav">
       <div class="nav__wrapper grid">
           <div class="grid__span2 nav__logo-wrap">
@@ -224,7 +234,7 @@ footer {
           </button>
       </div>
       <div class="grid__span4">
-          <img src="images/img-comp/about-illus.jpg" alt="Man eating noodles" class="about__right-img">
+          <img src="images/img-comp/about-illus.png" alt="Man eating noodles" class="about__right-img">
       </div>
   </section>
 <br>
