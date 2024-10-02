@@ -10,9 +10,11 @@ jobs:
   welcome:
     runs-on: ubuntu-latest
     steps:
+      - name: Commitment Issues Bot
+        run: echo "GITHUB_ACTOR=YourBotName" >> $GITHUB_ENV
       - uses: EddieHubCommunity/gh-action-community/src/welcome@main
         with:
-          github-token: ${{ secrets.GITHUB_TOKEN }}
-          issue-message: "It's great to have your input on this project."
-          pr-message: "Thank you for contributing to this project, your support is much appreciated."
-          footer: "Stay awesome!"
+            github-token: ${{ secrets.GITHUB_TOKEN }}
+            issue-message: "🎉 Thank you for your interest in contributing to this repository! Please wait while we review and assign the issue to you. In the meantime, feel free to ⭐ the repo to stay updated on future developments."
+            pr-message: "🚀 Thank you for contributing to this project, your support is much appreciated."
+            footer: "Stay awesome! 😎"
