@@ -162,6 +162,7 @@ if ($showalert) {
             <div class="login-signup__text-content">
                 <p class="paragraph paragraph text-algin-center">Not a member yet?</p>
                 <a href="user_signup.php" class="login-signup__alt-link">Sign Up</a>
+                <p class="paragraph paragraph text-algin-center">  Forget Password?</p>
             </div>
         </div>
     </section>
