@@ -1,0 +1,18 @@
+name: Auto Responder Bot
+
+on:
+  issues:
+    types: [opened]
+
+jobs:
+  respond:
+    runs-on: ubuntu-latest
+    steps:
+    - name: 'Auto Respond to Issue'
+      uses: peter-evans/create-or-update-comment@v3
+      with:
+        token: ${{ secrets.GITHUB_TOKEN }}
+        issue-number: ${{ github.event.issue.number }}
+        body: |
+          🤖 **GitHub Actions**: Thank you for your interest in contributing to this repository! Please wait while we review and assign the issue to you. In the meantime, feel free to star the repo to stay updated on future developments.
+
