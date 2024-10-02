@@ -27,7 +27,7 @@ Alimento is an online homemade food delivery platform that connects passionate h
 5. **Track**: Keep an eye on your order's status as it's prepared and delivered by the vendor.
 
 ## Setup Guidelines 
-# Prerequisites
+## Prerequisites
 Before starting, ensure that you have the following software installed on your machine:
 
 - Git – Download Git
@@ -35,11 +35,11 @@ Before starting, ensure that you have the following software installed on your m
 - MySQL (version 5.7 or above)
 - Apache or any other local server (XAMPP, WAMP, etc.) XAMPP (for Apache, PHP, and MySQL bundled together)
 
-# Project Setup Instructions
+## Project Setup Instructions
 1. Fork and Clone the Repository
 First, fork the project repository to your GitHub account. Then, clone the forked repository to your local machine.
 
-# Clone the repository
+## Clone the repository
 - git clone https://github.com/<your-username>/alimento-homemade-food-delivery.git
 Once the repository is cloned, navigate to the project directory.
 
@@ -51,7 +51,7 @@ If you're using XAMPP (or any similar stack like WAMP), follow these steps:
 - Place the project folder in the htdocs directory (for XAMPP) or www (for WAMP).
 For example, if using XAMPP:
 
-# Move the project to XAMPP's htdocs directory
+## Move the project to XAMPP's htdocs directory
 mv alimento-homemade-food-delivery /path-to-xampp/htdocs/
 3. Configure Database
 - Create a Database: Open phpMyAdmin by visiting http://localhost/phpmyadmin/ and create a new MySQL database for the project. You can name it alimento.
@@ -70,5 +70,5 @@ After completing the above steps, open your browser and visit:
 - http://localhost/alimento-homemade-food-delivery
 You should now see the homepage of the Alimento platform.
 
-# Happy coding!
+### Happy coding!
 
