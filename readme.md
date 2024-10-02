@@ -40,7 +40,7 @@ Before starting, ensure that you have the following software installed on your m
 First, fork the project repository to your GitHub account. Then, clone the forked repository to your local machine.
 
 ## Clone the repository
-- git clone https://github.com/<your-username>/alimento-homemade-food-delivery.git
+- git clone https://github.com/Vimall03/Alimento.git
 Once the repository is cloned, navigate to the project directory.
 
 - cd alimento-homemade-food-delivery
