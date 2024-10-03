@@ -8,10 +8,15 @@ if ($_SERVER["REQUEST_METHOD"]=="POST"){
   include 'partials/_dbconnect.php';
   $email = $_POST["email"];
   $password = $_POST["password"];
+  // Password complexity pattern (at least one lowercase, one uppercase, one digit, one special char, and minimum 8 characters)
+  $pattern = '/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[\W_]).{8,}$/';
 //to check if the password/ email is blank
     if($email == '' || $password == ''){
       $showError = "Enter valid Email/password";
     }
+    elseif (!preg_match($pattern, $password)) {
+      $showError = "Password must be at least 8 characters long, include at least one uppercase letter, one lowercase letter, one digit, and one special character.";
+  } 
       //if not blank then go to else
     else {
         $sql = "select * FROM users  where email = '$email'";
