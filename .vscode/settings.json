@@ -1,0 +1,3 @@
+{
+    "php.validate.run": "onSave"
+}
