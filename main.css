@@ -113,6 +113,8 @@ a {
     font-weight: 700
 }
 
+
+  
 .paragraph {
     font-size: 1.4rem;
     font-weight: 500;
@@ -151,10 +153,28 @@ a {
     right: .5rem;
     top: -.2rem
 }
+/* Light theme (default) 
+:root {
+    --background-color: #ffffff;
+    --text-color: #121212;
+  }
+  */
+  /* Dark theme */
+  body.dark-theme {
+    --background-color: #121212;
+    --text-color: #ffffff;
+  }
+  
+  body {
+    background-color: var(--background-color);
+    color: var(--text-color);
+    transition: background-color 0.3s ease, color 0.3s ease; /* Add a smooth transition */
+  }
+  
 
 .nav__link-item {
     font-weight: 500;
-    color: #000;
+    color:var(--background-color);
     font-size: 1.6rem;
     vertical-align: middle;
     top: -.4rem;
@@ -164,7 +184,7 @@ a {
 .sidebar__link-item {
     position: relative;
     font-size: 2rem;
-    color: #000;
+    color: var(--background-color);
     top: -.6rem;
     font-weight: 500
 }
@@ -236,7 +256,7 @@ a {
 .menus__description--right {
     text-align: right;
     font-size: 1.4rem;
-    color: white
+    color: white;
 }
 
 .food-items__heading {
@@ -690,8 +710,8 @@ a {
     background-color: #fff;
     z-index: 100;
     padding: 0 1rem;
-    -webkit-box-shadow: 4px 4px 15px rgba(0, 0, 0, 0.15);
-    box-shadow: 4px 4px 15px rgba(0, 0, 0, 0.15)
+    -webkit-box-shadow: 4px 4px 15px #121212;
+    box-shadow: 4px 4px 15px #121212;
 }
 
 @media (max-width: 56.25em) {
@@ -740,8 +760,8 @@ a {
     position: fixed;
     display: none;
     z-index: 100;
-    -webkit-box-shadow: 4px 4px 15px rgba(0, 0, 0, 0.15);
-    box-shadow: 4px 4px 15px rgba(0, 0, 0, 0.15)
+    -webkit-box-shadow: 4px 4px 15px #121212;
+    box-shadow: 4px 4px 15px #121212;
 }
 
 @media (max-width: 56.25em) {
@@ -796,7 +816,7 @@ a {
 }
 
 .sidebar__left {
-    background-color: rgba(0, 0, 0, 0.3);
+    background-color: #121212;
     width: 60%;
     height: inherit;
     float: left;
@@ -810,8 +830,8 @@ a {
     background-color: #fff;
     width: 40%;
     height: inherit;
-    -webkit-box-shadow: -10px -10px 10px rgba(0, 0, 0, 0.16);
-    box-shadow: -10px -10px 10px rgba(0, 0, 0, 0.16);
+    -webkit-box-shadow: -10px -10px 10px #121212;
+    box-shadow: -10px -10px 10px #121212;
     float: right;
     -webkit-transition: 1s all;
     -o-transition: 1s all;
