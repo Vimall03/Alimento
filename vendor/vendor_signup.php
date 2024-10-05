@@ -1,7 +1,7 @@
 <?php
 
 use PHPMailer\PHPMailer\PHPMailer;
-use PHPMailer\PHPMailer\SMTP;
+// use PHPMailer\PHPMailer\SMTP; // Removed unused import
 use PHPMailer\PHPMailer\Exception;
 
 include 'partials/_dbconnect.php';
@@ -13,7 +13,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     $password = $_POST["password"];
     $restaurantName = $_POST["restaurant_name"];
     $restaurantCuisine = $_POST["restaurant_cuisine"];
-    $restaurantAbout = $_POST["restaurant_about"];
+    $restaurantAbout = mysqli_real_escape_string($conn, $_POST["restaurant_about"]);
     $restaurantPin = $_POST['restaurant_pin'];
 
 
@@ -38,7 +38,7 @@ $uploadProfile = $uploadPr . basename($_FILES["vendor_image"]['name']);
 
             if ((move_uploaded_file($_FILES['vendor_image']['tmp_name'], $uploadProfile)) && (move_uploaded_file($_FILES['restaurant_bg_img']['tmp_name'], $uploadCover))) {
             $sql = "INSERT INTO `restaurant` (`p_name`, `p_email`, `p_about`, `p_password`, `r_bg`, `p_phone`, `p_image`, `r_name`, `r_cuisine`, `reset_code`, `account_status`, `r_pincode`) 
-                    VALUES ('$name', '$email', '$restaurantAbout', '$hash', '$uploadCover', '$phone', '$uploadProfile', '$restaurantName', '$restaurantCuisine', '$hashotp', 'Not-Verified', '$restaurantPin');";
+                    VALUES ('$name', '$email', '$restaurantAbout', '$hash', '$uploadCover', '$phone', '$uploadProfile', '$restaurantName', '$restaurantCuisine', '$hashotp', 'Not-Verified', '$restaurantPin')";
             $result = mysqli_query($conn, $sql);
             echo "Upload Profile Path: " . $uploadProfile . "<br>";
             echo "Upload Cover Path: " . $uploadCover . "<br>";
@@ -59,7 +59,7 @@ $uploadProfile = $uploadPr . basename($_FILES["vendor_image"]['name']);
                 $mail->Host       = 'smtp.gmail.com';                     //Set the SMTP server to send through
                 $mail->SMTPAuth   = true;                                   //Enable SMTP authentication
                 $mail->Username   = 'aftereditofficial@gmail.com';                     //SMTP username
-                $mail->Password   = '#';                               //SMTP password
+                $mail->Password   = 'asnfswjtqvsqpngu';                               //SMTP password
                 $mail->SMTPSecure = PHPMailer::ENCRYPTION_SMTPS;            //Enable implicit TLS encryption
                 $mail->Port       = 465;                                    //TCP port to connect to; use 587 if you have set `SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS`
 

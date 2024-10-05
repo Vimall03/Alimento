@@ -152,7 +152,7 @@ if ($showalert) {
                 <h3 class="login-signup__form-heading u-margin-bottom-small">Welcome Back!</h3>
                 <h5 class="login-signup__form-subheading">Glad to see you again</h5>
 
-                <form class="login-signup-form u-margin-top-small" action="/homemade/user_login.php" method="post">
+                <form class="login-signup-form u-margin-top-small" action="/alimento/user_login.php" method="post">
                     <div class="login-signup-form__input-group login-signup-form__input-group--full">
                         <input type="email" class="login-signup-form__input" id="email" name="email" placeholder="example@example.com">
                     </div>
