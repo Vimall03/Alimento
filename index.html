@@ -7,6 +7,8 @@
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
   <link rel="stylesheet" href="main.css">
 </head>
+
+  
 <style>
     body {
   font-family: Arial, sans-serif;
@@ -42,7 +44,8 @@ footer {
 <body>
 
   <!-- Navigation for Tablets and Desktops -->
-    <nav class="nav">
+    <nav class="nav" style="display: flex;
+    vertical-align: top;">
       <div class="nav__wrapper grid">
           <div class="grid__span2 nav__logo-wrap">
               <a href="index.html">
@@ -51,7 +54,12 @@ footer {
           </div>
           <div class="grid__span10 nav__links-wrap">
               <ul class="nav__links">
-
+                <li class="nav__link">
+                    <a href="#">
+                        <img class="nav__link-icon" id="themeIcon" src="images/favicons/sun.png">
+                        <span id="darkModeToggle" class="nav__link-item">Dark mode</span>
+                    </a>
+                </li>
                   <li class="nav__link">
                       <a href="#">
                           <img class="nav__link-icon" src="images/favicons/idea_32px.png">
@@ -77,6 +85,7 @@ footer {
                       </a>
                   </li>
               </ul>
+              
           </div>
       </div>
   </nav>
@@ -423,7 +432,38 @@ footer {
         document.querySelector(".sidebar__right").style.display = state;
     }
 </script>
+<script>
+    const toggleButton = document.getElementById('darkModeToggle');
+    const themeIcon = document.getElementById('themeIcon');
+  
+    console.log("JavaScript is working!"); // Debugging line
+  
+    // Check if dark mode is enabled (using localStorage)
+    const currentTheme = localStorage.getItem('theme');
+    if (currentTheme === 'dark') {
+      document.body.classList.add('dark-theme');
+      themeIcon.src = 'images/favicons/moon.png'; // Change to moon icon
+    }
+  
+    // Add event listener to toggle button
+    toggleButton.addEventListener('click', () => {
+      console.log("Button clicked!"); // Debugging line
+  
+      document.body.classList.toggle('dark-theme');
+      
+      // Update icon and localStorage based on theme
+      if (document.body.classList.contains('dark-theme')) {
+        themeIcon.src = 'images/favicons/moon.png'; // Change to moon icon
+        localStorage.setItem('theme', 'dark');
+      } else {
+        themeIcon.src = 'images/favicons/sun.png'; // Change back to sun icon
+        localStorage.setItem('theme', 'light');
+      }
+    });
+  </script>
+  
 <script src="js/external.js"></script>
 <script src="js/index.js"></script>
+
 </body>
 </html>
