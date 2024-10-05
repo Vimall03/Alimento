@@ -336,20 +336,21 @@ footer {
             </div>
             <div class="contact__right">
                 <h5 class="heading-secondary heading-secondary--uppercase heading-secondary--semi-bold u-margin-bottom-medium">Send us a message</h5>
-
-                <form class="form">
+                
+                <form class="form" action="contact.php" method="POST">
                     <div class="grid u-grid-gap-small">
-                        <input type="text" id="name" placeholder="John Doe" class="form__input grid__half">
-                        <input type="email" id="email" placeholder="example@example.com" class="form__input grid__half">
+                        <input type="text" id="name" name="name" placeholder="John Doe" class="form__input grid__half" required>
+                        <input type="email" id="email" name="email" placeholder="example@example.com" class="form__input grid__half" required>
                     </div>
                     <div class="grid">
-                        <textarea id="message" placeholder="Write message here..." class="form__textarea grid__full"></textarea>
+                        <textarea id="message" name="message" placeholder="Write message here..." class="form__textarea grid__full" required></textarea>
                     </div>
                     <button class="primary-button form__button u-margin-top-small" type="submit">
                         <p class="paragraph paragraph--white">SEND</p>
                     </button>
                 </form>
             </div>
+            
         </div>
     </div>
 </section>
