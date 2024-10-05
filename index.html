@@ -20,6 +20,22 @@
 header {
   background-color: #007bff;
 }
+.li-container {
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid  rgb(255, 201, 85);
+    border-radius: 8px; 
+    transition: transform 0.3s ease, box-shadow 0.3s ease; 
+    cursor: pointer; 
+}
+
+.li-container:hover {
+    transform: translateY(-5px); 
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
+    background-color: rgb(255, 201, 85);
+    filter: drop-shadow(0 0 5px rgb(255, 201, 85));
+    transition: transform 0.3s ease-in-out, filter 0.3s ease-in-out;
+}
 
 .container {
   max-width: 800px;
@@ -225,16 +241,25 @@ footer {
           <h3 class="heading-primary u-margin-bottom-small" data-aos="fade-right">Tired of Monotonous Meals?</h3>
 
           <p class="paragraph paragraph--black" data-aos="fade-right">Fed up with repetitive meals? We feel you! etiffy understands your desire for a customized culinary adventure to break the monotony of your routine. We've got you covered with a tailored solution that will turn those long working days into moments of delight.</p>
+          <br>  
+           <p class="paragraph paragraph--black" data-aos="fade-right">Discover What etiffy Offers:</p>
           <br>
-          <p class="paragraph paragraph--black" data-aos="fade-right">Discover What etiffy Offers:</p>
-          <br>
-          <ul class="paragraph__ul">
-              <li class="paragraph__li paragraph__li--add-arrow paragraph paragraph--black" data-aos="fade-right">🍽️ Personalized Menu: Craft your own unique dining experience.</li>
-              <li class="paragraph__li paragraph__li--add-arrow paragraph paragraph--black" data-aos="fade-right">🍱 Eco-Friendly Packaging: Enjoy your meal in environmentally friendly containers.</li>
-              <li class="paragraph__li paragraph__li--add-arrow paragraph paragraph--black" data-aos="fade-right">🚴‍♂️ Efficient Delivery: Delivered by our reliable partners.</li>
-              <li class="paragraph__li paragraph__li--add-arrow paragraph paragraph--black" data-aos="fade-right">🌱 Fresh Ingredients: Indulge in meals made with quality produce and spices.</li>
+         <ul class="paragraph__ul">
+              <div class="li-container" data-aos="fade-right">
+                  <li class="paragraph__li paragraph__li--add-arrow paragraph paragraph--black">🍽️ Personalized Menu: Craft your own unique dining experience.</li>
+              </div>
+              <div class="li-container" data-aos="fade-right">
+                  <li class="paragraph__li paragraph__li--add-arrow paragraph paragraph--black">🍱 Eco-Friendly Packaging: Enjoy your meal in environmentally friendly containers.</li>
+              </div>
+              <div class="li-container" data-aos="fade-right">
+                  <li class="paragraph__li paragraph__li--add-arrow paragraph paragraph--black">🚴‍♂️ Efficient Delivery: Delivered by our reliable partners.</li>
+              </div>
+              <div class="li-container" data-aos="fade-right">
+                  <li class="paragraph__li paragraph__li--add-arrow paragraph paragraph--black">🌱 Fresh Ingredients: Indulge in meals made with quality produce and spices.</li>
+              </div>
           </ul>
           <br>
+          
           <p class="paragraph paragraph--black" data-aos="fade-right">
             Elevate Your Dining with etiffy – Where Every Bite is a Unique Delight!
           </p>
