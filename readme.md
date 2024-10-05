@@ -82,7 +82,7 @@ If you're using different credentials for MySQL, replace root and '' with your M
 
 5. Run the Application
 After completing the above steps, open your browser and visit:
-- http://localhost/alimento-homemade-food-delivery
+- http://localhost/alimento
 You should now see the homepage of the Alimento platform.
 
 ### Happy coding! 👩‍💻🎉
