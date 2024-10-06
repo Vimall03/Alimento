@@ -48,7 +48,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 </head>
 
 <body>
-<h1>Menu Information | <a href='edit_menu.php'><input type='submit' value='EDIT'></a></h1>
+<h1>Menu Information | <a href='edit_menu.php'><input type='submit' value='EDIT'><a style="margin: 10px; " href='home.php'><input  type='submit' value='BACK' ></a></h1>
 
     <table>
         <tr>

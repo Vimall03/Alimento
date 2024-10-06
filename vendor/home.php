@@ -1,4 +1,4 @@
-<?php
+<?php 
 session_start();
 include 'partials/_dbconnect.php';
 $rid = $_SESSION['r_id'];
@@ -6,6 +6,7 @@ if (!isset($_SESSION['vendorloggedin']) || $_SESSION['vendorloggedin'] != true) 
     header("location: vendor_login.php");
     exit;
 }
+
 if ($_SERVER["REQUEST_METHOD"] === "POST") {
     $orderid = $_POST['order_id'];
     $order_status = $_POST['order_status'];
@@ -13,6 +14,10 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     $sql = "UPDATE `orders` SET `order_status` = '$order_status' WHERE `order_id` = '$orderid'";
     $result = mysqli_query($conn, $sql);
 }
+
+// Fetch search keyword and category filter
+$search = isset($_GET['search']) ? $_GET['search'] : '';
+$category_filter = isset($_GET['category']) ? $_GET['category'] : '';
 
 ?>
 
@@ -44,16 +49,22 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         th {
             background-color: #f2f2f2;
         }
+        .logout{
+            margin-left: calc(100% - 20%);
+            margin-top: -4%;
+        }
     </style>
 </head>
 
 <body>
-<header class="bg-dark text-white text-center py-4">
-        <h1>Alimento</h1>
+<header class="text-white text-center py-4" style="background: rgb(142,240,226);
+background: linear-gradient(90deg, rgba(142,240,226,0.7511379551820728) 0%, rgba(234,241,50,1) 34%, rgba(210,10,227,0.8407738095238095) 100%);">
+        <h1>Alimento  <div class="logout"><input  type='submit' class="btn btn-danger" value='LOGOUT'></div></a></h1>
+        
     </header>
 <br>
-    <div class="holder">
-    <h1>Pending Order | <a href='vendor_logout.php'><input type='submit' class="btn btn-danger" value='LOGOUT'></a></h1>
+<div class="holder">
+    <h1>Pending Order</h1>
     <table>
         <tr>
             <th>Order ID</th>
@@ -71,7 +82,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         // Replace this with your database connection code
 
         // Replace this with your SQL query to retrieve data from the database
-        $sql = "SELECT * FROM `orders` WHERE `r_id` = '$rid'AND `order_status` != 'Delivered' ";
+        $sql = "SELECT * FROM orders WHERE r_id = '$rid'AND order_status != 'Delivered' ";
         $result = mysqli_query($conn, $sql);
 
         if ($result->num_rows > 0) {
@@ -112,20 +123,42 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
 <br>
 <br>
-    <h1>Menu Information | <a href='add_menu.php'><input type='submit' class="btn btn-success" value='ADD TO MENU'></a>  <a href='edit_menu.php'><input type='submit' class=" btn btn-primary" value='EDIT MENU'></a> </h1>
+    <h1>Menu Information | 
+        <a href='add_menu.php'><input type='submit' class="btn  " style="background:#068572;  color:white" value='ADD TO MENU'></a>  
+        <a href='edit_menu.php'><input type='submit' class="btn  " style="background:#e77c30; color:white" value='EDIT MENU'></a> 
+    </h1>
+
+    <!-- Search and Filter Form -->
+    <form method="GET" action="home.php" class="mb-3">
+        <input type="text" name="search" placeholder="Search by item name" value="<?php echo htmlspecialchars($search); ?>">
+        <select name="category">
+            <option value="">All Categories</option>
+            <option value="Veg" <?php echo ($category_filter === 'Veg') ? 'selected' : ''; ?>>Veg</option>
+            <option value="Non-Veg" <?php echo ($category_filter === 'Non-Veg') ? 'selected' : ''; ?>>Non-Veg</option>
+        </select>
+        <button type="submit" class="btn btn-secondary">Search/Filter</button>
+    </form>
 
     <table>
         <tr>
             <th>Item ID</th>
             <th>Item Name</th>
-            <!-- <th>Item Description</th> -->
             <th>Item Price</th>
             <th>Item Category</th>
         </tr>
 
         <?php
-        // Retrieve data from the menu table
+        // Modify SQL query to support search and filter
         $sql = "SELECT * FROM `menu` WHERE `r_id` = '$rid'";
+        
+        // If search or filter is applied, add conditions
+        if ($search || $category_filter) {
+            $sql .= " AND (`m_name` LIKE '%$search%' OR `m_type` LIKE '%$search%')";
+            if ($category_filter) {
+                $sql .= " AND `m_type` = '$category_filter'";
+            }
+        }
+
         $result = mysqli_query($conn, $sql);
 
         if ($result->num_rows > 0) {
@@ -133,18 +166,16 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                 echo "<tr>";
                 echo "<td>" . $row['m_id'] . "</td>";
                 echo "<td>" . $row['m_name'] . "</td>";
-                //echo "<td>" . $row['item_description'] . "</td>";
                 echo "<td>" . $row['m_price'] . "</td>";
                 echo "<td>" . $row['m_type'] . "</td>";
+                echo "</tr>";
             }
         } else {
-            echo "<tr><td colspan='6'>ADD items in the menu to display here</td></tr>";
+            echo "<tr><td colspan='6'>No items found</td></tr>";
         }
-
-
         ?>
     </table>
-    </div>
+</div>
 </body>
 
 </html>
