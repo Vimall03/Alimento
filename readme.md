@@ -2,6 +2,26 @@
 
 Alimento is an online homemade food delivery platform that connects passionate home chefs with food enthusiasts. This platform allows home chefs to showcase their culinary skills by offering a variety of homemade dishes to users, who can easily order and enjoy delicious meals from the comfort of their homes.
 
+# Featured In
+
+<table>
+<tr>
+      <th>Event Logo</th>
+      <th>Event Name</th>
+      <th>Event Description</th>
+    </tr>
+    <tr>
+        <td><img src="https://user-images.githubusercontent.com/63473496/213306279-338f7ce9-9a9f-4427-8c2a-3e344874498f.png#gh-dark-mode-only" width="200" height="auto" loading="lazy" alt="GSSoC Ext 24"/></td>
+        <td>GirlScript Summer of Code Ext 2024</td>
+        <td>GSSOC Ext is a one-month-long open-source program by the GirlScript Foundation that runs from October 1 to November 10, 2024</td> 
+    </tr>
+   <tr>
+        <td><img src="https://cdn.prod.website-files.com/63bc83b29094ec80844b6dd5/66fc35d92c74c4e4103f3673_Flyte-at-Hacktoberfest-2024.png" width="200" height="auto" loading="lazy" alt="Hacktoberfest 24"/></td>
+        <td>Hacktoberfest 2024</td>
+        <td>Hacktober Fest is an annual celebration of open-source software development. It's a month-long event encouraging developers to contribute to open-source projects.</td> 
+    </tr>
+</table>
+
 ## 🌟  Key Features
 
 - ⭐ **Average Restaurant Rating**: Users can view the average rating of each restaurant, helping them make informed decisions when selecting their desired dishes.
