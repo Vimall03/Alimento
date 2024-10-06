@@ -2,7 +2,7 @@
 
 Alimento is an online homemade food delivery platform that connects passionate home chefs with food enthusiasts. This platform allows home chefs to showcase their culinary skills by offering a variety of homemade dishes to users, who can easily order and enjoy delicious meals from the comfort of their homes.
 
-# Featured In
+## Featured In
 
 <table>
 <tr>
