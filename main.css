@@ -201,7 +201,8 @@ p{
 .header__paragraph {
     position: relative;
     font-size: 1.6rem;
-    top: 2rem
+    top: 2rem;
+    color:white;
 }
 
 @media (max-width: 56.25em) {
@@ -214,7 +215,7 @@ p{
     }
 
     .header__paragraph {
-        font-size: 1.5rem
+        font-size: 1.5rem;
     }
 }
 

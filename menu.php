@@ -28,12 +28,11 @@ if (isset($_POST['itemsInCart'])) {
 ?>
 
 
-
 <html>
 <head>
     <title>Home</title>
-    <link rel="stylesheet" type="text/css" href="css/style.css">
-    <link rel="stylesheet" type="text/css" href="main.css">
+    <link rel="stylesheet" type="text/css" href="./style.css">
+    <link rel="stylesheet" type="text/css" href="./main.css">
 
 
 
@@ -187,6 +186,7 @@ if (isset($_POST['itemsInCart'])) {
                   <img class="nav__logo-img" src="images/logo/Logo.png">                
               </a>
           </div>
+          
           <div class="grid__span10 nav__links-wrap">
               <ul class="nav__links">
 
@@ -209,6 +209,13 @@ if (isset($_POST['itemsInCart'])) {
                       </a>
                   </li>
               </ul>
+          </div>
+          <div class="theme-switch-wrapper">
+            <label class="theme-switch" for="checkbox">
+              <input type="checkbox" id="checkbox" />
+              <div class="slider"></div>
+            </label>
+            <span id="mode-label">Light Mode</span>
           </div>
       </div>
   </nav>
@@ -315,6 +322,8 @@ if (isset($_POST['itemsInCart'])) {
             preloader.style.display = 'none';
         }
     </script>
+
+    <script src="./darkMode.js"></script>
     
 </body>
 </html>
