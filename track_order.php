@@ -128,6 +128,13 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                   </li>
               </ul>
           </div>
+          <div class="theme-switch-wrapper">
+          <label class="theme-switch" for="checkbox">
+            <input type="checkbox" id="checkbox" />
+            <div class="slider"></div>
+          </label>
+          <span id="mode-label">Light Mode</span>
+        </div>
       </div>
   </nav>
 <br>
@@ -211,6 +218,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         <!-- End of PHP section -->
     </table>
 </div>    
+<script src="./darkMode.js"></script>
 </body>
 
 </html>

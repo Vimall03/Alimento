@@ -1,469 +1,760 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>etiffy - Homemade Food Delivery</title>
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-  <link rel="stylesheet" href="main.css">
-  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-</head>
-<style>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>etiffy - Homemade Food Delivery</title>
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+    />
+    <link rel="stylesheet" href="main.css" />
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+  </head>
+  <style>
     body {
-  font-family: Arial, sans-serif;
-  margin: 0;
-  padding: 0;
-}
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+    }
 
-header {
-  background-color: #007bff;
-}
-.li-container {
-    padding: 10px;
-    margin: 10px 0;
-    border: 1px solid  rgb(255, 201, 85);
-    border-radius: 8px; 
-    transition: transform 0.3s ease, box-shadow 0.3s ease; 
-    cursor: pointer; 
-}
+    header {
+      background-color: #007bff;
+    }
+    .li-container {
+      padding: 10px;
+      margin: 10px 0;
+      border: 1px solid rgb(255, 201, 85);
+      border-radius: 8px;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      cursor: pointer;
+    }
 
-.li-container:hover {
-    transform: translateY(-5px); 
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
-    background-color: rgb(255, 201, 85);
-    filter: drop-shadow(0 0 5px rgb(255, 201, 85));
-    transition: transform 0.3s ease-in-out, filter 0.3s ease-in-out;
-}
+    .li-container:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      background-color: rgb(255, 201, 85);
+      filter: drop-shadow(0 0 5px rgb(255, 201, 85));
+      transition: transform 0.3s ease-in-out, filter 0.3s ease-in-out;
+    }
 
-.container {
-  max-width: 800px;
-}
+    .container {
+      max-width: 800px;
+    }
 
-footer {
-  background-color: #343a40;
-}
+    footer {
+      background-color: #343a40;
+    }
 
-.about__right-img {
-    width: 400px;
-    border-radius: 8px;
-    transition: transform 0.3s ease-out;
-    background-color: transparent;
-    transition: transform 0.3s ease-in-out, filter 0.3s ease-in-out;
-}
-.about__right-img:hover{
-        transform: scale(1.05);
-        filter: drop-shadow(0 0 55px rgb(255, 201, 85));
-          }
-
-</style>
-<body>
-
-  <!-- Navigation for Tablets and Desktops -->
+    .about__right-img {
+      width: 400px;
+      border-radius: 8px;
+      transition: transform 0.3s ease-out;
+      background-color: transparent;
+      transition: transform 0.3s ease-in-out, filter 0.3s ease-in-out;
+    }
+    .about__right-img:hover {
+      transform: scale(1.05);
+      filter: drop-shadow(0 0 55px rgb(255, 201, 85));
+    }
+  </style>
+  <body>
+    <!-- Navigation for Tablets and Desktops -->
     <nav class="nav">
       <div class="nav__wrapper grid">
-          <div class="grid__span2 nav__logo-wrap">
-              <a href="index.html">
-                  <img class="nav__logo-img" src="images/logo/logo.png">                
+        <div class="grid__span2 nav__logo-wrap">
+          <a href="index.html">
+            <img class="nav__logo-img" src="images/logo/logo.png" />
+          </a>
+        </div>
+        <div class="grid__span10 nav__links-wrap">
+          <ul class="nav__links">
+            <li class="nav__link">
+              <a href="#">
+                <img
+                  class="nav__link-icon"
+                  src="images/favicons/idea_32px.png"
+                />
+                <span class="nav__link-item">Concept</span>
               </a>
-          </div>
-          <div class="grid__span10 nav__links-wrap">
-              <ul class="nav__links">
-
-                  <li class="nav__link">
-                      <a href="#">
-                          <img class="nav__link-icon" src="images/favicons/idea_32px.png">
-                          <span class="nav__link-item">Concept</span>
-                      </a>
-                  </li>
-                  <li class="nav__link">
-                      <a href="#">
-                          <img class="nav__link-icon" style="width: 1.8rem" src="images/favicons/tableware_50px.png">
-                          <span class="nav__link-item">About</span> 
-                      </a>
-                  </li>
-                  <li class="nav__link">
-                      <a href="#contact">
-                          <img class="nav__link-icon" src="images/favicons/phone_32px.png">
-                          <span class="nav__link-item">Contact </span>
-                      </a>
-                  </li>
-                  <li class="nav__link">
-                      <a href="user_login.php">
-                          <img class="nav__link-icon" style="width: 1.9rem" src="images/favicons/user_male_circle_32px.png">
-                          <span class="nav__link-item">Sign in</span> 
-                      </a>
-                  </li>
-              </ul>
-          </div>
-          <div class="theme-switch-wrapper">
-            <label class="theme-switch" for="checkbox">
-                <input type="checkbox" id="checkbox">
-                <div class="slider"></div>
-            </label>
-            <span id="mode-label">Light Mode</span>
-        </div> 
+            </li>
+            <li class="nav__link">
+              <a href="#">
+                <img
+                  class="nav__link-icon"
+                  style="width: 1.8rem"
+                  src="images/favicons/tableware_50px.png"
+                />
+                <span class="nav__link-item">About</span>
+              </a>
+            </li>
+            <li class="nav__link">
+              <a href="#contact">
+                <img
+                  class="nav__link-icon"
+                  src="images/favicons/phone_32px.png"
+                />
+                <span class="nav__link-item">Contact </span>
+              </a>
+            </li>
+            <li class="nav__link">
+              <a href="user_login.php">
+                <img
+                  class="nav__link-icon"
+                  style="width: 1.9rem"
+                  src="images/favicons/user_male_circle_32px.png"
+                />
+                <span class="nav__link-item">Sign in</span>
+              </a>
+            </li>
+          </ul>
+        </div>
+        <div class="theme-switch-wrapper">
+          <label class="theme-switch" for="checkbox">
+            <input type="checkbox" id="checkbox" />
+            <div class="slider"></div>
+          </label>
+          <span id="mode-label">Light Mode</span>
+        </div>
       </div>
-  </nav>
+    </nav>
 
-  <!-- Navigation for mobile phones -->
-  <nav class="mob-nav">
+    <!-- Navigation for mobile phones -->
+    <nav class="mob-nav">
       <div class="mob-nav-wrapper">
-          <div class="mob-nav__menu">
-              <img src="images/favicons/menu_30px.png" id="mob-nav-burger" class="mob-nav__menu-icon">
-          </div>
-          <div class="mob-nav__logo-wrap">
-              <a href="index.html">
-                  <img src="images/logo/Logo.png" class="mob-nav__logo-img">
-              </a>
-          </div>
-          <div class="mob-nav__cart">
-              <img src="images/favicons/shopping_cart_50px.png" class="mob-nav__cart-icon">
-          </div>
+        <div class="mob-nav__menu">
+          <img
+            src="images/favicons/menu_30px.png"
+            id="mob-nav-burger"
+            class="mob-nav__menu-icon"
+          />
+        </div>
+        <div class="mob-nav__logo-wrap">
+          <a href="index.html">
+            <img src="images/logo/Logo.png" class="mob-nav__logo-img" />
+          </a>
+        </div>
+        <div class="mob-nav__cart">
+          <img
+            src="images/favicons/shopping_cart_50px.png"
+            class="mob-nav__cart-icon"
+          />
+        </div>
       </div>
-  </nav>
+    </nav>
 
-  <!-- Navgation drawer for mobile -->
-  <aside class="sidebar" id="sidebar">
+    <!-- Navgation drawer for mobile -->
+    <aside class="sidebar" id="sidebar">
       <div class="sidebar__left"></div>
 
       <div class="sidebar__right">
-          <div class="sidebar__close" id="sidebar-close">
-              <img src="images/favicons/delete_sign_white_50px.png" class="sidebar__close-icon">
-          </div>
+        <div class="sidebar__close" id="sidebar-close">
+          <img
+            src="images/favicons/delete_sign_white_50px.png"
+            class="sidebar__close-icon"
+          />
+        </div>
 
-          <div class="sidebar__logo-wrapper">
-              <img src="images/logo/Logo - White.png" class="sidebar__logo">
-          </div>
-          <ul class="sidebar__items">
-              <li class="sidebar__item">
-                  <a href="#">
-                      <img class="sidebar__link-icon" src="images/favicons/circled_menu_50px.png">
-                      <span class="sidebar__link-item">Menu</span>
-                  </a>
-              </li>
-              <li class="sidebar__item">
-                  <a href="#">
-                      <img class="sidebar__link-icon" src="images/favicons/idea_32px.png">
-                      <span class="sidebar__link-item">Concept</span>
-                  </a>
-              </li>
-              <li class="sidebar__item">
-                  <a href="pages/about.html">
-                      <img class="sidebar__link-icon" src="images/favicons/tableware_50px.png">
-                      <span class="sidebar__link-item">About</span> 
-                  </a>
-              </li>
-              <li class="sidebar__item">
-                  <a href="#contact">
-                      <img class="sidebar__link-icon" src="images/favicons/phone_32px.png">
-                      <span class="sidebar__link-item">Contact </span>
-                  </a>
-              </li>
-              <li class="sidebar__item">
-                  <a href="pages/login.html">
-                      <img class="sidebar__link-icon" src="images/favicons/user_male_circle_32px.png">
-                      <span class="sidebar__link-item">Sign in</span> 
-                  </a>
-              </li>
-              <li class="sidebar__item">
-                  <a href="pages/cart.html">
-                      <img class="sidebar__link-icon" src="images/favicons/shopping_cart_50px.png">
-                      <span class="sidebar__link-item">Cart</span>
-                  </a>
-              </li>
-          </ul>
+        <div class="sidebar__logo-wrapper">
+          <img src="images/logo/Logo - White.png" class="sidebar__logo" />
+        </div>
+        <ul class="sidebar__items">
+          <li class="sidebar__item">
+            <a href="#">
+              <img
+                class="sidebar__link-icon"
+                src="images/favicons/circled_menu_50px.png"
+              />
+              <span class="sidebar__link-item">Menu</span>
+            </a>
+          </li>
+          <li class="sidebar__item">
+            <a href="#">
+              <img
+                class="sidebar__link-icon"
+                src="images/favicons/idea_32px.png"
+              />
+              <span class="sidebar__link-item">Concept</span>
+            </a>
+          </li>
+          <li class="sidebar__item">
+            <a href="pages/about.html">
+              <img
+                class="sidebar__link-icon"
+                src="images/favicons/tableware_50px.png"
+              />
+              <span class="sidebar__link-item">About</span>
+            </a>
+          </li>
+          <li class="sidebar__item">
+            <a href="#contact">
+              <img
+                class="sidebar__link-icon"
+                src="images/favicons/phone_32px.png"
+              />
+              <span class="sidebar__link-item">Contact </span>
+            </a>
+          </li>
+          <li class="sidebar__item">
+            <a href="pages/login.html">
+              <img
+                class="sidebar__link-icon"
+                src="images/favicons/user_male_circle_32px.png"
+              />
+              <span class="sidebar__link-item">Sign in</span>
+            </a>
+          </li>
+          <li class="sidebar__item">
+            <a href="pages/cart.html">
+              <img
+                class="sidebar__link-icon"
+                src="images/favicons/shopping_cart_50px.png"
+              />
+              <span class="sidebar__link-item">Cart</span>
+            </a>
+          </li>
+        </ul>
       </div>
-  </aside>
+    </aside>
 
-  <header class="header grid u-no-grid-gap u-max-width-auto" data-aos="fade-right">
-      <div class="header__primary grid__full" >
-          <div class="u-apply-max-width">
-              <div class="header__primary-content">
-                <h3 class="header__title">etiffy </h3>
-                  <h3 class="header__subtitle"> Savory Moments, Delivered Home</h3>
-                  
-  
-                  <p class="header__paragraph">Begin your adventure with etiffy and indulge in flavors that connect you with your community and the heart of homemade goodness. Join us in celebrating the magic that happens when passion meets food. Welcome to etiffy - where every meal is a taste of home.</p>
+    <header
+      class="header grid u-no-grid-gap u-max-width-auto"
+      data-aos="fade-right"
+    >
+      <div class="header__primary grid__full">
+        <div class="u-apply-max-width">
+          <div class="header__primary-content">
+            <h3 class="header__title">etiffy</h3>
+            <h3 class="header__subtitle">Savory Moments, Delivered Home</h3>
 
-                  <button href="user_signup.php" class="primary-button u-margin-top-large" action="user_signup.php">
-                      <a href="user_signup.php">Get Started</a>
-                  </button>
-              </div>
+            <p class="header__paragraph">
+              Begin your adventure with etiffy and indulge in flavors that
+              connect you with your community and the heart of homemade
+              goodness. Join us in celebrating the magic that happens when
+              passion meets food. Welcome to etiffy - where every meal is a
+              taste of home.
+            </p>
 
-              <ul class="header__social-media-links">
-                  <li class="header__social-media-link">
-                      <img src="images/favicons/instagram_new_24px.png" class="header__social-media-link--1">
-                  </li>
-                  <li class="header__social-media-link">
-                      <img src="images/favicons/twitter_26px.png" class="header__social-media-link--2">
-                  </li>
-                  <li class="header__social-media-link">
-                      <img src="images/favicons/mail_filled_50px.png" class="header__social-media-link--3">
-                  </li>
-              </ul>
+            <button
+              href="user_signup.php"
+              class="primary-button u-margin-top-large"
+              action="user_signup.php"
+            >
+              <a href="user_signup.php">Get Started</a>
+            </button>
           </div>
+
+          <ul class="header__social-media-links">
+            <li class="header__social-media-link">
+              <img
+                src="images/favicons/instagram_new_24px.png"
+                class="header__social-media-link--1"
+              />
+            </li>
+            <li class="header__social-media-link">
+              <img
+                src="images/favicons/twitter_26px.png"
+                class="header__social-media-link--2"
+              />
+            </li>
+            <li class="header__social-media-link">
+              <img
+                src="images/favicons/mail_filled_50px.png"
+                class="header__social-media-link--3"
+              />
+            </li>
+          </ul>
+        </div>
       </div>
       <div class="header__secondary grid__full">
-          <div class="grid u-grid-gap-medium u-grid-align-content-center">
-              <div class="grid__half">
-                  <div class="grid u-grid-align-items-center">
-                      <div class="grid__span2">
-                          <img src="images/favicons/last_24_hours_80px.png" alt="24 hours service" class="header__secondary-icon">
-                      </div>
-                      <div class="grid__span10">
-                          <h6 class="heading-secondary heading-tertiary--white" data-aos="fade-right">Experience the Taste of Home, Delivered</h6>
-                          <p class="paragraph paragraph--white"></p>
-                      </div>
-                  </div>
+        <div class="grid u-grid-gap-medium u-grid-align-content-center">
+          <div class="grid__half">
+            <div class="grid u-grid-align-items-center">
+              <div class="grid__span2">
+                <img
+                  src="images/favicons/last_24_hours_80px.png"
+                  alt="24 hours service"
+                  class="header__secondary-icon"
+                />
               </div>
-              <div class="grid__half">
-                  <div class="grid u-grid-align-items-center">
-                      <div class="grid__span2">
-                          <img src="images/favicons/call_male_80px.png" alt="call us" class="header__secondary-icon">
-                      </div>
-                      <div class="grid__span10">
-                          <h6 class="heading-secondary heading-tertiary--white" data-aos="fade-right">Support Local Home Chefs</h6>
-                          <p class="paragraph paragraph--white"> </p>
-                      </div>
-                  </div>
+              <div class="grid__span10">
+                <h6
+                  class="heading-secondary heading-tertiary--white"
+                  data-aos="fade-right"
+                >
+                  Experience the Taste of Home, Delivered
+                </h6>
+                <p class="paragraph paragraph--white"></p>
               </div>
+            </div>
           </div>
+          <div class="grid__half">
+            <div class="grid u-grid-align-items-center">
+              <div class="grid__span2">
+                <img
+                  src="images/favicons/call_male_80px.png"
+                  alt="call us"
+                  class="header__secondary-icon"
+                />
+              </div>
+              <div class="grid__span10">
+                <h6
+                  class="heading-secondary heading-tertiary--white"
+                  data-aos="fade-right"
+                >
+                  Support Local Home Chefs
+                </h6>
+                <p class="paragraph paragraph--white"></p>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
-  </header>
-<br>
-<br>
-<br>
+    </header>
+    <br />
+    <br />
+    <br />
 
-  <section class="about grid u-grid-align-items-center">
+    <section class="about grid u-grid-align-items-center">
       <div class="grid__span8">
-          <h3 class="heading-primary u-margin-bottom-small" data-aos="fade-right">Tired of Monotonous Meals?</h3>
+        <h3 class="heading-primary u-margin-bottom-small" data-aos="fade-right">
+          Tired of Monotonous Meals?
+        </h3>
 
-          <p class="paragraph paragraph--black" data-aos="fade-right">Fed up with repetitive meals? We feel you! etiffy understands your desire for a customized culinary adventure to break the monotony of your routine. We've got you covered with a tailored solution that will turn those long working days into moments of delight.</p>
-          <br>  
-           <p class="paragraph paragraph--black" data-aos="fade-right">Discover What etiffy Offers:</p>
-          <br>
-         <ul class="paragraph__ul">
-              <div class="li-container" data-aos="fade-right">
-                  <li class="paragraph__li paragraph__li--add-arrow paragraph paragraph--black">🍽️ Personalized Menu: Craft your own unique dining experience.</li>
-              </div>
-              <div class="li-container" data-aos="fade-right">
-                  <li class="paragraph__li paragraph__li--add-arrow paragraph paragraph--black">🍱 Eco-Friendly Packaging: Enjoy your meal in environmentally friendly containers.</li>
-              </div>
-              <div class="li-container" data-aos="fade-right">
-                  <li class="paragraph__li paragraph__li--add-arrow paragraph paragraph--black">🚴‍♂️ Efficient Delivery: Delivered by our reliable partners.</li>
-              </div>
-              <div class="li-container" data-aos="fade-right">
-                  <li class="paragraph__li paragraph__li--add-arrow paragraph paragraph--black">🌱 Fresh Ingredients: Indulge in meals made with quality produce and spices.</li>
-              </div>
-          </ul>
-          <br>
-          
-          <p class="paragraph paragraph--black" data-aos="fade-right">
-            Elevate Your Dining with etiffy – Where Every Bite is a Unique Delight!
-          </p>
+        <p class="paragraph paragraph--black" data-aos="fade-right">
+          Fed up with repetitive meals? We feel you! etiffy understands your
+          desire for a customized culinary adventure to break the monotony of
+          your routine. We've got you covered with a tailored solution that will
+          turn those long working days into moments of delight.
+        </p>
+        <br />
+        <p class="paragraph paragraph--black" data-aos="fade-right">
+          Discover What etiffy Offers:
+        </p>
+        <br />
+        <ul class="paragraph__ul">
+          <div class="li-container" data-aos="fade-right">
+            <li
+              class="paragraph__li paragraph__li--add-arrow paragraph paragraph--black"
+            >
+              🍽️ Personalized Menu: Craft your own unique dining experience.
+            </li>
+          </div>
+          <div class="li-container" data-aos="fade-right">
+            <li
+              class="paragraph__li paragraph__li--add-arrow paragraph paragraph--black"
+            >
+              🍱 Eco-Friendly Packaging: Enjoy your meal in environmentally
+              friendly containers.
+            </li>
+          </div>
+          <div class="li-container" data-aos="fade-right">
+            <li
+              class="paragraph__li paragraph__li--add-arrow paragraph paragraph--black"
+            >
+              🚴‍♂️ Efficient Delivery: Delivered by our reliable partners.
+            </li>
+          </div>
+          <div class="li-container" data-aos="fade-right">
+            <li
+              class="paragraph__li paragraph__li--add-arrow paragraph paragraph--black"
+            >
+              🌱 Fresh Ingredients: Indulge in meals made with quality produce
+              and spices.
+            </li>
+          </div>
+        </ul>
+        <br />
 
-          <button class="primary-button u-margin-top-medium">
-              <a href="#">CALL EXECUTIVE</a>
-          </button>
+        <p class="paragraph paragraph--black" data-aos="fade-right">
+          Elevate Your Dining with etiffy – Where Every Bite is a Unique
+          Delight!
+        </p>
+
+        <button class="primary-button u-margin-top-medium">
+          <a href="#">CALL EXECUTIVE</a>
+        </button>
       </div>
       <div class="grid__span4">
-          <img src="images/img-comp/about-illus.png" alt="Man eating noodles" class="about__right-img">
+        <img
+          src="images/img-comp/about-illus.png"
+          alt="Man eating noodles"
+          class="about__right-img"
+        />
       </div>
-  </section>
-<br>
-<br>
-<br>
-<br>
-  <section class="info-banner u-max-width-auto u-margin-top-small">
+    </section>
+    <br />
+    <br />
+    <br />
+    <br />
+    <section class="info-banner u-max-width-auto u-margin-top-small">
       <div class="grid u-apply-max-width">
-          <div class="info-banner__box info-banner__box--1 grid__full u-grid-align-items-center">
-              <img src="images/favicons/last_24_hours_80px.png" alt="Logo" class="info-banner__icon">
-              <div class="info-banner__details">
-                  <h3 class="heading-secondary heading-secondary--white heading-secondary--uppercase">Available all time</h3>
-                  <p class="paragraph paragraph--white">We are available 24/7 in your service. Keeping your tummy full is our main goal. Delivering quality tiffins and spreading happiness is our primary goal.</p>
-              </div>
+        <div
+          class="info-banner__box info-banner__box--1 grid__full u-grid-align-items-center"
+        >
+          <img
+            src="images/favicons/last_24_hours_80px.png"
+            alt="Logo"
+            class="info-banner__icon"
+          />
+          <div class="info-banner__details">
+            <h3
+              class="heading-secondary heading-secondary--white heading-secondary--uppercase"
+            >
+              Available all time
+            </h3>
+            <p class="paragraph paragraph--white">
+              We are available 24/7 in your service. Keeping your tummy full is
+              our main goal. Delivering quality tiffins and spreading happiness
+              is our primary goal.
+            </p>
           </div>
-          <div class="info-banner__box info-banner__box--2 grid__full u-grid-align-items-center">
-              <div class="info-banner__details">
-                  <h3 class="heading-secondary heading-secondary--white heading-secondary--uppercase">Just give us a call</h3>
-                  <p class="paragraph paragraph--white">Call us anytime at <b>9820223338</b> and get details of our services from our executives. Giving ease of access to our customers is our speciality.</p>
-              </div>
-              <img src="images/favicons/call_male_80px.png" alt="Logo" class="info-banner__icon">
+        </div>
+        <div
+          class="info-banner__box info-banner__box--2 grid__full u-grid-align-items-center"
+        >
+          <div class="info-banner__details">
+            <h3
+              class="heading-secondary heading-secondary--white heading-secondary--uppercase"
+            >
+              Just give us a call
+            </h3>
+            <p class="paragraph paragraph--white">
+              Call us anytime at <b>9820223338</b> and get details of our
+              services from our executives. Giving ease of access to our
+              customers is our speciality.
+            </p>
           </div>
+          <img
+            src="images/favicons/call_male_80px.png"
+            alt="Logo"
+            class="info-banner__icon"
+          />
+        </div>
       </div>
-  </section>
-  <section class="testimonials grid">
-    <div class="grid__full">
-        <h3 class="heading-primary" data-aos="zoom-out-down">What our customers say</h3>
+    </section>
+    <section class="testimonials grid">
+      <div class="grid__full">
+        <h3 class="heading-primary" data-aos="zoom-out-down">
+          What our customers say
+        </h3>
 
         <div class="testimonials__container grid u-grid-gap-large">
-            <div class="grid__third">
-                <div class="testimonials__card" data-aos="zoom-out-down">
-                    <img src="https://e7.pngegg.com/pngimages/439/162/png-clipart-matt-leblanc-friends-joey-tribbiani-chandler-bing-rachel-green-others-television-film-thumbnail.png" alt="People" class="testimonials__img testimonials__img--1">
-                    <div class="testimonials__details">
-                        <h3 class="heading-secondary text-align-center u-margin-top-large u-margin-bottom-small">JOEY TRIBBIANI</h3>
-                        <p class="paragraph paragraph--light text-align-center">Hey, how you doin'? So, I gotta tell you about this amazing experience I had with Alimento. It's like they read my mind or something, 'cause they totally get what a guy needs in his meals, you know what I mean?  🌟🌟🌟🌟, baby!</p>
-                    </div>
-                </div>
+          <div class="grid__third">
+            <div class="testimonials__card" data-aos="zoom-out-down">
+              <img
+                src="https://e7.pngegg.com/pngimages/439/162/png-clipart-matt-leblanc-friends-joey-tribbiani-chandler-bing-rachel-green-others-television-film-thumbnail.png"
+                alt="People"
+                class="testimonials__img testimonials__img--1"
+              />
+              <div class="testimonials__details">
+                <h3
+                  class="heading-secondary text-align-center u-margin-top-large u-margin-bottom-small"
+                >
+                  JOEY TRIBBIANI
+                </h3>
+                <p class="paragraph paragraph--light text-align-center">
+                  Hey, how you doin'? So, I gotta tell you about this amazing
+                  experience I had with Alimento. It's like they read my mind or
+                  something, 'cause they totally get what a guy needs in his
+                  meals, you know what I mean? 🌟🌟🌟🌟, baby!
+                </p>
+              </div>
             </div>
-            <div class="grid__third">
-                <div class="testimonials__card" data-aos="zoom-out-down">
-                    <img src="https://e7.pngegg.com/pngimages/336/430/png-clipart-barney-stinson-how-i-met-your-mother-neil-patrick-harris-ted-mosby-robin-scherbatsky-how-i-met-your-mother-television-microphone-thumbnail.png" alt="People" class="testimonials__img testimonials__img--2">
-                    <div class="testimonials__details">
-                        <h3 class="heading-secondary text-align-center u-margin-top-large u-margin-bottom-small">BARNEY STINSON</h3>
-                        <p class="paragraph paragraph--light text-align-center"> "Legendary! Alimento is the ultimate play in the food game. Picture this – personalized menus, fresh ingredients that suit my 'suit up' lifestyle, and deliveries that are as fast as my pick-up lines. It's not just five stars, it's a suit up, high five, and legendary salute! "</p>
-                    </div>
-                </div>
+          </div>
+          <div class="grid__third">
+            <div class="testimonials__card" data-aos="zoom-out-down">
+              <img
+                src="https://e7.pngegg.com/pngimages/336/430/png-clipart-barney-stinson-how-i-met-your-mother-neil-patrick-harris-ted-mosby-robin-scherbatsky-how-i-met-your-mother-television-microphone-thumbnail.png"
+                alt="People"
+                class="testimonials__img testimonials__img--2"
+              />
+              <div class="testimonials__details">
+                <h3
+                  class="heading-secondary text-align-center u-margin-top-large u-margin-bottom-small"
+                >
+                  BARNEY STINSON
+                </h3>
+                <p class="paragraph paragraph--light text-align-center">
+                  "Legendary! Alimento is the ultimate play in the food game.
+                  Picture this – personalized menus, fresh ingredients that suit
+                  my 'suit up' lifestyle, and deliveries that are as fast as my
+                  pick-up lines. It's not just five stars, it's a suit up, high
+                  five, and legendary salute! "
+                </p>
+              </div>
             </div>
-            <div class="grid__third">
-                <div class="testimonials__card" data-aos="zoom-out-down">
-                    <img src="https://w7.pngwing.com/pngs/786/665/png-transparent-matthew-perry-monica-geller-chandler-bing-friends-rachel-green-friends-thumbnail.png" alt="People" class="testimonials__img testimonials__img--3">
-                    <div class="testimonials__details">
-                        <h3 class="heading-secondary text-align-center u-margin-top-large u-margin-bottom-small">CHANDLER BING</h3>
-                        <p class="paragraph paragraph--light text-align-center">"Alimento, cooking up excellence just like my blue meth. With personalized menus that rival my chemistry equations, ingredients fresher than my laboratory setup, and deliveries as precise as my Heisenberg alter ego."</p>
-                    </div>
-                </div>
+          </div>
+          <div class="grid__third">
+            <div class="testimonials__card" data-aos="zoom-out-down">
+              <img
+                src="https://w7.pngwing.com/pngs/786/665/png-transparent-matthew-perry-monica-geller-chandler-bing-friends-rachel-green-friends-thumbnail.png"
+                alt="People"
+                class="testimonials__img testimonials__img--3"
+              />
+              <div class="testimonials__details">
+                <h3
+                  class="heading-secondary text-align-center u-margin-top-large u-margin-bottom-small"
+                >
+                  CHANDLER BING
+                </h3>
+                <p class="paragraph paragraph--light text-align-center">
+                  "Alimento, cooking up excellence just like my blue meth. With
+                  personalized menus that rival my chemistry equations,
+                  ingredients fresher than my laboratory setup, and deliveries
+                  as precise as my Heisenberg alter ego."
+                </p>
+              </div>
             </div>
+          </div>
         </div>
-        
-        <div class="testimonials__controllers">
-            <div class="testimonials__indicator testimonials__indicator--1"></div>
-            <div class="testimonials__indicator testimonials__indicator--2"></div>
-            <div class="testimonials__indicator testimonials__indicator--3"></div>
-        </div>
-    </div>
 
-</section>
-<br>
-<br>
-<br>
-<br>
-<section class="contact grid" id="contact">
-    <div class="grid__full">
-        <h3 class="heading-primary u-margin-bottom-medium" data-aos="fade-right">Get in touch</h3>
+        <div class="testimonials__controllers">
+          <div class="testimonials__indicator testimonials__indicator--1"></div>
+          <div class="testimonials__indicator testimonials__indicator--2"></div>
+          <div class="testimonials__indicator testimonials__indicator--3"></div>
+        </div>
+      </div>
+    </section>
+    <br />
+    <br />
+    <br />
+    <br />
+    <section class="contact grid" id="contact">
+      <div class="grid__full">
+        <h3
+          class="heading-primary u-margin-bottom-medium"
+          data-aos="fade-right"
+        >
+          Get in touch
+        </h3>
 
         <div class="contact__container">
-            <div class="contact__left">
-                <h5 class="heading-secondary heading-secondary--uppercase heading-tertiary--white heading-secondary--semi-bold u-margin-bottom-medium" data-aos="fade-right">Our contacts</h5>
+          <div class="contact__left">
+            <h5
+              class="heading-secondary heading-secondary--uppercase heading-tertiary--white heading-secondary--semi-bold u-margin-bottom-medium"
+              data-aos="fade-right"
+            >
+              Our contacts
+            </h5>
 
-                <ul class="contact__ul u-margin-top-large">
-                    <li class="contact__li contact--white u-grid-align-items-center">
-                        <div class="contact__icon">
-                            <img src="images/favicons/location_filled_50px.png" alt="icon">
-                        </div>
-                        <p class="contact__li-text" data-aos="fade-right">10th Street, Civil Lines Sector B13, Himachal Pradesh</p>
-                    </li>
-                    <li class="contact__li contact--white">
-                        <div class="contact__icon">
-                            <img src="images/favicons/phone_filled_50px.png" alt="icon">
-                        </div>
-                        <p class="contact__li-text" data-aos="fade-right">+91 9820223338</p>
-                    </li>
-                    <li class="contact__li contact--white">
-                        <div class="contact__icon">
-                            <img src="images/favicons/mail_filled_50px.png" alt="icon">
-                        </div>
-                        <p class="contact__li-text" data-aos="fade-right">hello@tiffy.com</p>
-                    </li>
-                </ul>
-            </div>
-            <div class="contact__right">
+            <ul class="contact__ul u-margin-top-large">
+              <li class="contact__li contact--white u-grid-align-items-center">
+                <div class="contact__icon">
+                  <img
+                    src="images/favicons/location_filled_50px.png"
+                    alt="icon"
+                  />
+                </div>
+                <p class="contact__li-text" data-aos="fade-right">
+                  10th Street, Civil Lines Sector B13, Himachal Pradesh
+                </p>
+              </li>
+              <li class="contact__li contact--white">
+                <div class="contact__icon">
+                  <img src="images/favicons/phone_filled_50px.png" alt="icon" />
+                </div>
+                <p class="contact__li-text" data-aos="fade-right">
+                  +91 9820223338
+                </p>
+              </li>
+              <li class="contact__li contact--white">
+                <div class="contact__icon">
+                  <img src="images/favicons/mail_filled_50px.png" alt="icon" />
+                </div>
+                <p class="contact__li-text" data-aos="fade-right">
+                  hello@tiffy.com
+                </p>
+              </li>
+            </ul>
+          </div>
+          <div class="contact__right">
+            <h5
+              class="heading-secondary heading-secondary--uppercase heading-secondary--semi-bold u-margin-bottom-medium"
+              data-aos="fade-right"
+            >
+              Send us a message
+            </h5>
 
-                <h5 class="heading-secondary heading-secondary--uppercase heading-secondary--semi-bold u-margin-bottom-medium" data-aos="fade-right">Send us a message</h5>
-
-                <form class="form">
-                    <div class="grid u-grid-gap-small">
-                        <input type="text" id="name" placeholder="John Doe" class="form__input grid__half" data-aos="fade-right">
-                        <input type="email" id="email" placeholder="example@example.com" class="form__input grid__half">
-                    </div>
-                    <div class="grid">
-                        <textarea id="message" placeholder="Write message here..." class="form__textarea grid__full" data-aos="fade-right"></textarea>
-                    </div>
-                    <button class="primary-button form__button u-margin-top-small" type="submit">
-                        <p class="paragraph paragraph--white" data-aos="fade-right">SEND</p>
-                    </button>
-                </form>
-            </div>
-            
+            <form class="form">
+              <div class="grid u-grid-gap-small">
+                <input
+                  type="text"
+                  id="name"
+                  placeholder="John Doe"
+                  class="form__input grid__half"
+                  data-aos="fade-right"
+                />
+                <input
+                  type="email"
+                  id="email"
+                  placeholder="example@example.com"
+                  class="form__input grid__half"
+                />
+              </div>
+              <div class="grid">
+                <textarea
+                  id="message"
+                  placeholder="Write message here..."
+                  class="form__textarea grid__full"
+                  data-aos="fade-right"
+                ></textarea>
+              </div>
+              <button
+                class="primary-button form__button u-margin-top-small"
+                type="submit"
+              >
+                <p class="paragraph paragraph--white" data-aos="fade-right">
+                  SEND
+                </p>
+              </button>
+            </form>
+          </div>
         </div>
-    </div>
-</section>
-<br>
-<br>
-<br>
-<br>
-<footer class="footer">
-    <div class="footer__container u-apply-max-width">
+      </div>
+    </section>
+    <br />
+    <br />
+    <br />
+    <br />
+    <footer class="footer">
+      <div class="footer__container u-apply-max-width">
         <div class="footer__intro u-grid-align-self-center">
-            <img src="images/logo/Logo - White.png" alt="Etiffy Logo" class="footer__logo">
+          <img
+            src="images/logo/Logo - White.png"
+            alt="Etiffy Logo"
+            class="footer__logo"
+          />
 
-            <p class="paragraph paragraph--white paragraph--light paragraph--small" style="width: 90%">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Explicabo aut, ab sequi obcaecati alias amet sunt. Adipisci earum, dignissimos at doloribus molestias ratione!</p>
+          <p
+            class="paragraph paragraph--white paragraph--light paragraph--small"
+            style="width: 90%"
+          >
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Explicabo
+            aut, ab sequi obcaecati alias amet sunt. Adipisci earum, dignissimos
+            at doloribus molestias ratione!
+          </p>
         </div>
         <div class="footer__info">
-            <h5 class="heading-secondary heading-secondary--semi-bold heading-secondary--white">INFORMATION</h5>
+          <h5
+            class="heading-secondary heading-secondary--semi-bold heading-secondary--white"
+          >
+            INFORMATION
+          </h5>
 
-            <ul class="footer__ul">
-                <li class="footer__li"><a href="#">Menus</a> </li>
-                <li class="footer__li"><a href="#">Offers</a> </li>
-                <li class="footer__li"><a href="#">Corporate Catering</a></li>
-                <li class="footer__li"><a href="#">Concept</a> </li>
-                <li class="footer__li"><a href="#">Contact Us</a></li>
-            </ul>
+          <ul class="footer__ul">
+            <li class="footer__li"><a href="#">Menus</a></li>
+            <li class="footer__li"><a href="#">Offers</a></li>
+            <li class="footer__li"><a href="#">Corporate Catering</a></li>
+            <li class="footer__li"><a href="#">Concept</a></li>
+            <li class="footer__li"><a href="#">Contact Us</a></li>
+          </ul>
         </div>
         <div class="footer__meals">
-            <h5 class="heading-secondary heading-secondary--semi-bold heading-secondary--white">MEALS</h5>
+          <h5
+            class="heading-secondary heading-secondary--semi-bold heading-secondary--white"
+          >
+            MEALS
+          </h5>
 
-            <ul class="footer__ul">
-                <li class="footer__li"><a href="#">Standard Thali</a></li>
-                <li class="footer__li"><a href="#">Mini Thali</a></li>
-                <li class="footer__li"><a href="#">Individual Items</a></li>
-            </ul>
+          <ul class="footer__ul">
+            <li class="footer__li"><a href="#">Standard Thali</a></li>
+            <li class="footer__li"><a href="#">Mini Thali</a></li>
+            <li class="footer__li"><a href="#">Individual Items</a></li>
+          </ul>
         </div>
         <div class="footer__contact">
-            <h5 class="heading-secondary heading-secondary--semi-bold heading-secondary--white">CONTACT US</h5>
+          <h5
+            class="heading-secondary heading-secondary--semi-bold heading-secondary--white"
+          >
+            CONTACT US
+          </h5>
 
-            <ul class="contact__ul footer__aboutus-ul">
-                <li class="contact__li contact--white u-grid-align-items-center">
-                    <div class="contact__icon">
-                        <img src="images/favicons/location_filled_50px.png" alt="icon">
-                    </div>
-                    <p class="contact__li-text">10th Street, Civil Lines Sector B13, Himachal Pradesh</p>
-                </li>
-                <li class="contact__li contact--white">
-                    <div class="contact__icon">
-                        <img src="images/favicons/phone_filled_50px.png" alt="icon">
-                    </div>
-                    <p class="contact__li-text">+91 9820223338</p>
-                </li>
-                <li class="contact__li contact--white">
-                    <div class="contact__icon">
-                        <img src="images/favicons/mail_filled_50px.png" alt="icon">
-                    </div>
-                    <p class="contact__li-text">hello@tiffy.com</p>
-                </li>
-            </ul>
+          <ul class="contact__ul footer__aboutus-ul">
+            <li class="contact__li contact--white u-grid-align-items-center">
+              <div class="contact__icon">
+                <img
+                  src="images/favicons/location_filled_50px.png"
+                  alt="icon"
+                />
+              </div>
+              <p class="contact__li-text">
+                10th Street, Civil Lines Sector B13, Himachal Pradesh
+              </p>
+            </li>
+            <li class="contact__li contact--white">
+              <div class="contact__icon">
+                <img src="images/favicons/phone_filled_50px.png" alt="icon" />
+              </div>
+              <p class="contact__li-text">+91 9820223338</p>
+            </li>
+            <li class="contact__li contact--white">
+              <div class="contact__icon">
+                <img src="images/favicons/mail_filled_50px.png" alt="icon" />
+              </div>
+              <p class="contact__li-text">hello@tiffy.com</p>
+            </li>
+          </ul>
         </div>
-    </div>
-</footer>
+      </div>
+    </footer>
 
-<p class=" u-apply-max-width paragraph paragraph--small paragraph--grey" style="padding: 1rem">Something, 2019, All rights reserved</p>
+    <p
+      class="u-apply-max-width paragraph paragraph--small paragraph--grey"
+      style="padding: 1rem"
+    >
+      Something, 2019, All rights reserved
+    </p>
 
-<script>
-    // Mobile Navigation Functionality
-    document.querySelector("#mob-nav-burger").addEventListener("click", () => toggleNavView("block"));
-    document.querySelector("#sidebar-close").addEventListener("click", () => toggleNavView("none"));
+    <script>
+      // Mobile Navigation Functionality
+      document
+        .querySelector("#mob-nav-burger")
+        .addEventListener("click", () => toggleNavView("block"));
+      document
+        .querySelector("#sidebar-close")
+        .addEventListener("click", () => toggleNavView("none"));
 
-    const toggleNavView = state => {
+      const toggleNavView = (state) => {
         document.querySelector(".sidebar").style.display = state;
         document.querySelector(".sidebar__right").style.display = state;
-    }
-</script>
-<script src="js/external.js"></script>
-<script src="js/index.js"></script>
-<script src="darkMode.js"></script>
-<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-<script>
-    AOS.init();
-</script>
-</body>
+      };
+    </script>
+    <script src="js/external.js"></script>
+    <script src="js/index.js"></script>
+    <script src="darkMode.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+      AOS.init();
+    </script>
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        const form = document.querySelector(".form");
+
+        const savedFormData = JSON.parse(localStorage.getItem("formData"));
+
+        if (savedFormData) {
+          document.getElementById("name").value = savedFormData.name || "";
+          document.getElementById("email").value = savedFormData.email || "";
+          document.getElementById("message").value =
+            savedFormData.message || "";
+        }
+
+        form.addEventListener("submit", function (event) {
+          event.preventDefault();
+
+          const formData = {
+            name: document.getElementById("name").value,
+            email: document.getElementById("email").value,
+            message: document.getElementById("message").value,
+          };
+
+          localStorage.setItem("formData", JSON.stringify(formData));
+
+          alert("Form data has been updated successfully!");
+          form.reset();
+        });
+      });
+    </script>
+  </body>
 </html>
