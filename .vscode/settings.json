@@ -1,3 +1,4 @@
 {
-    "php.validate.run": "onSave"
+    "php.validate.run": "onSave",
+    "liveServer.settings.port": 5502
 }
