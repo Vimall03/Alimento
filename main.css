@@ -2516,8 +2516,24 @@ p{
 }
 
 .login-signup-form__input-group {
-    display: grid;
-    grid-gap: 1rem
+    display: flex;
+    gap: 1rem;
+}
+
+.login-signup-form__inputfield{
+    font-size: 1.5rem;
+    background: none;
+    border: none;
+    width: 100%;
+}
+
+.login-signup-form__inputfield:focus{
+    outline: none;
+}
+
+.eye-open{
+    font-size: 1.5rem;
+    cursor: pointer;
 }
 
 .login-signup-form__input-group--full {
@@ -2542,38 +2558,38 @@ p{
     border-radius: .7rem
 }
 
-.login-signup-form__input::-webkit-input-placeholder {
+.login-signup-form__inputfield::-webkit-input-placeholder {
     font-weight: 400;
     color: rgba(0, 0, 0, 0.4)
 }
 
-.login-signup-form__input::-moz-placeholder {
+.login-signup-form__inputfield::-moz-placeholder {
     font-weight: 400;
     color: rgba(0, 0, 0, 0.4)
 }
 
-.login-signup-form__input:-ms-input-placeholder {
+.login-signup-form__inputfield:-ms-input-placeholder {
     font-weight: 400;
     color: rgba(0, 0, 0, 0.4)
 }
 
-.login-signup-form__input::-ms-input-placeholder {
+.login-signup-form__inputfield::-ms-input-placeholder {
     font-weight: 400;
     color: rgba(0, 0, 0, 0.4)
 }
 
-.login-signup-form__input::placeholder {
+.login-signup-form__inputfield::placeholder {
     font-weight: 400;
     color: rgba(0, 0, 0, 0.4)
 }
 
-.login-signup-form__input[type="password"] {
+.login-signup-form__inputfield[type="password"] {
     font-weight: 900;
     letter-spacing: 6px
 }
 
-.login-signup-form__input[type="password"]::-webkit-input-placeholder {
-    font-size: 8.5rem;
+.login-signup-form__inputfield[type="password"]::-webkit-input-placeholder {
+    font-size: 5.5rem;
     font-weight: 400;
     letter-spacing: 4px;
     color: rgba(0, 0, 0, 0.3)
@@ -2609,7 +2625,9 @@ p{
 
 .login-signup-form__input,
 .login-signup-form__button {
-    outline: none
+    outline: none;
+    display: flex;
+    align-items: center;
 }
 
 .login-signup-form__submit {
@@ -2634,6 +2652,10 @@ p{
     .login-signup-form__input-group--full,
     .login-signup-form__input-group--half {
         grid-template-columns: 1fr
+    }
+
+    .login-signup-form__input-group{
+        flex-wrap: wrap;
     }
 
     .login-signup-form__input {

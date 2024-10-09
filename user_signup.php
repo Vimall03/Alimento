@@ -5,7 +5,11 @@ use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\SMTP;
 use PHPMailer\PHPMailer\Exception;
 
+session_start();
 
+if (isset($_SESSION['loggedin']) || $_SESSION['loggedin'] == true){
+  header("location: home.php");
+}
 
 
 $showAlert = false;
@@ -16,6 +20,8 @@ if($_SERVER["REQUEST_METHOD"]=="POST"){
   $email= $_POST["email"];
 
   if (filter_var($email, FILTER_VALIDATE_EMAIL)) {  
+  // Password complexity pattern (at least one lowercase, one uppercase, one digit, one special char, and minimum 8 characters)
+  $pattern = '/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[\W_]).{8,}$/';
 
   $password = $_POST["password"];
   $cpassword = $_POST["cpassword"];
@@ -23,6 +29,10 @@ if($_SERVER["REQUEST_METHOD"]=="POST"){
   if ($email == '' || $password == '') {
     $showError = "Enter valid Email/password";
   }
+  // Preg_match for the password pattern
+  elseif (!preg_match($pattern, $password)) {
+    $showError = "Password must be at least 8 characters long, include at least one uppercase letter, one lowercase letter, one digit, and one special character.";
+  } 
   else{
     $existSql = "SELECT * FROM `users` WHERE email = '$email' ";
     $result = mysqli_query($conn, $existSql);
@@ -190,11 +200,16 @@ else {
                         <input type="email" name="email" class="login-signup-form__input" id="email-id" placeholder="example@example.com">
                         
                     </div>
-                    <div class="login-signup-form__input-group login-signup-form__input-group--half">
-                        <input type="password" name="password" class="login-signup-form__input" id="password" placeholder=".......">
-                        <input type="password" name="cpassword" class="login-signup-form__input" id="password" placeholder=".......">
+                    <div class="login-signup-form__input-group">
+                      <div class="login-signup-form__input" onclick="document.getElementById('password').focus()">
+                          <input type="password" name="password" class="login-signup-form__inputfield" id="password" placeholder=".......">
+                          <i class="bi bi-eye-fill eye-open" id="eye-btn-p"></i>
+                      </div>
+                      <div class="login-signup-form__input" onclick="document.getElementById('cpassword').focus()">
+                          <input type="password" name="cpassword" class="login-signup-form__inputfield" id="cpassword" placeholder=".......">
+                          <i class="bi bi-eye-fill eye-open" id="eye-btn-cp"></i>
+                      </div>
                     </div>
-                    
                     <button class="login-signup-form__submit u-margin-top-extra-large" type="submit" id="submit-login">Sign Up</button>
                 </form>
             </div>
@@ -223,7 +238,38 @@ else {
         </div>
     </section>
 
+    <script>
+      const eyeBtnPassword =document.getElementById("eye-btn-p");
+      const eyeBtnConfirmPassword =document.getElementById("eye-btn-cp");
+      const passwordField =document.getElementById("password");
+      const confirmPasswordField =document.getElementById("cpassword");
 
+      eyeBtnPassword.addEventListener('click', ()=>{
+        let attr =passwordField.getAttribute('type')
+        if(attr == "password"){
+          passwordField.setAttribute('type','text');
+          eyeBtnPassword.classList.remove("bi-eye-fill")
+          eyeBtnPassword.classList.add("bi-eye-slash-fill")
+        }else{
+          passwordField.setAttribute('type','password');
+          eyeBtnPassword.classList.add("bi-eye-fill")
+          eyeBtnPassword.classList.remove("bi-eye-slash-fill")
+        }
+      })
+
+      eyeBtnConfirmPassword.addEventListener('click', ()=>{
+        let attr =confirmPasswordField.getAttribute('type')
+        if(attr == "password"){
+          confirmPasswordField.setAttribute('type','text');
+          eyeBtnConfirmPassword.classList.remove("bi-eye-fill")
+          eyeBtnConfirmPassword.classList.add("bi-eye-slash-fill")
+        }else{
+          confirmPasswordField.setAttribute('type','password');
+          eyeBtnConfirmPassword.classList.add("bi-eye-fill")
+          eyeBtnConfirmPassword.classList.remove("bi-eye-slash-fill")
+        }
+      })
+    </script>
   
 </body>
 

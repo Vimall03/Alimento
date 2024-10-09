@@ -29,8 +29,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         SET `account_status` = 'Verified' , `resetcode` = '0'
         WHERE `email` = '$email';";
                     $result = mysqli_query($conn, $sql);
-                    session_destroy();
-                    header("location: user_login.php");
+                    $_SESSION['loggedin'] = true;
+                    header("location: home.php");
                 } else {
                     $showError = "Invalid OTP";
                 }
