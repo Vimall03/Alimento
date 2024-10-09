@@ -2,22 +2,23 @@
 $login= false;
 $showError = false;
 $showalert = false;
+session_start();
+
+if (isset($_SESSION['loggedin']) || $_SESSION['loggedin'] == true){
+  header("location: home.php");
+}
 
 
 if ($_SERVER["REQUEST_METHOD"]=="POST"){
   include 'partials/_dbconnect.php';
   $email = $_POST["email"];
   $password = $_POST["password"];
-  // Password complexity pattern (at least one lowercase, one uppercase, one digit, one special char, and minimum 8 characters)
-  $pattern = '/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[\W_]).{8,}$/';
+ 
 //to check if the password/ email is blank
     if($email == '' || $password == ''){
       $showError = "Enter valid Email/password";
     }
-    elseif (!preg_match($pattern, $password)) {
-      $showError = "Password must be at least 8 characters long, include at least one uppercase letter, one lowercase letter, one digit, and one special character.";
-  } 
-      //if not blank then go to else
+    //if not blank then go to else
     else {
         $sql = "select * FROM users  where email = '$email'";
         $result = mysqli_query($conn, $sql);
@@ -156,10 +157,12 @@ if ($showalert) {
                     <div class="login-signup-form__input-group login-signup-form__input-group--full">
                         <input type="email" class="login-signup-form__input" id="email" name="email" placeholder="example@example.com">
                     </div>
-                    <div class="login-signup-form__input-group login-signup-form__input-group--full">
-                        <input type="password" class="login-signup-form__input"  name="password" id="password" placeholder=".......">
-                    </div>
-                    
+                    <div class="login-signup-form__input-group">
+                      <div class="login-signup-form__input" onclick="document.getElementById('password').focus()">
+                          <input type="password" name="password" class="login-signup-form__inputfield" id="password" placeholder=".......">
+                          <i class="bi bi-eye-fill eye-open" id="eye-btn-p"></i>
+                      </div>
+                    </div>                    
                     <button class="login-signup-form__submit u-margin-top-large" type="submit" id="submit-login">Sign In</button>
                 </form>
             </div>
@@ -174,6 +177,25 @@ if ($showalert) {
   <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.1/dist/umd/popper.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  <script>
+      const eyeBtnPassword =document.getElementById("eye-btn-p");
+      const eyeBtnConfirmPassword =document.getElementById("eye-btn-cp");
+      const passwordField =document.getElementById("password");
+      const confirmPasswordField =document.getElementById("cpassword");
+
+      eyeBtnPassword.addEventListener('click', ()=>{
+        let attr =passwordField.getAttribute('type')
+        if(attr == "password"){
+          passwordField.setAttribute('type','text');
+          eyeBtnPassword.classList.remove("bi-eye-fill")
+          eyeBtnPassword.classList.add("bi-eye-slash-fill")
+        }else{
+          passwordField.setAttribute('type','password');
+          eyeBtnPassword.classList.add("bi-eye-fill")
+          eyeBtnPassword.classList.remove("bi-eye-slash-fill")
+        }
+      })
+    </script>
 </body>
 </html>
 
