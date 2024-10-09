@@ -219,6 +219,18 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     </table>
 </div>    
 <script src="./darkMode.js"></script>
+<script>
+window.embeddedChatbotConfig = {
+chatbotId: "gvEIQuZ1QCpui9UuF1UWX",
+domain: "www.chatbase.co"
+}
+</script>
+<script
+src="https://www.chatbase.co/embed.min.js"
+chatbotId="gvEIQuZ1QCpui9UuF1UWX"
+domain="www.chatbase.co"
+defer>
+</script>
 </body>
 
 </html>
