@@ -1,0 +1,145 @@
+/* About Page Styles */
+
+body {
+    font-family: 'Arial', sans-serif; /* Ensure this matches your index.html font */
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+    background-color: #f8f9fa; /* Soft background for the body */
+}
+
+/* Navigation Styles */
+.nav {
+    background-color: #343a40; /* Dark background for the navigation */
+    color: white;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2); /* Subtle shadow for depth */
+}
+
+.nav__links {
+    list-style-type: none;
+    padding: 0;
+    display: flex;
+    justify-content: space-around; /* Even spacing */
+}
+
+.nav__link a {
+    color: white; /* White text for links */
+    text-decoration: none;
+    transition: color 0.3s; /* Smooth transition on hover */
+}
+
+.nav__link a:hover {
+    color: #ffdd57; /* Highlight color on hover */
+}
+
+.theme-switch-wrapper {
+    display: flex;
+    align-items: center;
+}
+
+/* Hero Section */
+.hero {
+    background: url('images/hero-bg.jpg') no-repeat center center/cover; /* Background image */
+    height: 300px; /* Set the height */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.hero__title {
+    font-size: 3rem; /* Title size */
+    color: white; /* Title color */
+}
+
+.hero__subtitle {
+    font-size: 1.5rem; /* Subtitle size */
+    color: #ffdd57; /* Subtitle color */
+}
+
+/* Main Content Styles */
+.main-content {
+    padding: 20px;
+}
+
+.about-section {
+    background: linear-gradient(to right, #ffffff, #e9ecef); /* Soft gradient background */
+    border-radius: 10px; /* Rounded corners */
+    padding: 40px; /* Ample padding for content */
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1); /* Deep shadow for emphasis */
+    margin: 20px auto; /* Center the section */
+    max-width: 800px; /* Limit width for readability */
+}
+
+.about-container {
+    text-align: center; /* Center-align text */
+}
+
+h2 {
+    color: #343a40; /* Dark color for headings */
+    margin-bottom: 20px; /* Space below heading */
+    font-size: 2rem; /* Size of the subheading */
+}
+
+p {
+    font-size: 1.2rem; /* Font size for paragraphs */
+    color: #555; /* Dark grey for text */
+    margin-bottom: 15px; /* Space below each paragraph */
+}
+
+/* Footer Styles */
+footer {
+    background-color: #343a40; /* Footer color */
+    color: white;
+    text-align: center;
+    padding: 20px 0; /* Padding for footer */
+    position: relative;
+    bottom: 0;
+    width: 100%;
+    box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.2); /* Shadow above footer */
+}
+
+/* About Section */
+.about-section {
+    background: linear-gradient(to right, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.5)), url('images/about-bg.jpg') no-repeat center center/cover;
+    color: white;
+    padding: 4rem 0;
+    text-align: center;
+}
+
+.about-container h2 {
+    font-size: 3rem;
+    margin-bottom: 2rem;
+}
+
+.about-container p {
+    font-size: 1.2rem;
+    margin-bottom: 1.5rem;
+}
+
+/* Values Section */
+.values-section {
+    background-color: #f9f9f9;
+    padding: 4rem 0;
+    text-align: center;
+}
+
+.values-container {
+    display: flex;
+    justify-content: space-around;
+}
+
+.value-item img {
+    width: 60px;
+    margin-bottom: 1rem;
+}
+
+.value-item h3 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+}
+
+.value-item p {
+    font-size: 1.1rem;
+    color: #666;
+}
