@@ -113,9 +113,9 @@ You should now see the homepage of the Alimento platform.
 - Make sure you show some love by giving ⭐ to our repository.
 
 <div align="center">
-  <a href="https://github.com/Vimall03/Alimento">
-    <img src="https://contrib.rocks/image?repo=Vimall03/Alimento&&max=100" />
-  </a>
+<a href="https://github.com/Vimall03/Alimento/graphs/contributors">
+  <img src="https://contrib.rocks/image?repo=Vimall03/Alimento" />
+</a>
 </div>
 
 ---
