@@ -153,6 +153,18 @@ if ($showError) {
       <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.1/dist/umd/popper.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  <script>
+window.embeddedChatbotConfig = {
+chatbotId: "gvEIQuZ1QCpui9UuF1UWX",
+domain: "www.chatbase.co"
+}
+</script>
+<script
+src="https://www.chatbase.co/embed.min.js"
+chatbotId="gvEIQuZ1QCpui9UuF1UWX"
+domain="www.chatbase.co"
+defer>
+</script>
 </body>
 
 </html>
