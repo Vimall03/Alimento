@@ -160,6 +160,13 @@ a {
     top: -.4rem;
     word-spacing: .2rem
 }
+.primary-button:hover {
+    background: #4997e5; 
+    color: rgb(47, 93, 210); 
+    transform: scale(1.05); 
+    transition: all 0.6s ease; 
+}
+
 
 .sidebar__link-item {
     position: relative;
