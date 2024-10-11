@@ -4,7 +4,7 @@ $showError = false;
 $showalert = false;
 session_start();
 
-if (isset($_SESSION['loggedin']) || $_SESSION['loggedin'] == true){
+if ($login == true){
   header("location: home.php");
 }
 
