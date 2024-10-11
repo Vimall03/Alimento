@@ -52,9 +52,9 @@ $address=$_SESSION['Billing_address'] ;
 $phone=$_SESSION['Billing_phone'];
 $name=$_SESSION['name'];
 
-
-    $sql = "INSERT INTO `orders` ( `order_id`, `r_id`, `user_id`, `amount`, `address`, `phone`, `payment`, `order_status`, `rating`, `name`) 
-    VALUES ('$orderId', '$restId', '$userId', '$amount', '$address', '$phone', '$tranStatus', 'Accecpted', '0', '$name');";
+    // Added $order in the query as it is set to 'NOT NULL' and no DEFAULT value is provided. Later it is updated in below forEach loop.
+    $sql = "INSERT INTO `orders` ( `order_id`, `r_id`, `user_id`, `order`, `amount`, `address`, `phone`, `payment`, `order_status`, `rating`, `name`) 
+    VALUES ('$orderId', '$restId', '$userId', '$order', '$amount', '$address', '$phone', '$tranStatus', 'Accecpted', '0', '$name');";
     $result = mysqli_query($conn, $sql);
 
     foreach ($order as $item) {
@@ -63,7 +63,7 @@ $name=$_SESSION['name'];
     }
 
     if ($result) {
-            header("location: Track_order.php");
+            header("location: track_order.php");
                 }   
     }
 
