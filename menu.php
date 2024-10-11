@@ -300,7 +300,7 @@ if (isset($_POST['itemsInCart'])) {
                                             <td id="" class="text-center"><b id="totalPrice"></b></td>
                                     </tbody>
                                 </table>
-                                <div id="addVal"></div><form action="/homemade/menu.php" method="post">
+                                <div id="addVal"></div><form action="/alimento/menu.php" method="post">
                                     <input hidden value="<?php echo $id ?>" name="restaurant_id"/>
                                <a href="checkout.php"> <button id="checkoutBtn" class="btn btn-primary checkOutBtn" style="display:none">CHECKOUT</button></a>
                                </form>
