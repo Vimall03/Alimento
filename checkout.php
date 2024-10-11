@@ -7,7 +7,7 @@ include 'partials/_dbconnect.php';
 $order=$_SESSION['Order'];
 $amount=$_SESSION['amount'];
 $userId= $_SESSION['user_id'];
-
+$rid = $_SESSION['rest_id'];
 
 $oid = mt_rand(10000, 99999);
 $_SESSION['orderid'] = str_pad($oid, 5, '0', STR_PAD_LEFT);
