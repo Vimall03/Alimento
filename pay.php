@@ -121,7 +121,29 @@ $json = json_encode($data);
 
 <script type="text/javascript">
 $(document).ready(function() {
-
-    $('.razorpay-payment-button').click();
+    let options = {
+        // Razorpay options
+        key: "<?php echo $data['key']?>", // Your Razorpay Key
+        amount: "<?php echo $data['amount']?>", // Amount is in currency subunits
+        currency: "INR",
+        name: "<?php echo $data['name']?>",
+        description: "<?php echo $data['description']?>",
+        image: "<?php echo $data['image']?>",
+        order_id: "<?php echo $data['order_id']?>",
+        handler: function (response){
+            window.location.href = "/alimento/verify.php?razorpay_payment_id=" + response.razorpay_payment_id;
+        },
+        prefill: {
+            name: "<?php echo $data['prefill']['name']?>",
+            email: "<?php echo $data['prefill']['email']?>",
+            contact: "<?php echo $data['prefill']['contact']?>"
+        },
+        notes: {
+            shopping_order_id: "<?php echo $_SESSION['orderid'] ?>"
+        }
+    };
+    
+    let razorpay = new Razorpay(options);
+    razorpay.open();
 });
 </script>
