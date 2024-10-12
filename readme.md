@@ -2,28 +2,6 @@
 
 Alimento is an online homemade food delivery platform that connects passionate home chefs with food enthusiasts. This platform allows home chefs to showcase their culinary skills by offering a variety of homemade dishes to users, who can easily order and enjoy delicious meals from the comfort of their homes.
 
-<table align="center">
-    <thead align="center">
-        <tr border: 2px;>
-            <td><b>🌟 Stars</b></td>
-            <td><b>🍴 Forks</b></td>
-            <td><b>🐛 Issues</b></td>
-            <td><b>🔔 Open PRs</b></td>
-            <td><b>🔕 Close PRs</b></td>
-        </tr>
-     </thead>
-    <tbody>
-         <tr>
-            <td><img alt="Stars" src="https://img.shields.io/github/stars/Vimall03/Alimento?style=flat&logo=github"/></td>
-             <td><img alt="Forks" src="https://img.shields.io/github/forks/Vimall03/Alimento?style=flat&logo=github"/></td>
-            <td><img alt="Issues" src="https://img.shields.io/github/issues/Vimall03/Alimento?style=flat&logo=github"/></td>
-            <td><img alt="Open Pull Requests" src="https://img.shields.io/github/issues-pr/Vimall03/Alimento?style=flat&logo=github"/></td>
-           <td><img alt="Close Pull Requests" src="https://img.shields.io/github/issues-pr-closed/Vimall03/Alimento?style=flat&color=critical&logo=github"/></td>
-        </tr>
-    </tbody>
-</table>
-<img src="https://user-images.githubusercontent.com/74038190/212284100-561aa473-3905-4a80-b561-0d28506553ee.gif" width="900">
-
 ## Featured In
 
 <table>
@@ -43,7 +21,6 @@ Alimento is an online homemade food delivery platform that connects passionate h
         <td>Hacktober Fest is an annual celebration of open-source software development. It's a month-long event encouraging developers to contribute to open-source projects.</td> 
     </tr>
 </table>
-<img src="https://user-images.githubusercontent.com/74038190/212284100-561aa473-3905-4a80-b561-0d28506553ee.gif" width="900">
 
 ## 🌟  Key Features
 
@@ -56,8 +33,6 @@ Alimento is an online homemade food delivery platform that connects passionate h
 -  🤝 **Direct Vendor-Client System**: Alimento enables direct communication between vendors and clients, fostering a personalized experience and building a strong community.
 
 -  📍 **Location-Based Sorting**: Users can sort vendors based on their location or Pincode, making it easy to find homemade food options nearby.
-  
-<img src="https://user-images.githubusercontent.com/74038190/212284100-561aa473-3905-4a80-b561-0d28506553ee.gif" width="900">
 
 ##  🚀 How It Works
 
@@ -70,16 +45,12 @@ Alimento is an online homemade food delivery platform that connects passionate h
 4. **Payment** 💳: Seamlessly complete your order with the integrated Razorpay API for secure and hassle-free payments.
 
 5. **Track** 🕒: Keep an eye on your order's status as it's prepared and delivered by the vendor.
-   
-<img src="https://user-images.githubusercontent.com/74038190/212284100-561aa473-3905-4a80-b561-0d28506553ee.gif" width="900">
 
 ## 🛠️ Technology Stack
 - **Frontend**: HTML, CSS, JavaScript, **Bootstrap**
 - **Backend**: PHP
 - **Payment Gateway**: Razorpay API
 - **Database**: MySQL
-
-<img src="https://user-images.githubusercontent.com/74038190/212284100-561aa473-3905-4a80-b561-0d28506553ee.gif" width="900">
 
 ## 🤔 Why Choose Alimento?
 
@@ -88,8 +59,7 @@ Alimento is an online homemade food delivery platform that connects passionate h
 3. **Personalized Options** 📝: Enjoy meals tailored to your taste and dietary preferences, with direct communication for special requests.
 4. **Prompt Deliveries** 🚚: Get your food delivered quickly and efficiently, maintaining its freshness.
 5. **Convenient Location Sorting** 📍: Easily find nearby home chefs, ensuring fast, reliable service based on your location.
-   
-<img src="https://user-images.githubusercontent.com/74038190/212284100-561aa473-3905-4a80-b561-0d28506553ee.gif" width="900">
+
 
 ## Setup Guidelines 🛠️
 ## Prerequisites ✅
@@ -135,7 +105,7 @@ After completing the above steps, open your browser and visit:
 - http://localhost/alimento
 You should now see the homepage of the Alimento platform.
 
-<img src="https://user-images.githubusercontent.com/74038190/212284100-561aa473-3905-4a80-b561-0d28506553ee.gif" width="900">
+---
 
 ## 👀 Our Contributors
 
@@ -148,12 +118,7 @@ You should now see the homepage of the Alimento platform.
 </a>
 </div>
 
-<img src="https://user-images.githubusercontent.com/74038190/212284100-561aa473-3905-4a80-b561-0d28506553ee.gif" width="900">
-
-## ⭐ Star the Repo!
-If you find this project useful and would like to support the project, please consider giving it a ⭐ star on GitHub! Your support helps us grow and improve. Thank you! 🙌
-
-Keep learning and exploring! 🚀
+---
 
 ### Happy coding! 👩‍💻🎉
 
