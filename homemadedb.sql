@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Oct 05, 2024 at 03:03 PM
--- Server version: 10.4.28-MariaDB
--- PHP Version: 8.2.4
+-- Generation Time: Oct 12, 2024 at 12:51 PM
+-- Server version: 10.4.32-MariaDB
+-- PHP Version: 8.2.12
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -65,6 +65,14 @@ CREATE TABLE `orders` (
   `rating` decimal(10,1) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
+--
+-- Dumping data for table `orders`
+--
+
+INSERT INTO `orders` (`sl_no`, `r_id`, `order_id`, `dt`, `name`, `user_id`, `order`, `amount`, `address`, `phone`, `payment`, `order_status`, `rating`) VALUES
+(1, 1, 1, '2024-10-12 16:02:25', 'test', 1, 'Veg Biryani', 200, 'Sfasfafasf', 'asfqwrq32ad', 'done', 'Delivered', 4.0),
+(2, 2, 2, '2024-10-12 16:02:29', 'test', 1, 'Chicken Roasted Biryani', 300, 'fdgszdfcszdc', '3423423421', 'Done', 'Delivered', 5.0);
+
 -- --------------------------------------------------------
 
 --
@@ -98,6 +106,28 @@ INSERT INTO `restaurant` (`r_id`, `p_name`, `p_email`, `p_about`, `p_password`, 
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `reviews`
+--
+
+CREATE TABLE `reviews` (
+  `rid` int(100) NOT NULL,
+  `user_id` int(100) NOT NULL,
+  `review` varchar(30) NOT NULL,
+  `rating` tinyint(1) NOT NULL,
+  `order_id` int(10) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `reviews`
+--
+
+INSERT INTO `reviews` (`rid`, `user_id`, `review`, `rating`, `order_id`) VALUES
+(1, 1, 'Good', 4, 1),
+(2, 1, 'Average', 5, 2);
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `users`
 --
 
@@ -106,10 +136,11 @@ CREATE TABLE `users` (
   `name` varchar(20) NOT NULL,
   `email` varchar(30) NOT NULL,
   `password` varchar(625) NOT NULL,
-  `phone` int(15) NOT NULL,
+  `phone` bigint(20) NOT NULL,
   `resetcode` varchar(695) NOT NULL,
   `account_status` varchar(15) NOT NULL,
-  `date` datetime NOT NULL
+  `date` datetime NOT NULL,
+  `address` varchar(30) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
@@ -135,6 +166,12 @@ ALTER TABLE `restaurant`
   ADD PRIMARY KEY (`r_id`);
 
 --
+-- Indexes for table `reviews`
+--
+ALTER TABLE `reviews`
+  ADD UNIQUE KEY `rid` (`rid`);
+
+--
 -- Indexes for table `users`
 --
 ALTER TABLE `users`
@@ -154,19 +191,19 @@ ALTER TABLE `menu`
 -- AUTO_INCREMENT for table `orders`
 --
 ALTER TABLE `orders`
-  MODIFY `sl_no` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `sl_no` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `restaurant`
 --
 ALTER TABLE `restaurant`
-  MODIFY `r_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `r_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

@@ -5,13 +5,7 @@ if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] != true) {
     header("location: user_login.php");
     exit;
 }
-
-
-
 ?>
-
-
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -21,12 +15,8 @@ if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] != true) {
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
   <link rel="stylesheet" href=".css">
   <link rel="stylesheet" href="main.css">
-
 </head>
-
 <body>
-
-
 <nav class="nav">
       <div class="nav__wrapper grid">
           <div class="grid__span2 nav__logo-wrap">
@@ -47,6 +37,18 @@ if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] != true) {
                           <input type="submit" class="btn-dark form-control " value="Search">
                       </form>
                   </li>
+                  <li class="nav__link dropdown">
+                      <a class="nav__link-item dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                          <img class="nav__link-icon" style="width: 1.9rem" src="images/favicons/user_male_circle_32px.png">
+                          <span class="nav__link-item"><?php echo $_SESSION['name']; ?></span>
+                      </a>
+                      <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                          <a class="dropdown-item" href="profile.php">Profile</a>
+                          <a class="dropdown-item" href="orders.php">Orders</a>
+                          <a class="dropdown-item" href="change_password.php">Change Password</a>
+                          <a class="dropdown-item" href="user_logout.php">Logout</a>
+                      </div>
+                  </li>
                   <li class="nav__link">
                       <a href="track_order.php">
                           <img class="nav__link-icon" style="width: 1.8rem" src="images/favicons/tableware_50px.png">
@@ -57,12 +59,6 @@ if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] != true) {
                       <a href="#contact">
                           <img class="nav__link-icon" src="images/favicons/phone_32px.png">
                           <span class="nav__link-item">Contact </span>
-                      </a>
-                  </li>
-                  <li class="nav__link">
-                      <a href="user_logout.php">
-                          <img class="nav__link-icon" style="width: 1.9rem" src="images/favicons/user_male_circle_32px.png">
-                          <span class="nav__link-item">Logout</span> 
                       </a>
                   </li>
               </ul>
@@ -122,6 +118,12 @@ chatbotId="gvEIQuZ1QCpui9UuF1UWX"
 domain="www.chatbase.co"
 defer>
 </script>
+<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
 </body>
 
 </html>
