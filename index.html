@@ -21,6 +21,28 @@
       margin: 0;
       padding: 0;
     }
+    .scroll-to-top {
+  background: linear-gradient(to right, #e64d23, #f49e29); /* Adjust the colors based on the image */
+  color: #fff;
+  border: none;
+  border-radius: 50%;
+  padding: 10px 15px;
+  cursor: pointer;
+  position: fixed;
+  bottom: 70px;
+  right: 15px;
+  height: 54px;
+  width: 54px;
+  display: none;
+  z-index: 1000;
+  font-size: 20px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3);
+  transition: opacity 0.3s ease-in-out;
+}
+
+.scroll-to-top:hover {
+  background: linear-gradient(to right, #d84421, #e89025); /* Darker on hover for effect */
+}
 
     header {
       background-color: #007bff;
@@ -650,7 +672,10 @@
 </div>
 
   </section>    
-
+  <button onclick="scrollToTop()" id="scrollTopBtn" class="scroll-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+  </button>
+  
     <script>
       // Mobile Navigation Functionality
       document
@@ -713,5 +738,25 @@
   chatbotId="gvEIQuZ1QCpui9UuF1UWX"
   domain="www.chatbase.co"
   defer>
+  </script>
+  <script>
+    // Show button when user scrolls down 100px
+window.onscroll = function() {
+  const scrollTopBtn = document.getElementById("scrollTopBtn");
+  if (document.body.scrollTop > 100 || document.documentElement.scrollTop > 100) {
+    scrollTopBtn.style.display = "block";
+  } else {
+    scrollTopBtn.style.display = "none";
+  }
+};
+
+// Scroll to top function
+function scrollToTop() {
+  window.scrollTo({
+    top: 0,
+    behavior: "smooth"
+  });
+}
+
   </script>
   </body>
