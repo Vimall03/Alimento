@@ -12,7 +12,7 @@ There are several ways to contribute to this project:
    - **Fork the Repository**: Click the "Fork" button at the top right of the repository page to create your own copy of the repository.
    - **Clone Your Fork**: Clone your fork to your local machine:
      ```bash
-     git clone https://github.com/YOUR_USERNAME/Alimento.git
+     git clone https://github.com/vimall03/Alimento.git
      ```
    - **Create a Branch**: Create a new branch for your changes:
      ```bash
@@ -43,7 +43,7 @@ Before submitting your changes, make sure to test your code. Run the existing te
 
 ## Code of Conduct
 
-Please review and adhere to our [Code of Conduct](CODE_OF_CONDUCT.md) while contributing.
+Please review and adhere to our [Code of Conduct](https://github.com/Vimall03/Alimento/blob/main/Code_Of_Conduct.md) while contributing.
 
 ## Questions?
 
