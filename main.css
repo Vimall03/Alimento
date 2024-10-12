@@ -886,8 +886,8 @@ p{
 
 .footer {
     background-image: -webkit-gradient(linear, left top, right top, from(#E94F37), to(#E28413));
-    background-image: -o-linear-gradient(left, #e25742, #E28413);
-    background-image: linear-gradient(to right, #e75a44, #E28413);
+    background-image: -o-linear-gradient(left, #E94F37, #E28413);
+    background-image: linear-gradient(to right, #E94F37, #E28413);
     padding: 2.5rem 1rem;
     overflow: hidden;
     width: 100%
@@ -909,7 +909,7 @@ p{
 }
 
 .footer__logo {
-    width: 50%
+    width: 25%
 }
 
 .footer__ul {
@@ -928,7 +928,7 @@ p{
 }
 
 .footer__li a::before {
-    font-size: 1.5rem;
+    font-size: 1.3rem;
     position: relative;
     right: .7rem;
     content: "\2192";
