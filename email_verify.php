@@ -30,7 +30,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         WHERE `email` = '$email';";
                     $result = mysqli_query($conn, $sql);
                     $_SESSION['loggedin'] = true;
-                    header("location: home.php");
+                    header("location: user_login.php");
                 } else {
                     $showError = "Invalid OTP";
                 }
