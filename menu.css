@@ -118,6 +118,10 @@ h2 {
 .item-card button:hover {
     background-color: #e64a19;
 }
+.check-out-btn{
+    background-color: #e64a19;
+    color: white;
+}
 
 /* Responsive styling */
 @media (max-width: 768px) {

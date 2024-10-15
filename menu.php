@@ -43,7 +43,7 @@ if (isset($_POST['itemsInCart'])) {
             crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-
+   <link rel="stylesheet" href="menu.css">
 </head>
 <script type="text/javascript">
     $(document).ready(function () {
@@ -226,8 +226,89 @@ if (isset($_POST['itemsInCart'])) {
 <br>
 <br>
 
-    <div class="container">
-        <div class="row">
+ <div class="container-width">
+ <div id="hero-bg" class="hero-section">
+        <div class="overlay">
+            <h1><i><?php echo $result['r_name'];?></i></h1>
+            <p>Umaria, Rau</p>
+        </div>
+    </div>
+<script>
+    document.getElementById('hero-bg').style.backgroundImage = "url('vendor/<?php echo $result['r_bg']; ?>')";
+</script>
+
+    <h2>Items:</h2>
+    <div class="big-container">
+         <div class="item-grid">
+        <?php
+                                    $query2 = "SELECT * FROM `menu` WHERE `r_id` LIKE '$id'";
+                                    $result2 = mysqli_query($conn, $query2);
+                                    $counter = 0;
+
+                                    while ($row = mysqli_fetch_array($result2)) {
+                                        $counter++;
+                                        echo '
+                                            <div class="item-card">
+                                                <img src="./images/download (1).jpg" alt="Cheese Burger">
+                                                <h3> <b id="item' . $counter . '">' . $row['m_name'] . '</b></h3>
+                                                <p id="price' . $counter . '">₹' . $row['m_price'] . '</p>
+                                                <button data-id="' . $counter . '" id="' . $counter . '" class="mybtn btn btn-success btn-sm rounded">Add To Cart</button>
+                                           </div>
+                                        ';
+                                        
+
+                                    }
+                                    
+                                    ?>
+                
+        
+        </div>
+
+     <!-- cart design  -->
+        <div class="col-4">
+                        <div class="card bt-20">
+                            <div style="min-height: 200px;" class="card-body">
+                                <table class="table table-borderless">
+                                    <thead>
+                                        <tr>
+                                            <th scope="col" class="text-center">Name<hr></th>
+                                            <th scope="col" class="text-center">quantity<hr></th>
+                                            <th scope="col" class="text-center">price<hr></th>
+                                            
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td id="cart" class="text-left" scope="row">No item Add to Cart</td>
+                                            <td id="quantity" class="text-left"></td>
+                                            <td id="price" class="text-left"></td>
+                                        </tr>
+                                        <hr>
+                                            <td id="" class="text-left" scope="row"><b id="tpText"></b></td>
+                                            <td id="" class="text-left"></td>
+                                            <td id="" class="text-left"><b id="totalPrice"></b></td>
+                                    </tbody>
+                                </table>
+                                <div id="addVal"></div><form action="/homemade/menu.php" method="post">
+                                    <input hidden value="<?php echo $id ?>" name="restaurant_id"/>
+                               <a href="checkout.php"> <button id="checkoutBtn" class="check-out-btn checkOutBtn" style="display:none;background-color:#e64a19;border:none;color:white;height:40px;width:100%;font-size:14px">CHECKOUT</button></a>
+                               </form>
+                            </div>
+                        </div>
+        </div>
+    </div>
+       
+    
+
+
+
+ </div>
+    
+
+
+     <div class="container">
+
+        <!-- <div class="row">
             <div class="col-12">
                 <img src="vendor/<?php echo $result['r_bg'];?>" style="width: 100%;height: 300px">
                 <h1 class="" style="z-index:10000; margin-top: -100px; margin-left: 60px; font-family:verdana;color: #ffe000"> <b><i><?php echo $result['r_name'];?></i></b></h1>
@@ -309,7 +390,7 @@ if (isset($_POST['itemsInCart'])) {
                     </div>
                 </div>
             </div>
-        </div>
+        </div> -->
     </div>
 
     <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">

@@ -22,12 +22,14 @@ $_SESSION['orderid'] = str_pad($oid, 5, '0', STR_PAD_LEFT);
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Checkout</title>
+  
+  <link rel="stylesheet" href="checkout.css">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
   <link rel="stylesheet" href=".css">
   <link rel="stylesheet" href="main.css">
 </head>
 <body>
-<nav class="nav">
+<nav class="nav" style="topo:0">
       <div class="nav__wrapper grid">
           <div class="grid__span2 nav__logo-wrap">
               <a href="home.php">
@@ -65,55 +67,113 @@ $_SESSION['orderid'] = str_pad($oid, 5, '0', STR_PAD_LEFT);
 <br>
 <br>
 <br>
-  <div class="container mt-5">
-    <div class="row">
-      <div class="col-md-6">
-        <h2>Shipping Details</h2>
-        <form action="pay.php" method="post">
-          <div class="form-group">
-            <label for="phone">Phone</label>
-            <input type="text" class="form-control" id="phone" name="phone" required>
-          </div>
-          <div class="form-group">
-            <label for="address1">Address Line 1</label>
-            <input type="text" class="form-control" id="address1" name="address1" required>
-          </div>
-          <div class="form-group">
-            <label for="address2">Address Line 2</label>
-            <input type="text" class="form-control" id="address2" name="address2">
-          </div>
-          <div class="form-group">
-            <label for="pincode">Pincode</label>
-            <input type="text" class="form-control" id="pincode" name="address3" required>
-          </div>
-        
-      </div>
-      
-      <div class="col-md-6">
-        <h2>Order Summary</h2>
-        <div class="card">
-          <div class="card-body">
-            <h5 class="card-title">Order ID: <?php echo $oid; ?></h5>
-            <ul class="list-group mb-3">
-              <li class="list-group-item d-flex justify-content-between align-items-center">
-                <?php  foreach ($order as $item) {
-                echo $item;    
-                echo '<span class="badge badge-primary badge-pill"></span><br>';} ?>
-              </li>
-            </ul>
-            <p>Total: <b >Rs. <?php echo $amount; ?></b></p>
-          </div>
+<div >
+    <form action="pay.php" method="post">
+<div class="container">
+    <!-- Contact and Shipping Form -->
+    <div class="form-section">
+        <h3>Contact Information</h3>
+        <!-- <label for="email">Email address</label> -->
+        <input type="email" id="email" placeholder="Enter your email" required="">
+
+        <!-- <label for="phone">Phone</label> -->
+        <input type="text" id="phone" placeholder="Enter your phone number" required="">
+
+        <div class="form-group">
+            <div>
+                <!-- <label for="first-name">First name</label> -->
+                <input type="text" id="first-name" placeholder="First name" required="">
+            </div>
+            <div>
+                <!-- <label for="last-name">Last name</label> -->
+                <input type="text" id="last-name" placeholder="Last name" required="">
+            </div>
         </div>
-      </div>
+
+        <h3>Billing & Shipping</h3>
+        <!-- <label for="address">House number and street name</label> -->
+        <input type="text" id="address" placeholder="Enter your address" required="">
+
+        <!-- <label for="city">Town / City</label> -->
+        <input type="text" id="city" placeholder="Town / City" required="">
+
+        <!-- <label for="state">State</label> -->
+        <select id="state">
+            <option value="Madhya Pradesh">Madhya Pradesh</option>
+            <option value="Uttar Pradesh">Uttar Pradesh</option>
+            <option value="Delhi">Delhi</option>
+        </select>
+
+        <!-- <label for="zip">ZIP Code</label> -->
+        <input type="text" id="zip" placeholder="ZIP Code">
+
+        <h3>Additional information</h3>
+        <!-- <label for="notes">Notes about your order</label> -->
+        <textarea id="notes" rows="4" placeholder="Special notes for delivery"></textarea>
     </div>
-    
-    <div class="row mt-5">
-      <div class="col-md-12">
-        <button class="btn btn-primary btn-lg float-right">Place Order</button>
-        </form>
-      </div>
+
+    <!-- Order Summary Section -->
+    <div class="summary-section">
+        <h3>Order Summary</h3>
+        <br><br>
+        <?php  foreach ($order as $item) {
+                  ?> 
+        <div class="item">
+            <div class="item-details">
+                <h5><strong><?php echo $item; ?></strong></h5>
+                
+            </div>
+            <!-- <div class="item-price">$9.48</div> -->
+        </div>
+  <?php } ?>
+        
+
+        <!-- <h3>Shipping</h3>
+        <label><input type="radio" name="shipping" checked> Local pickup</label><br>
+        <label><input type="radio" name="shipping"> Local Delivery: $2.99</label>
+
+        <label for="pickup-date">Pickup Date</label>
+        <select id="pickup-date">
+            <option>As soon as possible</option>
+            <option>Tomorrow</option>
+            <option>Later this week</option>
+        </select>
+
+        <h3>Tip Amount</h3>
+        <div class="tip-options">
+            <button class="tip-btn">15%</button>
+            <button class="tip-btn">18%</button>
+            <button class="tip-btn">22%</button>
+            <button class="tip-btn active">No Tip</button>
+            <button class="tip-btn">Custom Tip</button>
+        </div> -->
+
+        <div class="total">
+            <div>Subtotal</div>
+            <div><?php echo $amount; ?></div>
+        </div>
+
+        <div class="total">
+            <div>Shipping</div>
+            <div>Free</div>
+        </div>
+
+        <div class="total">
+            <div>Tax</div>
+            <div>$1.16</div>
+        </div>
+
+        <div class="total">
+            <div>Total</div>
+            <div>$15.63</div>
+        </div>
+
+        <button style="width:100%;height:30px;background-color:#e64a19;color:white;border:none;border-radius:3px;margin-top:12px">Order Place</button>
     </div>
-  </div>
+
+</div>
+</form>
+</div>
 
 
   <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
