@@ -146,8 +146,11 @@ $orders = mysqli_fetch_all($result, MYSQLI_ASSOC);
                         <th>Customer</th>
                         <th>Date</th>
                         <th>Total</th>
+                        <th>Phone</th>
                         <th>Payment Status</th>
                         <th>Address</th>
+                        <th>Update order</th>
+                        <th>Feedback</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -160,20 +163,24 @@ $orders = mysqli_fetch_all($result, MYSQLI_ASSOC);
                         // convert date to string
                         $date = date('M d', strtotime($order['dt']));
                         $amount = $order['amount'];
+                        $phone = $order['phone'];
                         $payment = $order['payment'];
                         $payment == "SUCCESS" ? $payment = "Completed" : $payment = "failed";
 
-                        echo ' <tr><td class="order-item">
+                        echo ' <tr>
+                                <td class="order-item">
                             ' . $item . '
                                     </td>
                                     <td>#' . $order_no . '</td>
                                     <td>' . $username . '</td>
                                     <td>' . $date . '</td>
                                     <td>₹' . $amount . '</td>
+                                    <td>' . $phone . '</td>
                                     <td><span class="' . $payment . '">' . $payment . '</span></td>
-                                    <td class="address-col">' . $order['address'] . '
-                                    </td></tr>
-                                    
+                                    <td class="address-col">' . $order['address'] . '</td>
+                                    <td>Delivered</td>
+                                    <td>Feedback recieved</td>
+                                </tr>            
                         ';
                     }
                     ?>
