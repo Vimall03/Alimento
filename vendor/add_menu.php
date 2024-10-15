@@ -28,36 +28,128 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
 <head>
     <title>Menu Information</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.2/font/bootstrap-icons.css">
     <style>
-        table {
-            border-collapse: collapse;
+        body{
+            max-width: 1140px;
+            margin: auto;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+        .header{
+            display: flex;
+            justify-content: space-between;
+            height: 10vh;
+            margin: 10px 0;
+            border-bottom: 2px solid maroon;
+        }
+        .header img{
+            height: 100%;
+        }
+        .order-table {
             width: 100%;
+            border-collapse: collapse;
         }
 
-        th,
-        td {
-            border: 1px solid black;
-            padding: 8px;
-            text-align: left;
+        .order-table th,
+        .order-table td {
+            padding: 12px;
+            border-bottom: 1px solid #ddd;
+            text-align: center;
+        }
+        .logout{
+            height: 100%;
+            display: flex;
+            align-items: center;
         }
 
-        th {
-            background-color: #f2f2f2;
+        .order-table th {
+            background-color: #f5f5f5;
+            font-weight: bold;
+        }
+        .veg{
+            padding: 4px 12px;
+            background: green;
+            color: white;
+            border-radius: 6px;
+        }
+        .nonveg{
+            padding: 4px 12px;
+            background: red;
+            color: white;
+            border-radius: 6px;
+        }
+        .menu-container{
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .btn{
+            padding: 10px 20px;
+            border: none;
+            color: white;
+            border-radius: 4px;
+            cursor: pointer;
+
+        }
+        .btn:hover{
+            color: black;
+        }
+        .dataInput{
+            padding: 6px;
+            border-radius: 8px;
+            border: none;
+            outline: none;
+            
+        }
+        .dataInput:active, .dataInput:focus{
+            border: none;
+        }
+        .add-item{
+            background-color: blue;
+            color: white;
+            border-radius: 6px;
+            outline: none;
+            border: none;
+            padding: 2px 5px;
+        }
+        .btn{
+            padding: 10px 20px;
+            border: none;
+            color: white;
+            border-radius: 4px;
+            cursor: pointer;
         }
     </style>
 </head>
 
 <body>
-<h1>Menu Information | <a href='edit_menu.php'><input type='submit' value='EDIT'><a style="margin: 10px; " href='home.php'><input  type='submit' value='BACK' ></a></h1>
+    <div class="header">
+        <img src="../images/logo/logo.png" alt="">
+        
+        <form action="vendor_logout.php" class="logout"><input  type='submit' class="btn btn-danger" value='LOGOUT'></form>
+    </div>
+    <br>
 
-    <table>
-        <tr>
+    <div class="menu-container">
+        <h1>
+            Menu Information
+        </h1>
+        <div class="btn-container">
+            <a href='edit_menu.php'><button class="btn" style="background-color: #008080;">EDIT</button></a>  
+            <a href='home.php'><button class="btn" style="background-color: #FF8C00;">BACK</button></a> 
+        </div>
+    </div>
+
+    <table class="order-table">
+        <thead>
             <th>Item ID</th>
             <th>Item Name</th>
             <!-- <th>Item Description</th> -->
             <th>Item Price</th>
             <th>Item Category</th>
-        </tr>
+        </thead>
 
         <?php
         // Retrieve data from the menu table
@@ -71,7 +163,11 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                 echo "<td>" . $row['m_name'] . "</td>";
                 //echo "<td>" . $row['item_description'] . "</td>";
                 echo "<td>" . $row['m_price'] . "</td>";
-                echo "<td>" . $row['m_type'] . "</td>";
+                if($row['m_type'] == "Veg"){
+                    echo "<td> <span class='veg'>" . $row['m_type'] . "</span></td>";
+                } else {
+                    echo "<td> <span class='nonveg'>" . $row['m_type'] . "</span></td>";
+                }
             }
         } else {
             echo "<tr><td colspan='6'>ADD items in the menu to display here</td></tr>";
@@ -82,7 +178,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     </table>
     
     <h1>Add to Menu </h1>
-    <table>
+    <table class="order-table">
         <tr>
             <th>Item ID</th>
             <th>Item Name</th>
@@ -98,9 +194,9 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                 echo "<tr>";
                 echo "<form action='add_menu.php' method='post'>";
                 echo "<td><input required type='hidden' name='m_id' value=''> </td>";
-                echo "<td>Name: <input required type='text' name='m_name' value=''><br></td>";
+                echo "<td><input class='dataInput' required type='text' placeholder='Name of item' name='m_name' value=''><br></td>";
                 //echo "<td>" . $row['it</td>";
-                echo "<td>Price: <input required type='number' name='m_price' value=''><br></td>";
+                echo "<td><input class='dataInput' required type='number' placeholder='Price' name='m_price' value=''><br></td>";
                 
 
                 echo "<td>Category: <select name='m_type'>";
@@ -108,7 +204,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                 echo "<option value='Non-Veg' " . ($row['order_status'] === 'Non-Veg' ? 'selected' : '') . ">Non-Veg</option>";
                 echo "</select>";
 
-                echo "<td><input required type='submit' value='Update'></td>";
+                echo "<td><input class='add-item' required type='submit' value='Add'></td>";
                 echo "</form>";
                 echo "</tr>";
         $conn->close();

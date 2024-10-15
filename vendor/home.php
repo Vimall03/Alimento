@@ -31,51 +31,119 @@ $category_filter = isset($_GET['category']) ? $_GET['category'] : '';
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.2/font/bootstrap-icons.css">
     <title>Order Information</title>
     <style>
+        body{
+            max-width: 1140px;
+            margin: auto;
+        }
+        .header{
+            display: flex;
+            justify-content: space-between;
+            height: 10vh;
+            margin: 10px 0;
+            border-bottom: 2px solid maroon;
+        }
+        .header img{
+            height: 100%;
+        }
+        .logout{
+            height: 100%;
+            display: flex;
+            align-items: center;
+        }
         .holder{
             padding: 20px;
         }
-        table {
-            border-collapse: collapse;
+        .order-table {
             width: 100%;
+            border-collapse: collapse;
         }
 
-        th,
-        td {
-            border: 1px solid black;
+        .order-table th,
+        .order-table td {
+            padding: 12px;
+            border-bottom: 1px solid #ddd;
+            text-align: center;
+        }
+
+        .order-table th {
+        background-color: #f5f5f5;
+        font-weight: bold;
+        }
+
+        .menu-container{
+            display: flex;
+            justify-content: space-between;
+        }
+        .btn{
+            padding: 10px 20px;
+            border: none;
+            color: white;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        .btn:hover{
+            color: black;
+        }
+        .filters {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+
+        .filters input[type="text"] {
             padding: 8px;
-            text-align: left;
+            width: 200px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
         }
 
-        th {
-            background-color: #f2f2f2;
+        .filters select,
+        .filters button {
+            padding: 8px 12px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            background-color: #777;
+            color: white;
+            cursor: pointer;
         }
-        .logout{
-            margin-left: calc(100% - 20%);
-            margin-top: -4%;
+        .veg{
+            padding: 4px 12px;
+            background: green;
+            color: white;
+            border-radius: 6px;
+        }
+        .nonveg{
+            padding: 4px 12px;
+            background: red;
+            color: white;
+            border-radius: 6px;
         }
     </style>
 </head>
 
 <body>
-<header class="text-white text-center py-4" style="background: rgb(142,240,226);
-background: linear-gradient(90deg, rgba(142,240,226,0.7511379551820728) 0%, rgba(234,241,50,1) 34%, rgba(210,10,227,0.8407738095238095) 100%);">
-        <h1>Alimento  <div class="logout"><input  type='submit' class="btn btn-danger" value='LOGOUT'></div></a></h1>
-        
-    </header>
+<div class="header">
+    <img src="../images/logo/logo.png" alt="">
+    
+    <form action="vendor_logout.php" class="logout"><input  type='submit' class="btn btn-danger" value='LOGOUT'></form>
+</div>
 <br>
+
 <div class="holder">
     <h1>Pending Order</h1>
-    <table>
-        <tr>
-            <th>Order ID</th>
-            <th>Order</th>
-            <th>Name</th>
-            <th>Amount</th>
-            <th>Phone</th>
-            <th>Address</th>
-            <th>Update Order</th>
-            <th>Order Status</th>
-        </tr>
+    <table class="order-table">
+    <thead>
+      <tr>
+        <th>Order ID</th>
+        <th>Order</th>
+        <th>Name</th>
+        <th>Amount</th>
+        <th>Phone</th>
+        <th>Address</th>
+        <th>Update Order</th>
+        <th>Order Status</th>
+      </tr>
+    </thead>
 
         <!-- Replace this section with PHP code to fetch data and loop through rows -->
         <?php
@@ -123,23 +191,28 @@ background: linear-gradient(90deg, rgba(142,240,226,0.7511379551820728) 0%, rgba
 
 <br>
 <br>
-    <h1>Menu Information | 
-        <a href='add_menu.php'><input type='submit' class="btn  " style="background:#068572;  color:white" value='ADD TO MENU'></a>  
-        <a href='edit_menu.php'><input type='submit' class="btn  " style="background:#e77c30; color:white" value='EDIT MENU'></a> 
-    </h1>
+    <div class="menu-container">
+        <h1>
+            Menu Information
+        </h1>
+        <div class="">
+            <a href='add_menu.php'><button class="btn" style="background-color: #008080;">Add to Menu</button></a>  
+            <a href='edit_menu.php'><button class="btn" style="background-color: #FF8C00;">Edit Menu</button></a> 
+        </div>
+    </div>
 
     <!-- Search and Filter Form -->
-    <form method="GET" action="home.php" class="mb-3">
+    <form method="GET" action="home.php" class="mb-3 filters">
         <input type="text" name="search" placeholder="Search by item name" value="<?php echo htmlspecialchars($search); ?>">
         <select name="category">
             <option value="">All Categories</option>
             <option value="Veg" <?php echo ($category_filter === 'Veg') ? 'selected' : ''; ?>>Veg</option>
             <option value="Non-Veg" <?php echo ($category_filter === 'Non-Veg') ? 'selected' : ''; ?>>Non-Veg</option>
         </select>
-        <button type="submit" class="btn btn-secondary">Search/Filter</button>
+        <button type="submit" class="btn btn-secondary">Search / Filter</button>
     </form>
 
-    <table>
+    <table class="order-table">
         <tr>
             <th>Item ID</th>
             <th>Item Name</th>
@@ -167,7 +240,11 @@ background: linear-gradient(90deg, rgba(142,240,226,0.7511379551820728) 0%, rgba
                 echo "<td>" . $row['m_id'] . "</td>";
                 echo "<td>" . $row['m_name'] . "</td>";
                 echo "<td>" . $row['m_price'] . "</td>";
-                echo "<td>" . $row['m_type'] . "</td>";
+                if($row['m_type'] == "Veg"){
+                    echo "<td> <span class='veg'>" . $row['m_type'] . "</span></td>";
+                } else {
+                    echo "<td> <span class='nonveg'>" . $row['m_type'] . "</span></td>";
+                }
                 echo "</tr>";
             }
         } else {
