@@ -163,8 +163,18 @@ p{
     font-size: 1.6rem;
     vertical-align: middle;
     top: -.4rem;
-    word-spacing: .2rem
+    word-spacing: .2rem;
+    padding: 0.5rem 1rem;  /* Add padding for the box */
+    display: inline-block;  /* Ensure the box surrounds the text */
+    transition: transform 0.3s ease, background-color 0.3s ease; /* Smooth transition */
 }
+.nav__link-item:hover {
+   background-color: #c81d42;
+    /* background-color: rgba(154, 170, 12, 0.1); Light background on hover */
+    border-radius: 9px;  /* Rounded corners */
+    transform: scale(1.1);  /* Zoom effect */
+}
+
 
 .sidebar__link-item {
     position: relative;
@@ -669,6 +679,7 @@ p{
 
 .grid .grid__span10 {
     grid-column: span 10
+
 }
 
 .grid .grid__span11 {
@@ -693,12 +704,14 @@ p{
     width: 100%;
     display: block;
     position: fixed;
-    background-color: var(--background-color);
-    z-index: 100;
+    background-color: transparent;
+    backdrop-filter: blur(10px);
+    z-index: 1000;
     padding: 0 1rem;
     -webkit-box-shadow: 4px 4px 15px rgba(0, 0, 0, 0.15);
     box-shadow: 4px 4px 15px rgba(0, 0, 0, 0.15)
 }
+
 
 @media (max-width: 56.25em) {
     .nav {
@@ -713,17 +726,20 @@ p{
     display: flex;
     justify-content: space-between;
     color: var(--text-color);
+    margin-right: 76px;
 }
 
 .nav__logo-img {
-    width: 55%;
+    width: 45%;
     vertical-align: middle;
-    padding: 1rem 0
+    padding: 1rem 0;
+    margin-left: -80px;
 }
 
 .nav__links-wrap {
     display: grid;
-    justify-items: end
+   /* justify-items: end */
+    margin-right: -127px;
 }
 
 .nav__links {
@@ -2835,7 +2851,7 @@ p{
 
 /* Default light mode colors */
 :root {
-    --background-color: rgb(240, 234, 234);
+    --background-color: transparent;
     --text-color: black;
     --header-bg: lightgray;
     
@@ -2880,10 +2896,9 @@ background-image: -o-linear-gradient(left, #E94F37 30%, #E28413 70%);
   }
   
   #mode-label {
-    margin-left: 10px;
-    font-size: 1rem;
-  }
-  
+    margin-right: -57px;
+    font-size: 2rem;
+  } 
   /* Toggle Switch */
   .theme-switch {
     position: relative;
@@ -2946,7 +2961,7 @@ background-image: -o-linear-gradient(left, #E94F37 30%, #E28413 70%);
   .faq-question {
     width: 100%;
     padding: 20px;
-    background-color: #f0f0f0;
+    background-color: #e65a2cd6;
     cursor: pointer;
     font-size: 20px;
     font-weight: bold;
@@ -2974,12 +2989,9 @@ background-image: -o-linear-gradient(left, #E94F37 30%, #E28413 70%);
   }
   
   .faq-item:hover .faq-question {
-    background-color: #e0e0e0;
+    background-color: #a7c48f;
   }
   
   .faq-item:hover .arrow {
     transform: rotate(180deg);
   }
-  
-  
-
