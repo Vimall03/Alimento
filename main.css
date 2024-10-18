@@ -195,7 +195,8 @@ p{
 .header__subtitle {
     line-height: 0;
     font-size: 3.5rem;
-    text-transform: uppercase
+    text-transform: uppercase;
+    width:100rem;
 }
 
 .header__paragraph {
@@ -697,7 +698,8 @@ p{
     z-index: 100;
     padding: 0 1rem;
     -webkit-box-shadow: 4px 4px 15px rgba(0, 0, 0, 0.15);
-    box-shadow: 4px 4px 15px rgba(0, 0, 0, 0.15)
+    box-shadow: 4px 4px 15px rgba(0, 0, 0, 0.15);
+    /* border:1px solid black; */
 }
 
 @media (max-width: 56.25em) {
@@ -2851,6 +2853,12 @@ p{
     --header-bg: #1c1c1c;
     
   }
+
+body{
+    /* margin:auto; */
+    /* margin:1000px; */
+    /* border:10px solid black; */
+}
 /*   
 background-image: -o-linear-gradient(left, #E94F37 30%, #E28413 70%);
   body {

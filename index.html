@@ -16,10 +16,21 @@
 
   </head>
   <style>
+
+    .main-container{
+        width:100vw;
+        height:100vh;
+    }
+    *{
+      margin:0;
+      padding:0;
+    }
+
     body {
+      width:100vw;
       font-family: Arial, sans-serif;
       margin: 0;
-      padding: 0;
+      /* padding-left:400px; */
     }
     .scroll-to-top {
   background: linear-gradient(to right, #e64d23, #f49e29); /* Adjust the colors based on the image */
@@ -85,6 +96,7 @@
     }
   </style>
   <body>
+    <div class="main-container">
     <!-- Navigation for Tablets and Desktops -->
     <nav class="nav">
       <div class="nav__wrapper grid">
@@ -96,7 +108,7 @@
         <div class="grid__span10 nav__links-wrap">
           <ul class="nav__links">
             <li class="nav__link">
-              <a href="#">
+              <a href="#idea-behind">
                 <img
                   class="nav__link-icon"
                   src="images/favicons/idea_32px.png"
@@ -105,7 +117,7 @@
               </a>
             </li>
             <li class="nav__link">
-              <a href="#">
+              <a href="#idea-behind">
                 <img
                   class="nav__link-icon"
                   style="width: 1.8rem"
@@ -286,7 +298,7 @@
     <br />
     <br />
 
-    <section class="about grid u-grid-align-items-center">
+    <section class="about grid u-grid-align-items-center" id="idea-behind">
       <div class="grid__span8">
         <h3 class="heading-primary u-margin-bottom-small" data-aos="fade-right">
           Tired of Monotonous Meals?
@@ -708,7 +720,7 @@
   <button onclick="scrollToTop()" id="scrollTopBtn" class="scroll-to-top">
     <i class="fa-solid fa-arrow-up"></i>
   </button>
-  
+  </div>
     <script>
       // Mobile Navigation Functionality
       document
@@ -793,3 +805,4 @@ function scrollToTop() {
 
   </script>
   </body>
+</html>
