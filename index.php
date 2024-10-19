@@ -2,9 +2,7 @@
 session_start();
 
 $login_status = false;
-if (isset($_SESSION['loggedin']) || $_SESSION['loggedin'] == true) {
-    $login_status = true;
-}
+
 ?>
 
 <!DOCTYPE html>
@@ -27,6 +25,9 @@ if (isset($_SESSION['loggedin']) || $_SESSION['loggedin'] == true) {
 </head>
 
 <body>
+<div class="gtranslate_wrapper"></div>
+      <script>window.gtranslateSettings = {"default_language":"en","detect_browser_language":true,"wrapper_selector":".gtranslate_wrapper"}</script>
+      <script src="https://cdn.gtranslate.net/widgets/latest/float.js" defer></script>
     <!-- navbar  -->
     <nav
         class="hidden  sm:flex sm:max-w-xl md:max-w-2xl lg:max-w-5xl xl:max-w-7xl       w-full items-center justify-between max-w-7xl mx-auto font-poppins py-4">

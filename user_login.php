@@ -126,7 +126,7 @@ if ($showalert) {
   <section class="login-signup">
         <div class="login-signup__message-container login-signup__small">
             <div class="login-signup__logo">
-                <a href="index.html">
+                <a href="index.php">
                     <img src="images/logo/Logo - White.png" alt="Logo">                
                 </a>
             </div>
@@ -148,7 +148,7 @@ if ($showalert) {
             </div>
 
             <div class="login-signup__back-button">
-            <a href="index.html">
+            <a href="index.php">
                 <img src="images/favicons/back_50px-red.png" alt="Back Button">
                 Back</a>
             </div>

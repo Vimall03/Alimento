@@ -81,12 +81,12 @@ $orders = mysqli_fetch_all($result, MYSQLI_ASSOC);
     <!-- new navbar  -->
     <div class="navbar">
         <div class="brand-nav">
-            <a href="index.html"><img src="images/logo/logo.png" alt="logo" class="logo"></a>
+            <a href="index.php"><img src="images/logo/logo.png" alt="logo" class="logo"></a>
             <div class="nav-links">
                 <ul class="nav-items">
                     <li><a class="nav-item" href="home.php">Restaurants</a></li>
                     <li><a class="nav-item" href="new_track_order.php">Orders</a></li>
-                    <li><a class="nav-item" href="index.html#contact">Contact</a></li>
+                    <li><a class="nav-item" href="index.php#contact">Contact</a></li>
                     <li><a class="nav-item" href="profile.php">Account</a></li>
                 </ul>
             </div>
@@ -117,7 +117,7 @@ $orders = mysqli_fetch_all($result, MYSQLI_ASSOC);
         <ul class="nav-links">
             <li><a class="nav-item" href="home.php">Restaurants</a></li>
             <li><a href="new_track_order.php">Orders</a></li>
-            <li><a href="index.html#contact">Contact</a></li>
+            <li><a href="index.php#contact">Contact</a></li>
             <li><a href="profile.php">Account</a></li>
         </ul>
 
