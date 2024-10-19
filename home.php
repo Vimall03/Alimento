@@ -82,7 +82,7 @@ if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] != true) {
 <div id="hero-bg" class="hero-section">
         <div class="overlay">
             <h1><i>Alimento</i></h1>
-            <p>Umaria, Rau</p>
+            <p>Home</p>
         </div>
     </div>
 
