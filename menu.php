@@ -178,7 +178,10 @@ if (isset($_POST['itemsInCart'])) {
 
 <body style="background-color:#f2f2f2" onload="myLoading()">
     <div id="loadingScreen"></div>
-    
+    <div class="gtranslate_wrapper"></div>
+      <script>window.gtranslateSettings = {"default_language":"en","detect_browser_language":true,"wrapper_selector":".gtranslate_wrapper"}</script>
+      <script src="https://cdn.gtranslate.net/widgets/latest/float.js" defer></script>
+
 <nav class="nav">
       <div class="nav__wrapper grid">
           <div class="grid__span2 nav__logo-wrap">
