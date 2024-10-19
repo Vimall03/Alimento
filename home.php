@@ -13,10 +13,14 @@ if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] != true) {
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Restaurant Finder</title>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-  <link rel="stylesheet" href=".css">
+
   <link rel="stylesheet" href="main.css">
+  <link rel="stylesheet" href="home.css">
 </head>
 <body>
+
+
+
 <div class="gtranslate_wrapper"></div>
       <script>window.gtranslateSettings = {"default_language":"en","detect_browser_language":true,"wrapper_selector":".gtranslate_wrapper"}</script>
       <script src="https://cdn.gtranslate.net/widgets/latest/float.js" defer></script>
@@ -73,13 +77,23 @@ if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] != true) {
 <br>
 <br>
 <br>
-  <div class="container mt-5">
-    <br>
-            <h1 class="card-title">Top Restaurants</h1>
-            <br>
-            <div class="container">
-    <div class="row">
-        <?php
+
+
+<div id="hero-bg" class="hero-section">
+        <div class="overlay">
+            <h1><i>Alimento</i></h1>
+            <p>Umaria, Rau</p>
+        </div>
+    </div>
+
+
+     <!-- Restaurant Section -->
+     <section class="restaurants">
+        <h2>Restaurants:</h2>
+        <div class="restaurant-cards">
+            <!-- Restaurant Card -->
+
+            <?php
         include 'partials/_dbconnect.php';
         $query = "SELECT * FROM `restaurant` ORDER BY `r_rating` DESC";
         $result = mysqli_query($conn, $query);
@@ -87,17 +101,29 @@ if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] != true) {
 
         if ($num >= 1) {
             while ($row = mysqli_fetch_array($result)) {
-                echo '<div class="col-md-4 mb-4">
-                          <div class="card">
-                            <img src="vendor/' . $row['r_bg'] . '" class="card-img-top" alt="' . $row['r_name'] . '">
-                            <div class="card-body">
-                                <h5 class="card-title">' . $row['r_name'] . '</h5>
-                                <p class="card-text">Cuisine: ' . $row['r_cuisine'] . '</p>
-                                <p class="card-text">Rating: ' . $row['r_rating'] . '</p>
-                                <a href="menu.php?id=' . $row['r_id'] . '" class="btn btn-primary btn-block">View Menu</a>
+                echo '
+                        <div class="card">
+                            <img src="vendor/' . $row['r_bg'] . '" alt="' . $row['r_name'] . '">
+                            <div style="display:flex;">
+                                       <div style="text-align:left;width:50%">
+                                            <h3 style="font-weight:bold;margin-top:8px">' . $row['r_name'] . '</h3>
+                                            <p class="cuisine">Cuisine: ' . $row['r_cuisine'] . '</p>
+                                        </div>
+
+                                        <div style="text-align:right;width:50%">
+                                            <p class="discount">30% Discount</p>
+                                            <p class="rating">' . (!empty($row['r_rating']) ? $row['r_rating'] : '★★★★★') . '</p>
+                                        </div>
+                            
                             </div>
-                          </div>
-                      </div>';
+                           <a href="menu.php?id=' . $row['r_id'] . '" class="menu-btn">View Menu</a>
+                        </div>
+
+                          
+
+
+                    ';
+
             }
         } else {
             echo '<div class="col">
@@ -105,11 +131,22 @@ if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] != true) {
                   </div>';
         }
         ?>
-    </div>
-</div>
 
 
-  </div>
+           
+            <!-- Duplicate these cards as needed -->
+<!--             
+             <div class="card">
+                <img src="restaurant1.jpg" alt="Restaurant 1">
+                <h3>Restaurant 1</h3>
+                <p class="discount">30% Discount</p>
+                <p class="cuisine">Cuisine: Global Fusion Cuisine</p>
+                <p class="rating">★★★★★</p>
+                <button class="menu-btn">View Menu</button>
+            </div> -->
+        </div>
+    </section>
+
   <script>
 window.embeddedChatbotConfig = {
 chatbotId: "gvEIQuZ1QCpui9UuF1UWX",
