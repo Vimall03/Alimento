@@ -74,12 +74,15 @@ Alimento is an online homemade food delivery platform that connects passionate h
 <img src="https://user-images.githubusercontent.com/74038190/212284100-561aa473-3905-4a80-b561-0d28506553ee.gif" width="900">
 
 ## 🛠️ Technology Stack
-- **Frontend**: HTML, CSS, JavaScript, **Bootstrap**
+- **Frontend**: HTML, CSS, JavaScript, **Tailwind CSS**
 - **Backend**: PHP
 - **Payment Gateway**: Razorpay API
 - **Database**: MySQL
 
-<img src="https://user-images.githubusercontent.com/74038190/212284100-561aa473-3905-4a80-b561-0d28506553ee.gif" width="900">
+## Setup tour
+1. [**Setup Tailwind CSS**](#setup-tailwind)
+
+
 
 ## 🤔 Why Choose Alimento?
 
@@ -136,6 +139,23 @@ After completing the above steps, open your browser and visit:
 You should now see the homepage of the Alimento platform.
 
 <img src="https://user-images.githubusercontent.com/74038190/212284100-561aa473-3905-4a80-b561-0d28506553ee.gif" width="900">
+
+<h1 id="setup-tailwind">Setup Tailwind css</h1>
+
+1. Go to alimento directory in your terminal
+2. You should have [node.js](https://nodejs.org/en/download/package-manager) installed. 
+
+- Run the following command:
+```
+npm install -D tailwindcss
+```
+3. Run the following command to see the tailwind css changes:
+- Without running this command you will not see the changes made by tailwind css. Everytime you start the project, you need to run this command in background.
+```
+npx tailwindcss -i global.css -o output.css --watch
+```
+
+Congrats, you've completed the tailwind css setup.
 
 ## 👀 Our Contributors
 
