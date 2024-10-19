@@ -7,7 +7,7 @@ use PHPMailer\PHPMailer\Exception;
 
 session_start();
 
-if (isset($_SESSION['loggedin']) || $_SESSION['loggedin'] == true){
+if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true){
   header("location: home.php");
 }
 

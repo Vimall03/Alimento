@@ -2,12 +2,11 @@
 $login= false;
 $showError = false;
 $showalert = false;
-session_start();
 
-if ($login == true){
+session_start();
+if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true){
   header("location: home.php");
 }
-
 
 if ($_SERVER["REQUEST_METHOD"]=="POST"){
   include 'partials/_dbconnect.php';
