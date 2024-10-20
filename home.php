@@ -112,7 +112,7 @@ if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] != true) {
 
                                         <div style="text-align:right;width:50%">
                                             <p class="discount">30% Discount</p>
-                                            <p class="rating">' . (!empty($row['r_rating']) ? $row['r_rating'] : '★★★★★') . '</p>
+                                            <p class="rating">' . (empty($row['r_rating']) ? '-' : str_repeat('★', (int)$row['r_rating'])) . '</p>
                                         </div>
                             
                             </div>
