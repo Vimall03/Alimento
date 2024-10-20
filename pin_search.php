@@ -59,7 +59,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                       </form>
                   </li>
                   <li class="nav__link">
-                      <a href="track_order.php">
+                      <a href="new_track_order.php">
                           <img class="nav__link-icon" style="width: 1.8rem" src="images/favicons/tableware_50px.png">
                           <span class="nav__link-item">Orders</span> 
                       </a>

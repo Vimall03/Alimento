@@ -40,7 +40,7 @@ $_SESSION['orderid'] = str_pad($oid, 5, '0', STR_PAD_LEFT);
               <ul class="nav__links">
 
                   <li class="nav__link">
-                      <a href="track_order.php">
+                      <a href="new_track_order.php">
                           <img class="nav__link-icon" style="width: 1.8rem" src="images/favicons/tableware_50px.png">
                           <span class="nav__link-item">Orders</span> 
                       </a>
