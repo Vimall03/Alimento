@@ -40,7 +40,7 @@ if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true) {
   <script src="https://cdn.gtranslate.net/widgets/latest/float.js" defer></script>
   <!-- navbar  -->
   <nav
-    class="hidden  sm:flex sm:max-w-xl md:max-w-2xl lg:max-w-5xl xl:max-w-7xl       w-full items-center justify-between max-w-7xl mx-auto font-poppins py-4">
+    class="hidden  sm:flex sm:max-w-xl md:max-w-2xl lg:max-w-5xl xl:max-w-7xl w-full items-center justify-between max-w-7xl mx-auto font-poppins py-4">
     <a href="index.php"><img src="./images/logo/logo.png" alt="logo" class="w-36"></a>
     <div class="flex sm:gap-1 md:gap-2">
       <a href="home.php"
@@ -271,7 +271,7 @@ if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true) {
         <div class="block">
           <h2 class="font-semibold text-gray-800 text-lg">Support</h2>
           <div class="flex flex-col gap-2 text-[#6A6E5C] mt-2">
-            <a href="profie.php">Account</a>
+            <a href="profile.php">Account</a>
             <a href="#">FAQs</a>
             <a href="#">Feedback</a>
           </div>
