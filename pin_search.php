@@ -41,7 +41,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 <nav class="nav">
       <div class="nav__wrapper grid">
           <div class="grid__span2 nav__logo-wrap">
-              <a href="index.html">
+              <a href="index.php">
                   <img class="nav__logo-img" src="images/logo/Logo.png">                
               </a>
           </div>
@@ -59,7 +59,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                       </form>
                   </li>
                   <li class="nav__link">
-                      <a href="track_order.php">
+                      <a href="new_track_order.php">
                           <img class="nav__link-icon" style="width: 1.8rem" src="images/favicons/tableware_50px.png">
                           <span class="nav__link-item">Orders</span> 
                       </a>

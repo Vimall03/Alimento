@@ -97,6 +97,7 @@ $orders = mysqli_fetch_all($result, MYSQLI_ASSOC);
             <form action="pin_search.php" method="post" class="flex gap-2">
                 <input type="text" class=" h-12 border-2 border-black w-48 p-2 rounded-full" id="searchBar" name="pincode" placeholder="Search by Pincode" required style="border: 1px solid black;"> 
                 <input type="submit" class="btn-dark py-1 px-2 text-white rounded-xl cursor-pointer" style="background-color: black;" value="Search">
+
             </form>
             
         </div>
@@ -130,7 +131,7 @@ $orders = mysqli_fetch_all($result, MYSQLI_ASSOC);
         <ul class="nav-links">
             <li><a class="nav-item" href="home.php">Restaurants</a></li>
             <li><a href="new_track_order.php">Orders</a></li>
-            <li><a href="index.html#contact">Contact</a></li>
+            <li><a href="index.php#contact">Contact</a></li>
             <li><a href="profile.php">Account</a></li>
         </ul>
 

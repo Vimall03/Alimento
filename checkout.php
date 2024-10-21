@@ -67,6 +67,7 @@ $_SESSION['orderid'] = str_pad($oid, 5, '0', STR_PAD_LEFT);
                                 <?php echo $_SESSION['name']; ?>
                             </p>
                           </span>
+
                       </a>
                       <div class="hidden absolute flex-col right-1/2 translate-x-1/2 top-12 w-48 border-2 rounded-md p-2 border-black" id="options" style="right: 50%; transform: translateX(50%);">
                           <a class="dropdown-item border-b-2 border-black text-center" href="profile.php">Profile</a>

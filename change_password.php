@@ -113,6 +113,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 </style>
 
+
 <nav
         class="hidden  sm:flex sm:max-w-xl md:max-w-2xl lg:max-w-5xl xl:max-w-7xl       w-full items-center justify-between max-w-7xl mx-auto font-poppins py-4">
         <a href="index.php"><img src="./images/logo/logo.png" alt="logo" class="w-36"></a>
@@ -157,6 +158,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
         </div>
     </nav>
+
 <div class="change-password-container">
   <div class="change-password-card">
     <h2>Change Password</h2>
