@@ -1,12 +1,12 @@
 <?php
 session_start();
-
+set_include_path(get_include_path() . PATH_SEPARATOR . 'C:/Users/Lenovo/Alimento/includes');
+include 'chatbot.html';
 $login_status = false;
 
-  if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true){
-    $login_status = true;
-
-  }
+if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true) {
+  $login_status = true;
+}
 ?>
 
 <!DOCTYPE html>
@@ -53,22 +53,25 @@ $login_status = false;
         echo '<a href="profile.php" class="hover:bg-gray-200 transition-all ease-in-out duration-100 active:bg-gray-300 focus:bg-gray-300 rounded-full hover:text-black py-2 px-4">Account</a>';
       } ?>
     </div>
-<div class="flex">
+    <div class="flex">
 
-  <div class="mx-3">
-    <?php if ($login_status == true) {
-      echo '<a href="user_logout.php" class="bg-red-500 hover:bg-red-600 transition-all ease-in-out duration-75 cursor-pointer w-max px-6 py-2 text-white rounded-full">Logout</a>';
-    } else {
-      echo '<a href="user_login.php" class="bg-gray-900 hover:bg-gray-800 focus:border-white cursor-pointer w-max transition-all ease-in-out duration-75 px-6 py-2 text-white rounded-full">Login</a>';
-    } ?>
-    </div>
+      <div class="mx-3">
+        <?php if ($login_status == true) {
+          echo '<a href="user_logout.php" class="bg-red-500 hover:bg-red-600 transition-all ease-in-out duration-75 cursor-pointer w-max px-6 py-2 text-white rounded-full">Logout</a>';
+        } else {
+          echo '<a href="user_login.php" class="bg-gray-900 hover:bg-gray-800 focus:border-white cursor-pointer w-max transition-all ease-in-out duration-75 px-6 py-2 text-white rounded-full">Login</a>';
+        } ?>
+      </div>
 
-    <div>
-    <?php if ($login_status == true) {echo ''; } 
-    else {echo'
+      <div>
+        <?php if ($login_status == true) {
+          echo '';
+        } else {
+          echo '
       <a href="user_signup.php" class="bg-gray-900 hover:bg-gray-800 focus:border-white cursor-pointer w-max transition-all ease-in-out duration-75 px-6 py-2 text-white rounded-full">Signup</a>
-    </div>';} ?>
-  </div>
+    </div>';
+        } ?>
+      </div>
   </nav>
 
   <!-- nav for small device  -->
