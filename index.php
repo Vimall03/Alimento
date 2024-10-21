@@ -24,12 +24,13 @@ if (isset($_SESSION['loggedin']) || $_SESSION['loggedin'] == true) {
         rel="stylesheet" />
     <!-- Bootstrap icons  -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <link rel="stylesheet" href="output.css">
 </head>
 
 <body>
     <!-- navbar  -->
     <nav
-        class="hidden  sm:flex sm:max-w-xl md:max-w-2xl lg:max-w-5xl xl:max-w-7xl       w-full items-center justify-between max-w-7xl mx-auto font-poppins py-4">
+        class="hidden  sm:flex sm:max-w-xl md:max-w-2xl lg:max-w-5xl xl:max-w-7xl w-full items-center justify-between max-w-7xl mx-auto font-poppins py-4">
         <a href="index.php"><img src="./images/logo/logo.png" alt="logo" class="w-36"></a>
         <div class="flex sm:gap-1 md:gap-2">
             <a href="home.php"
