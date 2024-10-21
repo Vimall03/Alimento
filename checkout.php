@@ -24,61 +24,47 @@ $_SESSION['orderid'] = str_pad($oid, 5, '0', STR_PAD_LEFT);
   <title>Checkout</title>
   
   <link rel="stylesheet" href="checkout.css">
-  <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-  <link rel="stylesheet" href=".css"> -->
-  <!-- <link rel="stylesheet" href="main.css"> -->
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-    href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet" />
-    <link rel="stylesheet" href="output.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <link rel="stylesheet" href=".css">
+  <link rel="stylesheet" href="main.css">
 </head>
 <body>
-<nav
-        class="hidden  sm:flex sm:max-w-xl md:max-w-2xl lg:max-w-5xl xl:max-w-7xl       w-full items-center justify-between max-w-7xl mx-auto font-poppins py-4">
-        <a href="index.php"><img src="./images/logo/logo.png" alt="logo" class="w-36"></a>
-        <div class="flex sm:gap-1 md:gap-2">
-            <a href="orders.php"
-                class="hover:bg-gray-200 transition-all flex gap-1 ease-in-out duration-100 active:bg-gray-300 focus:bg-gray-300 rounded-full hover:text-black py-2 px-4 text-black">
-                <img class="nav__link-icon h-6" src="images/favicons/tableware_50px.png">
-                <span class="nav__link-item px-2">Orders</span> 
-            </a>
-            <a href="#"
-                class="hover:bg-gray-200 transition-all flex gap-1 ease-in-out duration-100 active:bg-gray-300 focus:bg-gray-300 rounded-full hover:text-black py-2 px-4 text-black">
-                <img class="nav__link-icon h-6"  src="images/favicons/phone_32px.png">
-                <span class="nav__link-item px-2">Contact </span>
-            </a>
-            <form action="pin_search.php" method="post" class="flex gap-2">
-                <input type="text" class=" h-12 border-2 border-black w-48 p-2 rounded-full" id="searchBar" name="pincode" placeholder="Search by Pincode" required style="border: 1px solid black;"> 
-                <input type="submit" class="btn-dark py-1 px-2 text-white rounded-xl cursor-pointer" style="background-color: black;" value="Search">
-            </form>
-            
-        </div>
+<nav class="nav" style="topo:0">
+      <div class="nav__wrapper grid">
+          <div class="grid__span2 nav__logo-wrap">
+              <a href="home.php">
+                  <img class="nav__logo-img" src="images/logo/Logo.png">                
+              </a>
+          </div>
+          <div class="grid__span10 nav__links-wrap">
+              <ul class="nav__links">
 
-        <div>
-            <!-- <?php 
-                echo '<a href="user_login.php" class="bg-red-500 hover:bg-red-600 transition-all ease-in-out duration-75 cursor-pointer w-max px-6 py-2 text-white rounded-full">Logout</a>';
-             ?> -->
-             <li class="nav__link dropdown h-full flex items-center relative"  onclick="toggle()">
-                      <a class="nav__link-item flex gap-2" href="#" id="navbarDropdown" role="button">
-                          <img class="nav__link-icon h-8" src="images/favicons/user_male_circle_32px.png">
-                          <span class="nav__link-item h-8 flex justify-center items-center">
-                            <p>
-                                <?php echo $_SESSION['name']; ?>
-                            </p>
-                          </span>
-
+                  <li class="nav__link">
+                      <a href="new_track_order.php">
+                          <img class="nav__link-icon" style="width: 1.8rem" src="images/favicons/tableware_50px.png">
+                          <span class="nav__link-item">Orders</span> 
                       </a>
-                      <div class="hidden absolute flex-col right-1/2 translate-x-1/2 top-12 w-48 border-2 rounded-md p-2 border-black" id="options" style="right: 50%; transform: translateX(50%);">
-                          <a class="dropdown-item border-b-2 border-black text-center" href="profile.php">Profile</a>
-                          <a class="dropdown-item border-b-2 border-black text-center" href="new_track_order.php">Track Order</a>
-                          <a class="dropdown-item border-b-2 border-black text-center" href="change_password.php">Change Password</a>
-                          <a class="dropdown-item text-center" href="user_logout.php">Logout</a>
-                      </div>
-            </li>
-
-        </div>
-    </nav>
+                  </li>
+                  <li class="nav__link">
+                      <a href="#contact">
+                          <img class="nav__link-icon" src="images/favicons/phone_32px.png">
+                          <span class="nav__link-item">Contact </span>
+                      </a>
+                  </li>
+                  <li class="nav__link">
+                      <a href="user_logout.php">
+                          <img class="nav__link-icon" style="width: 1.9rem" src="images/favicons/user_male_circle_32px.png">
+                          <span class="nav__link-item">Logout</span> 
+                      </a>
+                  </li>
+              </ul>
+          </div>
+      </div>
+  </nav>
+<br>
+<br>
+<br>
+<br>
 <br>
 <br>
 <div >
@@ -189,26 +175,7 @@ $_SESSION['orderid'] = str_pad($oid, 5, '0', STR_PAD_LEFT);
 </form>
 </div>
 
-<script>
-    window.embeddedChatbotConfig = {
-    chatbotId: "gvEIQuZ1QCpui9UuF1UWX",
-    domain: "www.chatbase.co"
-    }
 
-    const option = document.getElementById("options")
-
-    const toggle = ()=>{
-        console.log("hii");
-        
-        if(option.classList.contains("hidden")){
-            option.classList.remove("hidden");
-            option.classList.add("flex");
-        } else {
-            option.classList.remove("flex");
-            option.classList.add("hidden")
-        }
-    }
-</script>
   <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.1/dist/umd/popper.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>

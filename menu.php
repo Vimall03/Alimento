@@ -33,19 +33,15 @@ if (isset($_POST['itemsInCart'])) {
   <link rel="stylesheet" type="text/css" href="./main.css">
 
 
-    <!--Bootstrap CDNs-->
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-    href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet" />
-    <link rel="stylesheet" href="output.css">
-    <!-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"> -->
-    <!-- <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="crossorigin="anonymous"></script> -->
-    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script> -->
-    <!-- <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script> -->
-   <link rel="stylesheet" href="menu.css">
 
+  <!--Bootstrap CDNs-->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+    crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="menu.css">
 </head>
 <script type="text/javascript">
   $(document).ready(function() {
@@ -177,66 +173,70 @@ if (isset($_POST['itemsInCart'])) {
 
 
 <body style="background-color:#f2f2f2" onload="myLoading()">
-    <div id="loadingScreen"></div>
-    <div class="gtranslate_wrapper"></div>
-      <script>window.gtranslateSettings = {"default_language":"en","detect_browser_language":true,"wrapper_selector":".gtranslate_wrapper"}</script>
-      <script src="https://cdn.gtranslate.net/widgets/latest/float.js" defer></script>
+  <div id="loadingScreen"></div>
+  <div class="gtranslate_wrapper"></div>
+  <script>
+    window.gtranslateSettings = {
+      "default_language": "en",
+      "detect_browser_language": true,
+      "wrapper_selector": ".gtranslate_wrapper"
+    }
+  </script>
+  <script src="https://cdn.gtranslate.net/widgets/latest/float.js" defer></script>
 
-      <nav
-        class="hidden  sm:flex sm:max-w-xl md:max-w-2xl lg:max-w-5xl xl:max-w-7xl       w-full items-center justify-between max-w-7xl mx-auto font-poppins py-4">
-        <a href="index.php"><img src="./images/logo/logo.png" alt="logo" class="w-36"></a>
-        <div class="flex sm:gap-1 md:gap-2">
-            <a href="orders.php"
-                class="hover:bg-gray-200 transition-all flex gap-1 ease-in-out duration-100 active:bg-gray-300 focus:bg-gray-300 rounded-full hover:text-black py-2 px-4 text-black">
-                <img class="nav__link-icon h-6" src="images/favicons/tableware_50px.png">
-                <span class="nav__link-item px-2">Orders</span> 
+  <nav class="nav">
+    <div class="nav__wrapper grid">
+      <div class="grid__span2 nav__logo-wrap">
+        <a href="home.php">
+          <img class="nav__logo-img" src="images/logo/Logo.png">
+        </a>
+      </div>
+
+      <div class="grid__span10 nav__links-wrap">
+        <ul class="nav__links">
+
+          <li class="nav__link">
+            <a href="new_track_order.php">
+              <img class="nav__link-icon" style="width: 1.8rem" src="images/favicons/tableware_50px.png">
+              <span class="nav__link-item">Orders</span>
             </a>
-            <a href="#"
-                class="hover:bg-gray-200 transition-all flex gap-1 ease-in-out duration-100 active:bg-gray-300 focus:bg-gray-300 rounded-full hover:text-black py-2 px-4 text-black">
-                <img class="nav__link-icon h-6"  src="images/favicons/phone_32px.png">
-                <span class="nav__link-item px-2">Contact </span>
+          </li>
+          <li class="nav__link">
+            <a href="#contact">
+              <img class="nav__link-icon" src="images/favicons/phone_32px.png">
+              <span class="nav__link-item">Contact </span>
             </a>
-            <form action="pin_search.php" method="post" class="flex gap-2">
-                <input type="text" class=" h-12 border-2 border-black w-48 p-2 rounded-full" id="searchBar" name="pincode" placeholder="Search by Pincode" required style="border: 1px solid black;"> 
-                <input type="submit" class="btn-dark py-1 px-2 text-white rounded-xl cursor-pointer" style="background-color: black;" value="Search">
-            </form>
-            
-        </div>
+          </li>
+          <li class="nav__link">
+            <a href="user_logout.php">
+              <img class="nav__link-icon" style="width: 1.9rem" src="images/favicons/user_male_circle_32px.png">
+              <span class="nav__link-item">Logout</span>
+            </a>
+          </li>
+        </ul>
+      </div>
+      <div class="theme-switch-wrapper">
+        <label class="theme-switch" for="checkbox">
+          <input type="checkbox" id="checkbox" />
+          <div class="slider"></div>
+        </label>
+        <span id="mode-label">Light Mode</span>
+      </div>
+    </div>
+  </nav>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
 
-        <div>
-            <!-- <?php 
-                echo '<a href="user_login.php" class="bg-red-500 hover:bg-red-600 transition-all ease-in-out duration-75 cursor-pointer w-max px-6 py-2 text-white rounded-full">Logout</a>';
-             ?> -->
-             <li class="nav__link dropdown h-full flex items-center relative"  onclick="toggle()">
-                      <a class="nav__link-item flex gap-2" href="#" id="navbarDropdown" role="button">
-                          <img class="nav__link-icon h-8" src="images/favicons/user_male_circle_32px.png">
-                          <span class="nav__link-item h-8 flex justify-center items-center">
-                            <p>
-                                <?php echo $_SESSION['name']; ?>
-                            </p>
-                          </span>
-                      </a>
-                      <div class="hidden absolute flex-col right-1/2 translate-x-1/2 top-12 w-48 border-2 rounded-md p-2 border-black" id="options" style="right: 50%; transform: translateX(50%);">
-                          <a class="dropdown-item border-b-2 border-black text-center" href="profile.php">Profile</a>
-                          <a class="dropdown-item border-b-2 border-black text-center" href="new_track_order.php">Track Order</a>
-                          <a class="dropdown-item border-b-2 border-black text-center" href="change_password.php">Change Password</a>
-                          <a class="dropdown-item text-center" href="user_logout.php">Logout</a>
-                      </div>
-            </li>
-
-        </div>
-    </nav>
-
-<br>
-<br>
-
- <div class="container-width">
- <div id="hero-bg" class="hero-section">
-        <div class="overlay">
-            <h1><i><?php echo $result['r_name'];?></i></h1>
-            <p>Umaria, Rau</p>
-        </div>
-
+  <div class="container-width">
+    <div id="hero-bg" class="hero-section">
+      <div class="overlay">
+        <h1><i><?php echo $result['r_name']; ?></i></h1>
+        <p>Umaria, Rau</p>
+      </div>
     </div>
     <script>
       document.getElementById('hero-bg').style.backgroundImage = "url('vendor/<?php echo $result['r_bg']; ?>')";

@@ -720,7 +720,7 @@ p{
     vertical-align: middle;
     padding: 1rem 0
 }
-/* 
+
 .nav__links-wrap {
     display: grid;
     justify-items: end
@@ -741,7 +741,7 @@ p{
     position: relative;
     right: .3rem;
     width: 1.7rem
-} */
+}
 
 .mob-nav {
     background-color: var(--background-color);

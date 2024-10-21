@@ -58,7 +58,7 @@ $orders = mysqli_fetch_all($result, MYSQLI_ASSOC);
         crossorigin="anonymous"></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
         integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-    <!-- <link rel="stylesheet" href="main.css"> -->
+    <link rel="stylesheet" href="main.css">
     <!-- Google fonts  -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -69,7 +69,6 @@ $orders = mysqli_fetch_all($result, MYSQLI_ASSOC);
     <link rel="stylesheet"
         href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&icon_names=menu" />
     <link rel="stylesheet" href="new_track_order.css">
-    <link rel="stylesheet" href="output.css">
     <title>Order Information</title>
 
 </head>
@@ -80,51 +79,38 @@ $orders = mysqli_fetch_all($result, MYSQLI_ASSOC);
       <script src="https://cdn.gtranslate.net/widgets/latest/float.js" defer></script>
 
     <!-- new navbar  -->
-    <nav
-        class="hidden  sm:flex sm:max-w-xl md:max-w-2xl lg:max-w-5xl xl:max-w-7xl       w-full items-center justify-between max-w-7xl mx-auto font-poppins py-4">
-        <a href="index.php"><img src="./images/logo/logo.png" alt="logo" class="w-36"></a>
-        <div class="flex sm:gap-1 md:gap-2">
-            <a href="orders.php"
-                class="hover:bg-gray-200 transition-all flex gap-1 ease-in-out duration-100 active:bg-gray-300 focus:bg-gray-300 rounded-full hover:text-black py-2 px-4 text-black">
-                <img class="nav__link-icon h-6" src="images/favicons/tableware_50px.png">
-                <span class="nav__link-item px-2">Orders</span> 
-            </a>
-            <a href="#"
-                class="hover:bg-gray-200 transition-all flex gap-1 ease-in-out duration-100 active:bg-gray-300 focus:bg-gray-300 rounded-full hover:text-black py-2 px-4 text-black">
-                <img class="nav__link-icon h-6"  src="images/favicons/phone_32px.png">
-                <span class="nav__link-item px-2">Contact </span>
-            </a>
-            <form action="pin_search.php" method="post" class="flex gap-2">
-                <input type="text" class=" h-12 border-2 border-black w-48 p-2 rounded-full" id="searchBar" name="pincode" placeholder="Search by Pincode" required style="border: 1px solid black;"> 
-                <input type="submit" class="btn-dark py-1 px-2 text-white rounded-xl cursor-pointer" style="background-color: black;" value="Search">
-
+    <div class="navbar">
+        <div class="brand-nav">
+            <a href="index.php"><img src="images/logo/logo.png" alt="logo" class="logo"></a>
+            <div class="nav-links">
+                <ul class="nav-items">
+                    <li><a class="nav-item" href="home.php">Restaurants</a></li>
+                    <li><a class="nav-item" href="new_track_order.php">Orders</a></li>
+                    <li><a class="nav-item" href="index.php#contact">Contact</a></li>
+                    <li><a class="nav-item" href="profile.php">Account</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="search">
+            <form action="pin_search.php" method="post">
+                <input type="text" class="search-input" placeholder="Search pincode..." name="pincode" id="searchBar"
+                    required>
+                <input type="submit" value="Search" class="search-btn">
             </form>
-            
+            <div class="session-links">
+                <?php
+                if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true) {
+                    echo '<a href="user_logout.php" class="signout">Logout</a>';
+                } else {
+                    echo '<a href="user_login.php" class="login">Login</a>';
+                }
+                ?>
+            </div>
         </div>
-
-        <div>
-            <!-- <?php 
-                echo '<a href="user_login.php" class="bg-red-500 hover:bg-red-600 transition-all ease-in-out duration-75 cursor-pointer w-max px-6 py-2 text-white rounded-full">Logout</a>';
-             ?> -->
-             <li class="nav__link dropdown h-full flex items-center relative"  onclick="toggle()">
-                      <a class="nav__link-item flex gap-2" href="#" id="navbarDropdown" role="button">
-                          <img class="nav__link-icon h-8" src="images/favicons/user_male_circle_32px.png">
-                          <span class="nav__link-item h-8 flex justify-center items-center">
-                            <p>
-                                <?php echo $_SESSION['name']; ?>
-                            </p>
-                          </span>
-                      </a>
-                      <div class="hidden absolute flex-col right-1/2 translate-x-1/2 top-12 w-48 border-2 rounded-md p-2 border-black" id="options" style="right: 50%; transform: translateX(50%);">
-                          <a class="dropdown-item border-b-2 border-black text-center" href="profile.php">Profile</a>
-                          <a class="dropdown-item border-b-2 border-black text-center" href="new_track_order.php">Track Order</a>
-                          <a class="dropdown-item border-b-2 border-black text-center" href="change_password.php">Change Password</a>
-                          <a class="dropdown-item text-center" href="user_logout.php">Logout</a>
-                      </div>
-            </li>
-
-        </div>
-    </nav>
+        <span class="material-symbols-outlined menu">
+            menu
+        </span>
+    </div>
 
     <!-- responsive navbar -->
     <div class="responsive-navbar" id="rnav">
@@ -212,20 +198,6 @@ $orders = mysqli_fetch_all($result, MYSQLI_ASSOC);
             chatbotId: "gvEIQuZ1QCpui9UuF1UWX",
             domain: "www.chatbase.co"
         }
-
-        const option = document.getElementById("options")
-
-    const toggle = ()=>{
-        console.log("hii");
-        
-        if(option.classList.contains("hidden")){
-            option.classList.remove("hidden");
-            option.classList.add("flex");
-        } else {
-            option.classList.remove("flex");
-            option.classList.add("hidden")
-        }
-    }
 
         // nav responsive open and close
         const menu = document.querySelector('.menu');
