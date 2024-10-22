@@ -23,7 +23,24 @@ SET time_zone = "+00:00";
 
 -- --------------------------------------------------------
 
---
+-- table structure for table 'meals'
+
+CREATE TABLE meals (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    name VARCHAR(100) NOT NULL,
+    description TEXT,
+    base_price DECIMAL(10, 2) NOT NULL,
+    dietary_info VARCHAR(255)
+);
+
+--table structure for table 'dietary preference'
+
+CREATE TABLE dietary_preferences (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    meal_id INT,
+    preference VARCHAR(50),
+    FOREIGN KEY (meal_id) REFERENCES meals(id)
+);
 -- Table structure for table `menu`
 --
 
