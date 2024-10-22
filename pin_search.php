@@ -42,7 +42,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
       <div class="nav__wrapper grid">
           <div class="grid__span2 nav__logo-wrap">
               <a href="index.php">
-                  <img class="nav__logo-img" src="images/logo/Logo.png">                
+                  <img class="nav__logo-img" src="images/logo/logo.webp">                
               </a>
           </div>
           <div class="grid__span10 nav__links-wrap">
@@ -60,19 +60,19 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                   </li>
                   <li class="nav__link">
                       <a href="new_track_order.php">
-                          <img class="nav__link-icon" style="width: 1.8rem" src="images/favicons/tableware_50px.png">
+                          <img class="nav__link-icon" style="width: 1.8rem" src="images/favicons/tableware_50px.webp">
                           <span class="nav__link-item">Orders</span> 
                       </a>
                   </li>
                   <li class="nav__link">
                       <a href="#contact">
-                          <img class="nav__link-icon" src="images/favicons/phone_32px.png">
+                          <img class="nav__link-icon" src="images/favicons/phone_32px.webp">
                           <span class="nav__link-item">Contact </span>
                       </a>
                   </li>
                   <li class="nav__link">
                       <a href="user_logout.php">
-                          <img class="nav__link-icon" style="width: 1.9rem" src="images/favicons/user_male_circle_32px.png">
+                          <img class="nav__link-icon" style="width: 1.9rem" src="images/favicons/user_male_circle_32px.webp">
                           <span class="nav__link-item">Logout</span> 
                       </a>
                   </li>

@@ -181,7 +181,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 </head>
 <body>
     <div class="header">
-        <img src="../images/logo/logo.png" alt="">
+        <img src="../images/logo/logo.webp" alt="">
         
         <form action="vendor_logout.php" class="logout"><input  type='submit' class="btn btn-danger" value='LOGOUT'></form>
     </div>
