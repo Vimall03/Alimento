@@ -181,13 +181,13 @@ else {
 <section class="login-signup">
         <div class="login-signup__form-container login-signup__big">
             <div class="login-signup__back-button u-show-after-tab-port">
-                <img src="images/favicons/back_50px-red.png"alt="Back Button">
+                <img src="images/favicons/back_50px-red.webp"alt="Back Button">
                 <a href="index.php">Back</a>
             </div>
 
             <div class="login-signup__logo">
                 <a href="index.php">
-                    <img src="images/logo/Logo.png" alt="Logo">                
+                    <img src="images/logo/logo.webp" alt="Logo">                
                 </a>
             </div>
 
@@ -225,7 +225,7 @@ else {
         </div>
         <div class="login-signup__message-container login-signup__small">
             <div class="login-signup__back-button">
-                <img src="images/favicons/back_50px.png"alt="Back Button">
+                <img src="images/favicons/back_50px.webp"alt="Back Button">
                 <a href="index.php" style="color:#fff">Back</p>
             </div>
 
