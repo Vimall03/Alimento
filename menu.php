@@ -188,7 +188,7 @@ if (isset($_POST['itemsInCart'])) {
     <div class="nav__wrapper grid">
       <div class="grid__span2 nav__logo-wrap">
         <a href="home.php">
-          <img class="nav__logo-img" src="images/logo/Logo.png">
+          <img class="nav__logo-img" src="images/logo/logo.webp">
         </a>
       </div>
 
@@ -197,19 +197,19 @@ if (isset($_POST['itemsInCart'])) {
 
           <li class="nav__link">
             <a href="new_track_order.php">
-              <img class="nav__link-icon" style="width: 1.8rem" src="images/favicons/tableware_50px.png">
+              <img class="nav__link-icon" style="width: 1.8rem" src="images/favicons/tableware_50px.webp">
               <span class="nav__link-item">Orders</span>
             </a>
           </li>
           <li class="nav__link">
             <a href="#contact">
-              <img class="nav__link-icon" src="images/favicons/phone_32px.png">
+              <img class="nav__link-icon" src="images/favicons/phone_32px.webp">
               <span class="nav__link-item">Contact </span>
             </a>
           </li>
           <li class="nav__link">
             <a href="user_logout.php">
-              <img class="nav__link-icon" style="width: 1.9rem" src="images/favicons/user_male_circle_32px.png">
+              <img class="nav__link-icon" style="width: 1.9rem" src="images/favicons/user_male_circle_32px.webp">
               <span class="nav__link-item">Logout</span>
             </a>
           </li>
@@ -254,7 +254,7 @@ if (isset($_POST['itemsInCart'])) {
           $counter++;
           echo '
                                             <div class="item-card">
-                                                <img src="./images/download (1).jpg" alt="Cheese Burger">
+                                                <img src="./images/download (1).webp" alt="Cheese Burger">
                                                 <h3> <b id="item' . $counter . '">' . $row['m_name'] . '</b></h3>
                                                 <p id="price' . $counter . '">₹' . $row['m_price'] . '</p>
                                                 <button data-id="' . $counter . '" id="' . $counter . '" class="mybtn btn btn-success btn-sm rounded">Add To Cart</button>

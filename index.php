@@ -41,7 +41,7 @@ if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true) {
   <!-- navbar  -->
   <nav
     class="hidden  sm:flex sm:max-w-xl md:max-w-2xl lg:max-w-5xl xl:max-w-7xl w-full items-center justify-between max-w-7xl mx-auto font-poppins py-4">
-    <a href="index.php"><img src="./images/logo/logo.png" alt="logo" class="w-36"></a>
+    <a href="index.php"><img src="./images/logo/logo.webp" alt="logo" class="w-36"></a>
     <div class="flex sm:gap-1 md:gap-2">
       <a href="home.php"
         class="hover:bg-gray-200 transition-all ease-in-out duration-100 active:bg-gray-300 focus:bg-gray-300 rounded-full hover:text-black py-2 px-4">Restaurants</a>
@@ -76,7 +76,7 @@ if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true) {
 
   <!-- nav for small device  -->
   <div class="flex items-center justify-between max-w-7xl mx-auto font-poppins bg-white py-3 px-5 sm:hidden">
-    <a href="index.php"><img src="./images/logo/logo.png" alt="logo" class="w-36 "></a>
+    <a href="index.php"><img src="./images/logo/logo.webp" alt="logo" class="w-36 "></a>
     <i class="bi bi-list menu select-none text-3xl"></i>
   </div>
   <div class="bg-gray-200 w-full top-5 font-poppins overflow-hidden px-5 py-3 hidden sm:hidden mb-5" id="nav-items">
@@ -140,9 +140,9 @@ if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true) {
     </div>
     <!-- right  -->
     <div class="flex flex-col w-full md:w-auto md:gap-5 lg:w-auto xl:w-2/5">
-      <img src="./images/pizza-hero.png" alt="hero-image"
+      <img src="./images/pizza-hero.webp" alt="hero-image"
         class="w-40 self-end bg-[#D7DACB] rounded-full p-1 sm:w-52 md:w-36 lg:w-40 xl:w-52">
-      <img src="./images/dish1-hero.png" alt="hero-image"
+      <img src="./images/dish1-hero.webp" alt="hero-image"
         class="w-72 self-start bg-[#D7DACB] rounded-full md:w-52 lg:w-80 xl:w-96">
     </div>
   </div>
@@ -208,7 +208,7 @@ if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true) {
       </div>
     </div>
     <div class="mx-auto">
-      <img src="./images/review.png" alt="review-image" class="w-96 sm:w-80 md:w-96 lg:w-[500px]">
+      <img src="./images/review.webp" alt="review-image" class="w-96 sm:w-80 md:w-96 lg:w-[500px]">
     </div>
   </div>
 
@@ -246,7 +246,7 @@ if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true) {
   <div class="bg-[#E6E8DD;] py-12 px-5 font-poppins">
     <div class="lg:max-w-5xl lg:flex lg:justify-between mx-auto xl:max-w-7xl">
       <div class="max-w-xs mx-auto lg:mx-0 xl:mx-0">
-        <img class="w-36 mx-auto" src="./images/logo/logo.png" alt="logo">
+        <img class="w-36 mx-auto" src="./images/logo/logo.webp" alt="logo">
         <p class="text-sm text-[#6A6E5C] text-center mt-2">We deliver best food to you with our quality vendors
           that
           serve you the best food in the city.</p>

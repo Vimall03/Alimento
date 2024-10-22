@@ -126,7 +126,7 @@ if ($showalert) {
         <div class="login-signup__message-container login-signup__small">
             <div class="login-signup__logo">
                 <a href="index.php">
-                    <img src="images/logo/Logo - White.png" alt="Logo">                
+                    <img src="images/logo/Logo - White.webp" alt="Logo">                
                 </a>
             </div>
 
@@ -143,12 +143,12 @@ if ($showalert) {
         </div>
         <div class="login-signup__form-container login-signup__big">
             <div class="login-signup__logo u-show-after-tab-port">
-                <img src="images/logo/Logo.png" alt="Logo">
+                <img src="images/logo/logo.webp" alt="Logo">
             </div>
 
             <div class="login-signup__back-button">
             <a href="index.php">
-                <img src="images/favicons/back_50px-red.png" alt="Back Button">
+                <img src="images/favicons/back_50px-red.webp" alt="Back Button">
                 Back</a>
             </div>
 

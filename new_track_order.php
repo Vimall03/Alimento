@@ -81,7 +81,7 @@ $orders = mysqli_fetch_all($result, MYSQLI_ASSOC);
     <!-- new navbar  -->
     <div class="navbar">
         <div class="brand-nav">
-            <a href="index.php"><img src="images/logo/logo.png" alt="logo" class="logo"></a>
+            <a href="index.php"><img src="images/logo/logo.webp" alt="logo" class="logo"></a>
             <div class="nav-links">
                 <ul class="nav-items">
                     <li><a class="nav-item" href="home.php">Restaurants</a></li>
