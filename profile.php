@@ -2,322 +2,347 @@
 session_start();
 
 if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] != true) {
-    header("location: user_login.php");
-    exit;
+  header("location: user_login.php");
+  exit;
+}
+
+if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true) {
+  $login_status = true;
 }
 
 ?>
 
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Profile</title>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
-  <link rel="stylesheet" href=".css">
-  <link rel="stylesheet" href="main.css">
+  <!-- <link rel="stylesheet" href=".css"> -->
+  <!-- <link rel="stylesheet" href="main.css"> -->
+  <link rel="stylesheet" href="output.css">
+
+  <!-- Google fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+    rel="stylesheet" />
+  <!-- Bootstrap icons  -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+  <script src="menu.js"></script>
   <style>
-    .profile-container {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      height: 100vh;
-    }
     .profile-card {
       background-color: #fff;
       padding: 20px;
       border-radius: 10px;
       box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     }
+
     .profile-card h2 {
       font-weight: bold;
       margin-bottom: 10px;
     }
+
     .profile-card p {
       font-size: 18px;
       margin-bottom: 20px;
     }
+
     .profile-card .profile-info {
       display: flex;
       justify-content: space-between;
       align-items: center;
       margin-bottom: 20px;
     }
+
     .profile-card .profile-info .info-label {
       font-weight: bold;
       margin-right: 10px;
     }
+
     .profile-image {
       width: 150px;
       height: 150px;
       border-radius: 50%;
       margin: 20px auto;
     }
+
     .profile-header {
       background-color: #f7f7f7;
       padding: 20px;
       border-bottom: 1px solid #ddd;
     }
+
     .profile-header h2 {
       font-weight: bold;
       margin-bottom: 10px;
     }
+
     .profile-body {
       padding: 20px;
     }
+
     .profile-stats {
       display: flex;
       justify-content: space-between;
       align-items: center;
       margin-bottom: 20px;
     }
+
     .profile-stats .stat {
       margin-right: 20px;
     }
+
     .profile-stats .stat .stat-label {
       font-weight: bold;
       margin-bottom: 5px;
     }
+
     .profile-stats .stat .stat-value {
       font-size: 24px;
       font-weight: bold;
     }
+
+    .profile-container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100dvh;
+      background-color: #f7f7f7;
+    }
+
+    .profile-card {
+      background-color: #fff;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      width: 500px;
+    }
+
+    .profile-card h2 {
+      font-weight: bold;
+      margin-bottom: 10px;
+      color: #333;
+    }
+
+    .profile-card p {
+      font-size: 18px;
+      margin-bottom: 20px;
+      color: #666;
+    }
+
+    .profile-card .profile-info {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 20px;
+      border-bottom: 1px solid #ddd;
+      padding-bottom: 10px;
+    }
+
+    .profile-card .profile-info .info-label {
+      font-weight: bold;
+      margin-right: 10px;
+      color: #333;
+    }
+
+    .profile-image {
+      width: 150px;
+      height: 150px;
+      border-radius: 50%;
+      margin: 20px auto;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .profile-header {
+      background-color: #f7f7f7;
+      padding: 20px;
+      border-bottom: 1px solid #ddd;
+      text-align: center;
+    }
+
+    .profile-header h2 {
+      font-weight: bold;
+      margin-bottom: 10px;
+      color: #333;
+    }
+
+    .profile-body {
+      padding: 20px;
+    }
+
+    .profile-stats {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 20px;
+      border-bottom: 1px solid #ddd;
+      padding-bottom: 10px;
+    }
+
+    .profile-stats .stat {
+      margin-right: 20px;
+    }
+
+    .profile-stats .stat .stat-label {
+      font-weight: bold;
+      margin-bottom: 5px;
+      color: #333;
+    }
+
+    .profile-stats .stat .stat-value {
+      font-size: 24px;
+      font-weight: bold;
+      color: #666;
+    }
+
+    .profile-actions {
+      margin-top: 20px;
+      text-align: center;
+    }
+
+    .profile-actions a {
+      margin: 0 10px;
+    }
   </style>
 </head>
+
 <body>
-<div class="gtranslate_wrapper"></div>
-      <script>window.gtranslateSettings = {"default_language":"en","detect_browser_language":true,"wrapper_selector":".gtranslate_wrapper"}</script>
-      <script src="https://cdn.gtranslate.net/widgets/latest/float.js" defer></script>
+  <div class="gtranslate_wrapper"></div>
+  <script>window.gtranslateSettings = { "default_language": "en", "detect_browser_language": true, "wrapper_selector": ".gtranslate_wrapper" }</script>
+  <script src="https://cdn.gtranslate.net/widgets/latest/float.js" defer></script>
 
-<nav class="nav">
-      <div class="nav__wrapper grid">
-          <div class="grid__span2 nav__logo-wrap">
-              <a href="home.php">
-                  <img class="nav__logo-img" src="images/logo/logo.webp">                
-              </a>
-          </div>
-          <div class="grid__span10 nav__links-wrap">
-              <ul class="nav__links">
+  <!-- navbar  -->
+  <nav
+        class="hidden lg:flex md:max-w-2xl lg:max-w-5xl xl:max-w-7xl w-full items-center justify-between max-w-7xl mx-auto font-poppins py-4">
+        <a href="index.php"><img src="./images/logo/logo.webp" alt="logo" class="w-36"></a>
+        <div class="flex sm:gap-1 md:gap-2 sm:text-sm md:text-base">
+            <a href="home.php"
+                class="hover:bg-gray-200 transition-all ease-in-out duration-100 active:bg-gray-300 focus:bg-gray-300 rounded-full hover:text-black py-2 px-4">Restaurants</a>
+            <a href="new_track_order.php"
+                class="hover:bg-gray-200 transition-all ease-in-out duration-100 active:bg-gray-300 focus:bg-gray-300 rounded-full hover:text-black py-2 px-4">Orders</a>
+            <a href="#"
+                class="hover:bg-gray-200 transition-all ease-in-out duration-100 active:bg-gray-300 focus:bg-gray-300 rounded-full hover:text-black py-2 px-4">Contact</a>
+            <?php if ($login_status == true) {
+                echo '<a href="profile.php" class="hover:bg-gray-200 transition-all ease-in-out duration-100 active:bg-gray-300 focus:bg-gray-300 rounded-full hover:text-black py-2 px-4">Account</a>';
+            } ?>
+        </div>
+        <div class="flex">
 
-                  <li class="nav__link">
-                      
-                          <form action="pin_search.php" method="post">
-                          <input type="text" class="form-control " id="searchBar" name="pincode" placeholder="Search by Pincode" required>
-                  </li>
-                  <li class="nav__link">
-                      
-                          <input type="submit" class="btn-dark form-control " value="Search">
-                      </form>
-                  </li>
-                  <li class="nav__link dropdown">
-                      <a class="nav__link-item dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                          <img class="nav__link-icon" style="width: 1.9rem" src="images/favicons/user_male_circle_32px.webp">
-                          <span class="nav__link-item"><?php echo $_SESSION['name']; ?></span>
-                      </a>
-                      <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                          <a class="dropdown-item" href="profile.php">Profile</a>
-                          <a class="dropdown-item" href="orders.php">Orders</a>
-                          <a class="dropdown-item" href="change_password.php">Change Password</a>
-                          <a class="dropdown-item" href="user_logout.php">Logout</a>
-                      </div>
-                  </li>
-                  <li class="nav__link">
-                      <a href="new_track_order.php">
-                          <img class="nav__link-icon" style="width: 1.8rem" src=" images /favicons/tableware_50px.webp">
-                          <span class="nav__link-item">Orders</span> 
-                      </a>
-                  </li>
-                  <li class="nav__link">
-                      <a href="#contact">
-                          <img class="nav__link-icon" src="images/favicons/phone_32px.webp">
-                          <span class="nav__link-item">Contact </span>
-                      </a>
-                  </li>
-              </ul>
-          </div>
-      </div>
-  </nav>
-<br>
-<br>
-<br>
-<br>
-<style>
-  .profile-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    background-color: #f7f7f7;
-  }
+            <div class="mx-3 sm:text-sm md:text-base">
+                <?php if ($login_status == true) {
+                    echo '<a href="user_logout.php" class="bg-red-500 hover:bg-red-600 transition-all ease-in-out duration-75 cursor-pointer w-max px-6 py-2 text-white rounded-full">Logout</a>';
+                } else {
+                    echo '<a href="user_login.php" class="bg-gray-900 hover:bg-gray-800 focus:border-white cursor-pointer w-max transition-all ease-in-out duration-75 px-6 py-2 text-white rounded-full">Login</a>';
+                } ?>
+            </div>
+    </nav>
 
-  .profile-card {
-    background-color: #fff;
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    width: 500px;
-  }
-
-  .profile-card h2 {
-    font-weight: bold;
-    margin-bottom: 10px;
-    color: #333;
-  }
-
-  .profile-card p {
-    font-size: 18px;
-    margin-bottom: 20px;
-    color: #666;
-  }
-
-  .profile-card .profile-info {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 20px;
-    border-bottom: 1px solid #ddd;
-    padding-bottom: 10px;
-  }
-
-  .profile-card .profile-info .info-label {
-    font-weight: bold;
-    margin-right: 10px;
-    color: #333;
-  }
-
-  .profile-image {
-    width: 150px;
-    height: 150px;
-    border-radius: 50%;
-    margin: 20px auto;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  }
-
-  .profile-header {
-    background-color: #f7f7f7;
-    padding: 20px;
-    border-bottom: 1px solid #ddd;
-    text-align: center;
-  }
-
-  .profile-header h2 {
-    font-weight: bold;
-    margin-bottom: 10px;
-    color: #333;
-  }
-
-  .profile-body {
-    padding: 20px;
-  }
-
-  .profile-stats {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 20px;
-    border-bottom: 1px solid #ddd;
-    padding-bottom: 10px;
-  }
-
-  .profile-stats .stat {
-    margin-right: 20px;
-  }
-
-  .profile-stats .stat .stat-label {
-    font-weight: bold;
-    margin-bottom: 5px;
-    color: #333;
-  }
-
-  .profile-stats .stat .stat-value {
-    font-size: 24px;
-    font-weight: bold;
-    color: #666;
-  }
-
-  .profile-actions {
-    margin-top: 20px;
-    text-align: center;
-  }
-
-  .profile-actions a {
-    margin: 0 10px;
-  }
-</style>
-
-<div class="profile-container">
-  <div class="profile-card">
-    <div class="profile-header">
-      <h2>Profile Information</h2>
+    <!-- nav for small device  -->
+    <div class="flex items-center justify-between max-w-7xl mx-auto font-poppins bg-white py-3 px-5 lg:hidden">
+        <a href="index.php"><img src="./images/logo/logo.webp" alt="logo" class="w-36 "></a>
+        <i class="bi bi-list menu select-none text-3xl"></i>
     </div>
-    <div class="profile-body">
-      <img src="images/default_profile.webp" class="profile-image" alt="Profile Image">
-      <?php
-      include 'partials/_dbconnect.php';
-      $query = "SELECT * FROM `users` WHERE `user_id` = '".$_SESSION['user_id']."'";
-      $result = mysqli_query($conn, $query);
-      $num = mysqli_num_rows($result);
+    <div class="bg-gray-200 w-full top-5 font-poppins overflow-hidden px-5 py-3 hidden lg:hidden mb-5" id="nav-items">
+        <div class="flex flex-col gap-4">
+            <a href="home.php"
+                class="hover:bg-white focus:bg-white transition-all ease-in-out duration-100 py-2 px-3 rounded-md hover:text-black">Restaurants</a>
+            <a href="new_track_order.php"
+                class="hover:bg-white focus:bg-white transition-all ease-in-out duration-100 py-2 px-3 rounded-md hover:text-black">Orders</a>
+            <a href="#"
+                class="hover:bg-white focus:bg-white transition-all ease-in-out duration-100 py-2 px-3 rounded-md hover:text-black">Contact</a>
+            <?php if ($login_status == true) {
+                echo '<a href="profile.php" class="hover:bg-white focus:bg-white transition-all ease-in-out duration-100 py-2 px-3 rounded-md hover:text-black">Account</a>';
+            } ?>
+            <div>
+                <h2 class="text-base text-gray-400 mt-3">User actions</h2>
+                <div class="h-[1px] bg-gray-300 w-full"></div>
+            </div>
+            <?php if ($login_status == true) {
+                echo '<a href="user_logout.php" class="bg-red-500 hover:bg-red-600 transition-all ease-in-out duration-75 cursor-pointer w-max px-6 py-2 text-white rounded-full">Logout</a>';
+            } else {
+                echo '<a href="user_login.php" class="bg-gray-900 hover:bg-gray-800 focus:border-white cursor-pointer w-max transition-all ease-in-out duration-75 px-6 py-2 text-white rounded-full">Login</a>';
+            }
+            ?>
+        </div>
+    </div>
 
-      if ($num >= 1) {
-        while ($row = mysqli_fetch_array($result)) {
-          echo '<div class="profile-info">
+  <!-- Profile container  -->
+  <div class="profile-container">
+    <div class="profile-card">
+      <div class="profile-header">
+        <h2>Profile Information</h2>
+      </div>
+      <div class="profile-body">
+        <img src="images/default_profile.webp" class="profile-image" alt="Profile Image">
+        <?php
+        include 'partials/_dbconnect.php';
+        $query = "SELECT * FROM `users` WHERE `user_id` = '" . $_SESSION['user_id'] . "'";
+        $result = mysqli_query($conn, $query);
+        $num = mysqli_num_rows($result);
+
+        if ($num >= 1) {
+          while ($row = mysqli_fetch_array($result)) {
+            echo '<div class="profile-info">
                   <span class="info-label">Name:</span>
-                  <span>'.$row['name'].'</span>
+                  <span>' . $row['name'] . '</span>
                 </div>
                 <div class="profile-info">
                   <span class="info-label">Email:</span>
-                  <span>'.$row['email'].'</span>
+                  <span>' . $row['email'] . '</span>
                 </div>
                 <div class="profile-info">
                   <span class="info-label">Phone:</span>
-                  <span>'.$row['phone'].'</span>
+                  <span>' . $row['phone'] . '</span>
                 </div>
                 <div class="profile-info">
                   <span class="info-label">Address:</span>
-                  <span>'.$row['address'].'</span>
+                  <span>' . $row['address'] . '</span>
                 </div>';
+          }
+        } else {
+          echo '<p>No profile found.</p>';
         }
-      } else {
-        echo '<p>No profile found.</p>';
-      }
-      ?>
-      <?php
-      $order_query = "SELECT COUNT(*) as total_orders FROM `orders` WHERE `user_id` = '".$_SESSION['user_id']."'";
-      $order_result = mysqli_query($conn, $order_query);
-      $order_row = mysqli_fetch_array($order_result);
-      $review_query = "SELECT COUNT(*) as total_reviews FROM `reviews` WHERE `user_id` = '".$_SESSION['user_id']."'";
-      $review_result = mysqli_query($conn, $review_query);
-      $review_row = mysqli_fetch_array($review_result);
-      $rating_query = "SELECT AVG(`rating`) as average_rating FROM `reviews` WHERE `user_id` = '".$_SESSION['user_id']."'";
-      $rating_result = mysqli_query($conn, $rating_query);
-      $rating_row = mysqli_fetch_array($rating_result);
-      ?>
-      <div class="profile-stats">
-        <div class="stat">
-          <span class="stat-label">Total Orders:</span>
-          <span class="stat-value"><?php echo $order_row['total_orders']; ?></span>
+        ?>
+        <?php
+        $order_query = "SELECT COUNT(*) as total_orders FROM `orders` WHERE `user_id` = '" . $_SESSION['user_id'] . "'";
+        $order_result = mysqli_query($conn, $order_query);
+        $order_row = mysqli_fetch_array($order_result);
+        $review_query = "SELECT COUNT(*) as total_reviews FROM `reviews` WHERE `user_id` = '" . $_SESSION['user_id'] . "'";
+        $review_result = mysqli_query($conn, $review_query);
+        $review_row = mysqli_fetch_array($review_result);
+        $rating_query = "SELECT AVG(`rating`) as average_rating FROM `reviews` WHERE `user_id` = '" . $_SESSION['user_id'] . "'";
+        $rating_result = mysqli_query($conn, $rating_query);
+        $rating_row = mysqli_fetch_array($rating_result);
+        ?>
+        <div class="profile-stats">
+          <div class="stat">
+            <span class="stat-label">Total Orders:</span>
+            <span class="stat-value"><?php echo $order_row['total_orders']; ?></span>
+          </div>
+          <div class="stat">
+            <span class="stat-label">Total Reviews:</span>
+            <span class="stat-value"><?php echo $review_row['total_reviews']; ?></span>
+          </div>
+          <div class="stat">
+            <span class="stat-label">Average Rating:</span>
+            <span class="stat-value"><?php echo round($rating_row['average_rating'], 1); ?>/5</span>
+          </div>
         </div>
-        <div class="stat">
-          <span class="stat-label">Total Reviews:</span>
-          <span class="stat-value"><?php echo $review_row['total_reviews']; ?></span>
+        <div class="profile-actions">
+          <a href="edit_profile.php">Edit Profile</a>
+          <a href="change_password.php">Change Password</a>
         </div>
-        <div class="stat">
-          <span class="stat-label">Average Rating:</span>
-          <span class="stat-value"><?php echo round($rating_row['average_rating'], 1); ?>/5</span>
-        </div>
-      </div>
-      <div class="profile-actions">
-        <a href="edit_profile.php">Edit Profile</a>
-        <a href="change_password.php">Change Password</a>
       </div>
     </div>
   </div>
-</div>
 
-  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
-  <script src ="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  <!-- <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script> -->
+  <!-- <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script> -->
+  <!-- <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script> -->
 </body>
 </html>

@@ -4,6 +4,9 @@ if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] != true) {
     header("location: user_login.php");
     exit;
 }
+if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true) {
+    $login_status = true;
+}
 
 include 'partials/_dbconnect.php';
 $uid = $_SESSION['user_id'];
@@ -58,80 +61,77 @@ $orders = mysqli_fetch_all($result, MYSQLI_ASSOC);
         crossorigin="anonymous"></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
         integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-    <link rel="stylesheet" href="main.css">
-    <!-- Google fonts  -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <!-- <link rel="stylesheet" href="main.css"> -->
+    <link rel="stylesheet" href="output.css">
+    <!-- Google fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
         href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
-        rel="stylesheet">
+        rel="stylesheet" />
+    <!-- Bootstrap icons  -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
     <!-- Google icons  -->
-    <link rel="stylesheet"
-        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&icon_names=menu" />
     <link rel="stylesheet" href="new_track_order.css">
     <title>Order Information</title>
 
 </head>
 
 <body>
-<div class="gtranslate_wrapper"></div>
-      <script>window.gtranslateSettings = {"default_language":"en","detect_browser_language":true,"wrapper_selector":".gtranslate_wrapper"}</script>
-      <script src="https://cdn.gtranslate.net/widgets/latest/float.js" defer></script>
+    <div class="gtranslate_wrapper"></div>
+    <script>window.gtranslateSettings = { "default_language": "en", "detect_browser_language": true, "wrapper_selector": ".gtranslate_wrapper" }</script>
+    <script src="https://cdn.gtranslate.net/widgets/latest/float.js" defer></script>
 
-    <!-- new navbar  -->
-    <div class="navbar">
-        <div class="brand-nav">
-            <a href="index.php"><img src="images/logo/logo.webp" alt="logo" class="logo"></a>
-            <div class="nav-links">
-                <ul class="nav-items">
-                    <li><a class="nav-item" href="home.php">Restaurants</a></li>
-                    <li><a class="nav-item" href="new_track_order.php">Orders</a></li>
-                    <li><a class="nav-item" href="index.php#contact">Contact</a></li>
-                    <li><a class="nav-item" href="profile.php">Account</a></li>
-                </ul>
-            </div>
+    <!-- navbar  -->
+    <nav
+        class="hidden lg:flex md:max-w-2xl lg:max-w-5xl xl:max-w-7xl w-full items-center justify-between max-w-7xl mx-auto font-poppins py-4">
+        <a href="index.php"><img src="./images/logo/logo.webp" alt="logo" class="w-36"></a>
+        <div class="flex sm:gap-1 md:gap-2 sm:text-sm md:text-base">
+            <a href="home.php"
+                class="hover:bg-gray-200 transition-all ease-in-out duration-100 active:bg-gray-300 focus:bg-gray-300 rounded-full hover:text-black py-2 px-4">Restaurants</a>
+            <a href="new_track_order.php"
+                class="hover:bg-gray-200 transition-all ease-in-out duration-100 active:bg-gray-300 focus:bg-gray-300 rounded-full hover:text-black py-2 px-4">Orders</a>
+            <a href="#"
+                class="hover:bg-gray-200 transition-all ease-in-out duration-100 active:bg-gray-300 focus:bg-gray-300 rounded-full hover:text-black py-2 px-4">Contact</a>
+            <?php if ($login_status == true) {
+                echo '<a href="profile.php" class="hover:bg-gray-200 transition-all ease-in-out duration-100 active:bg-gray-300 focus:bg-gray-300 rounded-full hover:text-black py-2 px-4">Account</a>';
+            } ?>
         </div>
-        <div class="search">
-            <form action="pin_search.php" method="post">
-                <input type="text" class="search-input" placeholder="Search pincode..." name="pincode" id="searchBar"
-                    required>
-                <input type="submit" value="Search" class="search-btn">
-            </form>
-            <div class="session-links">
-                <?php
-                if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true) {
-                    echo '<a href="user_logout.php" class="signout">Logout</a>';
+        <div class="flex">
+
+            <div class="mx-3 sm:text-sm md:text-base">
+                <?php if ($login_status == true) {
+                    echo '<a href="user_logout.php" class="bg-red-500 hover:bg-red-600 transition-all ease-in-out duration-75 cursor-pointer w-max px-6 py-2 text-white rounded-full">Logout</a>';
                 } else {
-                    echo '<a href="user_login.php" class="login">Login</a>';
-                }
-                ?>
+                    echo '<a href="user_login.php" class="bg-gray-900 hover:bg-gray-800 focus:border-white cursor-pointer w-max transition-all ease-in-out duration-75 px-6 py-2 text-white rounded-full">Login</a>';
+                } ?>
             </div>
-        </div>
-        <span class="material-symbols-outlined menu">
-            menu
-        </span>
+    </nav>
+
+    <!-- nav for small device  -->
+    <div class="flex items-center justify-between max-w-7xl mx-auto font-poppins bg-white py-3 px-5 lg:hidden">
+        <a href="index.php"><img src="./images/logo/logo.webp" alt="logo" class="w-36 "></a>
+        <i class="bi bi-list menu select-none text-3xl"></i>
     </div>
-
-    <!-- responsive navbar -->
-    <div class="responsive-navbar" id="rnav">
-        <ul class="nav-links">
-            <li><a class="nav-item" href="home.php">Restaurants</a></li>
-            <li><a href="new_track_order.php">Orders</a></li>
-            <li><a href="index.php#contact">Contact</a></li>
-            <li><a href="profile.php">Account</a></li>
-        </ul>
-
-        <form action="pin_search.php" method="post">
-            <input type="text" class="search-input" placeholder="Search pincode..." name="pincode" id="searchBar"
-                required>
-            <input type="submit" value="Search" class="search-btn">
-        </form>
-        <div class="session-links">
-            <?php
-            if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true) {
-                echo '<a href="user_logout.php" class="signout">Logout</a>';
+    <div class="bg-gray-200 w-full top-5 font-poppins overflow-hidden px-5 py-3 hidden lg:hidden mb-5" id="nav-items">
+        <div class="flex flex-col gap-4">
+            <a href="home.php"
+                class="hover:bg-white focus:bg-white transition-all ease-in-out duration-100 py-2 px-3 rounded-md hover:text-black">Restaurants</a>
+            <a href="new_track_order.php"
+                class="hover:bg-white focus:bg-white transition-all ease-in-out duration-100 py-2 px-3 rounded-md hover:text-black">Orders</a>
+            <a href="#"
+                class="hover:bg-white focus:bg-white transition-all ease-in-out duration-100 py-2 px-3 rounded-md hover:text-black">Contact</a>
+            <?php if ($login_status == true) {
+                echo '<a href="profile.php" class="hover:bg-white focus:bg-white transition-all ease-in-out duration-100 py-2 px-3 rounded-md hover:text-black">Account</a>';
+            } ?>
+            <div>
+                <h2 class="text-base text-gray-400 mt-3">User actions</h2>
+                <div class="h-[1px] bg-gray-300 w-full"></div>
+            </div>
+            <?php if ($login_status == true) {
+                echo '<a href="user_logout.php" class="bg-red-500 hover:bg-red-600 transition-all ease-in-out duration-75 cursor-pointer w-max px-6 py-2 text-white rounded-full">Logout</a>';
             } else {
-                echo '<a href="user_login.php" class="login">Login</a>';
+                echo '<a href="user_login.php" class="bg-gray-900 hover:bg-gray-800 focus:border-white cursor-pointer w-max transition-all ease-in-out duration-75 px-6 py-2 text-white rounded-full">Login</a>';
             }
             ?>
         </div>
@@ -150,9 +150,9 @@ $orders = mysqli_fetch_all($result, MYSQLI_ASSOC);
                         <th>Customer</th>
                         <th>Date</th>
                         <th>Total</th>
-                
+
                         <th>Payment Status</th>
-                   
+
                         <th>Update order</th>
                         <th>Feedback</th>
                     </tr>
@@ -167,7 +167,7 @@ $orders = mysqli_fetch_all($result, MYSQLI_ASSOC);
                         // convert date to string
                         $date = date('M d', strtotime($order['dt']));
                         $amount = $order['amount'];
-                      
+
                         $payment = $order['payment'];
                         $payment == "SUCCESS" ? $payment = "Completed" : $payment = "failed";
 
@@ -198,21 +198,8 @@ $orders = mysqli_fetch_all($result, MYSQLI_ASSOC);
             chatbotId: "gvEIQuZ1QCpui9UuF1UWX",
             domain: "www.chatbase.co"
         }
-
-        // nav responsive open and close
-        const menu = document.querySelector('.menu');
-        const rnav = document.getElementById('rnav');
-
-        menu.addEventListener('click', () => {
-            if (rnav.classList.contains('open')) {
-                rnav.style.height = "0px";
-                rnav.classList.remove('open');
-            } else {
-                rnav.style.height = "343px";
-                rnav.classList.add('open');
-            }
-        })
     </script>
+    <script src="menu.js"></script>
     <script src="https://www.chatbase.co/embed.min.js" chatbotId="gvEIQuZ1QCpui9UuF1UWX" domain="www.chatbase.co" defer>
     </script>
 </body>
