@@ -22,6 +22,9 @@ if (isset($_POST['itemsInCart'])) {
   $_SESSION['Order'] = $_POST['itemsInCart'];
   $_SESSION['amount'] = $_POST['amount'];
 }
+if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true) {
+  $login_status = true;
+}
 ?>
 
 
@@ -30,21 +33,37 @@ if (isset($_POST['itemsInCart'])) {
 <head>
   <title>Home</title>
   <link rel="stylesheet" type="text/css" href="./style.css">
-  <link rel="stylesheet" type="text/css" href="./main.css">
+  <!-- <link rel="stylesheet" type="text/css" href="./main.css"> -->
 
 
-
-  <!--Bootstrap CDNs-->
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-  <link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-  <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+  <!-- Bootstrap CDNs -->
+   <!-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <link rel="stylesheet" type="text/css"
+    href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"> -->
+  <script src="https://code.jquery.com/jquery-3.4.1.min.js"
+    integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+    integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
     crossorigin="anonymous"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+    integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+    crossorigin="anonymous"></script> 
   <link rel="stylesheet" href="menu.css">
+  <!-- Google fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+    rel="stylesheet" />
+  <!-- Bootstrap icons  -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+  <!-- <link rel="stylesheet" href="main.css"> -->
+  <link rel="stylesheet" href="output.css">
+
 </head>
 <script type="text/javascript">
-  $(document).ready(function() {
+  $(document).ready(function () {
     var cart = {};
 
     function addItemToCart(itemId) {
@@ -110,13 +129,13 @@ if (isset($_POST['itemsInCart'])) {
     }
 
     // Add item button click handler
-    $(document).on("click", ".mybtn", function() {
+    $(document).on("click", ".mybtn", function () {
       var itemId = $(this).data("id");
       addItemToCart(itemId);
     });
 
     // Remove item button click handler
-    $(document).on("click", ".removeItemBtn", function() {
+    $(document).on("click", ".removeItemBtn", function () {
       var itemId = $(this).data("id");
       console.log("remove dataid ", itemId)
       reduceCartQuantity(itemId);
@@ -152,7 +171,7 @@ if (isset($_POST['itemsInCart'])) {
     }
 
     // Checkout button click handler
-    $(document).on("click", "#checkoutBtn", function() {
+    $(document).on("click", "#checkoutBtn", function () {
       var itemsInCart = convertCartToArray(cart);
 
       var cartTotalPrice = $("#totalPrice").text(); // Get the cart total price from the element
@@ -163,7 +182,7 @@ if (isset($_POST['itemsInCart'])) {
         "amount": cartTotalPrice
       };
 
-      $.post("menu.php", postData, function() {
+      $.post("menu.php", postData, function () {
         window.location.href = "checkout.php"; // Redirect to the order validation page
       });
     });
@@ -184,52 +203,61 @@ if (isset($_POST['itemsInCart'])) {
   </script>
   <script src="https://cdn.gtranslate.net/widgets/latest/float.js" defer></script>
 
-  <nav class="nav">
-    <div class="nav__wrapper grid">
-      <div class="grid__span2 nav__logo-wrap">
-        <a href="home.php">
-          <img class="nav__logo-img" src="images/logo/logo.webp">
-        </a>
-      </div>
-
-      <div class="grid__span10 nav__links-wrap">
-        <ul class="nav__links">
-
-          <li class="nav__link">
-            <a href="new_track_order.php">
-              <img class="nav__link-icon" style="width: 1.8rem" src="images/favicons/tableware_50px.webp">
-              <span class="nav__link-item">Orders</span>
-            </a>
-          </li>
-          <li class="nav__link">
-            <a href="#contact">
-              <img class="nav__link-icon" src="images/favicons/phone_32px.webp">
-              <span class="nav__link-item">Contact </span>
-            </a>
-          </li>
-          <li class="nav__link">
-            <a href="user_logout.php">
-              <img class="nav__link-icon" style="width: 1.9rem" src="images/favicons/user_male_circle_32px.webp">
-              <span class="nav__link-item">Logout</span>
-            </a>
-          </li>
-        </ul>
-      </div>
-      <div class="theme-switch-wrapper">
-        <label class="theme-switch" for="checkbox">
-          <input type="checkbox" id="checkbox" />
-          <div class="slider"></div>
-        </label>
-        <span id="mode-label">Light Mode</span>
-      </div>
+  <nav
+    class="hidden  lg:flex sm:max-w-xl md:max-w-2xl lg:max-w-5xl xl:max-w-7xl w-full items-center justify-between max-w-7xl mx-auto font-poppins py-4">
+    <a href="index.php"><img src="./images/logo/logo.webp" alt="logo" class="w-36"></a>
+    <div class="flex sm:gap-1 md:gap-2">
+      <a href="home.php"
+        class="hover:bg-gray-200 transition-all ease-in-out duration-100 active:bg-gray-300 focus:bg-gray-300 rounded-full hover:text-black py-2 px-4">Restaurants</a>
+      <a href="new_track_order.php"
+        class="hover:bg-gray-200 transition-all ease-in-out duration-100 active:bg-gray-300 focus:bg-gray-300 rounded-full hover:text-black py-2 px-4">Orders</a>
+      <a href="#"
+        class="hover:bg-gray-200 transition-all ease-in-out duration-100 active:bg-gray-300 focus:bg-gray-300 rounded-full hover:text-black py-2 px-4">Contact</a>
+      <?php if ($login_status == true) {
+        echo '<a href="profile.php" class="hover:bg-gray-200 transition-all ease-in-out duration-100 active:bg-gray-300 focus:bg-gray-300 rounded-full hover:text-black py-2 px-4">Account</a>';
+      } ?>
     </div>
+    <div class="flex">
+
+      <div class="mx-3">
+        <?php if ($login_status == true) {
+          echo '<a href="user_logout.php" class="bg-red-500 hover:bg-red-600 transition-all ease-in-out duration-75 cursor-pointer w-max px-6 py-2 text-white rounded-full">Logout</a>';
+        } else {
+          echo '<a href="user_login.php" class="bg-gray-900 hover:bg-gray-800 focus:border-white cursor-pointer w-max transition-all ease-in-out duration-75 px-6 py-2 text-white rounded-full">Login</a>';
+        } ?>
+      </div>
+
   </nav>
-  <br>
-  <br>
-  <br>
-  <br>
-  <br>
-  <br>
+
+  <!-- nav for small device  -->
+  <div class="flex items-center justify-between max-w-7xl mx-auto font-poppins bg-white py-3 px-5 lg:hidden">
+    <a href="index.php"><img src="./images/logo/logo.webp" alt="logo" class="w-36 "></a>
+    <i class="bi bi-list menu select-none text-3xl"></i>
+  </div>
+  <div class="bg-gray-200 w-full top-5 font-poppins overflow-hidden px-5 py-3 hidden lg:hidden mb-5" id="nav-items">
+    <div class="flex flex-col gap-4">
+      <a href="#"
+        class="hover:bg-white focus:bg-white transition-all ease-in-out duration-100 py-2 px-3 rounded-md hover:text-black">Restaurants</a>
+      <a href="new_track_order.php"
+        class="hover:bg-white focus:bg-white transition-all ease-in-out duration-100 py-2 px-3 rounded-md hover:text-black">Orders</a>
+      <a href="#"
+        class="hover:bg-white focus:bg-white transition-all ease-in-out duration-100 py-2 px-3 rounded-md hover:text-black">Contact</a>
+      <?php if ($login_status == true) {
+        echo '<a href="profile.php" class="hover:bg-white focus:bg-white transition-all ease-in-out duration-100 py-2 px-3 rounded-md hover:text-black">Account</a>';
+      } ?>
+      <div>
+        <h2 class="text-base text-gray-400 mt-3">User actions</h2>
+        <div class="h-[1px] bg-gray-300 w-full"></div>
+      </div>
+      <?php if ($login_status == true) {
+        echo '<a href="user_logout.php" class="bg-red-500 hover:bg-red-600 transition-all ease-in-out duration-75 cursor-pointer w-max px-6 py-2 text-white rounded-full">Logout</a>';
+      } else {
+        echo '<a href="user_login.php" class="bg-gray-900 hover:bg-gray-800 focus:border-white cursor-pointer w-max transition-all ease-in-out duration-75 px-6 py-2 text-white rounded-full">Login</a>';
+      }
+      ?>
+    </div>
+  </div>
+
 
   <div class="container-width">
     <div id="hero-bg" class="hero-section">
@@ -301,7 +329,8 @@ if (isset($_POST['itemsInCart'])) {
             <div id="addVal"></div>
             <form action="/alimento/checkout.php" method="post">
               <input hidden value="<?php echo $id ?>" name="restaurant_id" />
-              <a href="checkout.php"> <button id="checkoutBtn" class="check-out-btn checkOutBtn" style="display:none;background-color:#e64a19;border:none;color:white;height:40px;width:100%;font-size:14px">CHECKOUT</button></a>
+              <a href="checkout.php"> <button id="checkoutBtn" class="check-out-btn checkOutBtn"
+                  style="display:none;background-color:#e64a19;border:none;color:white;height:40px;width:100%;font-size:14px">CHECKOUT</button></a>
             </form>
           </div>
         </div>
@@ -402,7 +431,8 @@ if (isset($_POST['itemsInCart'])) {
         </div> -->
   </div>
 
-  <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+    aria-hidden="true">
     <!-- ... (rest of the modal content remains unchanged) ... -->
   </div>
 
@@ -412,6 +442,13 @@ if (isset($_POST['itemsInCart'])) {
     function myLoading() {
       preloader.style.display = 'none';
     }
+
+    const menu = document.querySelector(".menu");
+    const navitems = document.getElementById("nav-items");
+
+    menu.addEventListener("click", () => {
+      navitems.classList.toggle("hidden")
+    })
   </script>
 
   <script src="./darkMode.js"></script>
