@@ -40,58 +40,68 @@ if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true) {
   <script src="https://cdn.gtranslate.net/widgets/latest/float.js" defer></script>
   <!-- navbar  -->
   <nav
-        class="hidden lg:flex md:max-w-2xl lg:max-w-5xl xl:max-w-7xl w-full items-center justify-between max-w-7xl mx-auto font-poppins py-4">
-        <a href="index.php"><img src="./images/logo/logo.webp" alt="logo" class="w-36"></a>
-        <div class="flex sm:gap-1 md:gap-2 sm:text-sm md:text-base">
-            <a href="home.php"
-                class="hover:bg-gray-200 transition-all ease-in-out duration-100 active:bg-gray-300 focus:bg-gray-300 rounded-full hover:text-black py-2 px-4">Restaurants</a>
-            <a href="new_track_order.php"
-                class="hover:bg-gray-200 transition-all ease-in-out duration-100 active:bg-gray-300 focus:bg-gray-300 rounded-full hover:text-black py-2 px-4">Orders</a>
-            <a href="#"
-                class="hover:bg-gray-200 transition-all ease-in-out duration-100 active:bg-gray-300 focus:bg-gray-300 rounded-full hover:text-black py-2 px-4">Contact</a>
-            <?php if ($login_status == true) {
-                echo '<a href="profile.php" class="hover:bg-gray-200 transition-all ease-in-out duration-100 active:bg-gray-300 focus:bg-gray-300 rounded-full hover:text-black py-2 px-4">Account</a>';
-            } ?>
-        </div>
-        <div class="flex">
-
-            <div class="mx-3 sm:text-sm md:text-base">
-                <?php if ($login_status == true) {
-                    echo '<a href="user_logout.php" class="bg-red-500 hover:bg-red-600 transition-all ease-in-out duration-75 cursor-pointer w-max px-6 py-2 text-white rounded-full">Logout</a>';
-                } else {
-                    echo '<a href="user_login.php" class="bg-gray-900 hover:bg-gray-800 focus:border-white cursor-pointer w-max transition-all ease-in-out duration-75 px-6 py-2 text-white rounded-full">Login</a>';
-                } ?>
-            </div>
-    </nav>
-
-    <!-- nav for small device  -->
-    <div class="flex items-center justify-between max-w-7xl mx-auto font-poppins bg-white py-3 px-5 lg:hidden">
-        <a href="index.php"><img src="./images/logo/logo.webp" alt="logo" class="w-36 "></a>
-        <i class="bi bi-list menu select-none text-3xl"></i>
+    class="hidden  sm:flex sm:max-w-xl md:max-w-2xl lg:max-w-5xl xl:max-w-7xl w-full items-center justify-between max-w-7xl mx-auto font-poppins py-4">
+    <a href="index.php"><img src="./images/logo/logo.webp" alt="logo" class="w-36"></a>
+    <div class="flex sm:gap-1 md:gap-2">
+      <a href="home.php"
+        class="hover:bg-gray-200 transition-all ease-in-out duration-100 active:bg-gray-300 focus:bg-gray-300 rounded-full hover:text-black py-2 px-4">Restaurants</a>
+      <a href="#"
+        class="hover:bg-gray-200 transition-all ease-in-out duration-100 active:bg-gray-300 focus:bg-gray-300 rounded-full hover:text-black py-2 px-4">About</a>
+      <a href="#"
+        class="hover:bg-gray-200 transition-all ease-in-out duration-100 active:bg-gray-300 focus:bg-gray-300 rounded-full hover:text-black py-2 px-4">Contact</a>
+      <?php if ($login_status == true) {
+        echo '<a href="profile.php" class="hover:bg-gray-200 transition-all ease-in-out duration-100 active:bg-gray-300 focus:bg-gray-300 rounded-full hover:text-black py-2 px-4">Account</a>';
+      } ?>
     </div>
-    <div class="bg-gray-200 w-full top-5 font-poppins overflow-hidden px-5 py-3 hidden lg:hidden mb-5" id="nav-items">
-        <div class="flex flex-col gap-4">
-            <a href="home.php"
-                class="hover:bg-white focus:bg-white transition-all ease-in-out duration-100 py-2 px-3 rounded-md hover:text-black">Restaurants</a>
-            <a href="new_track_order.php"
-                class="hover:bg-white focus:bg-white transition-all ease-in-out duration-100 py-2 px-3 rounded-md hover:text-black">Orders</a>
-            <a href="#"
-                class="hover:bg-white focus:bg-white transition-all ease-in-out duration-100 py-2 px-3 rounded-md hover:text-black">Contact</a>
-            <?php if ($login_status == true) {
-                echo '<a href="profile.php" class="hover:bg-white focus:bg-white transition-all ease-in-out duration-100 py-2 px-3 rounded-md hover:text-black">Account</a>';
-            } ?>
-            <div>
-                <h2 class="text-base text-gray-400 mt-3">User actions</h2>
-                <div class="h-[1px] bg-gray-300 w-full"></div>
-            </div>
-            <?php if ($login_status == true) {
-                echo '<a href="user_logout.php" class="bg-red-500 hover:bg-red-600 transition-all ease-in-out duration-75 cursor-pointer w-max px-6 py-2 text-white rounded-full">Logout</a>';
-            } else {
-                echo '<a href="user_login.php" class="bg-gray-900 hover:bg-gray-800 focus:border-white cursor-pointer w-max transition-all ease-in-out duration-75 px-6 py-2 text-white rounded-full">Login</a>';
-            }
-            ?>
-        </div>
+    <div class="flex">
+
+      <div class="mx-3">
+        <?php if ($login_status == true) {
+          echo '<a href="user_logout.php" class="bg-red-500 hover:bg-red-600 transition-all ease-in-out duration-75 cursor-pointer w-max px-6 py-2 text-white rounded-full">Logout</a>';
+        } else {
+          echo '<a href="user_login.php" class="bg-gray-900 hover:bg-gray-800 focus:border-white cursor-pointer w-max transition-all ease-in-out duration-75 px-6 py-2 text-white rounded-full">Login</a>';
+        } ?>
+      </div>
+
+      <div>
+        <?php if ($login_status == true) {
+          echo '';
+        } else {
+          echo '
+      <a href="user_signup.php" class="bg-gray-900 hover:bg-gray-800 focus:border-white cursor-pointer w-max transition-all ease-in-out duration-75 px-6 py-2 text-white rounded-full">Signup</a>
+    </div>';
+        } ?>
+      </div>
+  </nav>
+
+  <!-- nav for small device  -->
+  <div class="flex items-center justify-between max-w-7xl mx-auto font-poppins bg-white py-3 px-5 sm:hidden">
+    <a href="index.php"><img src="./images/logo/logo.webp" alt="logo" class="w-36 "></a>
+    <i class="bi bi-list menu select-none text-3xl"></i>
+  </div>
+  <div class="bg-gray-200 w-full top-5 font-poppins overflow-hidden px-5 py-3 hidden sm:hidden mb-5" id="nav-items">
+    <div class="flex flex-col gap-4">
+      <a href="#"
+        class="hover:bg-white focus:bg-white transition-all ease-in-out duration-100 py-2 px-3 rounded-md hover:text-black">Restaurants</a>
+      <a href="#"
+        class="hover:bg-white focus:bg-white transition-all ease-in-out duration-100 py-2 px-3 rounded-md hover:text-black">About</a>
+      <a href="#"
+        class="hover:bg-white focus:bg-white transition-all ease-in-out duration-100 py-2 px-3 rounded-md hover:text-black">Contact</a>
+      <?php if ($login_status == true) {
+        echo '<a href="profile.php" class="hover:bg-white focus:bg-white transition-all ease-in-out duration-100 py-2 px-3 rounded-md hover:text-black">Account</a>';
+      } ?>
+      <div>
+        <h2 class="text-base text-gray-400 mt-3">User actions</h2>
+        <div class="h-[1px] bg-gray-300 w-full"></div>
+      </div>
+      <?php if ($login_status == true) {
+        echo '<a href="user_logout.php" class="bg-red-500 hover:bg-red-600 transition-all ease-in-out duration-75 cursor-pointer w-max px-6 py-2 text-white rounded-full">Logout</a>';
+      } else {
+        echo '<a href="user_login.php" class="bg-gray-900 hover:bg-gray-800 focus:border-white cursor-pointer w-max transition-all ease-in-out duration-75 px-6 py-2 text-white rounded-full">Login</a>';
+      }
+      ?>
     </div>
+  </div>
 
   <!-- Hero section  -->
   <div
@@ -278,13 +288,20 @@ if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true) {
           <div class="flex flex-col gap-2 text-[#6A6E5C] mt-2">
             <a href="#">Terms of service</a>
             <a href="#">Privacy policy</a>
-            <a href="new_track_order.php">Orders</a>
+            <a href="#">About us</a>
           </div>
         </div>
       </div>
     </div>
   </div>
-  <script src="menu.js"></script>
+  <script>
+    const menu = document.querySelector(".menu");
+    const navitems = document.getElementById("nav-items");
+
+    menu.addEventListener("click", () => {
+      navitems.classList.toggle("hidden")
+    })
+  </script>
 </body>
 
 <script>
