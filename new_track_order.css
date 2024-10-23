@@ -1,3 +1,116 @@
+ /* nav css  */
+ .navbar {
+     display: flex;
+     justify-content: space-between;
+     align-items: center;
+     padding: 1rem 10rem;
+     background-color: #fff;
+     position: fixed;
+     width: 100%;
+     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+ }
+
+ .navbar .brand-nav {
+     display: flex;
+     align-items: center;
+     gap: 20px;
+ }
+
+ .navbar .logo {
+     width: 120px;
+     height: auto;
+ }
+
+ .navbar .nav-links {
+     display: flex;
+     align-items: center;
+     gap: 20px;
+ }
+
+ .navbar .search form {
+     display: flex;
+     align-items: center;
+     gap: 10px;
+ }
+
+ .navbar .search form .search-input {
+     padding: 6px 10px;
+     border: 1px solid lightgray;
+     color: black;
+     font-size: 16px;
+     border-radius: 6px;
+     outline: none;
+ }
+
+ .navbar .search form .search-input:focus {
+     box-shadow: 0 0 0px 3px #0005b32e;
+     border: 1px solid #9396ff;
+ }
+
+ .navbar .search form .search-btn {
+     padding: 6px 21px;
+     font-size: 16px;
+     background: black;
+     border: 1px solid black;
+     border-radius: 6px;
+     color: white;
+     cursor: pointer;
+ }
+
+ .navbar .search form .search-btn:hover {
+     background-color: #2b2b2b;
+ }
+
+ .navbar .nav-links .nav-items {
+     display: flex;
+     align-items: center;
+     gap: 10px;
+     list-style-type: none;
+     margin-bottom: 0;
+ }
+
+ .navbar .nav-links .nav-items li .nav-item {
+     font-size: 16px;
+     color: black;
+ }
+
+ .navbar .nav-links .nav-items li .nav-item:hover {
+     text-decoration: underline;
+ }
+
+ .navbar .search {
+     display: flex;
+     align-items: center;
+     gap: 10px;
+ }
+
+ .navbar .search .session-links .login {
+     padding: 10px 20px;
+     background-color: #b8552f;
+     border-radius: 5px;
+     text-decoration: none;
+     color: white;
+     font-size: 16px;
+ }
+
+ .navbar .search .session-links .login:hover {
+     background-color: #a3472b;
+ }
+
+ .navbar .search .session-links .signout {
+     padding: 10px 20px;
+     background-color: #ca2121;
+     border-radius: 5px;
+     text-decoration: none;
+     color: white;
+     font-size: 16px;
+ }
+
+ .navbar .search .session-links .signout:hover {
+     background-color: #a92222;
+ }
+
+
  /* orders css  */
  .space {
      padding: 50px 0;
