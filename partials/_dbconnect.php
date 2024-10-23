@@ -2,7 +2,7 @@
 $server = "127.0.0.1";
 
 $email = "root";
-$password = "1@archan";
+$password = "";
 $database = "homemadedb";
 
 $conn = mysqli_connect($server,$email, $password,$database);
