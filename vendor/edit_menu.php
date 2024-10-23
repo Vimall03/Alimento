@@ -8,6 +8,9 @@ if (!isset($_SESSION['vendorloggedin']) || $_SESSION['vendorloggedin'] != true) 
     header("location: user_login.php");
     exit;
 }
+if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true) {
+    $login_status = true;
+}
 
 // Update the menu item if the form is submitted
 if ($_SERVER["REQUEST_METHOD"] === "POST") {
@@ -32,6 +35,16 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.2/font/bootstrap-icons.css">
+    <!-- Google fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+        rel="stylesheet" />
+    <!-- Bootstrap icons  -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <!-- <link rel="stylesheet" href="main.css"> -->
+    <link rel="stylesheet" href="../output.css">
     <style>
         body{
             max-width: 1140px;
@@ -180,10 +193,59 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     </style>
 </head>
 <body>
-    <div class="header">
-        <img src="../images/logo/logo.webp" alt="">
-        
-        <form action="vendor_logout.php" class="logout"><input  type='submit' class="btn btn-danger" value='LOGOUT'></form>
+<nav
+        class="hidden  lg:flex sm:max-w-xl md:max-w-2xl lg:max-w-5xl xl:max-w-7xl w-full items-center justify-between max-w-7xl mx-auto font-poppins py-4">
+        <a href="index.php"><img src="../images/logo/logo.webp" alt="logo" class="w-36"></a>
+        <div class="flex sm:gap-1 md:gap-2">
+            <a href="home.php"
+                class="hover:bg-gray-200 transition-all ease-in-out duration-100 active:bg-gray-300 focus:bg-gray-300 rounded-full hover:text-black py-2 px-4">Restaurants</a>
+            <a href="new_track_order.php"
+                class="hover:bg-gray-200 transition-all ease-in-out duration-100 active:bg-gray-300 focus:bg-gray-300 rounded-full hover:text-black py-2 px-4">Orders</a>
+            <a href="#"
+                class="hover:bg-gray-200 transition-all ease-in-out duration-100 active:bg-gray-300 focus:bg-gray-300 rounded-full hover:text-black py-2 px-4">Contact</a>
+            <?php if ($login_status == true) {
+                echo '<a href="profile.php" class="hover:bg-gray-200 transition-all ease-in-out duration-100 active:bg-gray-300 focus:bg-gray-300 rounded-full hover:text-black py-2 px-4">Account</a>';
+            } ?>
+        </div>
+        <div class="flex">
+
+            <div class="mx-3">
+                <?php if ($login_status == true) {
+                    echo '<a href="user_logout.php" class="bg-red-500 hover:bg-red-600 transition-all ease-in-out duration-75 cursor-pointer w-max px-6 py-2 text-white rounded-full">Logout</a>';
+                } else {
+                    echo '<a href="user_login.php" class="bg-gray-900 hover:bg-gray-800 focus:border-white cursor-pointer w-max transition-all ease-in-out duration-75 px-6 py-2 text-white rounded-full">Login</a>';
+                } ?>
+            </div>
+
+    </nav>
+
+    <!-- nav for small device  -->
+    <div class="flex items-center justify-between max-w-7xl mx-auto font-poppins bg-white py-3 px-5 lg:hidden">
+        <a href="index.php"><img src="../images/logo/logo.webp" alt="logo" class="w-36 "></a>
+        <i class="bi bi-list menu select-none text-3xl"></i>
+    </div>
+    <div class="bg-gray-200 w-full top-5 font-poppins overflow-hidden px-5 py-3 hidden lg:hidden mb-5" id="nav-items">
+        <div class="flex flex-col gap-4">
+            <a href="#"
+                class="hover:bg-white focus:bg-white transition-all ease-in-out duration-100 py-2 px-3 rounded-md hover:text-black">Restaurants</a>
+            <a href="new_track_order.php"
+                class="hover:bg-white focus:bg-white transition-all ease-in-out duration-100 py-2 px-3 rounded-md hover:text-black">Orders</a>
+            <a href="#"
+                class="hover:bg-white focus:bg-white transition-all ease-in-out duration-100 py-2 px-3 rounded-md hover:text-black">Contact</a>
+            <?php if ($login_status == true) {
+                echo '<a href="profile.php" class="hover:bg-white focus:bg-white transition-all ease-in-out duration-100 py-2 px-3 rounded-md hover:text-black">Account</a>';
+            } ?>
+            <div>
+                <h2 class="text-base text-gray-400 mt-3">User actions</h2>
+                <div class="h-[1px] bg-gray-300 w-full"></div>
+            </div>
+            <?php if ($login_status == true) {
+                echo '<a href="user_logout.php" class="bg-red-500 hover:bg-red-600 transition-all ease-in-out duration-75 cursor-pointer w-max px-6 py-2 text-white rounded-full">Logout</a>';
+            } else {
+                echo '<a href="user_login.php" class="bg-gray-900 hover:bg-gray-800 focus:border-white cursor-pointer w-max transition-all ease-in-out duration-75 px-6 py-2 text-white rounded-full">Login</a>';
+            }
+            ?>
+        </div>
     </div>
     <br>
 
@@ -303,5 +365,6 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
             }
         }
     </script>
+    <script src="../menu.js"></script>
 </body>
 </html>
