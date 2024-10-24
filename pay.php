@@ -122,7 +122,6 @@ $json = json_encode($data);
 <script type="text/javascript">
 $(document).ready(function() {
     let options = {
-        // Razorpay options
         key: "<?php echo $data['key']?>", // Your Razorpay Key
         amount: "<?php echo $data['amount']?>", // Amount is in currency subunits
         currency: "INR",
