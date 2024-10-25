@@ -50,47 +50,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Email Verification - etiffy</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #f9f9f9;
-        }
-
-        header {
-            background-color: #007bff;
-            color: white;
-            text-align: center;
-            padding: 20px;
-        }
-
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 40px 20px;
-            text-align: center;
-        }
-
-        .button {
-            display: inline-block;
-            padding: 10px 20px;
-            margin: 10px;
-            font-size: 18px;
-            border: none;
-            background-color: #007bff;
-            color: white;
-            cursor: pointer;
-            text-decoration: none;
-            border-radius: 5px;
-        }
-    </style>
+    <link rel="stylesheet" href="../output.css">
 </head>
 
 <body>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous">
-    </script>
+    
 
     <!-- Alert bootstrap -->
 
@@ -119,7 +83,7 @@ if ($showError) {
 
 
 <body>
-    <header>
+    <!-- <header>
         <h1>Alimento</h1>
         <p>Delicious Moments Delivered to Your Doorstep</p>
     </header>
@@ -132,7 +96,44 @@ if ($showError) {
             <button type="submit" class="button">Verify Email</button>
         </form>
         <p>If you haven't received the code, please check your spam folder or request a new code.</p>
+    </div> -->
+
+    <div class="w-full max-w-screen-lg mx-auto" style="max-width: 1024px;">
+    <div class="w-full justify-end flex gap-4 py-8">
+      <a href="vendor_login.php" class="hover:text-blue-600">Sign In</a>
+      <a href="vendor_signup.php" class="hover:text-blue-600">Register</a>
     </div>
+
+    <div class="w-full h-[80vh] py-8 flex">
+        <div class="flex flex-col w-1/2 max-h-[600px] h-full justify-center">
+            <span class="flex flex-col gap-4">
+              <h1 class="text-5xl font-bold">Verify your email id</h1>
+            </span>
+            <span class="my-8">
+              <p class="text-sm">
+              Please enter the 8-digit code sent to your email to complete the verification process. If you haven't received the code, check your spam folder or request a new one.
+              </p>
+            </span>
+            <span class="h-56">
+              <img src="../images/Frame.png" alt="" class="h-full">
+            </span>
+        </div>
+        <div class="form flex flex-col w-1/2 max-h-[600px] h-full justify-center">
+            <div class="w-96 ml-auto flex flex-col gap-8">
+              <span class="flex flex-col gap-4">
+                <h1 class="text-2xl font-bold">Enter the 8 digit code</h1>
+              </span>
+
+              <form action="email_verify.php" method="post" class="flex flex-col gap-4">
+                <div class="form-group flex flex-col">
+                  <input type="password" id="vendorPassword" name="password" placeholder="OTP" class="p-2 form-control outline-2 border border-black w-full" required>
+                </div>
+                <button type="submit" class="px-2 py-2 mt-2 rounded-lg text-white bg-blue-500">submit</button>
+            </form>
+            </div>
+        </div>
+    </div>
+  </div>
 </body>
 
 </html>

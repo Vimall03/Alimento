@@ -96,11 +96,12 @@ $uploadProfile = $uploadPr . basename($_FILES["vendor_image"]['name']);
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>etiffy - Vendor Sign Up</title>
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-  <link rel="stylesheet" href="vendor_styles.css">
+  <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"> -->
+  <!-- <link rel="stylesheet" href="vendor_styles.css"> -->
+  <link rel="stylesheet" href="../output.css">
 </head>
 <body>
-  <header class="bg-dark text-white text-center py-4">
+  <!-- <header class="bg-dark text-white text-center py-4">
     <h1>etiffy</h1>
   </header>
   
@@ -164,7 +165,99 @@ $uploadProfile = $uploadPr . basename($_FILES["vendor_image"]['name']);
 
   <footer class="bg-dark text-white text-center py-3 mt-5">
     <p>&copy; 2023 etiffy - Homemade Food Delivery</p>
-  </footer>
+  </footer> -->
+  <div class="w-full max-w-screen-lg mx-auto" style="max-width: 1024px;">
+    <div class="w-full justify-end flex gap-4 py-8">
+      <a href="vendor_login.php" class="hover:text-blue-600">Sign In</a>
+      <a href="vendor_signup.php" class="hover:text-blue-600">Register</a>
+    </div>
+
+    <div class="w-full h-[80vh] py-8 flex">
+        <div class="flex flex-col w-1/2 max-h-[600px] h-full justify-center">
+            <span class="flex flex-col gap-4">
+              <h1 class="text-5xl font-bold">Welcome to</h1>
+              <h1 class="text-6xl font-bold">Alimento</h1>
+            </span>
+            <span class="my-8">
+              <p class="text-sm">
+              We are excited to offer a modern and user-friendly platform, designed to ensure you have the best experience in managing your restaurant. With this service, you can easily list your restaurant, edit menus, and view or manage orders with ease.
+              </p>
+            </span>
+            <span class="h-56">
+              <img src="../images/Frame.png" alt="" class="h-full">
+            </span>
+        </div>
+        <div class="form flex flex-col w-1/2 max-h-[600px] h-full pl-8 justify-center">
+            <div class="w-full flex flex-col gap-8">
+              <span class="flex flex-col gap-4">
+                <h1 class="text-2xl font-bold">Register</h1>
+              </span>
+
+              <form action="vendor_signup.php"  method="post" enctype="multipart/form-data" class="flex flex-col gap-4">
+                <div class="w-full flex gap-4">
+                  <div class="left w-1/2 flex flex-col gap-2">
+                    
+                    <div class="form-group">
+                      <label for="email" class="mb-2">Email</label>
+                      <input type="email" id="email" name="email" placeholder="Email" class="form-control p-2 form-control outline-2 border border-black w-full" required>
+                    </div>
+                    <div class="form-group">
+                      <label for="password" class="mb-2">Password</label>
+                      <input type="password" id="password" placeholder="Password" name="password" class="form-control p-2 form-control outline-2 border border-black w-full" required>
+                    </div>
+                    <div class="form-group"> 
+                      <label for="restaurant_name" class="mb-2">Restraunt Name</label>
+                      <input type="text" id="restaurant_name" placeholder="Restraunt Name" name="restaurant_name" class="form-control p-2 form-control outline-2 border border-black w-full" required>
+                    </div>
+                    <div class="form-group">
+                      <label for="restaurant_bg_img" class="mb-2">Restraunt BG Image</label>
+                      <input type="file" id="restaurant_bg_img" placeholder="Restraunt Background" name="restaurant_bg_img" class="form-control p-2 form-control outline-2 border w-full border-black" accept="image/*" required>
+                    </div>
+                    <div class="form-group">
+                      <label for="restaurant_about" class="mb-2">Restaurant About</label>
+                      <input id="restaurant_about" placeholder="About" name="restaurant_about" rows="4" class="form-control p-2 form-control outline-2 border border-black w-full" required></input>
+                    </div>
+                  </div>
+                  <div class="right w-1/2 flex flex-col gap-2">
+                    <div class="form-group">
+                      <label for="name" class="mb-2">Vendor Name</label>
+                      <input type="text" id="name" name="name" placeholder="Vendor Name" class="form-control p-2 form-control outline-2 border border-black w-full" required>
+                    </div>
+                    <div class="form-group">
+                    <label for="phone" class="mb-2">Phone</label>
+                      <input type="tel" id="phone" name="phone" placeholder="Phone no." class="form-control p-2 form-control outline-2 border border-black w-full" required>
+                    </div>
+                    <div class="form-group">
+                      <label for="restaurant_cuisine" class="mb-2">Restaurant Cuisine</label>
+                      <input type="text" id="restaurant_cuisine" placeholder="Restaurant Cuisine" name="restaurant_cuisine" class="form-control p-2 form-control outline-2 border border-black w-full" required>
+                    </div>
+                    <div class="form-group">
+                      <label for="vendor_image" class="mb-2">Vendor Image</label>
+                      <input type="file" id="vendor_image" placeholder="Vendor Image" name="vendor_image" class="form-control p-2 form-control outline-2 border border-black w-full"  accept="image/*" required>
+                    </div>
+                    <div class="form-group">
+                      <label for="restaurant_pin" class="mb-2">Restaurant Pin code</label>
+                      <input type="text" id="restaurant_pin" placeholder="Restaurant Pin code" name="restaurant_pin" class="form-control p-2 form-control outline-2 border border-black w-full" required>
+                    </div>
+                  </div>
+                </div>
+                <!-- <div class="form-group flex flex-col">
+                  <label for="vendorEmail" class="mb-2">Email</label>
+                  <input type="email" id="vendorEmail" name="email" placeholder="Enter your email" class="p-2 form-control outline-2 border border-black w-full" required>
+                </div>
+                <div class="form-group flex flex-col">
+                  <label for="vendorPassword" class="mb-2">Password</label>
+                  <input type="password" id="vendorPassword" name="password" placeholder="Enter your password" class="p-2 form-control outline-2 border border-black w-full" required>
+                </div>
+                <div class="w-full my-1 flex justify-end">
+                  <p class="text-center">Forgot password? <a href="email_verify.php">Reset here</a></p>
+                </div> -->
+                <button type="submit" class="px-2 py-2 mt-2 rounded-lg text-white bg-blue-500">Register</button>
+            </form>
+            </div>
+        </div>
+    </div>
+  </div>
 
   <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.1/dist/umd/popper.min.js"></script>
