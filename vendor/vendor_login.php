@@ -54,26 +54,27 @@ if ($_SERVER["REQUEST_METHOD"]=="POST"){
 
 <head>
     <!-- bootstrap -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.2/font/bootstrap-icons.css">
+    <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous"> -->
+    <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.2/font/bootstrap-icons.css"> -->
     <!-- Google Fonts (aBeeZee) -->
-    <link rel="stylesheet" href="vendor_styles.css">
+    <!-- <link rel="stylesheet" href="vendor_styles.css"> -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=ABeeZee&display=swap" rel="stylesheet">
     <style>
     @import url('https://fonts.googleapis.com/css2?family=ABeeZee&display=swap');
+    
     </style>
     <!-- css link -->
     
-
-
+    
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>HomeMade • Login</title>
     <link rel="icon" type="image/png" href="css/favicon.png">
+    <link rel="stylesheet" href="../output.css">
 
 </head>
 
@@ -115,7 +116,7 @@ if ($showalert) {
     <!-- main content -->
 
 
-  <header class="bg-dark text-white text-center py-4">
+  <!-- <header class="bg-dark text-white text-center py-4">
     <h1>etiffy</h1>
   </header>
   
@@ -148,7 +149,57 @@ if ($showalert) {
 
   <footer class="bg-dark text-white text-center py-3 mt-5">
     <p>&copy; 2023 etiffy - Homemade Food Delivery</p>
-  </footer>
+  </footer> -->
+  <div class="w-full max-w-screen-lg mx-auto" style="max-width: 1024px;">
+    <div class="w-full justify-end flex gap-4 py-8">
+      <a href="vendor_login.php" class="hover:text-blue-600">Sign In</a>
+      <a href="vendor_signup.php" class="hover:text-blue-600">Register</a>
+    </div>
+
+    <div class="w-full h-[80vh] py-8 flex">
+        <div class="flex flex-col w-1/2 max-h-[600px] h-full justify-center">
+            <span class="flex flex-col gap-4">
+              <h1 class="text-5xl font-bold">Welcome to</h1>
+              <h1 class="text-6xl font-bold">Alimento</h1>
+            </span>
+            <span class="my-8">
+              <p class="text-sm">
+              We are excited to offer a modern and user-friendly platform, designed to ensure you have the best experience in managing your restaurant. With this service, you can easily list your restaurant, edit menus, and view or manage orders with ease.
+              </p>
+            </span>
+            <span class="h-56">
+              <img src="../images/Frame.png" alt="" class="h-full">
+            </span>
+        </div>
+        <div class="form flex flex-col w-1/2 max-h-[600px] h-full justify-center">
+            <div class="w-96 ml-auto flex flex-col gap-8">
+              <span class="flex flex-col gap-4">
+                <h1 class="text-2xl font-bold">Login</h1>
+              </span>
+
+              <form action="vendor_login.php" method="post" class="flex flex-col gap-4">
+                <div class="form-group flex flex-col">
+                  <label for="vendorEmail" class="mb-2">Email</label>
+                  <input type="email" id="vendorEmail" name="email" placeholder="Enter your email" class="p-2 form-control outline-2 border border-black w-full" required>
+                </div>
+                <div class="form-group flex flex-col">
+                  <label for="vendorPassword" class="mb-2">Password</label>
+                  <input type="password" id="vendorPassword" name="password" placeholder="Enter your password" class="p-2 form-control outline-2 border border-black w-full" required>
+                </div>
+                <div class="w-full my-1 flex justify-end">
+                  <p class="text-center">Forgot password? <a href="email_verify.php">Reset here</a></p>
+                </div>
+                <button type="submit" class="px-2 py-2 mt-2 rounded-lg text-white bg-blue-500">Log In</button>
+            </form>
+            </div>
+        </div>
+    </div>
+  </div>
+
+
+
+
+
 
   <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.1/dist/umd/popper.min.js"></script>
@@ -169,9 +220,9 @@ if ($showalert) {
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.7/dist/umd/popper.min.js"
         integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous">
     </script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js"
+    <!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js"
         integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous">
-    </script>
+    </script> -->
 </body>
 
 </html>

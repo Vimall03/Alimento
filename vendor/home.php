@@ -6,6 +6,8 @@ if (!isset($_SESSION['vendorloggedin']) || $_SESSION['vendorloggedin'] != true) 
     header("location: vendor_login.php");
     exit;
 }
+// echo ($_SESSION['vendorloggedin'] == 1);
+$login_status = false;
 
 if ($_SERVER["REQUEST_METHOD"] === "POST") {
     $orderid = $_POST['order_id'];
@@ -14,7 +16,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     $sql = "UPDATE `orders` SET `order_status` = '$order_status' WHERE `order_id` = '$orderid'";
     $result = mysqli_query($conn, $sql);
 }
-if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true) {
+if (isset($_SESSION['vendorloggedin']) && $_SESSION['vendorloggedin'] == true) {
     $login_status = true;
 }
 // Fetch search keyword and category filter
@@ -162,9 +164,9 @@ $category_filter = isset($_GET['category']) ? $_GET['category'] : '';
 
       <div class="mx-3">
         <?php if ($login_status == true) {
-          echo '<a href="user_logout.php" class="bg-red-500 hover:bg-red-600 transition-all ease-in-out duration-75 cursor-pointer w-max px-6 py-2 text-white rounded-full">Logout</a>';
+          echo '<a href="vendor_logout.php" class="bg-red-500 hover:bg-red-600 transition-all ease-in-out duration-75 cursor-pointer w-max px-6 py-2 text-white rounded-full">Logout</a>';
         } else {
-          echo '<a href="user_login.php" class="bg-gray-900 hover:bg-gray-800 focus:border-white cursor-pointer w-max transition-all ease-in-out duration-75 px-6 py-2 text-white rounded-full">Login</a>';
+          echo '<a href="vendor_login.php" class="bg-gray-900 hover:bg-gray-800 focus:border-white cursor-pointer w-max transition-all ease-in-out duration-75 px-6 py-2 text-white rounded-full">Login</a>';
         } ?>
       </div>
 
