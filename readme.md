@@ -170,6 +170,23 @@ Congrats, you've completed the tailwind css setup.
 
 <img src="https://user-images.githubusercontent.com/74038190/212284100-561aa473-3905-4a80-b561-0d28506553ee.gif" width="900">
 
+## Stargazers ❤️
+
+<div align='left'>
+
+[![Stargazers repo roster for @Vimall03/Alimento](https://reporoster.com/stars/dark/Vimall03/Alimento)](https://github.com/Vimall03/Alimento/stargazers)
+
+
+</div>
+
+## Forkers ❤️
+
+[![Forkers repo roster for @Vimall03/Alimento](https://reporoster.com/forks/dark/Vimall03/Alimento)](https://github.com/Vimall03/Alimento/network/members)
+
+
+
+<img src="https://user-images.githubusercontent.com/74038190/212284100-561aa473-3905-4a80-b561-0d28506553ee.gif" width="900">
+
 ## ⭐ Star the Repo!
 If you find this project useful and would like to support the project, please consider giving it a ⭐ star on GitHub! Your support helps us grow and improve. Thank you! 🙌
 
