@@ -59,9 +59,9 @@ if ($_SERVER["REQUEST_METHOD"]=="POST"){
 
 <head>
     <!-- bootstrap -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.2/font/bootstrap-icons.css">
+    <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous"> -->
+    <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.2/font/bootstrap-icons.css"> -->
     <!-- Google Fonts (aBeeZee) -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -70,13 +70,14 @@ if ($_SERVER["REQUEST_METHOD"]=="POST"){
     @import url('https://fonts.googleapis.com/css2?family=ABeeZee&display=swap');
     </style>
     <!-- css link -->
-    <link rel="stylesheet" href="main.css">
+    <!-- <link rel="stylesheet" href="main.css"> -->
 
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>HomeMade • Login</title>
     <link rel="icon" type="image/png" href="css/favicon.png">
+    <link rel="stylesheet" href="./output.css">
 
 </head>
 
@@ -85,9 +86,9 @@ if ($_SERVER["REQUEST_METHOD"]=="POST"){
       <script>window.gtranslateSettings = {"default_language":"en","detect_browser_language":true,"wrapper_selector":".gtranslate_wrapper"}</script>
       <script src="https://cdn.gtranslate.net/widgets/latest/float.js" defer></script>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
+    <!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous">
-    </script>
+    </script> -->
 
     <?php
   if ($login) {
@@ -122,7 +123,7 @@ if ($showalert) {
 }?>
 
 
-  <section class="login-signup">
+  <!-- <section class="login-signup">
         <div class="login-signup__message-container login-signup__small">
             <div class="login-signup__logo">
                 <a href="index.php">
@@ -176,10 +177,56 @@ if ($showalert) {
                 <p class="paragraph paragraph text-algin-center">  Forget Password?</p>
             </div>
         </div>
-    </section>
+    </section> -->
+
+    <div class="w-full max-w-screen-lg mx-auto" style="max-width: 1024px;">
+      <div class="w-full justify-between flex gap-4 py-8">
+        <div>
+          <img src="./images/logo/logo.webp" class="h-16" alt="" style="height: 48px;">
+        </div>
+        <div class="flex gap-4 items-center">
+          <a href="user_login.php" class="hover:text-blue-600">Sign In</a>
+          <a href="user_signup.php" class="hover:text-blue-600">Register</a>
+        </div>
+      </div>
+
+      <div class="w-full h-[80vh] py-8 flex">
+          <div class="flex flex-col w-1/2 max-h-[600px] h-full justify-center">
+              <span class="h-64">
+                <img src="./images/login.png" alt="" class="h-full">
+              </span>
+          </div>
+          <div class="form flex flex-col w-1/2 max-h-[600px] h-full justify-center">
+              <div class="w-96 ml-auto flex flex-col gap-8">
+                <span class="flex flex-col gap-4">
+                  <h1 class="text-3xl font-bold">Welcome Back,</h1>
+                </span>
+
+                <form action="user_login.php" method="post" class="flex flex-col gap-4">
+                  <div class="form-group flex flex-col">
+                    <label for="email" class="mb-2">Email</label>
+                    <input type="email" id="email" name="email" placeholder="example@example.com" class="p-2 form-control outline-2 border border-black w-full" required>
+                  </div>
+                  <div class="form-group flex flex-col">
+                    <label for="password" class="mb-2">Password</label>
+                    <input type="password" name="password" id="password" placeholder="Enter your password" class="p-2 form-control outline-2 border border-black w-full" required>
+                  </div>
+                  <div class="w-full my-1 flex justify-end">
+                    <p class="text-center">Forgot password? <a href="email_verify.php">Reset here</a></p>
+                  </div>
+                  <button type="submit" class="px-2 py-2 mt-2 rounded-lg text-white bg-blue-500">Log In</button>
+                  <div class="w-full my-1 flex justify-center">
+                    <p class="text-center">Dont have an account? <a href="user_signup.php">Create Now!</a></p>
+                  </div>
+              </form>
+              </div>
+          </div>
+      </div>
+  </div>
+
   <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.1/dist/umd/popper.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  <!-- <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script> -->
   <script>
       const eyeBtnPassword =document.getElementById("eye-btn-p");
       const eyeBtnConfirmPassword =document.getElementById("eye-btn-cp");

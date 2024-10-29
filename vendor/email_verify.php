@@ -99,41 +99,41 @@ if ($showError) {
     </div> -->
 
     <div class="w-full max-w-screen-lg mx-auto" style="max-width: 1024px;">
-    <div class="w-full justify-end flex gap-4 py-8">
-      <a href="vendor_login.php" class="hover:text-blue-600">Sign In</a>
-      <a href="vendor_signup.php" class="hover:text-blue-600">Register</a>
-    </div>
+      <div class="w-full justify-end flex gap-4 py-8">
+        <a href="vendor_login.php" class="hover:text-blue-600">Sign In</a>
+        <a href="vendor_signup.php" class="hover:text-blue-600">Register</a>
+      </div>
 
-    <div class="w-full h-[80vh] py-8 flex">
-        <div class="flex flex-col w-1/2 max-h-[600px] h-full justify-center">
-            <span class="flex flex-col gap-4">
-              <h1 class="text-5xl font-bold">Verify your email id</h1>
-            </span>
-            <span class="my-8">
-              <p class="text-sm">
-              Please enter the 8-digit code sent to your email to complete the verification process. If you haven't received the code, check your spam folder or request a new one.
-              </p>
-            </span>
-            <span class="h-56">
-              <img src="../images/Frame.png" alt="" class="h-full">
-            </span>
-        </div>
-        <div class="form flex flex-col w-1/2 max-h-[600px] h-full justify-center">
-            <div class="w-96 ml-auto flex flex-col gap-8">
+      <div class="w-full h-[80vh] py-8 flex">
+          <div class="flex flex-col w-1/2 max-h-[600px] h-full justify-center">
               <span class="flex flex-col gap-4">
-                <h1 class="text-2xl font-bold">Enter the 8 digit code</h1>
+                <h1 class="text-5xl font-bold">Verify your email id</h1>
               </span>
+              <span class="my-8">
+                <p class="text-sm">
+                Please enter the 8-digit code sent to your email to complete the verification process. If you haven't received the code, check your spam folder or request a new one.
+                </p>
+              </span>
+              <span class="h-56">
+                <img src="../images/Frame.png" alt="" class="h-full">
+              </span>
+          </div>
+          <div class="form flex flex-col w-1/2 max-h-[600px] h-full justify-center">
+              <div class="w-96 ml-auto flex flex-col gap-8">
+                <span class="flex flex-col gap-4">
+                  <h1 class="text-2xl font-bold">Enter the 8 digit code</h1>
+                </span>
 
-              <form action="email_verify.php" method="post" class="flex flex-col gap-4">
-                <div class="form-group flex flex-col">
-                  <input type="password" id="vendorPassword" name="password" placeholder="OTP" class="p-2 form-control outline-2 border border-black w-full" required>
-                </div>
-                <button type="submit" class="px-2 py-2 mt-2 rounded-lg text-white bg-blue-500">submit</button>
-            </form>
-            </div>
-        </div>
+                <form action="email_verify.php" method="post" class="flex flex-col gap-4">
+                  <div class="form-group flex flex-col">
+                    <input type="password" id="vendorPassword" name="password" placeholder="OTP" class="p-2 form-control outline-2 border border-black w-full" required>
+                  </div>
+                  <button type="submit" class="px-2 py-2 mt-2 rounded-lg text-white bg-blue-500">submit</button>
+              </form>
+              </div>
+          </div>
+      </div>
     </div>
-  </div>
 </body>
 
 </html>
