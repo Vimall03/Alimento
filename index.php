@@ -47,8 +47,7 @@ if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true) {
         class="hover:bg-gray-200 transition-all ease-in-out duration-100 active:bg-gray-300 focus:bg-gray-300 rounded-full hover:text-black py-2 px-4">Orders</a>
       <a href="#"
         class="hover:bg-gray-200 transition-all ease-in-out duration-100 active:bg-gray-300 focus:bg-gray-300 rounded-full hover:text-black py-2 px-4">Contact</a>
-        <a href="contributors/contributor.html"
-        class="hover:bg-gray-200 transition-all ease-in-out duration-100 active:bg-gray-300 focus:bg-gray-300 rounded-full hover:text-black py-2 px-4">Our contributor</a>
+     
       <?php if ($login_status == true) {
         echo '<a href="profile.php" class="hover:bg-gray-200 transition-all ease-in-out duration-100 active:bg-gray-300 focus:bg-gray-300 rounded-full hover:text-black py-2 px-4">Account</a>';
       } ?>
@@ -281,6 +280,7 @@ if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true) {
             <a href="#">Terms of service</a>
             <a href="#">Privacy policy</a>
             <a href="#">About us</a>
+            <a href="contributors/contributor.html">Our contributor</a>
           </div>
         </div>
       </div>
