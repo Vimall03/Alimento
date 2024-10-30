@@ -49,6 +49,8 @@ if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true) {
         class="hover:bg-gray-200 transition-all ease-in-out duration-100 active:bg-gray-300 focus:bg-gray-300 rounded-full hover:text-black py-2 px-4">Orders</a>
       <a href="#"
         class="hover:bg-gray-200 transition-all ease-in-out duration-100 active:bg-gray-300 focus:bg-gray-300 rounded-full hover:text-black py-2 px-4">Contact</a>
+        <a href="contributors/contributor.html"
+        class="hover:bg-gray-200 transition-all ease-in-out duration-100 active:bg-gray-300 focus:bg-gray-300 rounded-full hover:text-black py-2 px-4">Our contributor</a>
       <?php if ($login_status == true) {
         echo '<a href="profile.php" class="hover:bg-gray-200 transition-all ease-in-out duration-100 active:bg-gray-300 focus:bg-gray-300 rounded-full hover:text-black py-2 px-4">Account</a>';
       } ?>
@@ -78,6 +80,7 @@ if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true) {
         class="hover:bg-white focus:bg-white transition-all ease-in-out duration-100 py-2 px-3 rounded-md hover:text-black">Orders</a>
       <a href="#"
         class="hover:bg-white focus:bg-white transition-all ease-in-out duration-100 py-2 px-3 rounded-md hover:text-black">Contact</a>
+      <a href="contributor/contributor.html">our contributor</a>
       <?php if ($login_status == true) {
         echo '<a href="profile.php" class="hover:bg-white focus:bg-white transition-all ease-in-out duration-100 py-2 px-3 rounded-md hover:text-black">Account</a>';
       } ?>
