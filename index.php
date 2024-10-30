@@ -1,7 +1,5 @@
 <?php
 session_start();
-set_include_path(get_include_path() . PATH_SEPARATOR . 'C:/Users/Lenovo/Alimento/includes');
-include 'chatbot.html';
 $login_status = false;
 
 if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true) {
@@ -40,7 +38,7 @@ if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true) {
   <script src="https://cdn.gtranslate.net/widgets/latest/float.js" defer></script>
   <!-- navbar  -->
   <nav
-    class="hidden  lg:flex sm:max-w-xl md:max-w-2xl lg:max-w-5xl xl:max-w-7xl w-full items-center justify-between max-w-7xl mx-auto font-poppins py-4">
+    class="hidden lg:flex sm:max-w-xl md:max-w-2xl lg:max-w-5xl xl:max-w-7xl w-full items-center justify-between max-w-7xl mx-auto font-poppins py-4">
     <a href="index.php"><img src="./images/logo/logo.webp" alt="logo" class="w-36"></a>
     <div class="flex sm:gap-1 md:gap-2">
       <a href="home.php"
@@ -218,20 +216,20 @@ if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true) {
 
   <!-- Membership section  -->
   <div
-    class="my-10 mx-5 bg-pizza-img bg-cover rounded-3xl p-5 font-poppins text-white sm:max-w-xl md:max-w-3xl lg:max-w-5xl xl:max-w-7xl sm:mx-auto sm:h-80 lg:h-96 bg-center">
-    <div class="mt-10 text-center sm:px-10 sm:py-7 md:px-16 lg:px-64">
-      <h2 class="font-semibold text-xl sm:text-2xl md:text-3xl lg:text-4xl">Join our membership and get discount
-        up to 50%</h2>
-      <form action="#"
-        class="bg-white flex items-center justify-between py-1 mt-9 px-2 rounded-xl sm:mt-16 sm:py-2 sm:px-3 sm:rounded-2xl lg:rounded-full lg:px-5">
-        <input type="email"
-          class="w-full border-none outline-none text-gray-700 text-sm sm:text-base sm:ml-2 lg:text-lg"
-          name="" id="" placeholder="Enter your email" required>
-        <button type="submit"
-          class="bg-gray-800 text-white rounded-xl active:bg-gray-900  py-2 px-4 text-sm sm:text-base sm:py-2 sm:px-3 lg:rounded-full lg:px-5 lg:py-3 lg:text-lg ">Subscribe</button>
-      </form>
+        class="my-10 mx-5 bg-pizza-img bg-cover rounded-3xl p-5 font-poppins text-white sm:max-w-xl md:max-w-3xl lg:max-w-5xl xl:max-w-7xl sm:mx-auto sm:h-80 lg:h-96 bg-center">
+        <div class="mt-10 text-center sm:px-10 sm:py-7 md:px-16 lg:px-64">
+            <h2 class="font-semibold text-xl sm:text-2xl md:text-3xl lg:text-4xl">Join our membership and get discount
+                up to 50%</h2>
+            <form action="#"
+                class="bg-white flex items-center justify-between py-1 mt-9 px-2 rounded-xl sm:mt-16 sm:py-2 sm:px-3 sm:rounded-2xl lg:rounded-full lg:px-5">
+                <input type="email"
+                    class="w-full border-none outline-none text-gray-700 text-sm sm:text-base sm:ml-2 lg:text-lg"
+                    name="" id="" placeholder="Enter your email" required>
+                <button type="submit"
+                    class="bg-gray-800 text-white rounded-xl active:bg-gray-900  py-2 px-4 text-sm sm:text-base sm:py-2 sm:px-3 lg:rounded-full lg:px-5 lg:py-3 lg:text-lg ">Subscribe</button>
+            </form>
+        </div>
     </div>
-  </div>
 
   <!-- Footer section  -->
   <div class="bg-[#E6E8DD;] py-12 px-5 font-poppins">
@@ -295,12 +293,7 @@ if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true) {
   </script>
 </body>
 
-<script>
-window.embeddedChatbotConfig = {
-chatbotId: "gvEIQuZ1QCpui9UuF1UWX",
-domain: "www.chatbase.co"
-}
-</script>
+
 <script
 src="https://www.chatbase.co/embed.min.js"
 chatbotId="gvEIQuZ1QCpui9UuF1UWX"

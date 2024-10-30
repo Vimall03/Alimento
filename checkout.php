@@ -25,18 +25,13 @@ if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true) {
   <title>Checkout</title>
   
   <link rel="stylesheet" href="checkout.css">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-  <link rel="stylesheet" href=".css">
-  <link rel="stylesheet" href="main.css">
   <!-- Google fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link
     href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
     rel="stylesheet" />
-  <!-- Bootstrap icons  -->
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
-  <!-- <link rel="stylesheet" href="main.css"> -->
+
   <link rel="stylesheet" href="output.css">
 </head>
 <body>
@@ -141,7 +136,7 @@ if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true) {
     </div>
 
     <!-- Order Summary Section -->
-    <div class="summary-section">
+    <div class="summary-section bg-slate-600">
         <h3>Order Summary</h3>
         <br><br>
         <?php  foreach ($order as $item) {
@@ -156,25 +151,6 @@ if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true) {
   <?php } ?>
         
 
-        <!-- <h3>Shipping</h3>
-        <label><input type="radio" name="shipping" checked> Local pickup</label><br>
-        <label><input type="radio" name="shipping"> Local Delivery: $2.99</label>
-
-        <label for="pickup-date">Pickup Date</label>
-        <select id="pickup-date">
-            <option>As soon as possible</option>
-            <option>Tomorrow</option>
-            <option>Later this week</option>
-        </select>
-
-        <h3>Tip Amount</h3>
-        <div class="tip-options">
-            <button class="tip-btn">15%</button>
-            <button class="tip-btn">18%</button>
-            <button class="tip-btn">22%</button>
-            <button class="tip-btn active">No Tip</button>
-            <button class="tip-btn">Custom Tip</button>
-        </div> -->
 
         <div class="total">
             <div>Subtotal</div>

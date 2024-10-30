@@ -89,31 +89,21 @@ if ($showError) {
 
 
 <body>
-    <!-- <header>
-        <h1>etiffy</h1>
-        <p>Delicious Moments Delivered to Your Doorstep</p>
-    </header>
-    <div class="container">
-        <h2>Verify Your Email</h2>
-        <p>Enter the 8-digit code sent to your email to complete the verification process.</p>
-        <form action="email_verify.php" method="post">
-            <input type="password" name="password" maxlength="8" minlength="8" required>
-            <br>
-            <button type="submit" class="button">Verify Email</button>
-        </form>
-        <p>If you haven't received the code, please check your spam folder or request a new code.</p>
-    </div> -->
+ 
 
     <div class="w-full max-w-screen-lg mx-auto" style="max-width: 1024px;">
-    <div class="w-full justify-between flex gap-4 py-8">
-        <div>
-          <img src="./images/logo/logo.webp" class="h-16" alt="" style="height: 48px;">
+    <nav
+      class="hidden  lg:flex sm:max-w-xl md:max-w-2xl lg:max-w-5xl xl:max-w-7xl w-full items-center justify-between max-w-7xl mx-auto font-poppins py-4">
+      <a href="index.php"><img src="./images/logo/logo.webp" alt="logo" class="w-36"></a>
+
+      <div class="flex">
+
+        <div class="mx-3">
+          <a href="user_login.php" class="bg-gray-900 hover:bg-gray-800 focus:border-white cursor-pointer w-max transition-all ease-in-out duration-75 px-6 py-2 text-white rounded-full">Login</a>
+          <a href="user_signup.php" class="bg-gray-900 hover:bg-gray-800 focus:border-white cursor-pointer w-max transition-all ease-in-out duration-75 px-6 py-2 text-white rounded-full">Register</a>
         </div>
-        <div class="flex gap-4 items-center">
-          <a href="user_login.php" class="hover:text-blue-600">Sign In</a>
-          <a href="user_signup.php" class="hover:text-blue-600">Register</a>
-        </div>
-      </div>
+
+    </nav>
 
       <div class="w-full h-[80vh] py-8 flex">
           <div class="flex flex-col w-1/2 max-h-[600px] h-full justify-center">
@@ -165,18 +155,7 @@ if ($showError) {
       <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.1/dist/umd/popper.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-  <!-- <script>
-window.embeddedChatbotConfig = {
-chatbotId: "gvEIQuZ1QCpui9UuF1UWX",
-domain: "www.chatbase.co"
-}
-</script> -->
-<!-- <script
-src="https://www.chatbase.co/embed.min.js"
-chatbotId="gvEIQuZ1QCpui9UuF1UWX"
-domain="www.chatbase.co"
-defer>
-</script> -->
+
 </body>
 
 </html>
