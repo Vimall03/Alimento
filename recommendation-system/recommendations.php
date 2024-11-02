@@ -13,49 +13,39 @@ if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] != true) {
 $userId = $_SESSION['user_id'];
 $recommendationSystem = new RecommendationSystem($conn);
 
-// Get recommendations
-$restaurantRecommendations = $recommendationSystem->getRestaurantRecommendations($userId);
-$dishRecommendations = $recommendationSystem->getDishRecommendations($userId);
+// Get recommendations using new optimized methods
+$restaurantRecommendations = $recommendationSystem->getOptimizedRestaurantRecommendations($userId);
+$dishRecommendations = $recommendationSystem->getOptimizedDishRecommendations($userId);
+
+// Add interaction tracking
+if (isset($_POST['track_interaction'])) {
+    $itemId = $_POST['item_id'];
+    $itemType = $_POST['item_type'];
+    $interactionType = $_POST['interaction_type'];
+    $recommendationSystem->trackInteraction($userId, $itemId, $itemType, $interactionType);
+}
+
+// Rest of the file remains the same...
 ?>
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Personalized Recommendations</title>
-    <link rel="stylesheet" href="output.css">
-</head>
-<body>
-    <div class="container mx-auto px-4 py-8">
-        <!-- Restaurant Recommendations -->
-        <section class="mb-8">
-            <h2 class="text-2xl font-bold mb-4">Recommended Restaurants</h2>
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
-                <?php foreach ($restaurantRecommendations as $restaurant): ?>
-                    <div class="bg-white rounded-lg shadow-md p-4 recommended-item" data-item-id="<?php echo $restaurant['r_id']; ?>" data-item-type="restaurant">
-                        <h3 class="text-xl font-semibold"><?php echo htmlspecialchars($restaurant['r_name']); ?></h3>
-                        <p class="text-gray-600"><?php echo htmlspecialchars($restaurant['r_cuisine']); ?></p>
-                        <p class="text-yellow-500">Rating: <?php echo number_format($restaurant['r_rating'], 1); ?></p>
-                        <a href="menu.php?id=<?php echo $restaurant['r_id']; ?>" 
-                           class="mt-2 inline-block bg-blue-500 text-white px-4 py-2 rounded">
-                            View Menu
-                        </a>
-                    </div>
-                <?php endforeach; ?>
-            </div>
-        </section>
+<!-- In the HTML section, add JavaScript for real-time interaction tracking -->
+<script>
+function trackInteraction(itemId, itemType, interactionType) {
+    fetch('recommendations.php', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/x-www-form-urlencoded',
+        },
+        body: `track_interaction=1&item_id=${itemId}&item_type=${itemType}&interaction_type=${interactionType}`
+    });
+}
 
-        <!-- Dish Recommendations -->
-        <section>
-            <h2 class="text-2xl font-bold mb-4">Recommended Dishes</h2>
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
-                <?php foreach ($dishRecommendations as $dish): ?>
-                    <div class="bg-white rounded-lg shadow-md p-4 recommended-item" data-item-id="<?php echo $dish['m_id']; ?>" data-item-type="dish">
-                        <h3 class="text-xl font-semibold"><?php echo htmlspecialchars($dish['m_name']); ?></h3>
-                        <p class="text-gray-600">From: <?php echo htmlspecialchars($dish['r_name']); ?></p>
-                        <p class="text-gray-500"><?php echo htmlspecialchars($dish['m_category']); ?></p>
-                        <p class="text-green-600">₹<?php echo number_format($dish['m_price'], 2); ?></p>
-                    </div>
-                <?php endforeach; ?>
-            </div
+// Add event listeners to recommendation items
+document.querySelectorAll('.recommended-item').forEach(item => {
+    item.addEventListener('click', function() {
+        const itemId = this.dataset.itemId;
+        const itemType = this.dataset.itemType;
+        trackInteraction(itemId, itemType, 'click');
+    });
+});
+</script>
