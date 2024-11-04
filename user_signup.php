@@ -124,19 +124,12 @@ else {
 <html lang="en">
 
 <head>
-    <!-- bootstrap -->
-    <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous"> -->
-    <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.2/font/bootstrap-icons.css"> -->
-    <!-- Google Fonts (aBeeZee) -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=ABeeZee&display=swap" rel="stylesheet">
     <style>
     @import url('https://fonts.googleapis.com/css2?family=ABeeZee&display=swap');
     </style>
-    <!-- css link -->
-    <!-- <link rel="stylesheet" href="main.css"> -->
     <link rel="stylesheet" href="./output.css">
 
 
@@ -179,71 +172,7 @@ else {
 ';
   } ?>
 
-<!-- <section class="login-signup">
-        <div class="login-signup__form-container login-signup__big">
-            <div class="login-signup__back-button u-show-after-tab-port">
-                <img src="images/favicons/back_50px-red.webp"alt="Back Button">
-                <a href="index.php">Back</a>
-            </div>
-
-            <div class="login-signup__logo">
-                <a href="index.php">
-                    <img src="images/logo/logo.webp" alt="Logo">                
-                </a>
-            </div>
-
-            <div class="login-signup__form-content">
-                <h3 class="login-signup__form-heading u-margin-bottom-small">Hello, Friend</h3>
-                <h5 class="login-signup__form-subheading">Create your account to end the hunder</h5>
-
-                <form class="login-signup-form u-margin-top-small" action="user_signup.php" method="post">
-                    <div class="login-signup-form__input-group login-signup-form__input-group--full">
-                        <input type="text" name="name" class="login-signup-form__input" id="name" placeholder="Your good name">
-                    </div>
-
-                    <div class="login-signup-form__input-group login-signup-form__input-group--full">
-                        <input type="email" name="email" class="login-signup-form__input" id="email-id" placeholder="example@example.com">
-                        
-                    </div>
-                    <div class="login-signup-form__input-group">
-                      <div class="login-signup-form__input" onclick="document.getElementById('password').focus()">
-                          <input type="password" name="password" class="login-signup-form__inputfield" id="password" placeholder=".......">
-                          <i class="bi bi-eye-fill eye-open" id="eye-btn-p"></i>
-                      </div>
-                      <div class="login-signup-form__input" onclick="document.getElementById('cpassword').focus()">
-                          <input type="password" name="cpassword" class="login-signup-form__inputfield" id="cpassword" placeholder=".......">
-                          <i class="bi bi-eye-fill eye-open" id="eye-btn-cp"></i>
-                      </div>
-                    </div>
-                    <button class="login-signup-form__submit u-margin-top-extra-large" type="submit" id="submit-login">Sign Up</button>
-                </form>
-            </div>
-
-            <div class="login-signup__text-content">
-                <p class="paragraph paragraph text-algin-center">Already a member?</p>
-                <a href="user_login.php" class="login-signup__alt-link">Sign In</a>
-            </div>
-        </div>
-        <div class="login-signup__message-container login-signup__small">
-            <div class="login-signup__back-button">
-                <img src="images/favicons/back_50px.webp"alt="Back Button">
-                <a href="index.php" style="color:#fff">Back</p>
-            </div>
-
-            <div class="login-signup__message-content">
-                <h3 class="login-signup__message-heading u-margin-bottom-medium">Welcome Back</h3>
-                <p class="login-signup__message-para">Glad to see you back here. We are waiting to kill your hunger with our delicious dabbas. Sign in to get delicious food.</p>
-                
-                <br><br>
-
-                <button class="login-signup__button u-margin-top-extra-large" style="display:block; margin: 0 auto;">
-                    <a href="user_login.php">Sign In</a>
-                </button>
-            </div>
-        </div>
-    </section> -->
-
-    <div class="w-full max-w-screen-lg mx-auto" style="max-width: 1024px;">
+    <div class="w-full max-w-screen-lg mx-auto ">
      
     <nav
       class="hidden  lg:flex sm:max-w-xl md:max-w-2xl lg:max-w-5xl xl:max-w-7xl w-full items-center justify-between max-w-7xl mx-auto font-poppins py-4">
@@ -328,18 +257,6 @@ else {
         }
       })
     </script>
-    <!-- <script>
-window.embeddedChatbotConfig = {
-chatbotId: "gvEIQuZ1QCpui9UuF1UWX",
-domain: "www.chatbase.co"
-}
-</script> -->
-<!-- <script
-src="https://www.chatbase.co/embed.min.js"
-chatbotId="gvEIQuZ1QCpui9UuF1UWX"
-domain="www.chatbase.co"
-defer>
-</script> -->
   
 </body>
 

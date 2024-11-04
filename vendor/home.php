@@ -29,10 +29,6 @@ $category_filter = isset($_GET['category']) ? $_GET['category'] : '';
 <html>
 
 <head>
-    <link rel="stylesheet" href="vendor_styles.css">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.2/font/bootstrap-icons.css">
     <title>Order Information</title>
 
   <!-- Google fonts -->
@@ -41,111 +37,11 @@ $category_filter = isset($_GET['category']) ? $_GET['category'] : '';
   <link
     href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
     rel="stylesheet" />
-  <!-- Bootstrap icons  -->
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
   <link rel="stylesheet" href="../output.css">
-    <style>
-        body {
-            max-width: 1140px;
-            margin: auto;
-        }
-
-        .header {
-            display: flex;
-            justify-content: space-between;
-            height: 10vh;
-            margin: 10px 0;
-            border-bottom: 2px solid maroon;
-        }
-
-        .header img {
-            height: 100%;
-        }
-
-        .logout {
-            height: 100%;
-            display: flex;
-            align-items: center;
-        }
-
-        .holder {
-            padding: 20px;
-        }
-
-        .order-table {
-            width: 100%;
-            border-collapse: collapse;
-        }
-
-        .order-table th,
-        .order-table td {
-            padding: 12px;
-            border-bottom: 1px solid #ddd;
-            text-align: center;
-        }
-
-        .order-table th {
-            background-color: #f5f5f5;
-            font-weight: bold;
-        }
-
-        .menu-container {
-            display: flex;
-            justify-content: space-between;
-        }
-
-        .btn {
-            padding: 10px 20px;
-            border: none;
-            color: white;
-            border-radius: 4px;
-            cursor: pointer;
-        }
-
-        .btn:hover {
-            color: black;
-        }
-
-        .filters {
-            display: flex;
-            gap: 10px;
-            margin-bottom: 20px;
-        }
-
-        .filters input[type="text"] {
-            padding: 8px;
-            width: 200px;
-            border: 1px solid #ccc;
-            border-radius: 4px;
-        }
-
-        .filters select,
-        .filters button {
-            padding: 8px 12px;
-            border: 1px solid #ccc;
-            border-radius: 4px;
-            background-color: #777;
-            color: white;
-            cursor: pointer;
-        }
-
-        .veg {
-            padding: 4px 12px;
-            background: green;
-            color: white;
-            border-radius: 6px;
-        }
-
-        .nonveg {
-            padding: 4px 12px;
-            background: red;
-            color: white;
-            border-radius: 6px;
-        }
-    </style>
+    
 </head>
 
-<body>
+<body class="max-w-[1140px] m-auto">
 <nav
     class="hidden  lg:flex sm:max-w-xl md:max-w-2xl lg:max-w-5xl xl:max-w-7xl w-full items-center justify-between max-w-7xl mx-auto font-poppins py-4">
     <a href="index.php"><img src="../images/logo/logo.webp" alt="logo" class="w-36"></a>
@@ -191,19 +87,19 @@ $category_filter = isset($_GET['category']) ? $_GET['category'] : '';
     </div>
   </div>
 
-    <div class="holder">
+    <div class="holder p-5">
         <h1>Pending Order</h1>
-        <table class="order-table">
+        <table class="order-table w-full border-collapse">
             <thead>
                 <tr>
-                    <th>Order ID</th>
-                    <th>Order</th>
-                    <th>Name</th>
-                    <th>Amount</th>
-                    <th>Phone</th>
-                    <th>Address</th>
-                    <th>Update Order</th>
-                    <th>Order Status</th>
+                    <th class='p-3 border-b-[1px] border-[#ddd] text-center bg-[#f5f5f5] font-bold'>Order ID</th>
+                    <th class='p-3 border-b-[1px] border-[#ddd] text-center bg-[#f5f5f5] font-bold'>Order</th>
+                    <th class='p-3 border-b-[1px] border-[#ddd] text-center bg-[#f5f5f5] font-bold'>Name</th>
+                    <th class='p-3 border-b-[1px] border-[#ddd] text-center bg-[#f5f5f5] font-bold'>Amount</th>
+                    <th class='p-3 border-b-[1px] border-[#ddd] text-center bg-[#f5f5f5] font-bold'>Phone</th>
+                    <th class='p-3 border-b-[1px] border-[#ddd] text-center bg-[#f5f5f5] font-bold'>Address</th>
+                    <th class='p-3 border-b-[1px] border-[#ddd] text-center bg-[#f5f5f5] font-bold'>Update Order</th>
+                    <th class='p-3 border-b-[1px] border-[#ddd] text-center bg-[#f5f5f5] font-bold'>Order Status</th>
                 </tr>
             </thead>
 
@@ -218,15 +114,15 @@ $category_filter = isset($_GET['category']) ? $_GET['category'] : '';
             if ($result->num_rows > 0) {
                 while ($row = $result->fetch_assoc()) {
                     echo "<tr>";
-                    echo "<td>" . $row['order_id'] . "</td>";
-                    echo "<td>" . $row['order'] . "</td>";
-                    echo "<td>" . $row['name'] . "</td>";
-                    echo "<td>" . $row['amount'] . "</td>";
-                    echo "<td>" . $row['phone'] . "</td>";
-                    echo "<td>" . $row['address'] . "</td>";
+                    echo "<td class='p-3 border-b-[1px] border-[#ddd] text-center'>" . $row['order_id'] . "</td>";
+                    echo "<td class='p-3 border-b-[1px] border-[#ddd] text-center'>" . $row['order'] . "</td>";
+                    echo "<td class='p-3 border-b-[1px] border-[#ddd] text-center'>" . $row['name'] . "</td>";
+                    echo "<td class='p-3 border-b-[1px] border-[#ddd] text-center'>" . $row['amount'] . "</td>";
+                    echo "<td class='p-3 border-b-[1px] border-[#ddd] text-center'>" . $row['phone'] . "</td>";
+                    echo "<td class='p-3 border-b-[1px] border-[#ddd] text-center'>" . $row['address'] . "</td>";
 
                     // Adding a dropdown to update the order status
-                    echo "<td>";
+                    echo "<td class='p-3 border-b-[1px] border-[#ddd] text-center bg-[#f5f5f5] font-bold'>";
                     echo "<form action='home.php' method='post'>";
                     echo "<input type='hidden' name='order_id' value='" . $row['order_id'] . "'>";
                     echo "<select name='order_status'>";
@@ -239,11 +135,11 @@ $category_filter = isset($_GET['category']) ? $_GET['category'] : '';
                     echo "</td>";
 
                     // Adding the update order button
-                    echo "<td>" . $row['order_status'] . "</td>";
+                    echo "<td class='p-3 border-b-[1px] border-[#ddd] text-center bg-[#f5f5f5] font-bold'>" . $row['order_status'] . "</td>";
                     echo "</tr>";
                 }
             } else {
-                echo "<tr><td colspan='8'>No Orders yet</td></tr>";
+                echo "<tr><td colspan='8' class='p-3 border-b-[1px] border-[#ddd] text-center'>No Orders yet</td></tr>";
             }
 
 
@@ -253,34 +149,34 @@ $category_filter = isset($_GET['category']) ? $_GET['category'] : '';
 
         <br>
         <br>
-        <div class="menu-container">
+        <div class="menu-container flex justify-between">
             <h1>
                 Menu Information
             </h1>
             <div class="">
-                <a href='add_menu.php'><button class="btn" style="background-color: #008080;">Add to Menu</button></a>
-                <a href='edit_menu.php'><button class="btn" style="background-color: #FF8C00;">Edit Menu</button></a>
+                <a href='add_menu.php'><button class="btn py-[10px] px-5 border-none text-white hover:text-black rounded-md cursor-pointer" style="background-color: #008080;">Add to Menu</button></a>
+                <a href='edit_menu.php'><button class=" py-[10px] px-5 border-none text-white hover:text-black rounded-md cursor-pointer" style="background-color: #FF8C00;">Edit Menu</button></a>
             </div>
         </div>
 
         <!-- Search and Filter Form -->
-        <form method="GET" action="home.php" class="mb-3 filters">
-            <input type="text" name="search" placeholder="Search by item name"
+        <form method="GET" action="home.php" class="mb-5 filters flex gap-[10px]">
+            <input type="text" name="search" placeholder="Search by item name" class="p-2 w-[200px] border border-[#ccc] rounded-md"
                 value="<?php echo htmlspecialchars($search); ?>">
-            <select name="category">
+            <select name="category" class="py-2 px-3 border border-[#ccc] bg-[#777] rounded-md text-white cursor-pointer">
                 <option value="">All Categories</option>
                 <option value="Veg" <?php echo ($category_filter === 'Veg') ? 'selected' : ''; ?>>Veg</option>
                 <option value="Non-Veg" <?php echo ($category_filter === 'Non-Veg') ? 'selected' : ''; ?>>Non-Veg</option>
             </select>
-            <button type="submit" class="btn btn-secondary">Search / Filter</button>
+            <button type="submit" class=" py-[10px] px-5 border-none text-white hover:text-black rounded-md cursor-pointer">Search / Filter</button>
         </form>
 
-        <table class="order-table">
+        <table class="order-table w-full border-collapse">
             <tr>
-                <th>Item ID</th>
-                <th>Item Name</th>
-                <th>Item Price</th>
-                <th>Item Category</th>
+                <th class="p-3 border-b-[1px] border-[#ddd] text-center bg-[#f5f5f5] font-bold">Item ID</th>
+                <th class="p-3 border-b-[1px] border-[#ddd] text-center bg-[#f5f5f5] font-bold">Item Name</th>
+                <th class="p-3 border-b-[1px] border-[#ddd] text-center bg-[#f5f5f5] font-bold">Item Price</th>
+                <th class="p-3 border-b-[1px] border-[#ddd] text-center bg-[#f5f5f5] font-bold">Item Category</th>
             </tr>
 
             <?php
@@ -300,18 +196,18 @@ $category_filter = isset($_GET['category']) ? $_GET['category'] : '';
             if ($result->num_rows > 0) {
                 while ($row = $result->fetch_assoc()) {
                     echo "<tr>";
-                    echo "<td>" . $row['m_id'] . "</td>";
-                    echo "<td>" . $row['m_name'] . "</td>";
-                    echo "<td>" . $row['m_price'] . "</td>";
+                    echo "<td class='p-3 border-b-[1px] border-[#ddd] text-center'>" . $row['m_id'] . "</td>";
+                    echo "<td class='p-3 border-b-[1px] border-[#ddd] text-center'>" . $row['m_name'] . "</td>";
+                    echo "<td class='p-3 border-b-[1px] border-[#ddd] text-center'>" . $row['m_price'] . "</td>";
                     if ($row['m_type'] == "Veg") {
-                        echo "<td> <span class='veg'>" . $row['m_type'] . "</span></td>";
+                        echo "<td class='p-3 border-b-[1px] border-[#ddd] text-center'> <span class='veg py-1 px-3 bg-green-500 text-white rounded-md'>" . $row['m_type'] . "</span></td>";
                     } else {
-                        echo "<td> <span class='nonveg'>" . $row['m_type'] . "</span></td>";
+                        echo "<td class='p-3 border-b-[1px] border-[#ddd] text-center'> <span class='nonveg py-1 px-3 bg-red-500 text-white rounded-md'>" . $row['m_type'] . "</span></td>";
                     }
                     echo "</tr>";
                 }
             } else {
-                echo "<tr><td colspan='6'>No items found</td></tr>";
+                echo "<tr><td colspan='6' class='p-3 border-b-[1px] border-[#ddd] text-center'>No items found</td></tr>";
             }
             ?>
         </table>

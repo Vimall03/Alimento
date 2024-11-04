@@ -49,7 +49,7 @@ $orders = mysqli_fetch_all($result, MYSQLI_ASSOC);
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="main.css">
+    <!-- <link rel="stylesheet" href="main.css"> -->
     <!-- Google fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -60,12 +60,12 @@ $orders = mysqli_fetch_all($result, MYSQLI_ASSOC);
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
     <!-- <link rel="stylesheet" href="main.css"> -->
     <link rel="stylesheet" href="output.css">
-    <link rel="stylesheet" href="new_track_order.css">
+    <!-- <link rel="stylesheet" href="new_track_order.css"> -->
     <title>Order Information</title>
 
 </head>
 
-<body>
+<body class="bg-[#F0EAEA]">
     <div class="gtranslate_wrapper"></div>
     <script>window.gtranslateSettings = { "default_language": "en", "detect_browser_language": true, "wrapper_selector": ".gtranslate_wrapper" }</script>
     <script src="https://cdn.gtranslate.net/widgets/latest/float.js" defer></script>
@@ -126,24 +126,24 @@ $orders = mysqli_fetch_all($result, MYSQLI_ASSOC);
     </div>
 
 
-    <div class="space"></div>
+    <div class="space py-12"></div>
     <!-- Orders section  -->
-    <section class="main">
-        <h2 class="title">Your Orders</h2>
-        <div class="orders-table-container">
-            <table class="orders-table">
+    <section class="main max-w-[425px] sm:max-w-[1200px] mx-auto p-3 sm:p-5 lg:p-0">
+        <h2 class="title w-full mx-auto font-bold text-2xl sm:text-4xl">Your Orders</h2>
+        <div class="orders-table-container overflow-x-scroll md:overflow-hidden w-full mx-auto my-5 bg-white p-5 rounded-2xl shadow-md">
+            <table class="orders-table w-full border-collapse">
                 <thead>
-                    <tr>
-                        <th>ItemName</th>
-                        <th>Order no</th>
-                        <th>Customer</th>
-                        <th>Date</th>
-                        <th>Total</th>
+                    <tr class="border-b border-[#ddd]">
+                        <th class="rounded-l-[10px] bg-[#f1f1f1] p-3 text-lg font-semibold">ItemName</th>
+                        <th class=" bg-[#f1f1f1] p-3 text-lg font-semibold">Order no</th>
+                        <th class=" bg-[#f1f1f1] p-3 text-lg font-semibold">Customer</th>
+                        <th class=" bg-[#f1f1f1] p-3 text-lg font-semibold">Date</th>
+                        <th class=" bg-[#f1f1f1] p-3 text-lg font-semibold">Total</th>
 
-                        <th>Payment Status</th>
+                        <th class=" bg-[#f1f1f1] p-3 text-lg font-semibold">Payment Status</th>
 
-                        <th>Update order</th>
-                        <th>Feedback</th>
+                        <th class=" bg-[#f1f1f1] p-3 text-lg font-semibold">Update order</th>
+                        <th class="rounded-r-[10px] bg-[#f1f1f1] p-3 text-lg font-semibold">Feedback</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -160,19 +160,19 @@ $orders = mysqli_fetch_all($result, MYSQLI_ASSOC);
                         $payment = $order['payment'];
                         $payment == "SUCCESS" ? $payment = "Completed" : $payment = "failed";
 
-                        echo ' <tr>
-                                <td class="order-item">
+                        echo ' <tr class="border-b border-[#ddd]">
+                                <td class="order-item py-4 px-3 text-base flex items-center max-w-[250px] break-words box-border text-left">
                             ' . $item . '
                                     </td>
-                                    <td>#' . $order_no . '</td>
-                                    <td>' . $username . '</td>
-                                    <td>' . $date . '</td>
-                                    <td>₹' . $amount . '</td>
+                                    <td class=" py-4 px-3 text-base">#' . $order_no . '</td>
+                                    <td class=" py-4 px-3 text-base">' . $username . '</td>
+                                    <td class=" py-4 px-3 text-base">' . $date . '</td>
+                                    <td class=" py-4 px-3 text-base">₹' . $amount . '</td>
                                    
-                                    <td><span class="' . $payment . '">' . $payment . '</span></td>
+                                    <td class=" py-4 px-3 text-base"><span class="' . $payment == "Completed" ? "bg-[#66dd666e] p-[10px] rounded-md text-[#084208]" : "p-[10px] rounded-md bg-[#ebe85d6e] text-[#5e5c00]" . '">' . $payment . '</span></td>
                                    
-                                    <td>Delivered</td>
-                                    <td>Feedback recieved</td>
+                                    <td class=" py-4 px-3 text-base">Delivered</td>
+                                    <td class=" py-4 px-3 text-base">Feedback recieved</td>
                                 </tr>            
                         ';
                     }

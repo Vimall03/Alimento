@@ -16,7 +16,7 @@ if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true) {
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Restaurant Finder</title>
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"> -->
 
   <!-- Google fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -25,13 +25,13 @@ if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true) {
     href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
     rel="stylesheet" />
   <!-- Bootstrap icons  -->
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+  <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"> -->
   <!-- <link rel="stylesheet" href="main.css"> -->
   <link rel="stylesheet" href="output.css">
-  <link rel="stylesheet" href="home.css">
+  <!-- <link rel="stylesheet" href="home.css"> -->
 </head>
 
-<body>
+<body class="m-0 p-0 box-border">
   <div class="gtranslate_wrapper"></div>
   <script>window.gtranslateSettings = { "default_language": "en", "detect_browser_language": true, "wrapper_selector": ".gtranslate_wrapper" }</script>
   <script src="https://cdn.gtranslate.net/widgets/latest/float.js" defer></script>
@@ -93,18 +93,18 @@ if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true) {
 
 
 
-  <div id="hero-bg mt-0" class="hero-section">
-    <div class="overlay">
-      <h1><i>Alimento</i></h1>
-      <p>Home</p>
+  <div id="hero-bg mt-0" class="hero-section bg-cover bg-center h-[400px] relative flex rounded-lg justify-center items-center mx-auto my-5 max-h-[400px]" style="background-image: url('images/10\ restaurants\ in\ Mumbai\ that\ offer\ the\ best\ sunset\ views.webp');">
+    <div class="overlay text-white p-36 h-full text-center w-full rounded-lg items-center" style="background-color: rgba(0, 0, 0, 0.4);">
+      <h1 class="text-5xl mb-[10px]"><i>Alimento</i></h1>
+      <p class="text-white text-xl">Home</p>
     </div>
   </div>
 
 
   <!-- Restaurant Section -->
-  <section class="restaurants">
-    <h2>Restaurants:</h2>
-    <div class="restaurant-cards">
+  <section class="restaurants p-5 text-center">
+    <h2 class="text-3xl mb-5 font-bold">Restaurants:</h2>
+    <div class="restaurant-cards flex-col sm:flex-row flex justify-around flex-wrap">
       <!-- Restaurant Card -->
 
       <?php
@@ -116,21 +116,23 @@ if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true) {
       if ($num >= 1) {
         while ($row = mysqli_fetch_array($result)) {
           echo '
-                        <div class="card">
-                            <img src="vendor/' . $row['r_bg'] . '" alt="' . $row['r_name'] . '">
+                        <div class="card w-[80%] flex flex-col justify-between bg-white sm:w-[22%] border border-[#ddd] rounded-lg shadow-md my-5 mx-0 text-center p-4 ">
+                          <div class="flex flex-col">
+                            <img class="w-full rounded-t-md" src="vendor/' . $row['r_bg'] . '" alt="' . $row['r_name'] . '">
                             <div style="display:flex;">
                                        <div style="text-align:left;width:50%">
-                                            <h3 style="font-weight:bold;margin-top:8px">' . $row['r_name'] . '</h3>
-                                            <p class="cuisine">Cuisine: ' . $row['r_cuisine'] . '</p>
+                                            <h3 class="text-lg mt-[10px]" style="font-weight:bold;margin-top:8px">' . $row['r_name'] . '</h3>
+                                            <p class="cuisine text-gray-400 mb-1 text-sm">Cuisine: ' . $row['r_cuisine'] . '</p>
                                         </div>
 
                                         <div style="text-align:right;width:50%">
-                                            <p class="discount">30% Discount</p>
-                                            <p class="rating">' . (empty($row['r_rating']) ? '-' : str_repeat('★', (int) $row['r_rating'])) . '</p>
+                                            <p class="discount font-bold text-[#FF4500] mt-1">30% Discount</p>
+                                            <p class="rating mt-0 text-[#FFD700]">' . (empty($row['r_rating']) ? '-' : str_repeat('★', (int) $row['r_rating'])) . '</p>
                                         </div>
                             
                             </div>
-                           <a href="menu.php?id=' . $row['r_id'] . '" class="menu-btn">View Menu</a>
+                          </div>
+                           <a href="menu.php?id=' . $row['r_id'] . '" class="menu-btn bg-[#FF4500] text-white border-none py-[10px] px-5 mt-[10px] rounded-md cursor-pointer text-sm hover:bg-[#e63900] hover:text-white">View Menu</a>
                         </div>
 
                           
@@ -141,7 +143,7 @@ if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true) {
         }
       } else {
         echo '<div class="col">
-                      <p>No restaurants found.</p>
+                      <p class="text-xl">No restaurants found.</p>
                   </div>';
       }
       ?>

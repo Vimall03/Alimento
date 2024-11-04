@@ -96,76 +96,9 @@ $uploadProfile = $uploadPr . basename($_FILES["vendor_image"]['name']);
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>etiffy - Vendor Sign Up</title>
-  <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"> -->
-  <!-- <link rel="stylesheet" href="vendor_styles.css"> -->
   <link rel="stylesheet" href="../output.css">
 </head>
 <body>
-  <!-- <header class="bg-dark text-white text-center py-4">
-    <h1>etiffy</h1>
-  </header>
-  
-  <div class="container mt-5">
-    <div class="row justify-content-center">
-      <div class="col-md-6">
-        <div class="card">
-          <div class="card-header bg-dark text-white">
-            <h4>Vendor Sign Up</h4>
-          </div>
-          <div class="card-body">
-            <form action="vendor_signup.php" method="post" enctype="multipart/form-data">
-              <div class="form-group">
-                <label for="name">Name</label>
-                <input type="text" id="name" name="name" class="form-control" required>
-              </div>
-              <div class="form-group">
-                <label for="email">Email</label>
-                <input type="email" id="email" name="email" class="form-control" required>
-              </div>
-              <div class="form-group">
-                <label for="phone">Phone</label>
-                <input type="tel" id="phone" name="phone" class="form-control" required>
-              </div>
-              <div class="form-group">
-                <label for="password">Password</label>
-                <input type="password" id="password" name="password" class="form-control" required>
-              </div>
-              <div class="form-group">
-                <label for="vendor_image">Vendor Image</label>
-                <input type="file" id="vendor_image" name="vendor_image" class="form-control" accept="image/*" required>
-              </div>
-              <div class="form-group">
-                <label for="restaurant_name">Restaurant Name</label>
-                <input type="text" id="restaurant_name" name="restaurant_name" class="form-control" required>
-              </div>
-              <div class="form-group">
-                <label for="restaurant_cuisine">Restaurant Cuisine</label>
-                <input type="text" id="restaurant_cuisine" name="restaurant_cuisine" class="form-control" required>
-              </div>
-              <div class="form-group">
-                <label for="restaurant_bg_img">Restaurant Background Image</label>
-                <input type="file" id="restaurant_bg_img" name="restaurant_bg_img" class="form-control" accept="image/*" required>
-              </div>
-              <div class="form-group">
-                <label for="restaurant_about">Restaurant About</label>
-                <textarea id="restaurant_about" name="restaurant_about" rows="4" class="form-control" required></textarea>
-              </div>
-              <div class="form-group">
-                <label for="restaurant_pin">Restaurant Pin code</label>
-                <input type="text" id="restaurant_pin" name="restaurant_pin" class="form-control" required>
-              </div>
-              <button type="submit" class="btn btn-dark btn-block">Sign Up</button>
-            </form>
-            <p class="mt-3 text-center">Already have an account? <a href="vendor_login.php">Log In</a></p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <footer class="bg-dark text-white text-center py-3 mt-5">
-    <p>&copy; 2023 etiffy - Homemade Food Delivery</p>
-  </footer> -->
   <div class="w-full max-w-screen-lg mx-auto" style="max-width: 1024px;">
     <div class="w-full justify-end flex gap-4 py-8">
       <a href="vendor_login.php" class="hover:text-blue-600">Sign In</a>
@@ -241,17 +174,6 @@ $uploadProfile = $uploadPr . basename($_FILES["vendor_image"]['name']);
                     </div>
                   </div>
                 </div>
-                <!-- <div class="form-group flex flex-col">
-                  <label for="vendorEmail" class="mb-2">Email</label>
-                  <input type="email" id="vendorEmail" name="email" placeholder="Enter your email" class="p-2 form-control outline-2 border border-black w-full" required>
-                </div>
-                <div class="form-group flex flex-col">
-                  <label for="vendorPassword" class="mb-2">Password</label>
-                  <input type="password" id="vendorPassword" name="password" placeholder="Enter your password" class="p-2 form-control outline-2 border border-black w-full" required>
-                </div>
-                <div class="w-full my-1 flex justify-end">
-                  <p class="text-center">Forgot password? <a href="email_verify.php">Reset here</a></p>
-                </div> -->
                 <button type="submit" class="px-2 py-2 mt-2 rounded-lg text-white bg-blue-500">Register</button>
             </form>
             </div>
