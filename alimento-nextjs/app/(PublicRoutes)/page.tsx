@@ -111,7 +111,9 @@ export default function Home() {
             “Donec euismod a mauris ornare posuere. Donec porttitor ex vitae ipsum tincidunt auctor. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas”
           </p>
           <div className="mt-2 flex gap-3 md:mt-16">
-            {Array(4).fill().map((_, i) => <i key={i} className="bi bi-star-fill md:text-lg text-[#FFCC01]"></i>)}
+            {Array(4).fill(null).map((_, i) => (
+              <i key={i} className="bi bi-star-fill md:text-lg text-[#FFCC01]"></i>
+            ))}
             <i className="bi bi-star-half md:text-lg text-[#FFCC01]"></i>
           </div>
           <div>
