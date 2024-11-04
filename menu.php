@@ -32,23 +32,23 @@ if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true) {
 
 <head>
   <title>Home</title>
-  <link rel="stylesheet" type="text/css" href="./style.css">
+  <!-- <link rel="stylesheet" type="text/css" href="./style.css"> -->
   <!-- <link rel="stylesheet" type="text/css" href="./main.css"> -->
 
 
   <!-- Bootstrap CDNs -->
-   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+   <!-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
     integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
   <link rel="stylesheet" type="text/css"
-    href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"> -->
   <script src="https://code.jquery.com/jquery-3.4.1.min.js"
     integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
     integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
     crossorigin="anonymous"></script>
-  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+  <!-- <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
     integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
-    crossorigin="anonymous"></script> 
+    crossorigin="anonymous"></script>  -->
 
   
   <!-- Google fonts -->
@@ -59,7 +59,7 @@ if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true) {
     rel="stylesheet" />
   <!-- Bootstrap icons  -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
-  <link rel="stylesheet" href="menu.css">
+  <!-- <link rel="stylesheet" href="menu.css"> -->
   <link rel="stylesheet" href="output.css">
 
 </head>
@@ -192,7 +192,7 @@ if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true) {
 
 
 
-<body style="background-color:#f2f2f2" onload="myLoading()">
+<body style="background-color:#f2f2f2" onload="myLoading()" class="h-[100vh] m-0 p-0">
   <div id="loadingScreen"></div>
   <div class="gtranslate_wrapper"></div>
   <script>
@@ -260,82 +260,76 @@ if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true) {
   </div>
 
 
-  <div class="container-width">
-    <div id="hero-bg" class="hero-section">
-      <div class="overlay">
-        <h1><i><?php echo $result['r_name']; ?></i></h1>
-        <p>Umaria, Rau</p>
+  <div class="container-width w-[90%] max-w-[1400px] my-10 mx-auto">
+    <div id="hero-bg mt-0" class="hero-section bg-cover bg-center h-[400px] relative flex rounded-lg justify-center items-center mx-auto my-5 max-h-[400px]" style="background-image: url('images/10\ restaurants\ in\ Mumbai\ that\ offer\ the\ best\ sunset\ views.webp');">
+      <div class="overlay text-white p-36 h-full text-center w-full rounded-lg items-center" style="background-color: rgba(0, 0, 0, 0.4);">
+        <h1 class="text-5xl mb-[10px]"><i><?php echo $result['r_name']; ?></i></h1>
+        <p class="text-white text-xl">Umaria, Rau</p>
       </div>
     </div>
     <script>
       document.getElementById('hero-bg').style.backgroundImage = "url('vendor/<?php echo $result['r_bg']; ?>')";
     </script>
 
-    <h2>Items:</h2>
-    <div class="big-container">
-      <div class="item-grid">
+    <h2 class="mb-5 text-3xl font-semibold">Items:</h2>
+    <div class="big-container flex justify-between flex-wrap">
+      <div class="item-grid sm:grid-cols-[repeat(auto-fill,_minmax(200px,_1fr))] grid gap-5 max-w-[900px] md:grid-cols-[repeat(auto-fill,_minmax(250px,_1fr))] grid-cols-[repeat(auto-fill,_minmax(150px,_1fr))]">
         <?php
-        $query2 = "SELECT * FROM `menu` WHERE `r_id` LIKE '$id'";
-        $result2 = mysqli_query($conn, $query2);
-        $counter = 0;
-
-        while ($row = mysqli_fetch_array($result2)) {
-          $counter++;
-          echo '
-                                            <div class="item-card">
-                                                <img src="./images/download (1).webp" alt="Cheese Burger">
-                                                <h3> <b id="item' . $counter . '">' . $row['m_name'] . '</b></h3>
-                                                <p id="price' . $counter . '">₹' . $row['m_price'] . '</p>
-                                                <button data-id="' . $counter . '" id="' . $counter . '" class="mybtn btn btn-success btn-sm rounded">Add To Cart</button>
-                                           </div>
-                                        ';
-        }
-
+          $query2 = "SELECT * FROM `menu` WHERE `r_id` LIKE '$id'";
+          $result2 = mysqli_query($conn, $query2);
+          $counter = 0;
+          while ($row = mysqli_fetch_array($result2)) {
+            $counter++;
+            echo '
+                <div class="item-card bg-white rounded-lg shadow-md text-center p-4 mb-5 transition-transform duration-300 ease hover:scale-105">
+                  <img class="w-full h-auto rounded-lg" src="./images/download (1).webp" alt="Cheese Burger">
+                  <h3 class="mx-0 mt-3 mb-3 text-left h-10"> <b id="item' . $counter . '">' . $row['m_name'] . '</b></h3>
+                  <p class="text-lg pt-2 mb-4 text-left" id="price' . $counter . '">₹' . $row['m_price'] . '</p>
+                  <button data-id="' . $counter . '" id="' . $counter . '" class="bg-[#ff5722] text-white border-none py-3 px-5 rounded-md cursor-pointer text-base w-full transition-all duration-300 mybtn ease-in hover:bg-[#e64a19]">Add To Cart</button>
+                </div>
+            ';
+          }
         ?>
 
 
       </div>
 
-      <!-- cart design  -->
-      <div class="col-4">
-        <div class="card bt-20">
-          <div style="min-height: 200px;" class="card-body">
-            <table class="table table-borderless">
+      <div class="w-1/3">
+        <div class="card mt-5">
+          <div class="card-body" style="min-height: 200px;">
+            <table class="table-auto w-full border-separate border-spacing-0">
               <thead>
                 <tr>
-                  <th scope="col" class="text-center">Name
-                    <hr>
-                  </th>
-                  <th scope="col" class="text-center">quantity
-                    <hr>
-                  </th>
-                  <th scope="col" class="text-center">price
-                    <hr>
-                  </th>
-
+                  <th class="text-center border-b border-gray-200 py-2">Name</th>
+                  <th class="text-center border-b border-gray-200 py-2">Quantity</th>
+                  <th class="text-center border-b border-gray-200 py-2">Price</th>
                 </tr>
               </thead>
               <tbody>
                 <tr>
-                  <td id="cart" class="text-left" scope="row">No item Add to Cart</td>
-                  <td id="quantity" class="text-left"></td>
-                  <td id="price" class="text-left"></td>
+                  <td id="cart" class="text-center py-2">No item Add to Cart</td>
+                  <td id="quantity" class="text-center"></td>
+                  <td id="price" class="text-center"></td>
                 </tr>
-                <hr>
-                <td id="" class="text-left" scope="row"><b id="tpText"></b></td>
-                <td id="" class="text-left"></td>
-                <td id="" class="text-left"><b id="totalPrice"></b></td>
+                <tr>
+                  <td class="text-center py-2 font-bold" id="tpText"></td>
+                  <td class="text-center py-2"></td>
+                  <td class="text-center py-2 font-bold" id="totalPrice"></td>
+                </tr>
               </tbody>
             </table>
             <div id="addVal"></div>
             <form action="/alimento/checkout.php" method="post">
-              <input hidden value="<?php echo $id ?>" name="restaurant_id" />
-              <a href="checkout.php"> <button id="checkoutBtn" class="check-out-btn checkOutBtn"
-                  style="display:none;background-color:#e64a19;border:none;color:white;height:40px;width:100%;font-size:14px">CHECKOUT</button></a>
+              <input type="hidden" value="<?php echo $id ?>" name="restaurant_id" />
+              <a href="checkout.php">
+                <button id="checkoutBtn" class="check-out-btn checkOutBtn bg-[#e64a19] text-white w-full h-10 text-sm hidden"
+                  style="border:none;">CHECKOUT</button>
+              </a>
             </form>
           </div>
         </div>
       </div>
+
     </div>
 
 

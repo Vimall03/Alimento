@@ -3,7 +3,6 @@ session_start();
 //connect to database
 include 'partials/_dbconnect.php';
 
-
 $order=$_SESSION['Order'];
 $amount=$_SESSION['amount'];
 $userId= $_SESSION['user_id'];
@@ -24,7 +23,7 @@ if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true) {
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Checkout</title>
   
-  <link rel="stylesheet" href="checkout.css">
+  <!-- <link rel="stylesheet" href="checkout.css"> -->
   <!-- Google fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -34,7 +33,7 @@ if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true) {
 
   <link rel="stylesheet" href="output.css">
 </head>
-<body>
+<body class="font-serif">
 <nav
     class="hidden  lg:flex sm:max-w-xl md:max-w-2xl lg:max-w-5xl xl:max-w-7xl w-full items-center justify-between max-w-7xl mx-auto font-poppins py-4">
     <a href="index.php"><img src="./images/logo/logo.webp" alt="logo" class="w-36"></a>
@@ -92,57 +91,57 @@ if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true) {
 
 <div >
     <form action="pay.php" method="post">
-<div class="container">
+<div class="flex flex-col md:flex-row justify-between items-center md:items-start flex-wrap gap-5 mt-12 p-4 md:p-2">
     <!-- Contact and Shipping Form -->
-    <div class="form-section">
-        <h3>Contact Information</h3>
+    <div class="form-section bg-white p-5 rounded-lg w-full md:w-[48%] shadow-sm min-w-[300px]">
+        <h3 class="mt-4 font-bold text-xl">Contact Information</h3>
         <!-- <label for="email">Email address</label> -->
-        <input type="email" id="email" placeholder="Enter your email" required="">
+        <input class="w-full p-2 mb-1 border border-[#ccc] rounded-md mt-3 outline-none text-sm" type="email" id="email" placeholder="Enter your email" required="">
 
         <!-- <label for="phone">Phone</label> -->
-        <input type="text" id="phone" placeholder="Enter your phone number" required="">
+        <input class="w-full p-2 mb-1 border border-[#ccc] rounded-md mt-3 outline-none text-sm" type="text" id="phone" placeholder="Enter your phone number" required="">
 
-        <div class="form-group">
-            <div>
+        <div class="flex gap-[10px]">
+            <div class="flex-1">
                 <!-- <label for="first-name">First name</label> -->
-                <input type="text" id="first-name" placeholder="First name" required="">
+                <input class="w-full p-2 mb-1 border border-[#ccc] rounded-md mt-3 outline-none text-sm" type="text" id="first-name" placeholder="First name" required="">
             </div>
-            <div>
+            <div class="flex-1">
                 <!-- <label for="last-name">Last name</label> -->
-                <input type="text" id="last-name" placeholder="Last name" required="">
+                <input class="w-full p-2 mb-1 border border-[#ccc] rounded-md mt-3 outline-none text-sm" type="text" id="last-name" placeholder="Last name" required="">
             </div>
         </div>
 
-        <h3>Billing & Shipping</h3>
+        <h3 class="mt-4 font-bold text-xl">Billing & Shipping</h3>
         <!-- <label for="address">House number and street name</label> -->
-        <input type="text" id="address" placeholder="Enter your address" required="">
+        <input class="w-full p-2 mb-1 border border-[#ccc] rounded-md mt-3 outline-none text-sm" type="text" id="address" placeholder="Enter your address" required="">
 
         <!-- <label for="city">Town / City</label> -->
-        <input type="text" id="city" placeholder="Town / City" required="">
+        <input class="w-full p-2 mb-1 border border-[#ccc] rounded-md mt-3 outline-none text-sm" type="text" id="city" placeholder="Town / City" required="">
 
         <!-- <label for="state">State</label> -->
-        <select id="state">
+        <select class="w-full p-2 mb-1 border border-[#ccc] rounded-md mt-3 outline-none text-sm" id="state">
             <option value="Madhya Pradesh">Madhya Pradesh</option>
             <option value="Uttar Pradesh">Uttar Pradesh</option>
             <option value="Delhi">Delhi</option>
         </select>
 
         <!-- <label for="zip">ZIP Code</label> -->
-        <input type="text" id="zip" placeholder="ZIP Code">
+        <input class="w-full p-2 mb-1 border border-[#ccc] rounded-md mt-3 outline-none text-sm" type="text" id="zip" placeholder="ZIP Code">
 
-        <h3>Additional information</h3>
+        <h3 class="mt-4 font-bold text-xl">Additional information</h3>
         <!-- <label for="notes">Notes about your order</label> -->
-        <textarea id="notes" rows="4" placeholder="Special notes for delivery"></textarea>
+        <textarea  class="w-full p-2 mb-1 border border-[#ccc] rounded-md mt-3 outline-none text-sm resize-none" id="notes" rows="4" placeholder="Special notes for delivery"></textarea>
     </div>
 
     <!-- Order Summary Section -->
-    <div class="summary-section bg-slate-600">
-        <h3>Order Summary</h3>
+    <div class="summary-section bg-slate-400 p-5 rounded-lg w-full md:w-[48%] shadow-sm min-w-[300px] ">
+        <h3 class="my-4 font-bold text-xl">Order Summary</h3>
         <br><br>
         <?php  foreach ($order as $item) {
                   ?> 
-        <div class="item">
-            <div class="item-details">
+        <div class="item flex justify-between mb-[10px]">
+            <div class="item-details flex-1 ml-[10px]">
                 <h5><strong><?php echo $item; ?></strong></h5>
                 
             </div>
@@ -152,22 +151,22 @@ if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true) {
         
 
 
-        <div class="total">
+        <div class="total mt-5 flex justify-between font-bold">
             <div>Subtotal</div>
             <div><?php echo $amount; ?></div>
         </div>
 
-        <div class="total">
+        <div class="total mt-5 flex justify-between font-bold">
             <div>Shipping</div>
             <div>Free</div>
         </div>
 
-        <div class="total">
+        <div class="total mt-5 flex justify-between font-bold">
             <div>Tax</div>
             <div>$1.16</div>
         </div>
 
-        <div class="total">
+        <div class="total mt-5 flex justify-between font-bold">
             <div>Total</div>
             <div>$15.63</div>
         </div>

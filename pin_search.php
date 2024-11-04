@@ -23,8 +23,8 @@ if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true) {
 <html lang="en">
 
 <head>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+    <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous"> -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm"
         crossorigin="anonymous"></script>
@@ -36,7 +36,7 @@ if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true) {
         crossorigin="anonymous"></script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="main.css">
+    <!-- <link rel="stylesheet" href="main.css"> -->
     <!-- Google fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -50,15 +50,21 @@ if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true) {
     <title>Document</title>
 </head>
 
-<body>
+<body class="bg-[#F0EAEA]">
 
     <div class="gtranslate_wrapper"></div>
-    <script>window.gtranslateSettings = { "default_language": "en", "detect_browser_language": true, "wrapper_selector": ".gtranslate_wrapper" }</script>
+    <script>
+        window.gtranslateSettings = {
+            "default_language": "en",
+            "detect_browser_language": true,
+            "wrapper_selector": ".gtranslate_wrapper"
+        }
+    </script>
     <script src="https://cdn.gtranslate.net/widgets/latest/float.js" defer></script>
 
 
     <nav
-        class="hidden  lg:flex sm:max-w-xl md:max-w-2xl lg:max-w-5xl xl:max-w-7xl w-full items-center justify-between max-w-7xl mx-auto font-poppins py-4">
+        class="hidden lg:flex sm:max-w-xl md:max-w-2xl lg:max-w-5xl xl:max-w-7xl w-full items-center justify-between max-w-7xl mx-auto font-poppins py-4">
         <a href="index.php"><img src="./images/logo/logo.webp" alt="logo" class="w-36"></a>
         <div class="flex sm:gap-1 md:gap-2">
             <a href="home.php"
@@ -112,26 +118,29 @@ if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true) {
         </div>
     </div>
 
-    <div class="container mt-5">
+    <div class="w-full max-w-[1140px] lg:p-0 p-6 mx-auto mt-5">
         <br>
-        <h1 class="card-title">Restaurants in "<?php echo $pincode ?>"</h1>
+        <h1 class="card-title text-2xl font-bold">Restaurants in "<?php echo $pincode ?>"</h1>
         <br>
-        <div class="row">
+        <div class="row w-full flex flex-wrap">
             <?php
 
             if ($num >= 1) {
                 while ($row = mysqli_fetch_array($result)) {
-                    echo '<div class="col-md-4 mb-4">
-                                  <div class="card">
-                                    <img src="vendor/' . $row['r_bg'] . '" class="card-img-top" alt="' . $row['r_name'] . '">
-                                    <div class="card-body">
-                                        <h5 class="card-title">' . $row['r_name'] . '</h5>
-                                        <p class="card-text">Cuisine: ' . $row['r_cuisine'] . '</p>
-                                        <p class="card-text">Rating: ' . $row['r_rating'] . '</p>
-                                        <a href="menu.php?id=' . $row['r_id'] . '" class="btn btn-primary btn-block">View Menu</a>
+                    echo '
+                    <div class="w-full md:w-[33%] mb-4">
+                                  <div class="bg-white rounded-lg shadow-md overflow-hidden">
+                                    <img src="vendor/' . $row['r_bg'] . '" class="w-full h-48 object-cover" alt="' . $row['r_name'] . '">
+                                    <div class="p-4">
+                                        <h5 class="text-lg font-semibold mb-2">' . $row['r_name'] . '</h5>
+                                        <p class="text-gray-700 mb-1">Cuisine: ' . $row['r_cuisine'] . '</p>
+                                        <p class="text-gray-700 mb-3">Rating: ' . $row['r_rating'] . '</p>
+                                        <a href="menu.php?id=' . $row['r_id'] . '" class="block text-center bg-blue-500 text-white py-2 rounded-md hover:bg-blue-600">View Menu</a>
                                     </div>
                                   </div>
-                              </div>';
+                    </div>
+                    
+                    ';
                 }
             } else {
                 echo '<div class="col">

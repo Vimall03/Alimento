@@ -83,20 +83,6 @@ if ($showError) {
 
 
 <body>
-    <!-- <header>
-        <h1>Alimento</h1>
-        <p>Delicious Moments Delivered to Your Doorstep</p>
-    </header>
-    <div class="container">
-        <h2>Verify Your Email</h2>
-        <p>Enter the 8-digit code sent to your email to complete the verification process.</p>
-        <form action="email_verify.php" method="post">
-            <input type="password" name="password" maxlength="8" minlength="8" required>
-            <br>
-            <button type="submit" class="button">Verify Email</button>
-        </form>
-        <p>If you haven't received the code, please check your spam folder or request a new code.</p>
-    </div> -->
 
     <div class="w-full max-w-screen-lg mx-auto" style="max-width: 1024px;">
       <div class="w-full justify-end flex gap-4 py-8">

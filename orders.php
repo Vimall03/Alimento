@@ -16,8 +16,8 @@ if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Orders</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-    <link rel="stylesheet" href=".css">
-    <link rel="stylesheet" href="main.css">
+    <!-- <link rel="stylesheet" href=".css"> -->
+    <!-- <link rel="stylesheet" href="main.css"> -->
 
     <!-- Google fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -30,26 +30,9 @@ if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true) {
     <!-- <link rel="stylesheet" href="main.css"> -->
     <link rel="stylesheet" href="output.css">
 
-    <style>
-        .order-card {
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            border-radius: 10px;
-            padding: 20px;
-            margin-bottom: 20px;
-        }
-
-        .order-card .card-title {
-            font-weight: bold;
-            font-size: 18px;
-        }
-
-        .order-card .card-text {
-            font-size: 16px;
-        }
-    </style>
 </head>
 
-<body>
+<body class="bg-[#F0EAEA]">
     <div class="gtranslate_wrapper"></div>
     <script>window.gtranslateSettings = { "default_language": "en", "detect_browser_language": true, "wrapper_selector": ".gtranslate_wrapper" }</script>
     <script src="https://cdn.gtranslate.net/widgets/latest/float.js" defer></script>
@@ -110,7 +93,7 @@ if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true) {
     </div>
 
     <div class="container mt-5">
-        <h1 class="card-title">Your Orders</h1>
+        <h1 class="card-title font-bold text-lg">Your Orders</h1>
         <br>
         <div class="container">
             <div class="row">
@@ -123,13 +106,13 @@ if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true) {
                 if ($num >= 1) {
                     while ($row = mysqli_fetch_array($result)) {
                         echo '<div class="col-md-4 mb-4">
-                          <div class="order-card">
+                          <div class="order-card p-5 mb-5 shadow-sm rounded-[10px]">
                             <div class="card-body">
-                                <h5 class="card-title">Item: ' . $row['order'] . '</h5>
-                                <p class="card-text">Order ID: ' . $row['order_id'] . '</p>
-                                <p class="card-text">Date & Time: ' . $row['dt'] . '</p>
-                                <p class="card-text">Order Status: ' . $row['order_status'] . '</p>
-                                <p class="card-text">Total: ₹' . $row['amount'] . '</p>
+                                <h5 class="card-title font-bold text-lg">Item: ' . $row['order'] . '</h5>
+                                <p class="card-text text-base">Order ID: ' . $row['order_id'] . '</p>
+                                <p class="card-text text-base">Date & Time: ' . $row['dt'] . '</p>
+                                <p class="card-text text-base">Order Status: ' . $row['order_status'] . '</p>
+                                <p class="card-text text-base">Total: ₹' . $row['amount'] . '</p>
                             </div>
                           </div>
                       </div>';

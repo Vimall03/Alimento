@@ -62,7 +62,7 @@
         <h1 class="display-4 fw-bold ">Thankyou! </h1>
         <a class="col-lg-10 fs-4 text-center desc">Congratulations! Your order was successful.<br>We will update you via
             email. Get back and relax while our professionals edit your picture </a><br><br>
-        <a class="col-lg-10 fs-4 text-center desc py-2 text-dark text-decoration-none" href="home .php"><button
+        <a class="col-lg-10 fs-4 text-center desc py-2 text-dark text-decoration-none" href="home.php"><button
                 type="button" class="btn btn-outline-dark me-2">Go home</button></a>
         <a class="col-lg-10 fs-4 text-center desc py-2 text-dark text-decoration-none" href="user_logout.php"><button
                 type="button" class="btn btn-outline-dark me-2">Logout</button></a>

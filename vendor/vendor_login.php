@@ -53,12 +53,6 @@ if ($_SERVER["REQUEST_METHOD"]=="POST"){
 <html lang="en">
 
 <head>
-    <!-- bootstrap -->
-    <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous"> -->
-    <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.2/font/bootstrap-icons.css"> -->
-    <!-- Google Fonts (aBeeZee) -->
-    <!-- <link rel="stylesheet" href="vendor_styles.css"> -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=ABeeZee&display=swap" rel="stylesheet">
@@ -66,7 +60,6 @@ if ($_SERVER["REQUEST_METHOD"]=="POST"){
     @import url('https://fonts.googleapis.com/css2?family=ABeeZee&display=swap');
     
     </style>
-    <!-- css link -->
     
     
     <meta charset="UTF-8">
@@ -113,43 +106,6 @@ if ($showalert) {
 
   } ?>
 
-    <!-- main content -->
-
-
-  <!-- <header class="bg-dark text-white text-center py-4">
-    <h1>etiffy</h1>
-  </header>
-  
-  <div class="container mt-5">
-    <div class="row justify-content-center">
-      <div class="col-md-6">
-        <div class="card">
-          <div class="card-header bg-dark text-white">
-            <h4>Vendor Log In</h4>
-          </div>
-          <div class="card-body">
-            <form action="vendor_login.php" method="post">
-              <div class="form-group">
-                <label for="vendorEmail">Email</label>
-                <input type="email" id="vendorEmail" name="email" class="form-control" required>
-              </div>
-              <div class="form-group">
-                <label for="vendorPassword">Password</label>
-                <input type="password" id="vendorPassword" name="password" class="form-control" required>
-              </div>
-              <button type="submit" class="btn btn-dark btn-block">Log In</button>
-            </form>
-            <p class="mt-3 text-center">Forgot password? <a href="#">Reset here</a></p>
-            <p class="mt-3 text-center">Want to join as a vendor? <a href="vendor_signup.php">Sign Up</a></p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <footer class="bg-dark text-white text-center py-3 mt-5">
-    <p>&copy; 2023 etiffy - Homemade Food Delivery</p>
-  </footer> -->
   <div class="w-full max-w-screen-lg mx-auto" style="max-width: 1024px;">
     <div class="w-full justify-end flex gap-4 py-8">
       <a href="vendor_login.php" class="hover:text-blue-600">Sign In</a>

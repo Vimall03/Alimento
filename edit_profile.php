@@ -8,7 +8,7 @@ if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] != true) {
 if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true) {
     $login_status = true;
 }
-$userId = $_SESSION['user_id'];
+$userId = $_SESSION['r_id'];
 $updateMsg = '';
 $sql = "SELECT * FROM users WHERE user_id = ?";
 $stmt = $conn->prepare($sql);
@@ -40,9 +40,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Edit Profile</title>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-    <link rel="stylesheet" href=".css">
-    <link rel="stylesheet" href="main.css">
+    <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"> -->
+    <!-- <link rel="stylesheet" href=".css"> -->
+    <!-- <link rel="stylesheet" href="main.css"> -->
     <!-- Google fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -50,7 +50,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
         rel="stylesheet" />
     <!-- Bootstrap icons  -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"> -->
     <!-- <link rel="stylesheet" href="main.css"> -->
     <link rel="stylesheet" href="output.css">
 
@@ -58,7 +58,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 <body>
     <nav
-        class="hidden  lg:flex sm:max-w-xl md:max-w-2xl lg:max-w-5xl xl:max-w-7xl w-full items-center justify-between max-w-7xl mx-auto font-poppins py-4">
+        class="hidden lg:flex sm:max-w-xl md:max-w-2xl lg:max-w-5xl xl:max-w-7xl w-full items-center justify-between max-w-7xl mx-auto font-poppins py-4">
         <a href="index.php"><img src="./images/logo/logo.webp" alt="logo" class="w-36"></a>
         <div class="flex sm:gap-1 md:gap-2">
             <a href="home.php"
@@ -113,33 +113,33 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     </div>
 
     <?php include 'partials/_dbconnect.php'; ?>
-    <div class="container mt-5">
-        <h2>Edit Profile</h2>
+    <div class="w-full max-w-screen-lg mx-auto mt-5">
+        <h2 class="text-3xl font-bold mb-4">Edit Profile</h2>
         <?php if ($updateMsg): ?>
             <div class="alert alert-info"><?php echo $updateMsg; ?></div>
         <?php endif; ?>
-        <form action="" method="post">
-            <div class="form-group">
+        <form action="" method="post" class="flex flex-col gap-6">
+            <div class="form-group w-full flex flex-col gap-2">
                 <label for="name">Name:</label>
-                <input type="text" class="form-control" id="name" name="name"
+                <input type="text" class="form-control border border-black rounded-lg p-2" id="name" name="name"
                     value="<?php echo htmlspecialchars($userData['name']); ?>" required>
             </div>
-            <div class="form-group">
+            <div class="form-group w-full flex flex-col gap-2">
                 <label for="email">Email:</label>
-                <input type="email" class="form-control" id="email" name="email"
+                <input type="email" class="form-control border border-black rounded-lg p-2" id="email" name="email"
                     value="<?php echo htmlspecialchars($userData['email']); ?>" required>
             </div>
-            <div class="form-group">
+            <div class="form-group w-full flex flex-col gap-2">
                 <label for="phone">Phone:</label>
-                <input type="tel" class="form-control" id="phone" name="phone"
+                <input type="tel" class="form-control border border-black rounded-lg p-2" id="phone" name="phone"
                     value="<?php echo htmlspecialchars($userData['phone']); ?>" required>
             </div>
-            <div class="form-group">
+            <div class="form-group w-full flex flex-col gap-2">
                 <label for="phone">Adddress:</label>
-                <input type="text" class="form-control" id="address" name="address"
+                <input type="text" class="form-control border border-black rounded-lg p-2" id="address" name="address"
                     value="<?php echo htmlspecialchars($userData['address']); ?>" required>
             </div>
-            <button type="submit" class="btn btn-primary">Update Profile</button>
+            <button type="submit" class="btn btn-primary w-[200px] bg-blue-600 text-white py-2 rounded-lg">Update Profile</button>
         </form>
     </div>
     <script src="menu.js"></script>
