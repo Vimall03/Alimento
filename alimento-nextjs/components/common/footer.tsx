@@ -13,7 +13,7 @@ import { useState } from 'react';
 const Links = [
   { name: 'About us', id: 1, href: '/about' },
   { name: 'Our Teams', id: 2, href: '/team' },
-  { name: 'Terms of service', id: 3, href: '/terms' },
+  { name: 'Terms and Conditons', id: 3, href: '/terms-conditions' },
   { name: 'Our Contributors', id: 4, href: '/contributors' },
   { name: 'Privacy and Policy', id: 5, href: '/policy' },
 ];
