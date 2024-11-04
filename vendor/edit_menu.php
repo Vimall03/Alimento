@@ -32,9 +32,9 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 <html>
 <head>
     <title>Menu Information</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
+    <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.2/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.2/font/bootstrap-icons.css"> -->
     <!-- Google fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -42,157 +42,11 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
         rel="stylesheet" />
     <!-- Bootstrap icons  -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"> -->
     <!-- <link rel="stylesheet" href="main.css"> -->
     <link rel="stylesheet" href="../output.css">
-    <style>
-        body{
-            max-width: 1140px;
-            margin: auto;
-            font-family: Arial, Helvetica, sans-serif;
-        }
-        .header{
-            display: flex;
-            justify-content: space-between;
-            height: 10vh;
-            margin: 10px 0;
-            border-bottom: 2px solid maroon;
-        }
-        .header img{
-            height: 100%;
-        }
-        .logout{
-            height: 100%;
-            display: flex;
-            align-items: center;
-        }
-        .order-table {
-            width: 100%;
-            border-collapse: collapse;
-        }
-
-        .order-table th,
-        .order-table td {
-            padding: 12px;
-            border-bottom: 1px solid #ddd;
-            text-align: center;
-        }
-
-        .order-table th {
-            background-color: #f5f5f5;
-            font-weight: bold;
-        }
-        .veg{
-            padding: 4px 12px;
-            background: green;
-            color: white;
-            border-radius: 6px;
-        }
-        .nonveg{
-            padding: 4px 12px;
-            background: red;
-            color: white;
-            border-radius: 6px;
-        }
-        .menu-container{
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-        .btn{
-            padding: 10px 20px;
-            border: none;
-            color: white;
-            border-radius: 4px;
-            cursor: pointer;
-
-        }
-        .btn:hover{
-            color: black;
-        }
-        .update-form {
-            position: absolute;
-            margin-top: 10px;
-            padding: 10px;
-            background-color: #f9f9f9;
-            border: 1px solid #ddd;
-            border-radius: 4px;
-        }
-
-        .update-form input[type="text"],
-        .update-form input[type="number"],
-        .update-form select {
-            width: 100%;
-            padding: 8px;
-            margin: 5px 0;
-            border: 1px solid #ccc;
-            border-radius: 4px;
-            box-sizing: border-box;
-        }
-
-        .update-form input[type="submit"] {
-            padding: 8px 16px;
-            background-color: #28a745;
-            color: #fff;
-            border: none;
-            border-radius: 4px;
-            cursor: pointer;
-        }
-        .delete{
-            background-color: transparent;
-            border: none;
-            height: 2rem;
-            width: 2rem;
-        }
-        .update{
-            background-color: transparent;
-            border: none;
-            height: 2rem;
-            width: 2rem;
-        }
-        .delete img, .update img{
-            height: 90%;
-            /* width: 100%; */
-        }
-        button:hover{
-            cursor: pointer;
-        }
-        .deleteForm{
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-        .update-form{
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-        }
-        .update-form input[type="submit"]:hover {
-            background-color: #218838;  
-        }
-        .button-container{
-            display: flex;
-            gap: 10px;
-            justify-content: center;
-        }
-        .close{
-            position: absolute;
-            background: transparent;
-            top:10px;
-            right: 10px;
-            color: red;
-            border: none;
-        }
-        .btn{
-            padding: 10px 20px;
-            border: none;
-            color: white;
-            border-radius: 4px;
-            cursor: pointer;
-        }
-    </style>
 </head>
-<body>
+<body class="max-w-[1140px] m-auto">
 <nav
         class="hidden  lg:flex sm:max-w-xl md:max-w-2xl lg:max-w-5xl xl:max-w-7xl w-full items-center justify-between max-w-7xl mx-auto font-poppins py-4">
         <a href="index.php"><img src="../images/logo/logo.webp" alt="logo" class="w-36"></a>
@@ -231,24 +85,24 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     </div>
     <br>
 
-    <div class="menu-container">
+    <div class="menu-container flex justify-between items-center my-2">
         <h1>
             Menu Information
         </h1>
         <div class="btn-container">
-            <a href='add_menu.php'><button class="btn" style="background-color: #008080;">ADD</button></a>  
-            <a href='home.php'><button class="btn" style="background-color: #FF8C00;">BACK</button></a> 
+            <a href='add_menu.php'><button class="btn border-none py-[10px] px-5 text-white rounded-md cursor-pointer hover:text-black" style="background-color: #008080;">ADD</button></a>  
+            <a href='home.php'><button class="btn border-none py-[10px] px-5 text-white rounded-md cursor-pointer hover:text-black" style="background-color: #FF8C00;">BACK</button></a> 
         </div>
     </div>
 
 
-    <table class="order-table">
+    <table class="order-table w-full border-collapse">
         <thead>
-            <th>Item ID</th>
-            <th>Item Name</th>
+            <th class='p-3 border-b-[1px] border-[#ddd] text-center bg-[#f5f5f5] font-bold'>Item ID</th>
+            <th class='p-3 border-b-[1px] border-[#ddd] text-center bg-[#f5f5f5] font-bold'>Item Name</th>
             <!-- <th>Item Description</th> -->
-            <th>Item Price</th>
-            <th>Item Category</th>
+            <th class='p-3 border-b-[1px] border-[#ddd] text-center bg-[#f5f5f5] font-bold'>Item Price</th>
+            <th class='p-3 border-b-[1px] border-[#ddd] text-center bg-[#f5f5f5] font-bold'>Item Category</th>
         </thead>
 
         <?php
@@ -259,33 +113,33 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         if ($result->num_rows > 0) {
             while ($row = $result->fetch_assoc()) {
                 echo "<tr>";
-                echo "<td>" . $row['m_id'] . "</td>";
-                echo "<td>" . $row['m_name'] . "</td>";
+                echo "<td class='p-3 border-b-[1px] border-[#ddd] text-center'>" . $row['m_id'] . "</td>";
+                echo "<td class='p-3 border-b-[1px] border-[#ddd] text-center'>" . $row['m_name'] . "</td>";
                 //echo "<td>" . $row['item_description'] . "</td>";
-                echo "<td>" . $row['m_price'] . "</td>";
+                echo "<td class='p-3 border-b-[1px] border-[#ddd] text-center'>" . $row['m_price'] . "</td>";
                 if($row['m_type'] == "Veg"){
-                    echo "<td> <span class='veg'>" . $row['m_type'] . "</span></td>";
+                    echo "<td class='p-3 border-b-[1px] border-[#ddd] text-center'> <span class='veg py-1 px-3 bg-green-500 text-white rounded-md'>" . $row['m_type'] . "</span></td>";
                 } else {
-                    echo "<td> <span class='nonveg'>" . $row['m_type'] . "</span></td>";
+                    echo "<td class='p-3 border-b-[1px] border-[#ddd] text-center'> <span class='nonveg py-1 px-3 bg-red-500 text-white rounded-md'>" . $row['m_type'] . "</span></td>";
                 }
             }
         } else {
-            echo "<tr><td colspan='6'>ADD items in the menu to display here</td></tr>";
+            echo "<tr><td colspan='6' class='p-3 border-b-[1px] border-[#ddd] text-center'>ADD items in the menu to display here</td></tr>";
         }
 
     
         ?>
     </table>
 
-    <h1>Edit Menu </h1>
-    <table class="order-table">
+    <h1 class="py-4">Edit Menu </h1>
+    <table class="order-table w-full border-collapse">
         <tr>
-            <th>Item ID</th>
-            <th>Item Name</th>
+            <th class='p-3 border-b-[1px] border-[#ddd] text-center bg-[#f5f5f5] font-bold'>Item ID</th>
+            <th class='p-3 border-b-[1px] border-[#ddd] text-center bg-[#f5f5f5] font-bold'>Item Name</th>
             <!-- <th>Item Description</th> -->
-            <th>Item Price</th>
-            <th>Item Category</th>
-            <th>Update Item</th>
+            <th class='p-3 border-b-[1px] border-[#ddd] text-center bg-[#f5f5f5] font-bold'>Item Price</th>
+            <th class='p-3 border-b-[1px] border-[#ddd] text-center bg-[#f5f5f5] font-bold'>Item Category</th>
+            <th class='p-3 border-b-[1px] border-[#ddd] text-center bg-[#f5f5f5] font-bold'>Update Item</th>
         </tr>
 
         <?php
@@ -296,34 +150,34 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         if ($result->num_rows > 0) {
             while ($row = $result->fetch_assoc()) {
                 echo "<tr>";
-                echo "<td>" . $row['m_id'] . "</td>";
-                echo "<td>" . $row['m_name'] . "</td>";
+                echo "<td class='p-3 border-b-[1px] border-[#ddd] text-center'>" . $row['m_id'] . "</td>";
+                echo "<td class='p-3 border-b-[1px] border-[#ddd] text-center'>" . $row['m_name'] . "</td>";
                 //echo "<td>" . $row['item_description'] . "</td>";
-                echo "<td>" . $row['m_price'] . "</td>";
-                echo "<td>" . $row['m_type'] . "</td>";
+                echo "<td class='p-3 border-b-[1px] border-[#ddd] text-center'>" . $row['m_price'] . "</td>";
+                echo "<td class='p-3 border-b-[1px] border-[#ddd] text-center'>" . $row['m_type'] . "</td>";
 
                 // Adding a form to update the item
-                echo "<td>";
-                echo "<div class='button-container'>";
-                echo "<button class='update' onclick=\"toggleUpdateForm('" . $row['m_id'] . "')\"><img src='https://img.icons8.com/?size=100&id=6697&format=png&color=000000'></button>";
+                echo "<td class='p-3 border-b-[1px] border-[#ddd] text-center'>";
+                echo "<div class='button-container flex gap-[10px] justify-center'>";
+                echo "<button class='update bg-transparent border-none h-8 w-8 hover:cursor-pointer' onclick=\"toggleUpdateForm('" . $row['m_id'] . "')\"><img class='h-[90%]' src='https://img.icons8.com/?size=100&id=6697&format=png&color=000000'></button>";
 
-                echo "<div id='updateForm" . $row['m_id'] . "' class='update-form' style='display: none;'>";
-                echo "<button class='close' onclick=\"toggleUpdateForm('" . $row['m_id'] . "')\">X</button>";
+                echo "<div id='updateForm" . $row['m_id'] . "' class='update-form absolute mt-[10px] p-[10px] top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-[#f9f9f9] border border-[#ddd] rounded-md' style='display: none;'>";
+                echo "<button class='close absolute bg-transparent top-[10px] right-[10px] text-red-500 border-none hover:cursor-pointer' onclick=\"toggleUpdateForm('" . $row['m_id'] . "')\">X</button>";
                 echo "<form action='edit_menu.php' method='post'>";
                 echo "<input type='hidden' name='m_id' value='" . $row['m_id'] . "'>";
-                echo "Name: <input type='text' name='m_name' value='" . $row['m_name'] . "'><br>";
-                echo "Price: <input type='number' name='m_price' value='" . $row['m_price'] . "'><br>";
-                echo "Category: <select name='m_type'>";
+                echo "Name: <input type='text' class='w-full p-2 my-1 border border-[#ccc] rounded-md box-border'  name='m_name' value='" . $row['m_name'] . "'><br>";
+                echo "Price: <input type='number' class='w-full p-2 my-1 border border-[#ccc] rounded-md box-border'  name='m_price' value='" . $row['m_price'] . "'><br>";
+                echo "Category: <select name='m_type' class='w-full p-2 my-1 border border-[#ccc] rounded-md box-border' >";
                 echo "<option value='Veg' " . ($row['m_type'] === 'Veg' ? 'selected' : '') . ">Veg</option>";
                 echo "<option value='Non-Veg' " . ($row['m_type'] === 'Non-Veg' ? 'selected' : '') . ">Non-Veg</option>";
                 echo "</select><br>";
-                echo "<input type='submit' value='Update'>";
+                echo "<input type='submit' class='py-2 px-4 text-white border-none rounded-md cursor-pointer hover:bg-[#218838]' value='Update'>";
                 echo "</form>";
                 echo "</div>";
 
-                echo "<form action='delete_menu.php' class='deleteForm' method= 'post'>";
+                echo "<form action='delete_menu.php' class='deleteForm flex justify-center items-center' method= 'post'>";
                 echo "<input type='hidden' name='delete_item' value='" . $row['m_id'] . "'><br>";
-                echo "<button type='submit' class='delete'> <img src='https://img.icons8.com/?size=100&id=1oFCDPb4GGqp&format=png&color=000000'> </button>";
+                echo "<button type='submit' class='delete bg-transparent border-none h-8 w-8 hover:cursor-pointer'> <img class='h-[90%]' src='https://img.icons8.com/?size=100&id=1oFCDPb4GGqp&format=png&color=000000'> </button>";
                 echo "</form>";
                 echo "</div>";
                 echo "</td>";
@@ -331,7 +185,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                 echo "</tr>";
             }
         } else {
-            echo "<tr><td colspan='6'>No items in the menu yet</td></tr>";
+            echo "<tr><td colspan='6' class='p-3 border-b-[1px] border-[#ddd] text-center'>No items in the menu yet</td></tr>";
         }
 
         $conn->close();

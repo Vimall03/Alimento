@@ -7,3 +7,28 @@ datasource db {
   provider = "postgresql"
   url      = env("DATABASE_URL")
 }
+
+
+model Customer {
+  id           String  @id @default(uuid()) @map("_id")
+  name         String
+
+  email String @unique
+  otp   String?
+  role  String  @default("customer")
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model Vendor {
+  id String @id @default(uuid()) @map("_id")
+  name String
+
+  email        String  @unique
+  otp          String?
+  role         String  @default("vendor")
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}

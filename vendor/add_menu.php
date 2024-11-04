@@ -35,9 +35,9 @@ if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true) {
 
 <head>
     <title>Menu Information</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
+    <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.2/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.2/font/bootstrap-icons.css"> -->
     <!-- Google fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -45,117 +45,12 @@ if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true) {
         href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
         rel="stylesheet" />
     <!-- Bootstrap icons  -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"> -->
     <!-- <link rel="stylesheet" href="main.css"> -->
     <link rel="stylesheet" href="../output.css">
-    <style>
-        body {
-            max-width: 1140px;
-            margin: auto;
-            font-family: Arial, Helvetica, sans-serif;
-        }
-
-        .header {
-            display: flex;
-            justify-content: space-between;
-            height: 10vh;
-            margin: 10px 0;
-            border-bottom: 2px solid maroon;
-        }
-
-        .header img {
-            height: 100%;
-        }
-
-        .order-table {
-            width: 100%;
-            border-collapse: collapse;
-        }
-
-        .order-table th,
-        .order-table td {
-            padding: 12px;
-            border-bottom: 1px solid #ddd;
-            text-align: center;
-        }
-
-        .logout {
-            height: 100%;
-            display: flex;
-            align-items: center;
-        }
-
-        .order-table th {
-            background-color: #f5f5f5;
-            font-weight: bold;
-        }
-
-        .veg {
-            padding: 4px 12px;
-            background: green;
-            color: white;
-            border-radius: 6px;
-        }
-
-        .nonveg {
-            padding: 4px 12px;
-            background: red;
-            color: white;
-            border-radius: 6px;
-        }
-
-        .menu-container {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .btn {
-            padding: 10px 20px;
-            border: none;
-            color: white;
-            border-radius: 4px;
-            cursor: pointer;
-
-        }
-
-        .btn:hover {
-            color: black;
-        }
-
-        .dataInput {
-            padding: 6px;
-            border-radius: 8px;
-            border: none;
-            outline: none;
-
-        }
-
-        .dataInput:active,
-        .dataInput:focus {
-            border: none;
-        }
-
-        .add-item {
-            background-color: blue;
-            color: white;
-            border-radius: 6px;
-            outline: none;
-            border: none;
-            padding: 2px 5px;
-        }
-
-        .btn {
-            padding: 10px 20px;
-            border: none;
-            color: white;
-            border-radius: 4px;
-            cursor: pointer;
-        }
-    </style>
 </head>
 
-<body>
+<body class="max-w-[1140px] m-auto">
     <nav
         class="hidden  lg:flex sm:max-w-xl md:max-w-2xl lg:max-w-5xl xl:max-w-7xl w-full items-center justify-between max-w-7xl mx-auto font-poppins py-4">
         <a href="index.php"><img src="../images/logo/logo.webp" alt="logo" class="w-36"></a>
@@ -204,23 +99,23 @@ if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true) {
         </div>
     </div>
 
-    <div class="menu-container">
+    <div class="menu-container py-2 flex justify-between items-center">
         <h1>
             Menu Information
         </h1>
         <div class="btn-container">
-            <a href='edit_menu.php'><button class="btn" style="background-color: #008080;">EDIT</button></a>
-            <a href='home.php'><button class="btn" style="background-color: #FF8C00;">BACK</button></a>
+            <a href='edit_menu.php'><button class="btn py-[10px] px-5 border-none text-white rounded-md cursor-pointer hover:text-black" style="background-color: #008080;">EDIT</button></a>
+            <a href='home.php'><button class="btn py-[10px] px-5 border-none text-white rounded-md cursor-pointer hover:text-black" style="background-color: #FF8C00;">BACK</button></a>
         </div>
     </div>
 
-    <table class="order-table">
+    <table class="order-table w-full border-collapse">
         <thead>
-            <th>Item ID</th>
-            <th>Item Name</th>
+            <th class='p-3 border-b-[1px] border-[#ddd] text-center bg-[#f5f5f5] font-bold'>Item ID</th>
+            <th class='p-3 border-b-[1px] border-[#ddd] text-center bg-[#f5f5f5] font-bold'>Item Name</th>
             <!-- <th>Item Description</th> -->
-            <th>Item Price</th>
-            <th>Item Category</th>
+            <th class='p-3 border-b-[1px] border-[#ddd] text-center bg-[#f5f5f5] font-bold'>Item Price</th>
+            <th class='p-3 border-b-[1px] border-[#ddd] text-center bg-[#f5f5f5] font-bold'>Item Category</th>
         </thead>
 
         <?php
@@ -231,33 +126,33 @@ if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true) {
         if ($result->num_rows > 0) {
             while ($row = $result->fetch_assoc()) {
                 echo "<tr>";
-                echo "<td>" . $row['m_id'] . "</td>";
-                echo "<td>" . $row['m_name'] . "</td>";
+                echo "<td class='p-3 border-b-[1px] border-[#ddd] text-center'>" . $row['m_id'] . "</td>";
+                echo "<td class='p-3 border-b-[1px] border-[#ddd] text-center'>" . $row['m_name'] . "</td>";
                 //echo "<td>" . $row['item_description'] . "</td>";
-                echo "<td>" . $row['m_price'] . "</td>";
+                echo "<td class='p-3 border-b-[1px] border-[#ddd] text-center'>" . $row['m_price'] . "</td>";
                 if ($row['m_type'] == "Veg") {
-                    echo "<td> <span class='veg'>" . $row['m_type'] . "</span></td>";
+                    echo "<td class='p-3 border-b-[1px] border-[#ddd] text-center'> <span class='veg py-1 px-3 bg-green-500 text-white rounded-md'>" . $row['m_type'] . "</span></td>";
                 } else {
-                    echo "<td> <span class='nonveg'>" . $row['m_type'] . "</span></td>";
+                    echo "<td class='p-3 border-b-[1px] border-[#ddd] text-center'> <span class='nonveg py-1 px-3 bg-red-500 text-white rounded-md'>" . $row['m_type'] . "</span></td>";
                 }
             }
         } else {
-            echo "<tr><td colspan='6'>ADD items in the menu to display here</td></tr>";
+            echo "<tr><td colspan='6' class='p-3 border-b-[1px] border-[#ddd] text-center'>ADD items in the menu to display here</td></tr>";
         }
 
 
         ?>
     </table>
 
-    <h1>Add to Menu </h1>
-    <table class="order-table">
+    <h1 class="py-4">Add to Menu </h1>
+    <table class="order-table w-full border-collapse">
         <tr>
-            <th>Item ID</th>
-            <th>Item Name</th>
+            <th class='p-3 border-b-[1px] border-[#ddd] text-center bg-[#f5f5f5] font-bold'>Item ID</th>
+            <th class='p-3 border-b-[1px] border-[#ddd] text-center bg-[#f5f5f5] font-bold'>Item Name</th>
             <!-- <th>Item Description</th> -->
-            <th>Item Price</th>
-            <th>Item Category</th>
-            <th>Update Item</th>
+            <th class='p-3 border-b-[1px] border-[#ddd] text-center bg-[#f5f5f5] font-bold'>Item Price</th>
+            <th class='p-3 border-b-[1px] border-[#ddd] text-center bg-[#f5f5f5] font-bold'>Item Category</th>
+            <th class='p-3 border-b-[1px] border-[#ddd] text-center bg-[#f5f5f5] font-bold'>Update Item</th>
         </tr>
 
         <?php
@@ -265,18 +160,18 @@ if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true) {
         
         echo "<tr>";
         echo "<form action='add_menu.php' method='post'>";
-        echo "<td><input required type='hidden' name='m_id' value=''> </td>";
-        echo "<td><input class='dataInput' required type='text' placeholder='Name of item' name='m_name' value=''><br></td>";
+        echo "<td class='p-3 border-b-[1px] border-[#ddd] text-center'><input required type='hidden' name='m_id' value=''> </td>";
+        echo "<td class='p-3 border-b-[1px] border-[#ddd] text-center'><input class='dataInput p-[6px] rounded-lg border-none outline-none active:border-none focus:border-none' required type='text' placeholder='Name of item' name='m_name' value=''><br></td>";
         //echo "<td>" . $row['it</td>";
-        echo "<td><input class='dataInput' required type='number' placeholder='Price' name='m_price' value=''><br></td>";
+        echo "<td class='p-3 border-b-[1px] border-[#ddd] text-center'><input class='dataInput p-[6px] rounded-lg border-none outline-none active:border-none focus:border-none' required type='number' placeholder='Price' name='m_price' value=''><br></td>";
 
 
-        echo "<td>Category: <select name='m_type'>";
+        echo "<td class='p-3 border-b-[1px] border-[#ddd] text-center'>Category: <select name='m_type'>";
         echo "<option value='Veg' " . ($row['order_status'] === 'Veg' ? 'selected' : '') . ">Veg</option>";
         echo "<option value='Non-Veg' " . ($row['order_status'] === 'Non-Veg' ? 'selected' : '') . ">Non-Veg</option>";
         echo "</select>";
 
-        echo "<td><input class='add-item' required type='submit' value='Add'></td>";
+        echo "<td class='p-3 border-b-[1px] border-[#ddd] text-center'><input class='add-item bg-blue-500 text-white rounded-md outline-none border-none py-[2px] px-[5px]' required type='submit' value='Add'></td>";
         echo "</form>";
         echo "</tr>";
         $conn->close();

@@ -58,19 +58,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 <html lang="en">
 
 <head>
-  <!-- bootstrap -->
-  <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous"> -->
-  <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.2/font/bootstrap-icons.css"> -->
-  <!-- Google Fonts (aBeeZee) -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=ABeeZee&display=swap" rel="stylesheet">
   <style>
     @import url('https://fonts.googleapis.com/css2?family=ABeeZee&display=swap');
   </style>
-  <!-- css link -->
-  <!-- <link rel="stylesheet" href="main.css"> -->
 
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -129,64 +122,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 ';
   } ?>
 
-
-  <!-- <section class="login-signup">
-        <div class="login-signup__message-container login-signup__small">
-            <div class="login-signup__logo">
-                <a href="index.php">
-                    <img src="images/logo/Logo - White.webp" alt="Logo">                
-                </a>
-            </div>
-
-            <div class="login-signup__message-content">
-                <h3 class="login-signup__message-heading u-margin-bottom-medium">Hello, Friend</h3>
-                <p class="login-signup__message-para">Hey foodie! We are waiting to kill you hunger with our delicious dabbas. Create your account and enjoy out mouth watering food.</p>
-                
-                <br><br>
-
-                <button class="login-signup__button u-margin-top-extra-large" style="display:block; margin: 0 auto;">
-                    <a href="user_signup.php">Sign Up</a>
-                </button>
-            </div>
-        </div>
-        <div class="login-signup__form-container login-signup__big">
-            <div class="login-signup__logo u-show-after-tab-port">
-                <img src="images/logo/logo.webp" alt="Logo">
-            </div>
-
-            <div class="login-signup__back-button">
-            <a href="index.php">
-                <img src="images/favicons/back_50px-red.webp" alt="Back Button">
-                Back</a>
-            </div>
-
-            <div class="login-signup__form-content">
-                <h3 class="login-signup__form-heading u-margin-bottom-small">Welcome Back!</h3>
-                <h5 class="login-signup__form-subheading">Glad to see you again</h5>
-
-                <form class="login-signup-form u-margin-top-small" action="/alimento/user_login.php" method="post">
-                    <div class="login-signup-form__input-group login-signup-form__input-group--full">
-                        <input type="email" class="login-signup-form__input" id="email" name="email" placeholder="example@example.com">
-                    </div>
-                    <div class="login-signup-form__input-group">
-                      <div class="login-signup-form__input" onclick="document.getElementById('password').focus()">
-                          <input type="password" name="password" class="login-signup-form__inputfield" id="password" placeholder=".......">
-                          <i class="bi bi-eye-fill eye-open" id="eye-btn-p"></i>
-                      </div>
-                    </div>                    
-                    <button class="login-signup-form__submit u-margin-top-large" type="submit" id="submit-login">Sign In</button>
-                </form>
-            </div>
-
-            <div class="login-signup__text-content">
-                <p class="paragraph paragraph text-algin-center">Not a member yet?</p>
-                <a href="user_signup.php" class="login-signup__alt-link">Sign Up</a>
-                <p class="paragraph paragraph text-algin-center">  Forget Password?</p>
-            </div>
-        </div>
-    </section> -->
-
-  <div class="w-full max-w-screen-lg mx-auto" style="max-width: 1024px;">
+  <div class="w-full max-w-screen-lg mx-auto">
     <nav
       class="hidden  lg:flex sm:max-w-xl md:max-w-2xl lg:max-w-5xl xl:max-w-7xl w-full items-center justify-between max-w-7xl mx-auto font-poppins py-4">
       <a href="index.php"><img src="./images/logo/logo.webp" alt="logo" class="w-36"></a>
@@ -235,7 +171,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
   <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.1/dist/umd/popper.min.js"></script>
-  <!-- <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script> -->
   <script>
     const eyeBtnPassword = document.getElementById("eye-btn-p");
     const eyeBtnConfirmPassword = document.getElementById("eye-btn-cp");
