@@ -1,6 +1,7 @@
 import CredentialsProvider from 'next-auth/providers/credentials';
 import { NextAuthOptions } from 'next-auth';
 import prismadb from './prismadb';
+import sendEmail from './sendEmail';
 
 // const prisma = new PrismaClient();
 
@@ -79,4 +80,60 @@ export const NEXT_AUTH_CONFIG: NextAuthOptions = {
       return session;
     },
   },
+};
+
+
+export const generateAndSendOTP = async (
+  email: string,
+  role: 'vendor' | 'customer'
+) => {
+  const otp = Math.floor(100000 + Math.random() * 900000).toString(); // Generate 6-digit OTP
+
+  // Store OTP in the customer or vendor record
+
+  if (role === 'customer') {
+    try {
+      await prismadb.customer.update({
+        where: { email },
+        data: { otp }, // Ensure 'otp' field exists in your customer model
+      });
+    } catch (err) {
+      console.error(
+        'DB Error sending OTP for customer:',
+        err instanceof Error ? err.message : err
+      );
+      return false;
+    }
+  } else if (role === 'vendor') {
+    try {
+      await prismadb.vendor.update({
+        where: { email },
+        data: { otp },
+      });
+    } catch (err) {
+      console.error(
+        'DB Error sending OTP for vendor:',
+        err instanceof Error ? err.message : err
+      );
+      return false;
+    }
+  }
+
+  try {
+    const response = await sendEmail({
+      to: email,
+      subject: 'Your OTP Code',
+      text: `Your OTP code is ${otp}`,
+      html: `<strong>Your OTP code is ${otp}</strong>`,
+    });
+
+    console.log('OTP email sent successfully:', response);
+    return true;
+  } catch (err) {
+    console.error(
+      'Error sending OTP:',
+      err instanceof Error ? err.message : err
+    );
+    return false;
+  }
 };
