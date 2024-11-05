@@ -15,6 +15,11 @@ const MainNav = () => {
       label: 'Home',
       active: pathname.startsWith(`/`),
     },
+    {
+      href: `/orders`,
+      label: 'Orders',
+      active: pathname.startsWith(`/`),
+    },
   ];
 
   useEffect(() => {
