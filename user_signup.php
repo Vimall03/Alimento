@@ -173,7 +173,7 @@ if($_SERVER["REQUEST_METHOD"]=="POST"){
             <a href="https://accounts.google.com/v3/signin/identifier?authuser=0&continue=https%3A%2F%2Fmyaccount.google.com%2F&ec=GAlAwAE&hl=en_GB&service=accountsettings&flowName=GlifWebSignIn&flowEntry=AddSession&dsh=S1527110508%3A1729760212648495&ddm=0"
                class="flex items-center justify-center w-full p-2 border border-gray-300 rounded-md hover:bg-gray-200 transition-colors">
               <img src="./images/google_icon.png" alt="Google Icon" class="w-5 h-5 mr-2">
-              <span>Sign in with Google</span>
+              <span>Sign up with Google</span>
             </a>
           </div>
 
