@@ -22,7 +22,7 @@ const NavbarActions = () => {
   return (
     <div className="ml-auto flex items-center gap-x-4">
       {session.status == 'unauthenticated' && (
-        <Link className="bg-black p-4 rounded-full" href={'/auth/user/login'}>
+        <Link className="bg-black p-4 rounded-full" href={'/auth/Customer/SignIn'}>
           <LogInIcon size={20} color="white" />
         </Link>
       )}
