@@ -2,6 +2,7 @@
 import React from "react";
 import Image from "next/image";
 import Sidebar from "./pages/sidebar";
+import Main from "./pages/main";
 
 const SetUpDishes = ({ VendorId }: { VendorId: string }) => {
   return (
@@ -20,7 +21,7 @@ const SetUpDishes = ({ VendorId }: { VendorId: string }) => {
 
         <div className="md:gray-200  bg-gray-200 dark:bg-gray-700 rounded-xl shadow-md absolute md:relative p-4 flex md:flex-row flex-col md:max-h-[550px] md:max-w-[900px] h-full w-full">
           <Sidebar />
-          {/* <Main VendorId={VendorId} /> */}
+          <Main VendorId={VendorId} />
         </div>
       </main>
     </>

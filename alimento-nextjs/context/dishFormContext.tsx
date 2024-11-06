@@ -1,4 +1,5 @@
 "use client";
+import { createDish } from "@/actions/dish/dishCREATE";
 import { Category, Tag } from "@prisma/client";
 import {
   createContext,
@@ -7,6 +8,7 @@ import {
   useContext,
   useState,
 } from "react";
+import toast from "react-hot-toast";
 
 interface GlobalContextType {
   currentStep: number;
@@ -41,6 +43,8 @@ interface GlobalContextType {
 
   formCompleted: boolean;
   setFormCompleted: (completed: boolean) => void;
+
+  submitListingForm: (vendorId:string)=>void
 }
 
 export const GlobalDishContext = createContext<GlobalContextType | undefined>(
@@ -76,6 +80,85 @@ export const GlobalDishProvider = ({ children }: { children: ReactNode }) => {
   const [checkedBox, setCheckedBox] = useState(false);
   const [formCompleted, setFormCompleted] = useState(false);
 
+  const submitListingForm = async (vendorId:string) => {
+
+    let allValid = true;
+  
+    // Validate dish name
+    if (dishName.trim().length < 1) {
+      setValidDishName(false);
+      allValid = false;
+    } else {
+      setValidDishName(true);
+    }
+  
+    // Validate dish price
+    if (dishPrice <= 0) {
+      setValidDishPrice(false);
+      allValid = false;
+    } else {
+      setValidDishPrice(true);
+    }
+  
+    // Validate dish description
+    if (dishDescription.trim().length <= 0) {
+      setValidDishDescription(false);
+      allValid = false;
+    } else {
+      setValidDishDescription(true);
+    }
+  
+    // Validate dish category
+    if (!Object.values(Category).includes(dishCategory)) {
+      setValidDishCategory(false);
+      allValid = false;
+    } else {
+      setValidDishCategory(true);
+    }
+  
+    // Validate dish tags
+    if (dishTags.length === 0) {
+      setValidDishTags(false);
+      allValid = false;
+    } else {
+      setValidDishTags(true);
+    }
+  
+    // If all fields are valid, proceed with submission
+    if (allValid) {
+      setFormCompleted(true);
+  
+      try {
+        if (!vendorId) {
+          console.log('No seller ID provided');
+          return;
+        }
+  
+        const response = await createDish({
+            name: dishName,
+            price: dishPrice,
+            description: dishDescription,
+            category: dishCategory,
+            tags: dishTags,
+            vendorId:vendorId
+        });
+  
+        if (!response.data) {
+          console.error('Error submitting listing.');
+          return;
+        }
+  
+        toast.success('Listing submitted successfully:', response.data);
+        window.location.pathname = `/vendor/${vendorId}`;
+      } catch (error) {
+        toast.error('Error submitting listing');
+      }
+    } else {
+      toast.error('Form is not valid.');
+    }
+  };
+  
+
   return (
     <GlobalDishContext.Provider
       value={{
@@ -110,6 +193,8 @@ export const GlobalDishProvider = ({ children }: { children: ReactNode }) => {
         setCheckedBox,
         formCompleted,
         setFormCompleted,
+
+        submitListingForm
       }}
     >
       {children}

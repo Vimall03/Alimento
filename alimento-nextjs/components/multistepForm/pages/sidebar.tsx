@@ -70,7 +70,7 @@ const Sidebar = () => {
 
   return (
     <>
-      <aside className="bg-[url('/pngFood.png')] bg-cover bg-contain absolute top-0 left-0 right-0 md:relative md:bg-desktop h-[50vh] md:h-full p-8 overflow-hidden md:rounded-xl gap-4 md:gap-0 w-screen md:w-[42.5%] flex flex-row md:flex-col items-start md:justify-start justify-center">
+      <aside className="bg-[url('/pngFood.png')] bg-contain absolute top-0 left-0 right-0 md:relative md:bg-desktop h-[50vh] md:h-full p-8 overflow-hidden md:rounded-xl gap-4 md:gap-0 w-screen md:w-[42.5%] flex flex-row md:flex-col items-start md:justify-start justify-center">
         {data.map((data, index) => {
           const { id, step, title } = data;
 
