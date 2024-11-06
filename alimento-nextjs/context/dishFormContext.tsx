@@ -7,7 +7,6 @@ import {
   useContext,
   useState,
 } from "react";
-import toast from "react-hot-toast";
 
 interface GlobalContextType {
   currentStep: number;

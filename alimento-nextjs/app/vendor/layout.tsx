@@ -1,3 +1,4 @@
+import VendorNavBar from "@/components/common/vendorNavBar";
 
 export default function VendorLayout({
   children,
@@ -7,7 +8,8 @@ export default function VendorLayout({
   return (
     <html lang="en">
       <body>
-          {children}
+        <VendorNavBar />
+        {children}
       </body>
     </html>
   );

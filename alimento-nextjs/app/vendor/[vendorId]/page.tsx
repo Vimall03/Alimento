@@ -1,3 +1,4 @@
+import SetUpDishes from '@/components/multistepForm/setupDishes';
 import prismadb from '@/lib/prismadb';
 import { Dish } from '@prisma/client';
 
@@ -29,7 +30,7 @@ const VendorPage: React.FC<VendorPageProps> = async ({ params }) => {
     }
   
     else{
-      // return <SetUpDishes VendorId={vendorId}/>
+      return <SetUpDishes VendorId={vendorId}/>
       // here the guided form component will be added s
     }
  
