@@ -25,7 +25,7 @@ import { ChevronLeftCircleIcon } from 'lucide-react';
 import { useRouter } from 'next/navigation'; // use 'next/navigation' for Next.js 13 App Router
 
 interface UserAuthFormProps extends React.HTMLAttributes<HTMLDivElement> {
-  roleType: 'user' | 'seller';
+  roleType: 'customer' | 'vendor';
   email: string;
   setOtpOpen: (otp: boolean) => void;
 }
@@ -69,9 +69,9 @@ export function OtpForm({
       toast.success('Welcome!');
 
       // Set redirect URL based on user role
-      if (roleType === 'user') {
+      if (roleType === 'customer') {
         setRedirectUrl('/'); // Redirect to home for user
-      } else if (roleType === 'seller') {
+      } else if (roleType === 'vendor') {
         setRedirectUrl(`/seller/${email}`); // Temporarily set to seller's page
       }
     }
@@ -80,9 +80,9 @@ export function OtpForm({
 
   React.useEffect(() => {
     if (redirectUrl && session) {
-      const sellerId = session.user?.id; // Retrieve the sellerId from session
-      if (sellerId) {
-        router.push(`/seller/${sellerId}`); // Redirect to seller's page
+      const vendorId = session.user?.id; // Retrieve the sellerId from session
+      if (vendorId&&session.user.role==='vendor') {
+        router.push(`/vendor/${vendorId}`); // Redirect to seller's page
       } else if (redirectUrl === '/') {
         router.push(redirectUrl); // Redirect to home for user
       }
@@ -91,21 +91,20 @@ export function OtpForm({
 
   return (
     <div className={cn('grid gap-6', className)} {...props}>
-      <Toaster />
       <Form {...form}>
         <form
           onSubmit={form.handleSubmit(onOTPSubmit)}
-          className="flex flex-col dark:text-gray-200 z-10 items-start justify-center py-10 md:py-0 pl-14 gap-4 w-2/4"
+          className="flex flex-col dark:text-gray-200 z-10 items-center justify-center py-10 md:py-0 ml-20 gap-4 w-2/4"
         >
           <FormField
             control={form.control}
             name="pin"
             render={({ field }) => (
               <FormItem className="flex gap-2 items-start justify-center flex-col">
-                <FormLabel className="text-2xl gap-2 flex items-center justify-center text-customTeal dark:text-Green font-bold">
+                <FormLabel className="text-4xl text-blue-600 gap-5 flex items-center justify-center  font-bold">
                   <ChevronLeftCircleIcon
                     onClick={() => setOtpOpen(false)}
-                    className="h-5 w-5"
+                    className="h-10 w-10"
                   />
                   One-Time Password
                 </FormLabel>
@@ -125,7 +124,7 @@ export function OtpForm({
               </FormItem>
             )}
           />
-          <Button className="bg-black" type="submit" disabled={isLoading}>
+          <Button className="bg-gradient-to-r from-green-500 to-blue-500 hover:from-blue-500 hover:to-green-500" type="submit" disabled={isLoading}>
             {isLoading ? 'Loading...' : 'Submit'}
           </Button>
         </form>
