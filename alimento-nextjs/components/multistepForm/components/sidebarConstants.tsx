@@ -11,7 +11,7 @@ export const data = [
     },
     {
       id: 3,
-      step: 'step 4',
+      step: 'step 3',
       title: 'select tags',
     },
   ];
