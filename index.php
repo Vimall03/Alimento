@@ -270,8 +270,8 @@ if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true) {
         <div class="block">
           <h2 class="font-semibold text-gray-800 text-lg">Get in touch</h2>
           <div class="flex flex-col gap-2 text-[#6A6E5C] mt-2">
-            <a href="#">hello@tiffy.com</a>
-            <a href="#">+91 9820223338</a>
+            <a href="mailto:hello@tiffy.com">hello@tiffy.com</a>
+            <a href="callto:+919820223338">+91 9820223338</a>
           </div>
         </div>
         <div class="block">
