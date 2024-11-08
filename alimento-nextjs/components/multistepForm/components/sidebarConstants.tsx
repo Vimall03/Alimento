@@ -14,5 +14,10 @@ export const data = [
       step: 'step 3',
       title: 'select tags',
     },
+    {
+      id: 4,
+      step: 'step 4',
+      title: 'add images',
+    },
   ];
   
