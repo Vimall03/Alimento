@@ -1,6 +1,7 @@
 import SetUpDishes from '@/components/multistepForm/setupDishes';
 import prismadb from '@/lib/prismadb';
-import { Dish } from '@prisma/client';
+import { Dish, Image } from '@prisma/client';
+import DishesPage from './components/dishesPage';
 
 interface VendorPageProps {
   params: {
@@ -8,8 +9,12 @@ interface VendorPageProps {
   };
 }
 
+export interface DishWithImages extends Dish{
+  images:Image[]
+}
+
 const VendorPage: React.FC<VendorPageProps> = async ({ params }) => {
-  let Dishes: Dish[] | null = [];
+  let Dishes: DishWithImages[] | null = [];
 
   const { vendorId } = await params;
   try {
@@ -17,6 +22,9 @@ const VendorPage: React.FC<VendorPageProps> = async ({ params }) => {
       where: {
         vendorId: vendorId,
       },
+      include:{
+        images:true
+      }
     });
   } catch (err) {
     console.error(
@@ -26,7 +34,7 @@ const VendorPage: React.FC<VendorPageProps> = async ({ params }) => {
   }
 
     if (Dishes.length){
-       return <div>this will be the dishes page</div>
+       return <DishesPage vendorId={vendorId} Dishes={Dishes}/>
     }
   
     else{
