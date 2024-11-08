@@ -57,7 +57,7 @@ enum Tag {
 model Dish {
   id          String   @id @default(uuid()) @map("_id")
   name        String
-  description String?
+  description String
   price       Float
   category    Category
   tags        Tag[]
