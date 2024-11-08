@@ -7,7 +7,7 @@ import {
     DropdownMenuTrigger,
   } from '@/components/ui/dropdown-menu';
 import { useGlobalDish } from '@/context/dishFormContext';
-import { Category, Prisma } from '@prisma/client';
+import { Category } from '@prisma/client';
   import { ChevronDown } from 'lucide-react';
   
   const categories =Object.values(Category)
