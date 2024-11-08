@@ -1,20 +1,19 @@
 
 import { createDish } from "@/actions/dish/dishCREATE";
 import { getAllDishes } from "@/actions/dish/dishGETALL";
-import { Category, Tag } from "@prisma/client";
 import { NextResponse } from "next/server";
 
 // POST route: Creates a new dish
 export async function POST(req: Request) {
   try {
     const body = await req.json();
-    const { name, description, price, category, tags, vendorId } = body;
+    const { name, description, price, category, tags, vendorId ,images} = body;
 
-    if (!name || !price || !category || !vendorId) {
+    if (!name || !price || !category || !vendorId || !images) {
       return new NextResponse("Name, price, category, and vendor ID are required!", { status: 400 });
     }
 
-    const resp = await createDish({ name, description, price, category, tags, vendorId });
+    const resp = await createDish({ name, description, price, category, tags, vendorId, images });
 
     if (!resp.success) {
       return new NextResponse(resp.error || "Failed to create dish", { status: 500 });
@@ -30,7 +29,6 @@ export async function POST(req: Request) {
 // GET route: Retrieves all dishes with optional filtering
 export async function GET(req: Request) {
   try {
-    const url = new URL(req.url);
 
     const resp = await getAllDishes({});
 

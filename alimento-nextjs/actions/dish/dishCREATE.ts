@@ -13,7 +13,7 @@ export async function createDish({
   images,
 }: {
   name: string;
-  description?: string;
+  description: string;
   price: number;
   category: Category;
   tags: Tag[];
