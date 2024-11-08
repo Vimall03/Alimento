@@ -148,14 +148,15 @@ if($_SERVER["REQUEST_METHOD"]=="POST"){
         <div class="w-96 ml-auto flex flex-col gap-8">
           <h1 class="text-3xl font-bold">Hello, Good to see you</h1>
 
-          <form action="user_signup.php" method="post" class="flex flex-col gap-4">
+          <form action="user_signup.php" method="post" onsubmit="return validateEmail()" class="flex flex-col gap-4">
             <div class="form-group">
               <label for="name" class="mb-2">Name</label>
               <input type="text" id="name" name="name" placeholder="Enter your name" class="p-2 border border-black" required>
             </div>
             <div class="form-group">
               <label for="email" class="mb-2">Email</label>
-              <input type="email" id="email-id" name="email" placeholder="example@example.com" class="p-2 border border-black" required>
+              <input type="email" id="email-id" name="email" placeholder="example@example.com" class="p-2 border border-black" required><br>
+              <span id="email-error" class="text-red-500 text-sm hidden">Please enter a trusted email address.</span>
             </div>
             <div class="form-group">
               <label for="password" class="mb-2">Password</label>
@@ -185,6 +186,47 @@ if($_SERVER["REQUEST_METHOD"]=="POST"){
 </body>
 
     <script>
+      function validateEmail() {
+        const trustedDomains = [
+        'gmail.com',
+        'outlook.com',
+        'yahoo.com',
+        'protonmail.com',
+        'icloud.com',
+        'tutanota.com',
+        'hotmail.com',
+        'live.com',
+        'mail.com',
+        'zoho.com',
+        'gmx.com',
+        'aol.com',
+        'fastmail.com',
+        'yandex.com',
+        '*.edu',
+        '*.ac.uk',
+        '*.edu.in',
+        '*.edu.au',
+        'examplecompany.com',
+        'mailfence.com',
+        'posteo.de',
+        'runbox.com',
+        'countermail.com',
+        'hushmail.com',
+        'inbox.com',
+        'mail.ru',
+        'rediffmail.com',
+        'seznam.cz'
+      ];
+          
+      const email = document.getElementById("email-id").value;
+          
+      if (!trustedDomains.includes(email)) {
+        document.getElementById("email-error").classList.remove("hidden");
+        return false;
+      }
+
+      return true;
+      }
       const eyeBtnPassword =document.getElementById("eye-btn-p");
       const eyeBtnConfirmPassword =document.getElementById("eye-btn-cp");
       const passwordField =document.getElementById("password");
