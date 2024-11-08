@@ -10,6 +10,7 @@ export async function createDish({
   category,
   tags,
   vendorId,
+  images,
 }: {
   name: string;
   description?: string;
@@ -17,6 +18,7 @@ export async function createDish({
   category: Category;
   tags: Tag[];
   vendorId: string;
+  images: string[]
 }): Promise<{ success: boolean; error?: string; data?: Dish }> {
   try {
     const newDish = await prismadb.dish.create({
@@ -27,6 +29,9 @@ export async function createDish({
         category,
         tags,
         vendorId,
+        images: {
+          create: images.map(url => ({ url })), // Assuming you're passing URLs
+        },
       },
     });
     return { success: true, data: newDish };

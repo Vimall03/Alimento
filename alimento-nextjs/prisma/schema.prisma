@@ -55,17 +55,27 @@ enum Tag {
 }
 
 model Dish {
-  id          String    @id @default(uuid()) @map("_id")
+  id          String   @id @default(uuid()) @map("_id")
   name        String
   description String?
   price       Float
-  category    Category 
-  tags        Tag[]   
+  category    Category
+  tags        Tag[]
 
-  vendorId    String    
-  vendor      Vendor    @relation(fields: [vendorId], references: [id])
+  images Image[]
 
-  createdAt   DateTime  @default(now())
-  updatedAt   DateTime  @updatedAt
+  vendorId String
+  vendor   Vendor @relation(fields: [vendorId], references: [id])
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
 }
 
+model Image {
+  id        String   @id @default(uuid()) @map("_id")
+  dishId    String
+  dish      Dish     @relation(fields: [dishId], references: [id], onDelete: Cascade)
+  url       String
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}

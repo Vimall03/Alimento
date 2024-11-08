@@ -37,6 +37,15 @@ interface GlobalContextType {
   setValidDishCategory: (valid: boolean) => void;
   validDishTags: boolean;
   setValidDishTags: (valid: boolean) => void;
+  validImageUrls: boolean; // New state for image URL validation
+  setValidImageUrls: (valid: boolean) => void;
+
+
+  imageUrl: string[];
+  setImageUrl: (url: string[]) => void;
+
+  handleImageChange: (url: string) => void;
+  handleImageRemove: (url: string) => void;
 
   checkedBox: boolean;
   setCheckedBox: (checkedBox: boolean) => void;
@@ -71,11 +80,22 @@ export const GlobalDishProvider = ({ children }: { children: ReactNode }) => {
   );
   const [dishTags, setDishTags] = useState<Tag[]>([]);
 
+  const [imageUrl, setImageUrl] = useState<string[]>([]);
+
+  const handleImageChange = useCallback((url: string) => {
+    setImageUrl(prevUrls => [...prevUrls, url]); // Use the previous state
+  }, []);
+
+  const handleImageRemove = useCallback((url: string) => {
+    setImageUrl(prevUrls => prevUrls.filter(image => image !== url)); // Use the previous state
+  }, []);
+
   const [validDishName, setValidDishName] = useState(false);
   const [validDishPrice, setValidDishPrice] = useState(false);
   const [validDishDescription, setValidDishDescription] = useState(false);
   const [validDishCategory, setValidDishCategory] = useState(false);
   const [validDishTags, setValidDishTags] = useState(false);
+  const [validImageUrls, setValidImageUrls] = useState(false);
 
   const [checkedBox, setCheckedBox] = useState(false);
   const [formCompleted, setFormCompleted] = useState(false);
@@ -124,6 +144,14 @@ export const GlobalDishProvider = ({ children }: { children: ReactNode }) => {
       setValidDishTags(true);
     }
   
+
+    if (imageUrl.length === 0) {
+      setValidImageUrls(false); // No image URLs provided
+      allValid = false;
+    } else {
+      setValidImageUrls(true); // At least one image URL is present
+    }
+
     // If all fields are valid, proceed with submission
     if (allValid) {
       setFormCompleted(true);
@@ -140,7 +168,8 @@ export const GlobalDishProvider = ({ children }: { children: ReactNode }) => {
             description: dishDescription,
             category: dishCategory,
             tags: dishTags,
-            vendorId:vendorId
+            vendorId:vendorId,
+            images:imageUrl
         });
   
         if (!response.data) {
@@ -177,6 +206,11 @@ export const GlobalDishProvider = ({ children }: { children: ReactNode }) => {
         setDishCategory,
         dishTags,
         setDishTags,
+        imageUrl,
+        setImageUrl,
+        handleImageChange,
+        handleImageRemove,
+
 
         validDishName,
         setValidDishName,
@@ -188,6 +222,10 @@ export const GlobalDishProvider = ({ children }: { children: ReactNode }) => {
         setValidDishCategory,
         validDishTags,
         setValidDishTags,
+
+        validImageUrls,
+        setValidImageUrls,
+
 
         checkedBox,
         setCheckedBox,
