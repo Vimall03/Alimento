@@ -48,9 +48,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Change Password</title>
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
   <link rel="stylesheet" href=".css">
-  <link rel="stylesheet" href="main.css">
+  <link rel="stylesheet" href="main.css"> -->
   <!-- Google fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -65,61 +65,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 </head>
 
 <body>
-  <style>
-    .change-password-container {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      height: 100vh;
-      background-color: #f7f7f7;
-    }
-
-    .change-password-card {
-      background-color: #fff;
-      padding: 20px;
-      border-radius: 10px;
-      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-      width: 500px;
-    }
-
-    .change-password-card h2 {
-      font-weight: bold;
-      margin-bottom: 10px;
-      color: #333;
-    }
-
-    .change-password-form {
-      margin-top: 20px;
-    }
-
-    .change-password-form label {
-      font-weight: bold;
-      margin-bottom: 5px;
-      color: #333;
-    }
-
-    .change-password-form input {
-      width: 100%;
-      padding: 10px;
-      margin-bottom: 20px;
-      border: 1px solid #ddd;
-      border-radius: 5px;
-    }
-
-    .change-password-form button {
-      width: 100%;
-      padding: 10px;
-      background-color: #333;
-      color: #fff;
-      border: none;
-      border-radius: 5px;
-      cursor: pointer;
-    }
-
-    .change-password-form button:hover {
-      background-color: #555;
-    }
-  </style>
 
 <nav
     class="hidden  lg:flex sm:max-w-xl md:max-w-2xl lg:max-w-5xl xl:max-w-7xl w-full items-center justify-between max-w-7xl mx-auto font-poppins py-4">
@@ -176,17 +121,17 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     </div>
   </div>
 
-  <div class="change-password-container">
-    <div class="change-password-card">
-      <h2>Change Password</h2>
-      <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post" class="change-password-form">
-        <label for="old_password">Old Password:</label>
-        <input type="password" class="form-control" id="old_password" name="old_password" required>
-        <label for="new_password">New Password:</label>
-        <input type="password" class="form-control" id="new_password" name="new_password" required>
-        <label for="confirm_password">Confirm Password:</label>
-        <input type="password" class="form-control" id="confirm_password" name="confirm_password" required>
-        <button type="submit" class="btn btn-primary">Change Password</button>
+  <div class="change-password-container flex justify-center items-center h-screen bg-[#f7f7f7]">
+    <div class="change-password-card bg-white p-5 rounded-xl shadow-sm w-full max-w-[500px]">
+      <h2 class="font-bold mt-[10px] text-[#333]">Change Password</h2>
+      <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post" class="change-password-form mt-5">
+        <label class="font-bold mb-1 text-[#333]" for="old_password">Old Password:</label>
+        <input type="password" class="form-control w-full p-[10px] mb-5 border border-[#ddd] rounded-md" id="old_password" name="old_password" required>
+        <label class="font-bold mb-1 text-[#333]" for="new_password">New Password:</label>
+        <input type="password" class="form-control w-full p-[10px] mb-5 border border-[#ddd] rounded-md" id="new_password" name="new_password" required>
+        <label class="font-bold mb-1 text-[#333]" for="confirm_password">Confirm Password:</label>
+        <input type="password" class="form-control w-full p-[10px] mb-5 border border-[#ddd] rounded-md" id="confirm_password" name="confirm_password" required>
+        <button type="submit" class="w-full p-[10px] bg-[#333] text-white border-none rounded-md cursor-pointer hover:bg-[#555]">Change Password</button>
       </form>
     </div>
   </div>

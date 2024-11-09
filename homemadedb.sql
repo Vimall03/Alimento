@@ -76,6 +76,7 @@ INSERT INTO `orders` (`sl_no`, `r_id`, `order_id`, `dt`, `name`, `user_id`, `ord
 -- --------------------------------------------------------
 
 --
+<<<<<<< HEAD
 -- User interaction tracking table
 CREATE TABLE user_interactions (
     interaction_id BIGINT PRIMARY KEY AUTO_INCREMENT,
@@ -124,6 +125,8 @@ CREATE TABLE recommendation_weights (
     last_updated TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 
+=======
+>>>>>>> 7771d633fe55fb47ca8976c7df47158059e58b56
 -- Table structure for table `restaurant`
 --
 
@@ -262,3 +265,37 @@ COMMIT;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+
+--
+-- Table structure for table `user_points`
+--
+  
+CREATE TABLE `user_points` (
+  `user_id` int(11) NOT NULL,
+  `points` int(11) NOT NULL DEFAULT 0,
+  PRIMARY KEY (`user_id`),
+  FOREIGN KEY (`user_id`) REFERENCES `users` (`user_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- Trigger to update points in `user_points` after an order is placed
+  
+DELIMITER $$
+CREATE TRIGGER `award_points_after_order`
+AFTER INSERT ON `orders`
+FOR EACH ROW
+BEGIN
+  DECLARE points_earned INT;
+  SET points_earned = NEW.amount DIV 10; -- Earn 1 point for every 10 units spent
+
+  IF EXISTS (SELECT * FROM `user_points` WHERE `user_id` = NEW.user_id) THEN
+    UPDATE `user_points`
+    SET `points` = `points` + points_earned
+    WHERE `user_id` = NEW.user_id;
+  ELSE
+    INSERT INTO `user_points` (`user_id`, `points`)
+    VALUES (NEW.user_id, points_earned);
+  END IF;
+END$$
+DELIMITER ;
+
+  

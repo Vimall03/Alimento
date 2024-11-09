@@ -1,0 +1,159 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mongodb"
+  url      = env("DATABASE_URL")
+}
+
+model Customer {
+  id   String @id @default(uuid()) @map("_id")
+  name String
+
+  email String  @unique
+  otp   String?
+  role  String  @default("customer")
+
+  wishlists Wishlist[] @relation("CustomerToWishlist")
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model Vendor {
+  id   String @id @default(uuid()) @map("_id")
+  name String
+
+  email String  @unique
+  otp   String?
+  role  String  @default("vendor")
+
+  dishes Dish[]
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+enum Category {
+  APPETIZER
+  MAIN_COURSE
+  DESSERT
+  BEVERAGE
+  SNACK
+}
+
+enum Tag {
+  SPICY
+  VEGETARIAN
+  VEGAN
+  GLUTEN_FREE
+  DAIRY_FREE
+  NUT_FREE
+  INDIAN
+  CHINESE
+  ITALIAN
+  ARABIC
+}
+
+model Dish {
+  id          String   @id @default(uuid()) @map("_id")
+  name        String
+  description String
+  price       Float
+  category    Category
+  tags        Tag[]
+
+  images Image[]
+
+  wishlist Wishlist[] @relation("DishToWishlist")
+
+  vendorId String
+  vendor   Vendor @relation(fields: [vendorId], references: [id])
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model Image {
+  id        String   @id @default(uuid()) @map("_id")
+  dishId    String
+  dish      Dish     @relation(fields: [dishId], references: [id], onDelete: Cascade)
+  url       String
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model Wishlist {
+  id         String   @id @default(uuid()) @map("_id")
+  customerId String
+  dishId     String
+  customer   Customer @relation("CustomerToWishlist", fields: [customerId], references: [id])
+  dish       Dish     @relation("DishToWishlist", fields: [dishId], references: [id])
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@unique([customerId, dishId]) // Ensures a customer can only Wishlist a dish once
+
+}
+model Question {
+  id        String   @id @default(cuid()) @map("_id")
+  content   String
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  answers   Answer[] @relation("QuestionAnswers") // Removed onDelete: Cascade from here
+  answered  Boolean  @default(false)
+}
+
+model Answer {
+  id         String   @id @default(cuid()) @map("_id")
+  content    String
+  createdAt  DateTime @default(now())
+  updatedAt  DateTime @updatedAt
+  questionId String
+  question   Question @relation("QuestionAnswers", fields: [questionId], references: [id], onDelete: Cascade) // Moved onDelete: Cascade to this side
+}
+
+model Order {
+  id                     String   @id @default(uuid()) @map("_id")
+  customerId             String
+  customer               Customer @relation(fields: [customerId], references: [id])
+  
+  dishId                 String
+  dish                   Dish     @relation(fields: [dishId], references: [id])
+  
+  status                 OrderStatus @default(PENDING)
+  estimatedTimeOfArrival DateTime
+
+  createdAt              DateTime @default(now())
+  updatedAt              DateTime @updatedAt
+}
+
+enum OrderStatus {
+  PENDING
+  IN_PROGRESS
+  COMPLETED
+  CANCELLED
+}
+
+
+model Ticket {
+  id          String   @id @default(uuid()) @map("_id")
+  customerId  String
+  customer    Customer @relation(fields: [customerId], references: [id])
+
+  title       String
+  description String
+  status      TicketStatus @default(PENDING)
+
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+}
+
+enum TicketStatus {
+  PENDING
+  IN_PROGRESS
+  RESOLVED
+  CLOSED
+}

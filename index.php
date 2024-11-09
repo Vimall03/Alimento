@@ -14,7 +14,7 @@ if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true) {
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Alimento</title>
-  <link href="output.css" rel="stylesheet">
+  <link href="./output.css" rel="stylesheet">
 
   <!-- Google fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -177,11 +177,11 @@ if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true) {
         ex vitae ipsum tincidunt auctor. Pellentesque
         habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas”</p>
       <div class="mt-2 flex gap-3 md:mt-16">
-        <i class="bi bi-star-fill md:text-lg" style="color:#FFCC01;"></i>
-        <i class="bi bi-star-fill md:text-lg" style="color:#FFCC01;"></i>
-        <i class="bi bi-star-fill md:text-lg" style="color:#FFCC01;"></i>
-        <i class="bi bi-star-fill md:text-lg" style="color:#FFCC01;"></i>
-        <i class="bi bi-star-half md:text-lg" style="color:#FFCC01;"></i>
+        <i class="bi bi-star-fill md:text-lg text-[#FFCC01]"></i>
+        <i class="bi bi-star-fill md:text-lg text-[#FFCC01]"></i>
+        <i class="bi bi-star-fill md:text-lg text-[#FFCC01]"></i>
+        <i class="bi bi-star-fill md:text-lg text-[#FFCC01]"></i>
+        <i class="bi bi-star-half md:text-lg text-[#FFCC01]"></i>
       </div>
       <div>
         <h3 class="font-semibold text-lg text-gray-800 md:text-xl">Martin Robbin</h3>

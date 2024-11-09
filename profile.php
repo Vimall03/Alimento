@@ -27,192 +27,11 @@ if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true) {
     href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
     rel="stylesheet" />
   <!-- Bootstrap icons  -->
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+  <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"> -->
   <!-- <link rel="stylesheet" href="main.css"> -->
   <link rel="stylesheet" href="output.css">
   <script src="menu.js"></script>
-  <style>
-    .profile-container {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      height: 100vh;
-    }
-
-    .profile-card {
-      background-color: #fff;
-      padding: 20px;
-      border-radius: 10px;
-      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    }
-
-    .profile-card h2 {
-      font-weight: bold;
-      margin-bottom: 10px;
-    }
-
-    .profile-card p {
-      font-size: 18px;
-      margin-bottom: 20px;
-    }
-
-    .profile-card .profile-info {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      margin-bottom: 20px;
-    }
-
-    .profile-card .profile-info .info-label {
-      font-weight: bold;
-      margin-right: 10px;
-    }
-
-    .profile-image {
-      width: 150px;
-      height: 150px;
-      border-radius: 50%;
-      margin: 20px auto;
-    }
-
-    .profile-header {
-      background-color: #f7f7f7;
-      padding: 20px;
-      border-bottom: 1px solid #ddd;
-    }
-
-    .profile-header h2 {
-      font-weight: bold;
-      margin-bottom: 10px;
-    }
-
-    .profile-body {
-      padding: 20px;
-    }
-
-    .profile-stats {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      margin-bottom: 20px;
-    }
-
-    .profile-stats .stat {
-      margin-right: 20px;
-    }
-
-    .profile-stats .stat .stat-label {
-      font-weight: bold;
-      margin-bottom: 5px;
-    }
-
-    .profile-stats .stat .stat-value {
-      font-size: 24px;
-      font-weight: bold;
-    }
-
-    .profile-container {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      height: 100vh;
-      background-color: #f7f7f7;
-    }
-
-    .profile-card {
-      background-color: #fff;
-      padding: 20px;
-      border-radius: 10px;
-      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-      width: 500px;
-    }
-
-    .profile-card h2 {
-      font-weight: bold;
-      margin-bottom: 10px;
-      color: #333;
-    }
-
-    .profile-card p {
-      font-size: 18px;
-      margin-bottom: 20px;
-      color: #666;
-    }
-
-    .profile-card .profile-info {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      margin-bottom: 20px;
-      border-bottom: 1px solid #ddd;
-      padding-bottom: 10px;
-    }
-
-    .profile-card .profile-info .info-label {
-      font-weight: bold;
-      margin-right: 10px;
-      color: #333;
-    }
-
-    .profile-image {
-      width: 150px;
-      height: 150px;
-      border-radius: 50%;
-      margin: 20px auto;
-      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    }
-
-    .profile-header {
-      background-color: #f7f7f7;
-      padding: 20px;
-      border-bottom: 1px solid #ddd;
-      text-align: center;
-    }
-
-    .profile-header h2 {
-      font-weight: bold;
-      margin-bottom: 10px;
-      color: #333;
-    }
-
-    .profile-body {
-      padding: 20px;
-    }
-
-    .profile-stats {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      margin-bottom: 20px;
-      border-bottom: 1px solid #ddd;
-      padding-bottom: 10px;
-    }
-
-    .profile-stats .stat {
-      margin-right: 20px;
-    }
-
-    .profile-stats .stat .stat-label {
-      font-weight: bold;
-      margin-bottom: 5px;
-      color: #333;
-    }
-
-    .profile-stats .stat .stat-value {
-      font-size: 24px;
-      font-weight: bold;
-      color: #666;
-    }
-
-    .profile-actions {
-      margin-top: 20px;
-      text-align: center;
-    }
-
-    .profile-actions a {
-      margin: 0 10px;
-    }
-  </style>
+  
 </head>
 
 <body>
@@ -275,13 +94,13 @@ if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true) {
     </div>
   </div>
 
-  <div class="profile-container">
-    <div class="profile-card">
-      <div class="profile-header">
-        <h2>Profile Information</h2>
+  <div class="profile-container bg-[#f7f7f7] flex justify-center items-center h-screen">
+    <div class="profile-card bg-white p-5 rounded-lg w-[500px] shadow-md">
+      <div class="profile-header bg-[#f7f7f7] p-5 border-b text-center border-[#ddd]">
+        <h2 class="font-bold text-[#333] mb-[10px]">Profile Information</h2>
       </div>
-      <div class="profile-body">
-        <img src="images/default_profile.webp" class="profile-image" alt="Profile Image">
+      <div class="profile-body p-5">
+        <img src="images/default_profile.webp" class="profile-image w-[150px] h-[150px] rounded-[50%] mx-auto my-5 shadow-md" alt="Profile Image">
         <?php
         include 'partials/_dbconnect.php';
         $query = "SELECT * FROM `users` WHERE `user_id` = '" . $_SESSION['user_id'] . "'";
@@ -290,25 +109,25 @@ if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true) {
 
         if ($num >= 1) {
           while ($row = mysqli_fetch_array($result)) {
-            echo '<div class="profile-info">
-                  <span class="info-label">Name:</span>
+            echo '<div class="profile-info border-b border-[#ddd] pb-[10px] flex justify-between items-center mb-5">
+                  <span class="info-label text-[#333] font-bold mr-[10px]">Name:</span>
                   <span>' . $row['name'] . '</span>
                 </div>
-                <div class="profile-info">
-                  <span class="info-label">Email:</span>
+                <div class="profile-info border-b border-[#ddd] pb-[10px] flex justify-between items-center mb-5">
+                  <span class="info-label text-[#333] font-bold mr-[10px]">Email:</span>
                   <span>' . $row['email'] . '</span>
                 </div>
-                <div class="profile-info">
-                  <span class="info-label">Phone:</span>
+                <div class="profile-info border-b border-[#ddd] pb-[10px] flex justify-between items-center mb-5">
+                  <span class="info-label text-[#333] font-bold mr-[10px]">Phone:</span>
                   <span>' . $row['phone'] . '</span>
                 </div>
-                <div class="profile-info">
-                  <span class="info-label">Address:</span>
+                <div class="profile-info border-b border-[#ddd] pb-[10px] flex justify-between items-center mb-5">
+                  <span class="info-label text-[#333] font-bold mr-[10px]">Address:</span>
                   <span>' . $row['address'] . '</span>
                 </div>';
           }
         } else {
-          echo '<p>No profile found.</p>';
+          echo '<p class="text-lg mb-5 text-[#666]">No profile found.</p>';
         }
         ?>
         <?php
@@ -322,23 +141,23 @@ if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true) {
         $rating_result = mysqli_query($conn, $rating_query);
         $rating_row = mysqli_fetch_array($rating_result);
         ?>
-        <div class="profile-stats">
-          <div class="stat">
-            <span class="stat-label">Total Orders:</span>
-            <span class="stat-value"><?php echo $order_row['total_orders']; ?></span>
+        <div class="profile-stats flex justify-between border-b border-[#ddd] pb-[10px] items-center mb-5">
+          <div class="stat mr-5">
+            <span class="stat-label text-[#333] font-bold mb-[5px]">Total Orders:</span>
+            <span class="stat-value text-2xl font-bold text-[#666]"><?php echo $order_row['total_orders']; ?></span>
           </div>
-          <div class="stat">
-            <span class="stat-label">Total Reviews:</span>
-            <span class="stat-value"><?php echo $review_row['total_reviews']; ?></span>
+          <div class="stat mr-5">
+            <span class="stat-label text-[#333] font-bold mb-[5px]">Total Reviews:</span>
+            <span class="stat-value text-2xl font-bold text-[#666]"><?php echo $review_row['total_reviews']; ?></span>
           </div>
-          <div class="stat">
-            <span class="stat-label">Average Rating:</span>
-            <span class="stat-value"><?php echo round($rating_row['average_rating'], 1); ?>/5</span>
+          <div class="stat mr-5">
+            <span class="stat-label text-[#333] font-bold mb-[5px]">Average Rating:</span>
+            <span class="stat-value text-2xl font-bold text-[#666]"><?php echo round($rating_row['average_rating'], 1); ?>/5</span>
           </div>
         </div>
-        <div class="profile-actions">
-          <a href="edit_profile.php">Edit Profile</a>
-          <a href="change_password.php">Change Password</a>
+        <div class="profile-actions mt-5 text-center flex justify-center gap-8">
+          <a href="edit_profile.php" class="my-0 mt-[10px] hover:underline">Edit Profile</a>
+          <a href="change_password.php" class="my-0 mt-[10px] hover:underline">Change Password</a>
         </div>
       </div>
     </div>

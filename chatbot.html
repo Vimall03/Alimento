@@ -5,32 +5,33 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Website with Chatbot</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-  <link rel="stylesheet" href="chatbot.css">
+  <!-- <link rel="stylesheet" href="chatbot.css"> -->
+  <link rel="stylesheet" href="output.css">
 </head>
-<body>
+<body class="m-0 p-0 box-border">
 
    <!-- Chatbot Icon -->
-   <div class="chatbot-icon" id="chatbot-icon">
+   <div class="chatbot-icon fixed bottom-4 right-4 bg-[#e9edd4] text-[#ede434] w-14 h-14 rounded-[50%] flex items-center justify-center cursor-pointer shadow-md transition-all duration-300 ease-in hover:bg-[#a8d17f] hover:scale-110 " id="chatbot-icon">
     <img src="chatboticon.webp" alt="Chatbot Icon" style="width: 100%; height: 100%;">
   </div>
 
 <!-- Chatbot Container -->
-<div class="chatbot-container" id="chatbot-container">
-  <div class="chatbot-box">
-    <div class="chatbot-header">
+<div class="chatbot-container fixed bottom-5 right-5 w-[350px] h-[450px] rounded-lg bg-[#6A6E5C] shadow-md hidden flex-col justify-between transition-transform duration-300 ease-in" id="chatbot-container">
+  <div class="chatbot-box w-[95%] h-[85vh] sm:w-full sm:h-full rounded-lg bg-[#6A6E5C] flex flex-col justify-between transition-all duration-300 ease-in">
+    <div class="chatbot-header bg-[#becc8e] text-white text-center p-4 rounded-t-lg relative">
       <h3>Alimento Chatbot</h3>
-      <button class="refresh-btn"><i class="fa fa-refresh"></i></button>
-      <button class="close-btn" id="close-btn"><i class="fa fa-times"></i></button>
+      <button class="refresh-btn absolute right-12 top-4 bg-none border-none text-white cursor-pointer text-base transition-transform duration-300 ease-in"><i class="fa fa-refresh"></i></button>
+      <button class="close-btn absolute top-4 right-4 bg-none border-none text-white cursor-pointer text-lg" id="close-btn"><i class="fa fa-times"></i></button>
     </div>
     
     <!-- Messages will appear here -->
-    <div class="chatbot-messages" id="chatbot-messages">
+    <div class="chatbot-messages flex-1 overflow-y-auto p-5 bg-[#f3ede4] border-b-[1px] border-[#ddd]" id="chatbot-messages">
     
   </div>
     <!-- Input Area -->
-    <div class="chatbot-input">
-      <input type="text" id="chatbot-input" placeholder="Ask me anything..." />
-      <button id="send-btn"><i class="fa fa-paper-plane"></i></button>
+    <div class="chatbot-input flex p-4 border-t-[1px] border-[#becc8e] bg-[#becc8e]">
+      <input type="text" class="flex-1 p-2 rounded-md border-2 border-[#2cc43e]" id="chatbot-input" placeholder="Ask me anything..." />
+      <button id="send-btn" class="bg-[#b9bea5] text-white rounded-md p-[10px] ml-[10px] cursor-pointer shadow-md transition-all duration-300 ease-in hover:bg-[#6A6E5C]"><i class="fa fa-paper-plane"></i></button>
     </div>
   </div>
 </div>
@@ -44,12 +45,12 @@
   const closeBtn = document.getElementById('close-btn');
 
   chatbotIcon.addEventListener('click', () => {
-    chatbotContainer.classList.add('visible');
+    chatbotContainer.classList.add('flex');
     chatbotIcon.style.display = 'none';
   });
 
   closeBtn.addEventListener('click', () => {
-    chatbotContainer.classList.remove('visible');
+    chatbotContainer.classList.remove('flex');
     chatbotIcon.style.display = 'block';
   });
   
