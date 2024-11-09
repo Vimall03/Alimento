@@ -110,3 +110,24 @@ model Order {
   createdAt   DateTime  @default(now())
   updatedAt   DateTime  @updatedAt
 }
+
+
+model Ticket {
+  id          String   @id @default(uuid()) @map("_id")
+  customerId  String
+  customer    Customer @relation(fields: [customerId], references: [id])
+
+  title       String
+  description String
+  status      TicketStatus @default(PENDING)
+
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+}
+
+enum TicketStatus {
+  PENDING
+  IN_PROGRESS
+  RESOLVED
+  CLOSED
+}
