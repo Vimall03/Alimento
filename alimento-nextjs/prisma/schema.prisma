@@ -116,15 +116,25 @@ model Answer {
 }
 
 model Order {
-  id          String    @id @default(uuid()) @map("_id")
-  customerId  String
-  customer    Customer  @relation(fields: [customerId], references: [id])
-  vendorId    String
-  vendor      Vendor    @relation(fields: [vendorId], references: [id])
-  totalAmount Float
-  status      String    // e.g., "PENDING", "COMPLETED", "CANCELLED"
-  createdAt   DateTime  @default(now())
-  updatedAt   DateTime  @updatedAt
+  id                     String   @id @default(uuid()) @map("_id")
+  customerId             String
+  customer               Customer @relation(fields: [customerId], references: [id])
+  
+  dishId                 String
+  dish                   Dish     @relation(fields: [dishId], references: [id])
+  
+  status                 OrderStatus @default(PENDING)
+  estimatedTimeOfArrival DateTime
+
+  createdAt              DateTime @default(now())
+  updatedAt              DateTime @updatedAt
+}
+
+enum OrderStatus {
+  PENDING
+  IN_PROGRESS
+  COMPLETED
+  CANCELLED
 }
 
 
