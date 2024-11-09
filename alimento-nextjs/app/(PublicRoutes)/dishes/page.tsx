@@ -45,7 +45,7 @@ const FoodPage: React.FC = () => {
     fetchData();
   }, [query, sort, tags, categories]); // Added tags as a dependency to refetch when tags change
 
-  console.log(foodItems);
+  // console.log(foodItems);
 
   return (
     <div className="bg-gray-50 text-gray-800">

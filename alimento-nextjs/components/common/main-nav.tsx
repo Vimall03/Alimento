@@ -18,7 +18,17 @@ const MainNav = () => {
     {
       href: `/orders`,
       label: 'Orders',
-      active: pathname.startsWith(`/`),
+      active: pathname.startsWith(`/orders`),
+    },
+    {
+      href: `/dishes`,
+      label: 'Dishes',
+      active: pathname.startsWith(`/dishes`),
+    },
+    {
+      href: `/wishlist`,
+      label: 'Wishlist',
+      active: pathname.startsWith(`/wishlist`),
     },
   ];
 

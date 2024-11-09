@@ -74,6 +74,7 @@ export function WishlistProvider({ children }: { children: React.ReactNode }) {
     setLoading(true);
     setError(null);
     try {
+      // console.log(customerId,dishId)
       const response = await deleteWishlist({ customerId, dishId });
       if (response.success && response.data) {
         setWishlists((prev) =>
