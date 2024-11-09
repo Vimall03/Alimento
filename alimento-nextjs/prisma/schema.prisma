@@ -14,7 +14,7 @@ model Customer {
   email String  @unique
   otp   String?
   role  String  @default("customer")
-
+  
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
 }
