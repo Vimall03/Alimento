@@ -11,6 +11,8 @@ import Image from 'next/image';
 import Autoplay from 'embla-carousel-autoplay';
 import { Button } from '@/components/ui/button';
 import { useSession } from 'next-auth/react';
+import { checkWishlistExists } from '@/actions/customer/wishlist/EXISTS_wishlist';
+import { useWishlist } from '@/context/customerWishlistProvider';
 
 interface DishCardProps {
   id: string;
@@ -27,12 +29,26 @@ const DishCardFE: React.FC<DishCardProps> = ({
   description,
   images,
 }) => {
+  const { addToWishlists, isWishlisted } = useWishlist();
   const session = useSession();
   const customerId = session.data?.user.id;
 
-  // State to track if the Dish is bookmarked
-  const [isAlreadyBookmarked, setIsAlreadyBookmarked] = useState<boolean>(false);
+  // State to track if the Dish is Wishlisted
+  const [isAlreadyWishlisted, setIsAlreadyWishlisted] = useState<boolean>(false);
 
+
+  useEffect(() => {
+    const checkWishlistStatus = async () => {
+      if (customerId) {
+        const Wishlisted = await isWishlisted(customerId, id);
+        setIsAlreadyWishlisted(Wishlisted);
+      }
+    };
+
+    if (customerId && id) {
+      checkWishlistStatus();
+    }
+  }, []);
 
   return (
     <div className="bg-white overflow-hidden shadow-lg rounded-lg">
@@ -71,17 +87,21 @@ const DishCardFE: React.FC<DishCardProps> = ({
           <Button variant="outline" className="text-blue-600">
             Add
           </Button>
-          {customerId && session.data?.user.role === 'customer' && !isAlreadyBookmarked && (
+          {customerId && session.data?.user.role === 'customer' && !isAlreadyWishlisted && (
             <Button
+            onClick={() => {
+              addToWishlists(customerId, id);
+              setIsAlreadyWishlisted(true); // Update the state to reflect the Wishlist status
+            }}
               variant="outline"
               className="text-red-600"
             >
-              Bookmark
+              Wishlist
             </Button>
           )}
-          {customerId && session.data?.user.role === 'customer' && isAlreadyBookmarked && (
+          {customerId && session.data?.user.role === 'customer' && isAlreadyWishlisted && (
             <Button variant="outline" className="text-green-600">
-              Bookmarked
+              Wishlisted
             </Button>
           )}
         </div>
