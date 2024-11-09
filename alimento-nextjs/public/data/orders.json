@@ -1,0 +1,34 @@
+[
+    {
+      "id": "1001",
+      "vendorId": "101",
+      "customerId": "1",
+      "items": [
+        { "name": "Paneer Butter Masala", "quantity": 1, "price": 12.5 },
+        { "name": "Garlic Naan", "quantity": 2, "price": 3.0 }
+      ],
+      "total": 18.5,
+      "date": "2024-01-10T18:30:00Z"
+    },
+    {
+      "id": "1002",
+      "vendorId": "101",
+      "customerId": "1",
+      "items": [
+        { "name": "Chole Bhature", "quantity": 1, "price": 8.0 }
+      ],
+      "total": 8.0,
+      "date": "2024-01-15T12:00:00Z"
+    },
+    {
+      "id": "1003",
+      "vendorId": "102",
+      "customerId": "1",
+      "items": [
+        { "name": "Chocolate Cake", "quantity": 1, "price": 15.0 }
+      ],
+      "total": 15.0,
+      "date": "2024-01-20T15:45:00Z"
+    }
+  ]
+  
