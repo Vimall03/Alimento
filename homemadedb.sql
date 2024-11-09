@@ -53,16 +53,16 @@ CREATE TABLE `orders` (
   `sl_no` int(11) NOT NULL,
   `r_id` int(100) NOT NULL,
   `order_id` int(10) NOT NULL,
-  `dt` datetime NOT NULL DEFAULT '0000-00-00 00:00:00' ON UPDATE current_timestamp(),
+  `dt` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   `name` varchar(20) NOT NULL,
   `user_id` int(100) NOT NULL,
   `order` varchar(2250) NOT NULL,
-  `amount` int(5) NOT NULL,
+  `amount` int(11) NOT NULL,
   `address` varchar(625) NOT NULL,
   `phone` varchar(255) NOT NULL,
   `payment` varchar(7) NOT NULL,
   `order_status` varchar(20) NOT NULL,
-  `rating` decimal(10,1) NOT NULL
+  `rating` decimal(3,1) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
@@ -117,11 +117,6 @@ ADD COLUMN popularity_score FLOAT DEFAULT 0,
 ADD COLUMN category_vector JSON,
 ADD INDEX idx_popularity (popularity_score);
 
-ALTER TABLE restaurant
-ADD COLUMN feature_vector JSON,
-ADD COLUMN avg_rating_trend FLOAT DEFAULT 0,
-ADD INDEX idx_rating_trend (avg_rating_trend);
-
 -- Add table for feature weights
 CREATE TABLE recommendation_weights (
     feature_name VARCHAR(50) PRIMARY KEY,
@@ -142,11 +137,11 @@ CREATE TABLE `restaurant` (
   `p_phone` varchar(255) NOT NULL,
   `p_image` varchar(999) NOT NULL,
   `r_name` varchar(255) NOT NULL,
-  `r_rating` varchar(3) NOT NULL,
+  `r_rating` decimal(3,1) NOT NULL,
   `r_cuisine` varchar(255) NOT NULL,
   `r_pincode` varchar(6) NOT NULL,
-  `reset_code` varchar(625) NOT NULL,
-  `account_status` varchar(625) NOT NULL
+  `reset_code` varchar(50) NOT NULL,
+  `account_status` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
@@ -155,8 +150,13 @@ CREATE TABLE `restaurant` (
 
 INSERT INTO `restaurant` (`r_id`, `p_name`, `p_email`, `p_about`, `p_password`, `r_bg`, `p_phone`, `p_image`, `r_name`, `r_rating`, `r_cuisine`, `r_pincode`, `reset_code`, `account_status`) VALUES
 (2, 'Vendor Name', 'aftereditofficial@gmail.com', 'Eclipse Global Kitchen brings the world to your plate, blending the vibrant flavors of different cultures into one unforgettable dining experience. Our chefs expertly fuse elements from Asian, European, Latin American, and African cuisines, creating innovative dishes that celebrate global diversity. Whether you\'re craving a spicy street food-inspired dish or a sophisticated fusion of French and Japanese techniques, Eclipse offers a dynamic menu that evolves with the seasons and trends. Join us for a culinary journey around the globe, where every meal is an adventure.', '$2y$10$LQHI87mxEOgERMNJjR9zvuJuUcHbQjQ93qIpQmxhL0LwmXGazEkFu', 'restaurant/cover/img1.jpg', '8899889988', 'restaurant/img2.jpg', 'Eclipse Global Kitchen', '', 'Global Fusion Cuisine', '560016', '0', 'Verified');
+-- Dumping data for table `restaurant`
+--
 
--- --------------------------------------------------------
+ALTER TABLE restaurant
+ADD COLUMN feature_vector JSON,
+ADD COLUMN avg_rating_trend FLOAT DEFAULT 0,
+ADD INDEX idx_rating_trend (avg_rating_trend);
 
 --
 -- Table structure for table `reviews`
@@ -165,7 +165,7 @@ INSERT INTO `restaurant` (`r_id`, `p_name`, `p_email`, `p_about`, `p_password`, 
 CREATE TABLE `reviews` (
   `rid` int(100) NOT NULL,
   `user_id` int(100) NOT NULL,
-  `review` varchar(30) NOT NULL,
+  `review` varchar(255) NOT NULL,
   `rating` tinyint(1) NOT NULL,
   `order_id` int(10) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
@@ -189,11 +189,11 @@ CREATE TABLE `users` (
   `name` varchar(20) NOT NULL,
   `email` varchar(30) NOT NULL,
   `password` varchar(625) NOT NULL,
-  `phone` bigint(20) NOT NULL,
-  `resetcode` varchar(695) NOT NULL,
-  `account_status` varchar(15) NOT NULL,
+  `phone` varchar(15) NOT NULL,
+  `resetcode` varchar(50) NOT NULL,
+  `account_status` varchar(50) NOT NULL,
   `date` datetime NOT NULL,
-  `address` varchar(30) NOT NULL
+  `address` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
