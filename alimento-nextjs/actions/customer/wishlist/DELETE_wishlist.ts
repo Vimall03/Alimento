@@ -11,6 +11,10 @@ export async function deleteWishlist({
   dishId: string;
 }): Promise<{ success: boolean; error?: string; data?: Wishlist }> {
   try {
+    if (!customerId || !dishId) {
+      // console.log(customerId,dishId)
+      return { success: false, error: 'Customer ID or Dish ID is missing.' };
+    }
     const Wishlist = await prismadb.wishlist.delete({
       where: { customerId_dishId: { customerId, dishId } },
     });
