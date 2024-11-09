@@ -114,3 +114,15 @@ model Answer {
   questionId String
   question   Question @relation("QuestionAnswers", fields: [questionId], references: [id], onDelete: Cascade) // Moved onDelete: Cascade to this side
 }
+
+model Order {
+  id          String    @id @default(uuid()) @map("_id")
+  customerId  String
+  customer    Customer  @relation(fields: [customerId], references: [id])
+  vendorId    String
+  vendor      Vendor    @relation(fields: [vendorId], references: [id])
+  totalAmount Float
+  status      String    // e.g., "PENDING", "COMPLETED", "CANCELLED"
+  createdAt   DateTime  @default(now())
+  updatedAt   DateTime  @updatedAt
+}
