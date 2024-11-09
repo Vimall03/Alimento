@@ -15,6 +15,8 @@ model Customer {
   otp   String?
   role  String  @default("customer")
 
+  wishlists Wishlist[] @relation("CustomerToWishlist")
+
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
 }
@@ -64,6 +66,8 @@ model Dish {
 
   images Image[]
 
+  wishlist Wishlist[] @relation("DishToWishlist")
+
   vendorId String
   vendor   Vendor @relation(fields: [vendorId], references: [id])
 
@@ -78,4 +82,17 @@ model Image {
   url       String
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
+}
+
+model Wishlist {
+  id         String   @id @default(uuid()) @map("_id")
+  customerId String
+  dishId     String
+  customer   Customer @relation("CustomerToWishlist", fields: [customerId], references: [id])
+  dish       Dish     @relation("DishToWishlist", fields: [dishId], references: [id])
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@unique([customerId, dishId]) // Ensures a customer can only Wishlist a dish once
 }
