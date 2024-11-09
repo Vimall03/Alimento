@@ -95,4 +95,22 @@ model Wishlist {
   updatedAt DateTime @updatedAt
 
   @@unique([customerId, dishId]) // Ensures a customer can only Wishlist a dish once
+
+}
+model Question {
+  id        String   @id @default(cuid()) @map("_id")
+  content   String
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  answers   Answer[] @relation("QuestionAnswers") // Removed onDelete: Cascade from here
+  answered  Boolean  @default(false)
+}
+
+model Answer {
+  id         String   @id @default(cuid()) @map("_id")
+  content    String
+  createdAt  DateTime @default(now())
+  updatedAt  DateTime @updatedAt
+  questionId String
+  question   Question @relation("QuestionAnswers", fields: [questionId], references: [id], onDelete: Cascade) // Moved onDelete: Cascade to this side
 }
