@@ -17,8 +17,11 @@ model Customer {
 
   wishlists Wishlist[] @relation("CustomerToWishlist")
 
-  createdAt DateTime @default(now())
-  updatedAt DateTime @updatedAt
+  chats Chat[] @relation("customerChats")
+
+  createdAt DateTime  @default(now())
+  updatedAt DateTime  @updatedAt
+  Message   Message[]
 }
 
 model Vendor {
@@ -30,6 +33,8 @@ model Vendor {
   role  String  @default("vendor")
 
   dishes Dish[]
+
+  chats Chat[] @relation("vendorChats")
 
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
@@ -71,6 +76,8 @@ model Dish {
   vendorId String
   vendor   Vendor @relation(fields: [vendorId], references: [id])
 
+  chats Chat[] @relation("dishChats")
+
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
 }
@@ -95,8 +102,8 @@ model Wishlist {
   updatedAt DateTime @updatedAt
 
   @@unique([customerId, dishId]) // Ensures a customer can only Wishlist a dish once
-
 }
+
 model Question {
   id        String   @id @default(cuid()) @map("_id")
   content   String
@@ -115,45 +122,74 @@ model Answer {
   question   Question @relation("QuestionAnswers", fields: [questionId], references: [id], onDelete: Cascade) // Moved onDelete: Cascade to this side
 }
 
-model Order {
-  id                     String   @id @default(uuid()) @map("_id")
-  customerId             String
-  customer               Customer @relation(fields: [customerId], references: [id])
-  
-  dishId                 String
-  dish                   Dish     @relation(fields: [dishId], references: [id])
-  
-  status                 OrderStatus @default(PENDING)
-  estimatedTimeOfArrival DateTime
+// model Order {
+//   id                     String   @id @default(uuid()) @map("_id")
+//   customerId             String
+//   customer               Customer @relation(fields: [customerId], references: [id])
 
-  createdAt              DateTime @default(now())
-  updatedAt              DateTime @updatedAt
+//   dishId                 String
+//   dish                   Dish     @relation(fields: [dishId], references: [id])
+
+//   status                 OrderStatus @default(PENDING)
+//   estimatedTimeOfArrival DateTime
+
+//   createdAt              DateTime @default(now())
+//   updatedAt              DateTime @updatedAt
+// }
+
+// enum OrderStatus {
+//   PENDING
+//   IN_PROGRESS
+//   COMPLETED
+//   CANCELLED
+// }
+
+// model Ticket {
+//   id          String   @id @default(uuid()) @map("_id")
+//   customerId  String
+//   customer    Customer @relation(fields: [customerId], references: [id])
+
+//   title       String
+//   description String
+//   status      TicketStatus @default(PENDING)
+
+//   createdAt   DateTime @default(now())
+//   updatedAt   DateTime @updatedAt
+// }
+
+// enum TicketStatus {
+//   PENDING
+//   IN_PROGRESS
+//   RESOLVED
+//   CLOSED
+// }
+
+model Chat {
+  id         String    @id @default(uuid()) @map("_id")
+  customerId String
+  vendorId   String
+  createdAt  DateTime  @default(now())
+  updatedAt  DateTime  @updatedAt
+  messages   Message[] @relation("ChatMessages")
+
+  dishId String
+
+  Customer Customer @relation("customerChats", fields: [customerId], references: [id])
+  vendor   Vendor   @relation("vendorChats", fields: [vendorId], references: [id])
+  dish     Dish     @relation("dishChats", fields: [dishId], references: [id])
+
+  @@unique([customerId, vendorId]) // Ensures a chat is unique between a Customer and vendor
 }
 
-enum OrderStatus {
-  PENDING
-  IN_PROGRESS
-  COMPLETED
-  CANCELLED
-}
+model Message {
+  id        String   @id @default(uuid()) @map("_id")
+  chatId    String
+  senderId  String
+  content   String
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
 
+  chat Chat @relation("ChatMessages", fields: [chatId], references: [id])
 
-model Ticket {
-  id          String   @id @default(uuid()) @map("_id")
-  customerId  String
-  customer    Customer @relation(fields: [customerId], references: [id])
-
-  title       String
-  description String
-  status      TicketStatus @default(PENDING)
-
-  createdAt   DateTime @default(now())
-  updatedAt   DateTime @updatedAt
-}
-
-enum TicketStatus {
-  PENDING
-  IN_PROGRESS
-  RESOLVED
-  CLOSED
+  sender Customer @relation(fields: [senderId], references: [id])
 }
