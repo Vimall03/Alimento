@@ -1,13 +1,120 @@
 [
-    {
-      "id": "101",
-      "name": "Spicy Villa",
-      "orders": ["1001", "1002"]
-    },
-    {
-      "id": "102",
-      "name": "Sweet Treats",
-      "orders": ["1003"]
-    }
-  ]
-  
+  {
+    "id": "f42a9a12-3c63-4f75-9b8e-d92896b4c5d1",
+    "name": "Alice's Bakery",
+    "email": "alice@example.com",
+    "otp": "123456",
+    "role": "vendor",
+    "dishes": [
+      {
+        "id": "a1",
+        "name": "Chocolate Cake",
+        "description": "Delicious chocolate cake",
+        "price": 15.0,
+        "category": "FOODING",
+        "tags": ["VEGETARIAN"],
+        "images": [
+          { "url": "https://example.com/images/chocolate-cake.jpg" }
+        ],
+        "vendorId": "f42a9a12-3c63-4f75-9b8e-d92896b4c5d1",
+        "createdAt": "2024-11-09T10:00:00.000Z",
+        "updatedAt": "2024-11-09T10:00:00.000Z"
+      }
+    ],
+    "chats": [],
+    "createdAt": "2024-11-08T10:00:00.000Z",
+    "updatedAt": "2024-11-08T10:00:00.000Z"
+  },
+  {
+    "id": "b93f1b23-4d5e-4d29-b9c9-fd3e7a9132d4",
+    "name": "Bob's Burgers",
+    "email": "bob@example.com",
+    "otp": "654321",
+    "role": "vendor",
+    "dishes": [
+      {
+        "id": "b1",
+        "name": "Classic Burger",
+        "description": "Juicy burger with lettuce, tomato, and cheese",
+        "price": 10.0,
+        "category": "FOODING",
+        "tags": ["SPICY"],
+        "images": [
+          { "url": "https://example.com/images/classic-burger.jpg" }
+        ],
+        "vendorId": "b93f1b23-4d5e-4d29-b9c9-fd3e7a9132d4",
+        "createdAt": "2024-11-09T10:00:00.000Z",
+        "updatedAt": "2024-11-09T10:00:00.000Z"
+      },
+      {
+        "id": "c1",
+        "name": "Margherita Pizza",
+        "description": "Classic Margherita with fresh tomatoes and basil",
+        "price": 12.0,
+        "category": "FOODING",
+        "tags": ["VEGETARIAN"],
+        "images": [
+          { "url": "https://example.com/images/margherita-pizza.jpg" }
+        ],
+        "vendorId": "b93f1b23-4d5e-4d29-b9c9-fd3e7a9132d4",
+        "createdAt": "2024-11-09T10:00:00.000Z",
+        "updatedAt": "2024-11-09T10:00:00.000Z"
+      }
+    ],
+    "chats": [],
+    "createdAt": "2024-11-08T10:00:00.000Z",
+    "updatedAt": "2024-11-08T10:00:00.000Z"
+  },
+  {
+    "id": "c84g1h56-5e78-6i31-a4f5-ld2k6l8m8z9n",
+    "name": "Charlie's Pizza",
+    "email": "charlie@example.com",
+    "otp": "789456",
+    "role": "vendor",
+    "dishes": [
+      {
+        "id": "c1",
+        "name": "Margherita Pizza",
+        "description": "Classic Margherita with fresh tomatoes and basil",
+        "price": 12.0,
+        "category": "FOODING",
+        "tags": ["VEGETARIAN"],
+        "images": [
+          { "url": "https://example.com/images/margherita-pizza.jpg" }
+        ],
+        "vendorId": "c84g1h56-5e78-6i31-a4f5-ld2k6l8m8z9n",
+        "createdAt": "2024-11-09T10:00:00.000Z",
+        "updatedAt": "2024-11-09T10:00:00.000Z"
+      }
+    ],
+    "chats": [],
+    "createdAt": "2024-11-08T10:00:00.000Z",
+    "updatedAt": "2024-11-08T10:00:00.000Z"
+  },
+  {
+    "id": "d74g9i22-8k53-5r31-c4j9-xd4p5k2m3z1p",
+    "name": "Debbie's Desserts",
+    "email": "debbie@example.com",
+    "otp": "234567",
+    "role": "vendor",
+    "dishes": [
+      {
+        "id": "d1",
+        "name": "Strawberry Cheesecake",
+        "description": "Creamy cheesecake with fresh strawberries",
+        "price": 18.0,
+        "category": "FOODING",
+        "tags": ["VEGETARIAN"],
+        "images": [
+          { "url": "https://example.com/images/strawberry-cheesecake.jpg" }
+        ],
+        "vendorId": "d74g9i22-8k53-5r31-c4j9-xd4p5k2m3z1p",
+        "createdAt": "2024-11-09T10:00:00.000Z",
+        "updatedAt": "2024-11-09T10:00:00.000Z"
+      }
+    ],
+    "chats": [],
+    "createdAt": "2024-11-08T10:00:00.000Z",
+    "updatedAt": "2024-11-08T10:00:00.000Z"
+  }
+]
