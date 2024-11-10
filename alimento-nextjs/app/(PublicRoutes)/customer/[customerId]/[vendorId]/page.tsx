@@ -25,8 +25,8 @@ const DishesByVendor = () => {
   const [searchQuery, setSearchQuery] = useState<string>('');
   const [isMounted, setIsMounted] = useState(false);
 
-  const params = useParams<{ userId: string; vendorId: string }>();
-  const { userId, vendorId } = params;
+  const params = useParams<{ customerId: string; vendorId: string }>();
+  const { customerId, vendorId } = params;
 
   useEffect(() => {
     const fetchData = async () => {
@@ -60,7 +60,7 @@ const DishesByVendor = () => {
   );
 
   return (
-    <div className="min-h-screen bg-[url('/userdashboard.jpg')]">
+    <div className="min-h-screen bg-[url('/customerdashboard.jpg')]">
       <Container>
         <div className="p-8 h-screen bg-black bg-opacity-50 flex flex-col">
           <div className="bg-black text-gray-200 w-fit my-4 bg-opacity-80 rounded-xl p-5">
@@ -89,7 +89,7 @@ const DishesByVendor = () => {
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-8">
                   {filteredDishes.length ? (
                     filteredDishes.map(dish => (
-                      <Link key={dish.id} href={`/${userId}/${vendorId}/${dish.id}`}>
+                      <Link key={dish.id} href={`/customer/${customerId}/${vendorId}/${dish.id}`}>
                         <Card>
                           <CardContent className="p-6">
                             <div className="flex items-center space-x-4">
