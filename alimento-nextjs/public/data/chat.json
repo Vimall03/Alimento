@@ -1,0 +1,112 @@
+{
+    "chats": [
+      {
+        "userId": "74a5b406-5321-45f3-b87a-dea188054901",
+        "vendorId": "f42a9a12-3c63-4f75-9b8e-d92896b4c5d1",
+        "dishId": "a1",
+        "messages": [
+          {
+            "senderId": "74a5b406-5321-45f3-b87a-dea188054901",
+            "content": "Hi, is this product still available?"
+          },
+          {
+            "senderId": "f42a9a12-3c63-4f75-9b8e-d92896b4c5d1",
+            "content": "Yes, it's still available. Would you like to know more about it?"
+          },
+          {
+            "senderId": "74a5b406-5321-45f3-b87a-dea188054901",
+            "content": "Could you send more details or images?"
+          },
+          {
+            "senderId": "f42a9a12-3c63-4f75-9b8e-d92896b4c5d1",
+            "content": "Sure! Here are more details. The product is in excellent condition, and I can share more pictures if you like."
+          }
+        ]
+      },
+      {
+        "userId": "74a5b406-5321-45f3-b87a-dea188054901",
+        "vendorId": "f42a9a12-3c63-4f75-9b8e-d92896b4c5d1",
+        "dishId": "a2",
+        "messages": [
+          {
+            "senderId": "74a5b406-5321-45f3-b87a-dea188054901",
+            "content": "Hello, I have a question about this item. Is it negotiable?"
+          },
+          {
+            "senderId": "f42a9a12-3c63-4f75-9b8e-d92896b4c5d1",
+            "content": "Hi! Yes, the price is negotiable. What price are you considering?"
+          },
+          {
+            "senderId": "74a5b406-5321-45f3-b87a-dea188054901",
+            "content": "How about 10% off the listed price?"
+          },
+          {
+            "senderId": "f42a9a12-3c63-4f75-9b8e-d92896b4c5d1",
+            "content": "Let me think about it, and I'll get back to you."
+          }
+        ]
+      },
+      {
+        "userId": "74a5b406-5321-45f3-b87a-dea188054901",
+        "vendorId": "f42a9a12-3c63-4f75-9b8e-d92896b4c5d1",
+        "dishId": "a3",
+        "messages": [
+          {
+            "senderId": "74a5b406-5321-45f3-b87a-dea188054901",
+            "content": "Hi, is this product compatible with my model?"
+          },
+          {
+            "senderId": "f42a9a12-3c63-4f75-9b8e-d92896b4c5d1",
+            "content": "Yes, it is. It will work perfectly with your model."
+          },
+          {
+            "senderId": "74a5b406-5321-45f3-b87a-dea188054901",
+            "content": "Great! Can you ship it to my location?"
+          },
+          {
+            "senderId": "f42a9a12-3c63-4f75-9b8e-d92896b4c5d1",
+            "content": "Absolutely! Please share your shipping address."
+          }
+        ]
+      },
+      {
+        "userId": "74a5b406-5321-45f3-b87a-dea188054901",
+        "vendorId": "f42a9a12-3c63-4f75-9b8e-d92896b4c5d1",
+        "dishId": "b1",
+        "messages": [
+          {
+            "senderId": "74a5b406-5321-45f3-b87a-dea188054901",
+            "content": "I'm interested in this item. Can you tell me if it's available?"
+          },
+          {
+            "senderId": "f42a9a12-3c63-4f75-9b8e-d92896b4c5d1",
+            "content": "Yes, it's available. Let me know if you'd like to see more pictures or get more details."
+          }
+        ]
+      },
+      {
+        "userId": "74a5b406-5321-45f3-b87a-dea188054901",
+        "vendorId": "f42a9a12-3c63-4f75-9b8e-d92896b4c5d1",
+        "dishId": "c1",
+        "messages": [
+          {
+            "senderId": "74a5b406-5321-45f3-b87a-dea188054901",
+            "content": "Is this product in new condition?"
+          },
+          {
+            "senderId": "f42a9a12-3c63-4f75-9b8e-d92896b4c5d1",
+            "content": "Yes, it's in brand new condition, never used."
+          },
+          {
+            "senderId": "74a5b406-5321-45f3-b87a-dea188054901",
+            "content": "Do you offer returns if it doesn't fit?"
+          },
+          {
+            "senderId": "f42a9a12-3c63-4f75-9b8e-d92896b4c5d1",
+            "content": "Yes, I offer a 30-day return policy."
+          }
+        ]
+      }
+    ]
+  }
+  

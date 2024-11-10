@@ -20,6 +20,7 @@ interface DishCardProps {
   price: number;
   description: string;
   images: ImageInterface[];
+  isStatic?: boolean
 }
 
 const DishCardFE: React.FC<DishCardProps> = ({
@@ -28,6 +29,8 @@ const DishCardFE: React.FC<DishCardProps> = ({
   price,
   description,
   images,
+  isStatic
+
 }) => {
   const { addToWishlists, isWishlisted } = useWishlist();
   const session = useSession();
@@ -83,6 +86,7 @@ const DishCardFE: React.FC<DishCardProps> = ({
         <h3 className="text-xl font-semibold mb-2">{name}</h3>
         <p className="text-gray-600 mb-2">{description}</p>
         <p className="text-lg font-bold mb-2">Price: ₹{price}</p>
+        {isStatic&&(<>
         <div className="flex justify-between">
           <Button variant="outline" className="text-blue-600">
             Add
@@ -105,6 +109,7 @@ const DishCardFE: React.FC<DishCardProps> = ({
             </Button>
           )}
         </div>
+        </>)}
       </div>
     </div>
   );
