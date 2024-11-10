@@ -1,6 +1,6 @@
 const AdminPage = () => {
   return ( 
-    <div> hi from admin</div>
+    <div>hiiii</div>
    );
 }
  
