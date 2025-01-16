@@ -1,0 +1,16 @@
+# Secrets in GitHub Webhooks
+
+When working with GitHub webhooks, it's important to secure your webhooks using secrets. A secret is a key that is shared between GitHub and your server to ensure that the payloads received by your server are from GitHub and not from a malicious third party.
+
+## Setting Up a Secret
+
+1. **Generate a Secret**: Create a random string that will be used as your secret. You can use a tool like `openssl` to generate a secret:
+  ```
+  openssl rand -base64 32
+  ```
+
+2. **Configure the Webhook**: When you create or update a webhook in your GitHub repository settings, you can add the secret in the "Secret" field.
+
+3. **Verify the Payload**: On your server, you need to verify the payload using the secret. GitHub sends a `X-Hub-Signature-256` header with each webhook payload. This header contains the HMAC hex digest of the payload, using the secret as the key.
+
+Here is an example of how you can verify the payload in Python:
