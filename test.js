@@ -1,3 +1,4 @@
+const API_KEY = "sdfgbhjnjbbgdghbykntyhkjuml";
 
 function fetchData(endpoint) {
     return fetch(`https://dummyapi.com/${endpoint}?api_key=${API_KEY}`)
